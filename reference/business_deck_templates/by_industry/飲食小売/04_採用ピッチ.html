@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/04_採用ピッチ_飲食小売.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>採用ピッチテンプレート（飲食・小売） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙：透明性（数字も弱みも開示）をフックにする。飲食チェーン（12店舗・社員80名）版 -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">JOIN</div>
+  <p class="kick">We Are Hiring</p>
+  <h1>
+    <span class="ln"><span style="--i:0">「飲食はきつい」も、隠しません。</span></span>
+    <span class="ln"><span style="--i:1">{{社名}}、ありのままの採用資料</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">店長候補・SV・本部（商品開発） 採用ピッチ　|　{{社名}} 採用チーム</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline">{{社名}}</span><span class="mono">{{2026.07.18}} 更新</span>
+  </div>
+</section>
+
+<!-- 02 ミッション：大コピー1枚。事業説明の前に「なぜ働くか」 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Mission</div><div class="h2">私たちは、何のために働くのか</div>
+      <p class="subhead">事業内容の前に、存在理由からお話しします。ここに共感できるかどうかが、いちばん大事な相性です。</p></div>
+    <div class="tag">01 / MISSION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(3vh,3vw)">
+      <div class="reveal" style="text-align:center">
+        <p style="font-size:min(4.3vh,4.3vw);font-weight:700;color:var(--navy);line-height:1.5;letter-spacing:.01em">「{{業界の理不尽：例 いい店は、働く人の我慢でできている}}」を、<br>12店舗のチェーンの仕組みで<span style="color:var(--steel)">終わらせる</span>。</p>
+        <div style="width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(2.6vh,2.6vw) auto 0"></div>
+        <p class="lead" style="margin:min(2.4vh,2.4vw) auto 0;max-width:58ch;text-align:center;font-size:min(1.7vh,1.7vw)">{{なぜこの事業をやるのか。原体験で語る1〜2文。例：創業者自身が「月4休・中抜け13時間」の店で働いた経験から、休める飲食チェーンを自分でつくると決めた}}</p>
+      </div>
+      <div class="grid g3">
+        <div class="card reveal" style="--i:1"><div class="idx">MISSION ― 果たす使命</div><h3>{{使命を一言で}}</h3><p>{{例：「今日もあの店に行こう」を、12の街でつくり続ける。}}</p></div>
+        <div class="card reveal" style="--i:2"><div class="idx">VISION ― 目指す未来</div><h3>{{5年後のありたい姿}}</h3><p>{{例：30店舗へ。ただし月8休と食事補助は1店舗目のまま守る。}}</p></div>
+        <div class="card reveal" style="--i:3"><div class="idx">VALUE ― 行動基準</div><h3>{{価値観を一言で}}</h3><p>{{例：味は妥協しない。ただし労働時間で解決しない。}}</p></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>調理も接客も入社後に伸ばせます。<b>この一文への共感</b>だけは、先に確かめさせてください。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 事業紹介：card g3・主力=直営12店舗をheroに。構成比78+15+7=100% -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Business</div><div class="h2">事業は<span class="u">3つ</span>。稼ぐ柱と、次の柱</div>
+      <p class="subhead">直営12店舗が収益の土台をつくり、その利益を中食と自社商品に再投資しています。挑戦できるのは、潰れない構造があるからです。</p></div>
+    <div class="tag">02 / BUSINESS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 21V4a1 1 0 0 1 1-1h9v18"/><path d="M14 8h5a1 1 0 0 1 1 1v12"/><path d="M2 21h20"/><path d="M8 7h2M8 11h2M8 15h2"/></svg></div><div class="idx">01 ― 主力事業</div><h3>直営レストラン「{{主力業態名}}」</h3><p>創業以来の中核。{{地域}}に12店舗を直営し、ランチ・ディナーのリピートのお客様が収益の土台です。新メンバーはまず店舗で型を身につけます。</p><div class="foot"><span class="n">78%</span><span>売上構成比</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><div class="idx">02 ― 第二の柱</div><h3>中食・テイクアウト「{{中食ブランド名}}」</h3><p>店舗の厨房と仕入網を活かした中食事業。立ち上げから2年で黒字化しました。</p><div class="foot"><span class="n">15%</span><span>売上構成比</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg></div><div class="idx">03 ― 挑戦中</div><h3>{{自社商品の小売・EC}}</h3><p>看板メニューの商品化と小売展開。本部（商品開発）の主戦場で、年次に関係なく手を挙げた人がつくっています。</p><div class="foot"><span class="n">7%</span><span>売上構成比</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>安定した12店舗があるから、<b>挑戦しても潰れない</b>。それがこの構成比の意味です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 数字で見る会社：主役=月8休実施率96%（極大）＋statグリッド6連。聞きにくい数字も開示 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">By the Numbers</div><div class="h2">数字で見る、{{社名}}のいま</div>
+      <p class="subhead">良い数字だけを選んでいません。残業や定着率のような「聞きにくい数字」ほど、先に開示するのが方針です。</p></div>
+    <div class="tag">03 / NUMBERS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="96">96</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">「月8休」シフトの実施率（全店・{{2025年度}}）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">3期<span class="unit">連続</span></div><div class="kpi-l">増収</div></div>
+          <div><div class="kpi sm"><span class="count" data-to="12">12</span><span class="unit">店舗</span></div><div class="kpi-l">全店直営（FCなし）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">母数と集計期間を示せる数字だけを載せています。カジュアル面談では、シフトの実データもそのままお見せします。</p>
+      </div>
+      <div class="reveal" style="--i:1;display:grid;grid-template-columns:repeat(2,1fr);gap:min(1.6vh,1.6vw);align-content:center">
+        <div class="stat"><div class="kpi">80<span class="unit">名</span></div><div class="kpi-l">社員数（{{2026.06}}時点）</div></div>
+        <div class="stat"><div class="kpi">32.5<span class="unit">歳</span></div><div class="kpi-l">店長の平均年齢</div></div>
+        <div class="stat"><div class="kpi">22.8<span class="unit">h/月</span></div><div class="kpi-l">平均残業（社員・直近1年）</div></div>
+        <div class="stat"><div class="kpi">71<span class="unit">%</span></div><div class="kpi-l">有給取得率</div></div>
+        <div class="stat"><div class="kpi">74<span class="unit">%</span></div><div class="kpi-l">3年定着率</div></div>
+        <div class="stat"><div class="kpi">45<span class="unit">%</span></div><div class="kpi-l">アルバイトからの社員登用比率</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>残業と定着率</b>——選考で聞きにくい数字ほど、こちらから先に出します。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 成長パス：SVGタイムライン（店長→SV→本部、飲食相場の年収レンジ）。バー高さは年収上限に比例（650万=150px） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Career Path</div><div class="h2">入社後の道すじと、<span class="u">年収</span>を公開します</div>
+      <p class="subhead">何ができれば上がるのか。等級・昇格条件・年収レンジは全社員に公開されています。入社前も同じものをお見せします。</p></div>
+    <div class="tag">04 / CAREER</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.35fr 1fr">
+      <div class="chartcard reveal" style="justify-content:flex-start">
+        <div class="dghead"><span class="t">モデルキャリアと年収レンジ</span><span class="n">{{2026年度}}実績・賞与込み</span></div>
+        <div style="flex:1;display:flex;align-items:center">
+        <svg class="fsvg" viewBox="0 0 560 250" role="img" aria-label="1年目店長340から400万、3年目SV420から500万、5年目本部520から650万">
+          <rect x="0" y="0" width="158" height="22" rx="11" style="fill:var(--navy)"/>
+          <text x="79" y="15" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">昇格試験は年2回</text>
+          <line class="bl" x1="0" y1="200" x2="560" y2="200"/>
+          <rect class="bar" x="68" y="108" width="64" height="92" rx="4"/>
+          <rect class="bar" x="248" y="85" width="64" height="115" rx="4"/>
+          <rect x="428" y="50" width="64" height="150" rx="4" style="fill:var(--navy)"/>
+          <path class="lead-l" d="M100 108 L280 85 L460 50"/>
+          <circle cx="100" cy="108" r="4.5" style="fill:#fff;stroke:var(--navy);stroke-width:2.5"/>
+          <circle cx="280" cy="85" r="4.5" style="fill:#fff;stroke:var(--navy);stroke-width:2.5"/>
+          <circle cx="460" cy="50" r="5.5" style="fill:var(--navy);stroke:var(--navy);stroke-width:2.5"/>
+          <text class="an" x="100" y="76" text-anchor="middle">店長</text>
+          <text class="mn" x="100" y="94" text-anchor="middle" style="fill:var(--navy);font-weight:600">340–400万</text>
+          <text class="an" x="280" y="53" text-anchor="middle">SV</text>
+          <text class="mn" x="280" y="71" text-anchor="middle" style="fill:var(--navy);font-weight:600">420–500万</text>
+          <text class="an" x="460" y="18" text-anchor="middle">本部（商品開発）</text>
+          <text class="mn" x="460" y="36" text-anchor="middle" style="fill:var(--navy);font-weight:600">520–650万</text>
+          <text class="mn" x="100" y="157" text-anchor="middle" style="fill:var(--graphite)">G1–G2</text>
+          <text class="mn" x="280" y="146" text-anchor="middle" style="fill:var(--graphite)">G3</text>
+          <text class="mn inbar" x="460" y="129" text-anchor="middle">G4–G5</text>
+          <text class="mn" x="100" y="222" text-anchor="middle" style="fill:var(--ink);font-weight:600">1年目</text>
+          <text class="mn" x="280" y="222" text-anchor="middle" style="fill:var(--ink);font-weight:600">3年目</text>
+          <text class="mn" x="460" y="222" text-anchor="middle" style="fill:var(--ink);font-weight:600">5年目</text>
+          <text class="mn" x="100" y="240" text-anchor="middle">1店舗を任される</text>
+          <text class="mn" x="280" y="240" text-anchor="middle">3–4店舗を統括</text>
+          <text class="mn" x="460" y="240" text-anchor="middle">メニュー開発を担う</text>
+        </svg>
+        </div>
+        <div style="border-top:1px solid var(--line);padding-top:min(1.3vh,1.3vw);font-size:min(1.25vh,1.25vw);color:var(--gray);font-weight:500">※レンジは理論値ではなく、在籍者の実額から作成。等級表の全文は面談でお見せします。</div>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <ul class="checks">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>昇格条件は文書で公開</b>。店長・SVの要件がチェックリストで明文化されています。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>評価は半期ごと</b>。SVの臨店フィードバックは月2回。期末に突然評価が下がる「サプライズ」はありません。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>年収は等級に連動</b>。担当店舗の規模や立地で差がつかない仕組みです。</span></li>
+        </ul>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:min(1.5vh,1.5vw);margin-top:min(3vh,3vw)">
+          <div class="stat"><div class="kpi">11<span class="unit">名</span></div><div class="kpi-l">昨年度の昇格者（80名中）</div></div>
+          <div class="stat"><div class="kpi">10<span class="unit">か月</span></div><div class="kpi-l">店長への最短登用</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最短<b>10か月</b>で店長登用。基準は在籍年数ではなく、<b>できること</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 1日の流れ：縦タイムテーブル（時刻mono＋帯）。中抜けなし通しシフト。帯は分数比例（最大2h30=100%）。残業22.8h/月（P.04）と整合 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">A Day</div><div class="h2">シフトは<span class="u">中抜けなし</span>。設計で守ります</div>
+      <p class="subhead">{{店長・中途3年目}}のある1日。早番・遅番の2交代制で、仕込みからピーク、発注までを1シフトに収めています（時刻はモデルケース）。</p></div>
+    <div class="tag">05 / A DAY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.25fr 1fr">
+      <div class="chartcard reveal" style="justify-content:flex-start">
+        <div class="dghead"><span class="t">ある1日のタイムテーブル</span><span class="n">早番シフト 10:00–19:00・休憩1h</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:min(1.5vh,1.5vw)">
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">10:00</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">開店準備・朝礼</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:20%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">30分</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">10:30</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">仕込み・ランチ準備</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:60%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">1h30分</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">12:00</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">ランチピーク（接客・調理）</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:100%;background:var(--steel);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">2h30分</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">14:30</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">休憩（交代制・中抜けなし）</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:40%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">1h</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">15:30</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">発注・シフト作成・事務</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:60%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">1h30分</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">17:00</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">ディナー立ち上げ・引き継ぎ</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:80%;background:var(--steel);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">2h</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:min(2.6vh,2.6vw);margin-top:min(1.8vh,1.8vw);padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line)">
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:min(1.2vh,1.2vw);color:var(--graphite);font-weight:500"><i style="width:10px;height:10px;border-radius:3px;background:var(--navy)"></i>仕込み・発注</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:min(1.2vh,1.2vw);color:var(--graphite);font-weight:500"><i style="width:10px;height:10px;border-radius:3px;background:var(--steel)"></i>接客・ピーク</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:min(1.2vh,1.2vw);color:var(--graphite);font-weight:500"><i style="width:10px;height:10px;border-radius:3px;background:var(--silver)"></i>休憩・準備</span>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi" style="font-size:min(6.4vh,6.4vw)"><span class="count" data-to="9">9</span><span class="unit">h</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">1日の拘束時間（実働8h・休憩1h・中抜けなし）</div>
+        </div>
+        <ul class="checks" style="margin-top:min(2.8vh,2.8vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>中抜けなし</b>。拘束13時間の「通しシフト」を、2交代制の設計で廃止しました。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>閉店作業は遅番へ引き継ぎ</b>。開け閉めの両方を1人に負わせません。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>平均残業は22.8h/月</b>。P.04の平均残業と同じ集計です。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>休みと退勤時刻は根性ではなく<b>設計</b>で守る——シフトが先に決まっています。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 社員の声：quote＋写真スロット（このデッキのみ1枚可）。月8休96%（P.04）・SV3年目（P.05）と整合 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Voices</div><div class="h2">入社した理由を、<span class="u">本人の言葉</span>で</div>
+      <p class="subhead">広報用に脚色していません。店舗見学の際に、ここに登場する社員と直接話すこともできます。</p></div>
+    <div class="tag">06 / VOICES</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:0.72fr 1fr">
+      <div class="frame reveal">
+        <div class="fi"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+        <span style="max-width:26ch;text-align:center;line-height:1.7">社員写真を配置：{{氏名}}さんの厨房・売場での自然なスナップ。目線が右のコメント側（右向き）になる一枚を。推奨 4:5・胸から上。</span>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center;gap:min(3vh,3vw)">
+        <blockquote class="quote" style="align-self:stretch">
+          <p>「面接で見た『月8休96%』が、入社後も本当にその通りでした。前職は月4休・中抜けあり。数字で嘘をつかない会社です。」</p>
+          <cite>{{氏名}}（29歳・中途入社2年目・店長／前職：{{個人店の調理スタッフ}}）</cite>
+        </blockquote>
+        <blockquote class="quote" style="align-self:stretch;border-left-color:var(--silver)">
+          <p style="font-size:min(1.9vh,1.9vw)">「3年目でSVを任されました。昇格の基準が公開されているので、目指し方に迷いがありません。」</p>
+          <cite>{{氏名}}（27歳・新卒入社4年目／SV）</cite>
+        </blockquote>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)">
+          <div class="stat"><div class="kpi">36<span class="unit">%</span></div><div class="kpi-l">社員・スタッフ紹介経由の入社</div></div>
+          <div class="stat"><div class="kpi">74<span class="unit">%</span></div><div class="kpi-l">3年定着率（P.04と同じ）</div></div>
+          <div class="stat"><div class="kpi">4.1<span class="unit">/5</span></div><div class="kpi-l">社内サーベイ総合（{{2026.06}}）</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ご希望があれば、面談に<b>現場の店長が同席</b>します。聞きにくいことは本人にどうぞ。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 働く環境：checks×2カード。休み（月8休96%はP.04と整合）と食・成長。利用率つきで「使われる制度」を証明 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Environment</div><div class="h2">制度は、<span class="u">使われて</span>はじめて福利厚生です</div>
+      <p class="subhead">並べるだけの制度紹介はしません。主要な制度は、利用率・実績とセットで開示します。</p></div>
+    <div class="tag">07 / BENEFITS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g2" style="height:100%;align-items:stretch">
+      <div class="chartcard reveal" style="justify-content:flex-start">
+        <div class="dghead"><span class="t">休みの制度</span><span class="n">利用実績は{{直近1年}}</span></div>
+        <ul class="checks" style="flex:1;justify-content:space-evenly;gap:min(1.2vh,1.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>月8休シフト</b>（全店・全職種対象）——実施率 <span class="num" style="font-weight:600;color:var(--navy)">96%</span>（P.04と同じ集計）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>月1回の2連休</b>——取得率 <span class="num" style="font-weight:600;color:var(--navy)">83%</span>。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>希望休 月3日まで</b>——シフト反映率 <span class="num" style="font-weight:600;color:var(--navy)">97%</span>。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>リフレッシュ5連休</b>（年1回）——取得率 <span class="num" style="font-weight:600;color:var(--navy)">68%</span>。</span></li>
+        </ul>
+        <div style="margin-top:auto;padding-top:min(1.8vh,1.8vw);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:min(1.2vh,1.2vw)">
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">月8休の実施</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:96%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">96%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">月1回の2連休</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:83%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">83%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">5連休の取得</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:68%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">68%</span>
+          </div>
+        </div>
+      </div>
+      <div class="chartcard reveal" style="--i:1;justify-content:flex-start">
+        <div class="dghead"><span class="t">食と成長への投資</span><span class="n">全額〜一部会社負担</span></div>
+        <ul class="checks" style="flex:1;justify-content:space-evenly;gap:min(1.2vh,1.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>食事補助（まかない）</b>——1食150円・全シフト対象。利用率 <span class="num" style="font-weight:600;color:var(--navy)">92%</span>。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>社内検定（調理・接客）</b>——合格で月5,000〜20,000円の手当。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>資格取得支援</b>——調理師・ソムリエ等の受験料は会社負担。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>商品開発コンペ 年2回</b>——採用メニューは全店展開。本部（商品開発）への登竜門です。</span></li>
+        </ul>
+        <div style="margin-top:auto;padding-top:min(1.8vh,1.8vw);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:min(1.2vh,1.2vw)">
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">まかない利用</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:92%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">92%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">検定受験 年1回以上</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:57%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">57%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">開発コンペ応募</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:31%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">31%</span>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>数字が低い制度は、低いまま見せます。<b>飾らないこと</b>がいちばんの福利厚生だと考えています。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 選考フロー：timeline 4step（店舗見学含む）＋所要日数バー。「サイレントお祈り」をしない宣言 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Selection</div><div class="h2">選考は<span class="u">4ステップ</span>。最短2週間です</div>
+      <p class="subhead">各ステップの結果は、3営業日以内に必ずご連絡します。連絡が来ないまま終わる「サイレントお祈り」はしません。</p></div>
+    <div class="tag">08 / PROCESS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.4vh,2.4vw)">
+      <div class="timeline">
+        <div class="step reveal"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></div><div class="cn"></div><div class="k">STEP 1 ― 30分</div><h4>カジュアル面談</h4><p>選考ではありません。この資料の数字を、シフトの元データごと率直にお話しします。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">オンライン｜服装自由</p></div>
+        <div class="step reveal" style="--i:1"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="cn"></div><div class="k">STEP 2 ― 60分</div><h4>店舗見学＋一次面接</h4><p>営業中の店舗をご案内し、配属エリアのSVと面接。ピークの現場も隠さずお見せします。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">対面・店舗｜結果は3営業日以内</p></div>
+        <div class="step reveal" style="--i:2"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg></div><div class="cn"></div><div class="k">STEP 3 ― 60分</div><h4>最終面接</h4><p>代表と。ミッションへの共感と、キャリアの方向をすり合わせます。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">対面・本社｜結果は3営業日以内</p></div>
+        <div class="step reveal" style="--i:3"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div><div class="cn"></div><div class="k">STEP 4 ― 書面</div><h4>オファー面談</h4><p>年収・等級・配属店舗を書面で提示。ご家族と相談する時間も考慮します。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">回答期限は柔軟に設定</p></div>
+      </div>
+      <div class="load reveal" style="--i:4">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">応募から内定までの日数</span><span class="n">{{直近1年}}の実績</span></div>
+        <div class="lr"><span class="ln">最短のケース</span><span class="track"><i style="width:56%;background:var(--navy)"></i></span><span class="lv">約10営業日（2週間）</span></div>
+        <div class="lr"><span class="ln">平均</span><span class="track"><i style="width:100%;background:var(--silver)"></i></span><span class="lv">約18営業日</span></div>
+        <div style="padding-top:min(1vh,1vw);border-top:1px solid var(--line);font-size:min(1.25vh,1.25vw);color:var(--gray);font-weight:500">※在職中の方はシフトに合わせて日程を調整します。入社日は内定後のご相談でOK（最長{{3か月}}お待ちします）。</div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>選考中の疑問は、<b>面接官に直接</b>聞ける連絡先をお渡しします。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：応募ではなく「まず食べに来る・話す」へ心理的ハードルを下げる -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Casual Talk</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まず、食べに来てください。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">ご来店の感想からで大丈夫です。15分のオンライン面談か、お近くの店舗見学へ。志望動機も、履歴書も要りません。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{カジュアル面談の予約リンク}}">カジュアル面談を予約する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{社名}} 採用チーム　|　{{メール}}　|　{{採用サイトURL}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/09_セミナー・ウェビナー_物流運輸.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>セミナー・ウェビナーテンプレート（物流・運輸） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙 -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm" style="font-size:min(40vh,30vw);bottom:-7vh;color:rgba(255,255,255,.08)">SEMINAR</div>
+  <p class="kick">Seminar / Webinar</p>
+  <h1>
+    <span class="ln"><span style="--i:0">2024年問題を乗り越える、</span></span>
+    <span class="ln"><span style="--i:1">配車と労働時間の改善講座</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">{{運送会社の経営者・運行管理者向け}}　|　{{2026.08.06（木）19:00–20:30}}　|　{{オンライン開催}}　|　講師 {{講師氏名}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.08.06}}</span>
+  </div>
+</section>
+
+<!-- 02 アジェンダ：タイムテーブル表（navyヘッダ・時刻mono・現在行ハイライト） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Agenda</div><div class="h2">本日の<span class="u">90分</span>の歩き方</div>
+      <p class="subhead">ゴールは「明日、自社の配車で再現できる」状態です。講義は最小限に、ワークと質疑に時間を厚く配分しています。</p></div>
+    <div class="tag">01 / AGENDA</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr><th style="width:15%">時刻</th><th style="width:41%">プログラム</th><th style="width:32%">ねらい</th><th class="num" style="width:12%">所要</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="col-hi" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="cellflex"><span class="mono">19:00</span><span style="font-family:var(--display);font-size:min(1vh,1vw);letter-spacing:.16em;font-weight:600;color:#fff;background:var(--steel);border-radius:999px;padding:3px 10px">NOW</span></span></td>
+          <td class="col-hi" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">オープニング／本日のゴール共有</td>
+          <td class="col-hi" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">90分の到達点を揃える</td>
+          <td class="col-hi num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">5分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">19:05</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">第1部：2024年問題で何が変わったか</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">規制と数字を事実ベースで掴む</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">20分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">19:25</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">第2部：配車改善3ステップ（本日の核心）</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">再現できる「型」を学ぶ</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">25分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">19:50</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">第3部：実践ワーク＋共有</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">自社の1コースに当てはめる</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">15分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">20:05</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">改善事例・質疑応答</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">疑問をゼロにして持ち帰る</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">15分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">20:20</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">ご案内・アンケート</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">次の一歩を選ぶ</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">10分</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ご質問は<b>随時チャットへ</b>。20:05からまとめてお答えします。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 講師紹介：略歴＋実績statグリッド（主役=累計受講者数） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Speaker</div><div class="h2">講師紹介——<span class="u">現場で再現できた手順</span>だけを、お渡しします</div>
+      <p class="subhead">理論の紹介ではありません。{{57}}社の伴走支援の現場で、実際に拘束時間が削減できた手順に絞ってお話しします。</p></div>
+    <div class="tag">02 / SPEAKER</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(3.1vh,3.1vw);font-weight:700;color:var(--navy)">{{講師氏名}}</h3>
+        <div class="kpi-l" style="font-size:min(1.6vh,1.6vw)">{{自社名}} 代表／{{運送業の運行改善コンサルタント}}</div>
+        <ul style="list-style:none;margin-top:min(2.8vh,2.8vw);display:flex;flex-direction:column;gap:min(2vh,2vw)">
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2006</span><span>{{大手特別積合せ運送会社}}入社。配車係・運行管理者として現場10年</span></li>
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2014</span><span>独立。中小運送会社の運行改善の伴走支援を開始</span></li>
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2019</span><span>本講座を開講。以来、累計2,600名が受講</span></li>
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2024</span><span>著書『{{書名}}』刊行。業界紙への寄稿・登壇多数</span></li>
+        </ul>
+        <div style="margin-top:min(2.8vh,2.8vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <span class="kpi-l" style="margin:0;font-size:min(1.5vh,1.5vw)">専門領域：配車計画の設計／改善基準告示への対応／ドライバーの労務管理</span>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
+        <div class="stat" style="padding:min(2.8vh,2.8vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(5.6vh,5.6vw)">2,600<span class="unit">名</span></div><div class="kpi-l">累計受講者数（2019–2026）</div></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.8vh,1.8vw)">
+          <div class="stat" style="padding:min(2.4vh,2.4vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">74<span class="unit">回</span></div><div class="kpi-l">登壇・研修</div></div>
+          <div class="stat" style="padding:min(2.4vh,2.4vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">57<span class="unit">社</span></div><div class="kpi-l">伴走支援企業</div></div>
+          <div class="stat" style="padding:min(2.4vh,2.4vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">12<span class="unit">年</span></div><div class="kpi-l">現場支援歴</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>今日持ち帰っていただくのは、理論ではなく<b>再現手順</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 第1部・なぜ今：主役=34%。空雨傘で事実と解釈を分離 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Why Now</div><div class="h2">「<span class="u">運べない</span>」は、もう始まっています</div>
+      <p class="subhead">まず、いま起きている事実から。2024年4月の上限規制で、運送業を取り巻く前提は静かに、しかし決定的に変わりました。</p></div>
+    <div class="tag">03 / WHY NOW</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi" style="font-size:min(6.6vh,6.6vw)">34<span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">2030年度に不足すると試算される輸送能力（営業用トラック・{{出所}}）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">960<span class="unit">時間</span></div><div class="kpi-l">年間時間外労働の上限（2024年4月〜）</div></div>
+          <div><div class="kpi sm">14<span class="unit">%</span></div><div class="kpi-l">2024年度時点の輸送能力の不足分（{{出所}}）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">この前提では、経験と勘の配車だけでは回りません。「拘束時間の設計」が勝敗を分けます。</p>
+      </div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">時間外労働の上限は年<b>960時間</b>。改善基準告示も強化された。</div></div>
+        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">経験と勘の配車のままでは、<b>運べない荷物</b>と超過リスクが同時に膨らむ。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">配車と労働時間は、本日の<b>3ステップ</b>で仕組みとして改善できます。</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>変わったのは<b>前提</b>であって、現場の頑張り不足ではありません。設計で取り返せます。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 第2部・フレームワーク：3ステップ図SVG（箱＋矢印＋要点）を焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Framework</div><div class="h2">本日の核心——<span class="u">3ステップ</span>の全体像</div>
+      <p class="subhead">難しい理論は使いません。「可視化 → 型化 → 磨き込み」の順で、どの営業所でも回せる形に分解してあります。</p></div>
+    <div class="tag">04 / FRAMEWORK</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr;height:auto">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">「配車と労働時間の改善」3ステップ</span><span class="n">19:25 – 19:50 で解説</span></div>
+        <svg class="fsvg" viewBox="0 0 560 234" role="img" aria-label="配車改善3ステップ：可視化、型化、磨き込みの流れと各要点">
+          <rect x="193" y="0" width="174" height="22" rx="11" style="fill:var(--navy)"/>
+          <text x="280" y="15" text-anchor="middle" style="font-family:var(--display);font-size:10px;font-weight:600;fill:#fff;letter-spacing:.08em">本日19:50〜のワークで実践</text>
+          <rect class="nd" x="0" y="36" width="158" height="58" rx="10"/>
+          <rect class="nd" x="201" y="36" width="158" height="58" rx="10"/>
+          <rect class="nd" x="402" y="36" width="158" height="58" rx="10"/>
+          <text x="79" y="59" text-anchor="middle" class="mn" style="font-size:10px;fill:var(--steel);letter-spacing:.14em">STEP 1</text>
+          <text class="nd-t" x="79" y="80" text-anchor="middle">運行実態を可視化する</text>
+          <text x="280" y="59" text-anchor="middle" class="mn" style="font-size:10px;fill:var(--steel);letter-spacing:.14em">STEP 2</text>
+          <text class="nd-t" x="280" y="80" text-anchor="middle">配車ルールを型にする</text>
+          <text x="481" y="59" text-anchor="middle" class="mn" style="font-size:10px;fill:var(--steel);letter-spacing:.14em">STEP 3</text>
+          <text class="nd-t" x="481" y="80" text-anchor="middle">回して磨き込む</text>
+          <line x1="163" y1="65" x2="190" y2="65" style="stroke:var(--silver);stroke-width:2"/>
+          <path class="ar" d="M190 60l9 5-9 5z"/>
+          <line x1="364" y1="65" x2="391" y2="65" style="stroke:var(--silver);stroke-width:2"/>
+          <path class="ar" d="M391 60l9 5-9 5z"/>
+          <text x="2" y="120" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・日報とデジタコを棚卸し</text>
+          <text x="2" y="141" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・車両別に拘束時間を集計</text>
+          <text x="2" y="162" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・待機と空走のムダを特定</text>
+          <text x="203" y="120" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・良い配車日の共通点を分解</text>
+          <text x="203" y="141" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・積替え・中継の判断を基準化</text>
+          <text x="203" y="162" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・配車ルールを1枚に集約</text>
+          <text x="404" y="120" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・週次15分の振り返り</text>
+          <text x="404" y="141" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・拘束時間で効果を検証</text>
+          <text x="404" y="162" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・ルールを更新し続ける</text>
+          <line x1="0" y1="184" x2="560" y2="184" class="bl"/>
+          <text class="an" x="0" y="208">90分で3ステップを一巡し、営業所に持ち帰って再現できる状態にします。</text>
+          <text class="mn" x="0" y="229" style="font-size:11px">各ステップの記入例：配布ワークシート P.2〜4</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">このフレームワークの狙い</h3>
+        <ul class="checks" style="margin-top:min(2.2vh,2.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>明日、配車担当ひとりで再現できる</b>粒度まで、分解済み。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>新しいシステムは不要</b>。いまの日報とデジタコに載せるだけ。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>最初の変化まで平均30日</b>。小さく速く回します。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>覚えるのは<b>3語だけ</b>——可視化・型化・磨き込み。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 第3部・実践ワーク：進行タイムライン＋時間配分バー -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Work</div><div class="h2">聞いて終わりにしない、<span class="u">15分</span>の実践ワーク</div>
+      <p class="subhead">学んだ型を、自社の直近1コースでいきなり使ってみます。うまく書けなくても大丈夫——手を動かすことが目的です。</p></div>
+    <div class="tag">05 / WORK</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.4vh,2.4vw)">
+      <div class="timeline">
+        <div class="step reveal"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:50 – 19:52</div><h4>テーマ確認</h4><p>ワークシートP.3を開き、記入例を確認します。</p></div>
+        <div class="step reveal" style="--i:1"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:52 – 19:59</div><h4>個人ワーク</h4><p>直近1週間の1コースを、3ステップの型で分解します。</p></div>
+        <div class="step reveal" style="--i:2"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:59 – 20:03</div><h4>ペア共有</h4><p>隣の方（オンラインはブレイクアウト）と2分ずつ交換。</p></div>
+        <div class="step reveal" style="--i:3"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">20:03 – 20:05</div><h4>全体共有</h4><p>2〜3名の気づきを取り上げ、講師が補足します。</p></div>
+      </div>
+      <div class="load reveal" style="--i:4">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">15分の時間配分——主役は「個人ワーク」です</span><span class="n">19:50 – 20:05・合計15分</span></div>
+        <div class="lr"><span class="ln">テーマ確認</span><span class="track"><i style="width:13%;background:var(--silver)"></i></span><span class="lv">2分</span></div>
+        <div class="lr"><span class="ln">個人ワーク</span><span class="track"><i style="width:47%;background:var(--navy)"></i></span><span class="lv">7分</span></div>
+        <div class="lr"><span class="ln">ペア共有</span><span class="track"><i style="width:27%;background:var(--steel)"></i></span><span class="lv">4分</span></div>
+        <div class="lr"><span class="ln">全体共有</span><span class="track"><i style="width:13%;background:var(--silver)"></i></span><span class="lv">2分</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>上手に書くことより、<b>自社の1コース</b>で手を動かすことが持ち帰りの最短ルートです。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 受講効果：主役=+38%（極大）。受講前後の棒グラフを焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Results</div><div class="h2">受講企業で、<span class="u">数字</span>が動いています</div>
+      <p class="subhead">学んで終わりにせず、受講90日後の成果まで追跡しています（受講企業{{57}}社・n=612・当社調査）。</p></div>
+    <div class="tag">06 / RESULTS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="38">+38</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">受講90日後の改善基準遵守率の伸び（61%→84%・受講企業平均）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">96<span class="unit">%</span></div><div class="kpi-l">受講後アンケート満足度</div></div>
+          <div><div class="kpi sm">74<span class="unit">%</span></div><div class="kpi-l">30日後の実践率</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">特別な会社の数字ではありません。型を回した会社に、同じ傾きが再現されています。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">受講前後の変化（受講企業平均）</span><span class="n">単位：%・当社調査</span></div>
+        <svg class="csvg" viewBox="0 0 352 186" role="img" aria-label="受講前後比較：理解度54→88、実践率31→74、改善基準遵守率61→84">
+          <rect x="0" y="5" width="11" height="11" rx="3" style="fill:var(--silver)"/>
+          <text class="axis-t" x="17" y="14">受講前</text>
+          <rect x="64" y="5" width="11" height="11" rx="3" style="fill:var(--navy)"/>
+          <text class="axis-t" x="81" y="14">受講後</text>
+          <line class="grid-l" x1="0" y1="60" x2="352" y2="60"/>
+          <line class="grid-l" x1="0" y1="110" x2="352" y2="110"/>
+          <text class="axis-t" x="0" y="56">100</text>
+          <text class="axis-t" x="0" y="106">50</text>
+          <line x1="0" y1="160" x2="352" y2="160" style="stroke:var(--line)"/>
+          <rect x="51" y="106" width="30" height="54" rx="4" style="fill:var(--silver)"/>
+          <rect x="89" y="72" width="30" height="88" rx="4" style="fill:var(--navy)"/>
+          <rect x="161" y="129" width="30" height="31" rx="4" style="fill:var(--silver)"/>
+          <rect x="199" y="86" width="30" height="74" rx="4" style="fill:var(--navy)"/>
+          <rect x="271" y="99" width="30" height="61" rx="4" style="fill:var(--silver)"/>
+          <rect x="309" y="76" width="30" height="84" rx="4" style="fill:var(--navy)"/>
+          <text class="mn" x="66" y="101" text-anchor="middle">54</text>
+          <text class="val-t" x="104" y="67" text-anchor="middle">88</text>
+          <text class="mn" x="176" y="124" text-anchor="middle">31</text>
+          <text class="val-t" x="214" y="81" text-anchor="middle">74</text>
+          <text class="mn" x="286" y="94" text-anchor="middle">61</text>
+          <text class="val-t" x="324" y="71" text-anchor="middle">84</text>
+          <rect class="ann-bg" x="277" y="38" width="56" height="20" rx="10"/>
+          <text class="ann-t" x="305" y="52" text-anchor="middle">+38%</text>
+          <path class="lead-l" d="M305 58 L305 86"/>
+          <text class="mn" x="85" y="178" text-anchor="middle" style="font-size:11px">理解度（直後）</text>
+          <text class="mn" x="195" y="178" text-anchor="middle" style="font-size:11px">実践率（30日後）</text>
+          <text class="mn" x="305" y="178" text-anchor="middle" style="font-size:11px">遵守率（90日後）</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成果の分かれ目は<b>実践率</b>。同じ手順は、配布ワークシートに全て載せています。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 受講者の声：quote＋アンケートstat -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Voices</div><div class="h2">先に受けた方々の、<span class="u">率直な声</span></div>
+      <p class="subhead">受講後アンケート（直近{{6}}回・n=214）より。いずれも許諾を得て掲載しています。</p></div>
+    <div class="tag">07 / VOICES</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.6vh,1.6vw);font-size:min(1.45vh,1.45vw)">自由記述より</div>
+        <blockquote class="quote" style="align-self:flex-start">
+          <p style="font-size:min(2.6vh,2.6vw)">「講義で終わらないのが良かった。ワークで作った『配車ルール1枚』を、翌週の配車会議でそのまま使えました。」</p>
+          <cite>{{一般貨物運送・運行管理部長（車両45台）}}</cite>
+        </blockquote>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(2.6vh,2.6vw);justify-content:center">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.6vh,1.6vw)">
+          <div class="stat" style="padding:min(2.2vh,2.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">91<span class="unit">%</span></div><div class="kpi-l">また参加したい</div></div>
+          <div class="stat" style="padding:min(2.2vh,2.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">93<span class="unit">%</span></div><div class="kpi-l">明日から使える</div></div>
+          <div class="stat" style="padding:min(2.2vh,2.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">78<span class="unit">%</span></div><div class="kpi-l">同業者に勧めたい</div></div>
+        </div>
+        <blockquote class="quote" style="align-self:flex-start">
+          <p style="font-size:min(1.9vh,1.9vw)">「初参加でも置いていかれない。ワークの時間配分が絶妙でした。」</p>
+          <cite>{{地場配送・配車担当}}</cite>
+        </blockquote>
+        <blockquote class="quote" style="align-self:flex-start">
+          <p style="font-size:min(1.9vh,1.9vw)">「数字の根拠が明確で、荷主への説明資料がそのまま作れました。」</p>
+          <cite>{{食品輸送・経営企画室長}}</cite>
+        </blockquote>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>声に共通するのは<b>「翌週から使えた」</b>。本講座の設計思想そのものです。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 今日から実践する3つ＋伴走支援のご案内（紺ベタは右カード1つのみ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Action</div><div class="h2">今日から実践するのは、<span class="u">3つ</span>だけ</div>
+      <p class="subhead">全部やろうとしないでください。この3つだけで、最初の変化は必ず作れます。順番どおりが近道です。</p></div>
+    <div class="tag">08 / ACTION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.2fr 1fr;height:auto">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(2.4vh,2.4vw);font-size:min(1.45vh,1.45vw)">チェックリスト——今週中に、この順番で</div>
+        <ul class="checks" style="gap:min(2.6vh,2.6vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>直近1週間の運行3コースを可視化する</b>——ワークシートP.3の型で分解（所要30分）</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>配車ルールを1枚にまとめる</b>——判断基準テンプレはDL資料に同梱（所要60分）</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>来週の配車で1回だけ試す</b>——結果をメモして、翌週に振り返る（所要5分）</span></li>
+        </ul>
+      </div>
+      <div class="card hero reveal" style="--i:1;align-self:center;gap:min(1.6vh,1.6vw)">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <div class="idx">OUR SUPPORT ― ご案内は本日ここだけ</div>
+        <h3>{{伴走支援サービス名}}</h3>
+        <p>ひとりで回すのが難しければ、配車ルールづくりから定着まで90日間並走します。本日の3ステップを、貴社の車両構成と荷主構成に合わせて実装します。</p>
+        <div class="foot"><span class="n">無料</span><span>初回相談30分（オンライン）</span></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つ合わせて<b>合計95分</b>。学びは、今週動いた人だけの資産になります。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：アンケート＋個別相談 -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Next Step</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">学びを、来週の配車の改善に。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">アンケートにご回答いただいた方へ、本日の資料とワークシート完全版をお渡しします。<br>個別相談（30分・無料）は先着{{10}}社です。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">個別相談を予約する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:9px">
+        <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+        <span style="font-size:min(1.2vh,1.2vw);color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.06em">アンケート／資料DL</span>
+      </div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{自社名}}　|　{{メール}}　|　次回開催 {{2026.09.10}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

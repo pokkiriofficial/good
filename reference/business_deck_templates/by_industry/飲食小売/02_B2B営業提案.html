@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/02_B2B営業提案_飲食小売.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B2B営業提案テンプレート（飲食・小売） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙 -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">B2B</div>
+  <p class="kick">Sales Proposal</p>
+  <h1>
+    <span class="ln"><span style="--i:0">{{見込み顧客名}}様の発注・在庫業務を、</span></span>
+    <span class="ln"><span style="--i:1">ひとつの仕組みにまとめるご提案</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">{{提案サービス名}}　|　{{自社名}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.07.19}}</span>
+  </div>
+</section>
+
+<!-- 02 市場環境：主役=前年比118%（極大）。チャートに実数値と注釈を焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Market</div><div class="h2">店舗DXの市場は、いま<span class="u">追い風</span>にあります</div>
+      <p class="subhead">{{見込み顧客名}}様の属する市場は拡大が続いています。食材・仕入原価の上昇を背景に、発注と在庫を仕組みで抑える本部が増えています。</p></div>
+    <div class="tag">01 / MARKET</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="118">118</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">店舗運営DX市場の成長率（前年比・{{出所}}）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm"><span class="count" data-to="0.9" data-dec="1">0.9</span><span class="unit">兆円</span></div><div class="kpi-l">市場規模（{{出所}}）</div></div>
+          <div><div class="kpi sm">+64<span class="unit">%</span></div><div class="kpi-l">累計成長（{{'21}}→{{今}}）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">原価が上がる局面ほど、発注と在庫の精度が利益を左右します。先に仕組みを整えたチェーンが、そのまま優位を築いています。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">店舗運営DX市場の推移</span><span class="n">単位：兆円（{{出所}}）</span></div>
+        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="市場推移：5年で0.55兆円から0.90兆円へ拡大">
+          <line class="grid-l" x1="0" y1="48" x2="340" y2="48"/><line class="grid-l" x1="0" y1="96" x2="340" y2="96"/><line class="grid-l" x1="0" y1="144" x2="340" y2="144"/>
+          <path class="area" d="M0,150 L68,133 L136,117 L204,100 L272,80 L340,34 L340,190 L0,190 Z"/>
+          <path class="draw" pathLength="1" d="M0,150 L68,133 L136,117 L204,100 L272,80 L340,34"/>
+          <rect class="ann-bg" x="120" y="40" width="88" height="22" rx="11"/>
+          <text class="ann-t" x="164" y="55" text-anchor="middle">5年で +64%</text>
+          <path class="lead-l" d="M164 64 L164 103"/>
+          <text class="axis-t" x="2" y="124">0.55兆円</text>
+          <circle class="dot" cx="68" cy="133" r="4.5"/><circle class="dot" cx="136" cy="117" r="4.5"/><circle class="dot" cx="204" cy="100" r="4.5"/><circle class="dot" cx="272" cy="80" r="4.5"/><circle class="dot key" cx="340" cy="34" r="5.5"/>
+          <text class="val-t" x="332" y="24" text-anchor="end">0.90兆円</text>
+        </svg>
+        <div class="barx"><span>{{'21}}</span><span>{{'22}}</span><span>{{'23}}</span><span>{{'24}}</span><span>{{'25}}</span><span>{{今}}</span></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>原価が上がる<b>今こそ</b>、発注と在庫の仕組みを整える好機です。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 ボトルネック：店長の1日の発注・棚卸フローを実データで焼き込み。主役=警告色の1工程 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Bottleneck</div><div class="h2">利益を削っているのは、<span class="u">この工程</span>です</div>
+      <p class="subhead">事実（空）と、その事実が招く損失（雨）を分けて捉えます。原因は店長の努力不足ではなく、工程の設計にあります。</p></div>
+    <div class="tag">02 / ISSUE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">現行フロー：1店舗・1日あたりの所要時間</span><span class="n">90分 × {{30}}日 ≒ 45時間/月・店</span></div>
+        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="店長の発注業務5工程のうち棚卸・在庫入力に45分が集中">
+          <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
+          <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
+          <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="115" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
+          <text class="nd-t" x="50" y="53" text-anchor="middle">入荷検品</text>
+          <text class="nd-t" x="165" y="53" text-anchor="middle">売上確認</text>
+          <text class="nd-t hot" x="280" y="53" text-anchor="middle">棚卸入力</text>
+          <text class="nd-t" x="395" y="53" text-anchor="middle">発注・送信</text>
+          <text class="nd-t" x="510" y="53" text-anchor="middle">日報・原価</text>
+          <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
+          <text class="an" x="0" y="104">1日あたり 計90分</text>
+          <text class="an hot" x="0" y="126">うち45分（50%）がこの1工程</text>
+          <path class="lead-l" d="M198 122 C 234 126 252 140 262 158"/>
+          <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
+          <rect class="bar" x="33" y="177" width="34" height="27" rx="4"/>
+          <rect class="bar" x="148" y="164" width="34" height="40" rx="4"/>
+          <rect class="bar hot" x="263" y="84" width="34" height="120" rx="4"/>
+          <rect class="bar" x="378" y="177" width="34" height="27" rx="4"/>
+          <rect class="bar" x="493" y="177" width="34" height="27" rx="4"/>
+          <text class="mn" x="50" y="169" text-anchor="middle">10分</text>
+          <text class="mn" x="165" y="156" text-anchor="middle">15分</text>
+          <text class="mn hot inbar" x="280" y="106" text-anchor="middle">45分</text>
+          <text class="mn" x="395" y="169" text-anchor="middle">10分</text>
+          <text class="mn" x="510" y="169" text-anchor="middle">10分</text>
+          <text class="mn" x="0" y="228">所要時間（分・{{店長ヒアリング}}より）</text>
+        </svg>
+      </div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">1店舗あたり1日<b>約45分</b>の棚卸・在庫入力が手作業で発生している。</div></div>
+        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">1店舗で月<b>約23時間</b>、{{50}}店舗では月<b>約1,150時間</b>が売場から失われる。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">この1工程を自動化すれば、店長の時間が接客と売場に戻ります。</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは全体ではなく、<b>この1工程</b>だけです。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 3つのアプローチ：主役=最優先の01を紺ベタ -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Approach</div><div class="h2">解決の道すじは、<span class="u">3つ</span>に絞りました</div>
+      <p class="subhead">あれもこれもではなく、効果の大きい3点に集中します。最優先は、棚卸と発注に直結する自動化です。</p></div>
+    <div class="tag">03 / APPROACH</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div class="idx">01 ― 最優先</div><h3>棚卸と発注を自動化する</h3><p>販売実績から発注量を自動で提案し、棚卸はスキャン入力へ。P.3のボトルネックに直結する打ち手です。</p><div class="foot"><span class="n">−60%</span><span>店長の作業時間</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3v18M4 9l8-6 8 6"/><path d="M6 12v7h12v-7"/></svg></div><div class="idx">02</div><h3>発注・在庫・原価をつなぐ</h3><p>店舗ごとにバラバラの台帳を1つに集約し、本部が全店を同じ数字で見られるようにします。</p><div class="foot"><span class="n">1つ</span><span>の台帳に集約</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><div class="idx">03</div><h3>原価率を日次で見る</h3><p>月末を待たずに店舗別の原価率が出るので、値付けと発注をその週のうちに直せます。</p><div class="foot"><span class="n">日次</span><span>で原価率を把握</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つの打ち手は、いずれも<b>店舗の負担を増やさず</b>に効きます。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 ソリューション：Before/After図解を焼き込み。主役=−60%バッジと紺のAfter -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Solution</div><div class="h2">ご提案する解決策</div>
+      <p class="subhead">店長の手作業を、設定済みの発注・在庫ワークフローで置き換えます。導入初日から現場で使える設計です。</p></div>
+    <div class="tag">04 / SOLUTION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="ba reveal">
+        <div class="row before">
+          <div class="hd"><span class="k">BEFORE ― 現在</span><span class="t">90<span class="u">分/日・店</span></span></div>
+          <div class="chips">
+            <span class="chip">棚卸・在庫入力<span class="m">45分</span></span>
+            <span class="chip">売上確認<span class="m">15分</span></span>
+            <span class="chip">検品・発注・記帳<span class="m">30分</span></span>
+          </div>
+          <div class="bar"><i style="width:100%"></i></div>
+        </div>
+        <div class="mid">
+          <svg class="ic" viewBox="0 0 24 24" width="20" height="20" style="stroke-width:2.2;color:var(--steel)"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          <span class="badge">−60%</span>
+          <span class="lbl">{{ソリューション名}} 導入</span>
+        </div>
+        <div class="row after">
+          <div class="hd"><span class="k">AFTER ― 導入後</span><span class="t">36<span class="u">分/日・店</span></span></div>
+          <div class="chips">
+            <span class="chip">スキャン棚卸</span>
+            <span class="chip">発注量を自動提案</span>
+            <span class="chip">例外品のみ店長が確認<span class="m">36分</span></span>
+          </div>
+          <div class="bar"><i style="width:40%"></i></div>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">{{ソリューション名}}</h3>
+        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>店長の作業時間を60%削減</b>。1日90分が36分に。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>発注の属人化を解消</b>。販売実績から発注量を自動算出。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>欠品と過剰在庫を防止</b>。原価率を日次で可視化。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>覚え直しは不要。<b>いまの発注のやり方のまま</b>、速く・正確になります。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 競合優位性：主役=自社列。チェック/バツで走査性を上げる -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Why Us</div><div class="h2">他社にない、<span class="u">決定的な違い</span></div>
+      <p class="subhead">費用・期間・現場定着・縛りの4軸で比較します。勝てる軸だけでなく、正直に並べています。</p></div>
+    <div class="tag">05 / COMPARE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr><th>比較軸</th><th class="col-hi">{{自社名}}</th><th>{{競合A}}</th><th>{{競合B}}</th></tr></thead>
+      <tbody>
+        <tr><td>初期費用（本部）</td><td class="col-hi num">50,000円</td><td class="num">800,000円〜</td><td class="num">0〜10,000円</td></tr>
+        <tr><td>稼働開始までの期間</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>最短2週間</span></td><td>3〜6か月</td><td>即日（自力）</td></tr>
+        <tr><td>店舗への定着支援</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>専任担当が全店に並走</span></td><td>本部の問い合わせ窓口</td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>なし</span></td></tr>
+        <tr><td>契約の縛り</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>なし</span></td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>年間契約</span></td><td>なし</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>「早く全店に入って、縛られない」——それが<b>{{自社名}}</b>の立ち位置です。<span style="color:var(--gray);font-weight:500;margin-left:8px">※相場は各社公開料金の一般的範囲（{{時点}}・当社調べ）</span></span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 導入実績：主役=「90分→36分」の極大数字 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Track Record</div><div class="h2">導入実績と、お客様の声</div>
+      <p class="subhead">同じ店舗規模・同じ業態のチェーンが、すでに成果を出しています。掲載は許諾済みのもののみです。</p></div>
+    <div class="tag">06 / PROOF</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">1店舗・1日あたりの発注業務（導入2か月時点）</div>
+        <div style="display:flex;align-items:baseline;gap:min(2.2vh,2.2vw)">
+          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">90分</span>
+          <svg class="ic" viewBox="0 0 24 24" width="26" height="26" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span class="kpi xl">36分</span>
+        </div>
+        <blockquote class="quote" style="align-self:flex-start;margin-top:min(3.2vh,3.2vw)">
+          <p style="font-size:min(1.95vh,1.95vw)">「人を増やさず、導入2か月で全店ここまで来ました。店長からの抵抗もほとんどありませんでした。」</p>
+          <cite>{{導入企業名}}　店舗運営部 {{氏名}}様</cite>
+        </blockquote>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
+        <div class="logos" style="height:auto;grid-auto-rows:min(6.4vh,6.4vw);flex:0 0 auto">
+          <div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div>
+          <div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)">
+          <div class="stat"><div class="kpi">{{36}}<span class="unit">社</span></div><div class="kpi-l">導入チェーン数</div></div>
+          <div class="stat"><div class="kpi">{{97}}<span class="unit">%</span></div><div class="kpi-l">契約継続率</div></div>
+          <div class="stat"><div class="kpi">{{60}}<span class="unit">%</span></div><div class="kpi-l">平均作業削減</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>{{N}}社</b>の導入実績。同じ業態の事例は個別にご紹介できます。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 導入プロセス：4ステップ＋作業負荷バー図解（本部ほぼゼロを可視化） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Onboarding</div><div class="h2">全店稼働まで、<span class="u">低負荷</span>で移行できます</div>
+      <p class="subhead">導入時のいちばんの不安は「本部の手間」と「店舗への定着」。その両方を、当社の並走で肩代わりします。</p></div>
+    <div class="tag">07 / STEPS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <div class="grid g4">
+        <div class="card stepcard reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="idx">STEP 1</div><h3>店舗トライアル</h3><p>3店舗・2週間の無料お試し。実際の仕入データで効果を確認します。</p><div class="foot"><span class="n">3店舗</span><span>2週間・無料</span></div></div>
+        <div class="card stepcard reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="idx">STEP 2</div><h3>マスタ登録</h3><p>商品マスタと仕入先の登録は当社が代行します。</p><div class="foot"><span class="n">代行</span><span>登録は当社が</span></div></div>
+        <div class="card stepcard reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">STEP 3</div><h3>店長への並走</h3><p>初月は店長会に同席し、現場のつまずきをその場で解消します。</p><div class="foot"><span class="n">初月</span><span>店長会に同席</span></div></div>
+        <div class="card stepcard reveal" style="--i:3"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 12l4 4 14-12"/><path d="M12 20l4-4"/></svg></div><div class="idx">STEP 4</div><h3>全店展開</h3><p>約1か月で全店へ。以降は保守で運用を維持します。</p><div class="foot"><span class="n">約1か月</span><span>で全店展開</span></div></div>
+      </div>
+      <div class="load reveal" style="--i:4">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">導入1か月の作業負荷の内訳</span><span class="n">合計 約30時間</span></div>
+        <div class="lr"><span class="ln">当社の作業</span><span class="track"><i style="width:90%;background:var(--navy)"></i></span><span class="lv">約27時間</span></div>
+        <div class="lr"><span class="ln">本部の作業</span><span class="track"><i style="width:10%;background:var(--silver)"></i></span><span class="lv">約3時間（確認のみ）</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>本部の作業は<b>ほぼゼロ</b>。登録も店舗定着も、当社が引き受けます。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 料金：店舗数課金。主役=中央プランを紺ベタ反転 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Pricing</div><div class="h2">店舗数に応じた、3つのプラン</div>
+      <p class="subhead">出店・退店で店舗数が変われば、翌月からプランを移せます。まずは中央のスタンダードから。</p></div>
+    <div class="tag">08 / PRICING</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="plans" style="height:auto">
+      <div class="plan reveal"><h4>エントリー</h4><div class="price">30,000<span class="u">円/月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>発注・在庫の基本機能</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>メールサポート</li></ul>
+        <div class="meta">想定：1〜5店舗｜5店舗で1店舗6,000円</div></div>
+      <div class="plan reco reveal" style="--i:1"><span class="badge">おすすめ</span><h4>スタンダード</h4><div class="price">80,000<span class="u">円/月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>全機能＋自動発注・原価日次</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専任担当が全店に並走</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>契約の縛りなし</li></ul>
+        <div class="meta">想定：6〜20店舗｜20店舗で1店舗4,000円｜初期 50,000円</div></div>
+      <div class="plan reveal" style="--i:2"><h4>プレミアム</h4><div class="price">200,000<span class="u">円/月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>基幹・POS連携の個別開発</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>優先サポート</li></ul>
+        <div class="meta">想定：21〜50店舗｜専任PM付き</div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>金額は税別・店舗数に応じた定額制。<b>値引き前提の煽りは行いません</b>——内訳の明快さで選ばれます。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Next Step</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、3店舗・2週間の無料トライアルから。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">実際の仕入データで効果をご確認いただいてから、ご判断ください。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">トライアルを申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{自社名}}　|　{{メール}}　|　{{電話}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

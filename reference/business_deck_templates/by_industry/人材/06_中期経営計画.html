@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/06_中期経営計画_人材.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中期経営計画テンプレート（人材サービス） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙 -->
+<section class="slide dark cover">
+  <div class="grid-bg"></div><div class="wm">VISION</div>
+  <p class="kick">Mid-term Business Plan</p>
+  <h1>
+    <span class="ln"><span style="--i:0">売上100億円へ。</span></span>
+    <span class="ln"><span style="--i:1">紹介×派遣×RPOの3か年</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">中期経営計画 {{FY26–FY28}}　|　{{社名}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline">{{社名}}</span><span class="mono">{{2026.07.18}}</span>
+  </div>
+</section>
+
+<!-- 02 現在地：前中計の総括。主役=達成率103%（極大）＋statグリッド -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Review</div><div class="h2">前中計は、<span class="u">目標超過</span>で完走しました</div>
+      <p class="subhead">{{FY23–FY25}}の前中計は、売上・利益ともに計画を上回って着地。決定人数・稼働スタッフ数も伸ばし切った実行力が、次の3か年計画の信用の裏づけです。</p></div>
+    <div class="tag">01 / REVIEW</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="103">103</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">前中計 売上目標の達成率（計画60.0億円 → 実績62.0億円）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">+10<span class="unit">億円</span></div><div class="kpi-l">3か年の増収幅（52.0 → 62.0）</div></div>
+          <div><div class="kpi sm">5.6<span class="unit">億円</span></div><div class="kpi-l">FY25 営業利益（過去最高）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">掲げた数字をやり切った3年間でした。この実行力を土台に、次は事業ポートフォリオの構造転換へ踏み出します。</p>
+      </div>
+      <div class="reveal" style="--i:1;display:grid;grid-template-columns:1fr 1fr;gap:min(1.8vh,1.8vw);align-content:center">
+        <div class="stat"><div class="kpi">9.0<span class="unit">%</span></div><div class="kpi-l">営業利益率（計画 8.5%）</div></div>
+        <div class="stat"><div class="kpi">78<span class="unit">%</span></div><div class="kpi-l">リピート発注率（取引企業の再依頼）</div></div>
+        <div class="stat"><div class="kpi">1,850<span class="unit">名</span></div><div class="kpi-l">稼働スタッフ数（3年で +420名）</div></div>
+        <div class="stat"><div class="kpi">620<span class="unit">名</span></div><div class="kpi-l">年間決定人数（3年で +180名）</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>約束を果たした<b>達成済みの現在地</b>から、次の3か年を始めます。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 ビジョン：大コピー＋主役数字=FY28売上100億円（.kpi.xl） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Vision</div><div class="h2" style="font-size:min(5vh,5vw)">{{人材サービス領域}}で、いちばん<span class="u">選ばれる会社</span>へ。</div>
+      <p class="subhead">規模はビジョンの結果です。働く人と企業の双方に選ばれる理由を増やした先に、この数字を置きます。</p></div>
+    <div class="tag">02 / VISION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="kpi-l" style="margin:0 0 min(1.4vh,1.4vw);font-size:min(1.5vh,1.5vw)">売上高：FY25 実績 → FY28 目標</div>
+      <div style="display:flex;align-items:baseline;gap:min(2.6vh,2.6vw)">
+        <span class="kpi" style="font-size:min(4.6vh,4.6vw);color:var(--silver)">62<span class="unit">億円</span></span>
+        <svg class="ic" viewBox="0 0 24 24" width="28" height="28" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span class="kpi xl"><span class="count" data-to="100">100</span><span class="unit">億円</span></span>
+        <span class="mono" style="align-self:center;background:var(--cloud);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:min(1.4vh,1.4vw);color:var(--navy);font-weight:600">3か年 CAGR +17.3%</span>
+      </div>
+      <div style="display:flex;gap:min(5vh,5vw);margin-top:min(3vh,3vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+        <div><div class="kpi sm">12.0<span class="unit">億円</span></div><div class="kpi-l">営業利益（FY28）</div></div>
+        <div><div class="kpi sm">12.0<span class="unit">%</span></div><div class="kpi-l">営業利益率（+3.0pt）</div></div>
+        <div><div class="kpi sm">20<span class="unit">%</span></div><div class="kpi-l">RPO・新サービス売上比率</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>言葉のビジョンを、<b>検証可能な数字</b>に翻訳したのがこの中計です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 成長ストーリー：実績3年＋計画3年の売上棒×利益率折れ線。CAGRバッジ焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Growth Story</div><div class="h2">100億円への<span class="u">道筋</span>を、年次で刻む</div>
+      <p class="subhead">紹介×派遣の自然成長（年+9%）に、RPOの立ち上げと拠点展開・M&amp;Aを上乗せして年+17%へ。実績3年と計画3年を同じ物差しで並べています。</p></div>
+    <div class="tag">03 / PLAN</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1fr 1.55fr">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <p class="lead" style="font-size:min(1.75vh,1.75vw)">伸び率は3年間ほぼ一定に平準化。最終年に賭ける「ホッケースティック計画」を排し、毎年の検証に耐える線を引きました。</p>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">+38<span class="unit">億円</span></div><div class="kpi-l">3か年の増収幅</div></div>
+          <div><div class="kpi sm">+6.4<span class="unit">億円</span></div><div class="kpi-l">営業利益の増益幅</div></div>
+        </div>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">売上高と営業利益率：実績 → 計画</span><span class="n">棒＝売上高（億円）／折線＝営業利益率</span></div>
+        <svg class="csvg" viewBox="0 0 560 250" role="img" aria-label="売上は実績52・57・62億円から計画73・85・100億円へ、営業利益率は7.8%から12.0%へ改善">
+          <line x1="8" y1="210" x2="552" y2="210" stroke="var(--line)" stroke-width="1"/>
+          <rect x="20" y="153" width="58" height="57" rx="4" fill="var(--silver)"/>
+          <rect x="112" y="147" width="58" height="63" rx="4" fill="var(--silver)"/>
+          <rect x="204" y="142" width="58" height="68" rx="4" fill="var(--silver)"/>
+          <rect x="296" y="130" width="58" height="80" rx="4" fill="var(--steel)"/>
+          <rect x="388" y="116" width="58" height="94" rx="4" fill="var(--steel)"/>
+          <rect x="480" y="100" width="58" height="110" rx="4" fill="var(--navy)"/>
+          <text class="axis-t" x="49" y="147" text-anchor="middle" style="font-size:12px">52</text>
+          <text class="axis-t" x="141" y="141" text-anchor="middle" style="font-size:12px">57</text>
+          <text class="axis-t" x="233" y="136" text-anchor="middle" style="font-size:12px">62</text>
+          <text class="axis-t" x="325" y="124" text-anchor="middle" style="font-size:12px;fill:var(--steel)">73</text>
+          <text class="axis-t" x="417" y="110" text-anchor="middle" style="font-size:12px;fill:var(--steel)">85</text>
+          <text class="val-t" x="509" y="93" text-anchor="middle">100</text>
+          <line x1="279" y1="40" x2="279" y2="210" stroke="var(--silver)" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="267" y="30" text-anchor="end" style="font:600 11px var(--sans);fill:var(--gray)">実績</text>
+          <text x="291" y="30" text-anchor="start" style="font:600 11px var(--sans);fill:var(--gray)">計画</text>
+          <rect class="ann-bg" x="340" y="8" width="130" height="24" rx="12"/>
+          <text class="ann-t" x="405" y="24" text-anchor="middle">売上CAGR +17%</text>
+          <path class="draw" pathLength="1" d="M49 88 L141 81 L233 76"/>
+          <path d="M233 76 L325 66 L417 56 L509 46" fill="none" stroke="var(--steel)" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>
+          <circle class="dot" cx="49" cy="88" r="4" style="fill:var(--steel);stroke:var(--steel)"/>
+          <circle class="dot" cx="141" cy="81" r="4" style="fill:var(--steel);stroke:var(--steel)"/>
+          <circle class="dot" cx="233" cy="76" r="4" style="fill:var(--steel);stroke:var(--steel)"/>
+          <circle class="dot" cx="325" cy="66" r="4" style="stroke:var(--steel)"/>
+          <circle class="dot" cx="417" cy="56" r="4" style="stroke:var(--steel)"/>
+          <circle class="dot" cx="509" cy="46" r="4" style="stroke:var(--steel)"/>
+          <text x="49" y="75" text-anchor="middle" style="font:500 11px var(--mono);fill:var(--steel)">7.8%</text>
+          <text x="509" y="33" text-anchor="middle" style="font:600 12px var(--mono);fill:var(--steel)">12.0%</text>
+          <text class="axis-t" x="49" y="230" text-anchor="middle" style="font-size:11px">FY23</text>
+          <text class="axis-t" x="141" y="230" text-anchor="middle" style="font-size:11px">FY24</text>
+          <text class="axis-t" x="233" y="230" text-anchor="middle" style="font-size:11px">FY25</text>
+          <text class="axis-t" x="325" y="230" text-anchor="middle" style="font-size:11px">FY26</text>
+          <text class="axis-t" x="417" y="230" text-anchor="middle" style="font-size:11px">FY27</text>
+          <text class="axis-t" x="509" y="230" text-anchor="middle" style="font-size:11px">FY28</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成長は<b>年+17%で平準</b>——最終年に賭けない、検証可能な右肩上がりです。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 戦略3本柱：第1柱=hero（紺ベタは1画面1つ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Strategy</div><div class="h2">成長は、<span class="u">3本の柱</span>で実現する</div>
+      <p class="subhead">+38億円の増収を柱ごとに割り付けます。第1柱で+20億円、第2柱で+18億円、第3柱は利益率+3.0ptで全体を支えます。</p></div>
+    <div class="tag">04 / STRATEGY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 21h16"/><path d="M6 21V9M10 21V9M14 21V9M18 21V9"/><path d="M4 9l8-6 8 6"/></svg></div><div class="idx">PILLAR 01 ― 利益の土台</div><h3>紹介×派遣の深化</h3><p>IT・医療・施工管理など専門職領域へシフトし、紹介単価と派遣マージンを引き上げます。主要2職種への集中投資で継続率を高めます。</p><div class="foot"><span class="n">+20億円</span><span>増収寄与（既存 60 → 80）</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><div class="idx">PILLAR 02 ― 伸びしろ</div><h3>RPO・採用支援の拡大</h3><p>取引企業の採用工程を月額型で丸ごと受託し、第2の収益源を育てます。FY28にはM&Aで一気に規模を引き上げます。</p><div class="foot"><span class="n">+18億円</span><span>増収寄与（RPO 2 → 20）</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">PILLAR 03 ― 実行力</div><h3>候補者DB×CA生産性</h3><p>候補者データベースの刷新とAIマッチングで、CA一人あたり決定数を1.5倍に。第1柱・第2柱を実行し切る生産性を確保します。</p><div class="foot"><span class="n">+3.0pt</span><span>営業利益率の改善</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3本は独立ではなく、<b>第3柱が第1・第2柱の実行力を支える</b>構造です。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 3か年ロードマップ：年次レーン×マイルストーン＋現在地マーカー（暖色はここ1点のみ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Roadmap</div><div class="h2">3か年を、<span class="u">基盤 → 拡大 → 飛躍</span>で進める</div>
+      <p class="subhead">初年度に仕込み、2年目に広げ、3年目に刈り取る。柱ごとの主要マイルストーンを1枚に集約し、現在はFY26を計画どおり進行中です。</p></div>
+    <div class="tag">05 / ROADMAP</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">3か年ロードマップ：3本柱 × 年次マイルストーン</span><span class="n">FY26.04 → FY29.03</span></div>
+        <svg class="fsvg" viewBox="0 0 1120 258" role="img" aria-label="FY26基盤・FY27拡大・FY28飛躍の3か年ロードマップ。現在地は2026年7月">
+          <line x1="130" y1="26" x2="1100" y2="26" stroke="var(--silver)" stroke-width="1.5"/>
+          <polygon points="1100,20 1114,26 1100,32" fill="var(--silver)"/>
+          <line x1="130" y1="20" x2="130" y2="32" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="460" y1="20" x2="460" y2="32" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="790" y1="20" x2="790" y2="32" stroke="var(--silver)" stroke-width="1.5"/>
+          <circle cx="210" cy="26" r="5.5" fill="var(--warn)"/>
+          <text x="210" y="12" text-anchor="middle" style="font:600 12px var(--sans);fill:var(--warn)">現在地 2026.07</text>
+          <text x="290" y="55" text-anchor="middle" style="font:700 15px var(--sans);fill:var(--navy)">FY26 ― 基盤を固める</text>
+          <text x="615" y="55" text-anchor="middle" style="font:700 15px var(--sans);fill:var(--navy)">FY27 ― 拡大する</text>
+          <rect x="866" y="37" width="158" height="24" rx="12" fill="var(--navy)"/>
+          <text x="945" y="54" text-anchor="middle" style="font:700 13px var(--sans);fill:var(--white)">FY28 ― 飛躍する</text>
+          <text class="an" x="0" y="99">紹介・派遣</text>
+          <text class="an" x="0" y="155">RPO・採用支援</text>
+          <text class="an" x="0" y="211">DB・生産性</text>
+          <rect class="nd" x="138" y="72" width="296" height="44" rx="10"/>
+          <rect class="nd" x="468" y="72" width="296" height="44" rx="10"/>
+          <rect x="798" y="72" width="296" height="44" rx="10" style="fill:var(--white);stroke:var(--navy);stroke-width:1.5"/>
+          <text class="nd-t" x="286" y="99" text-anchor="middle">専門職領域へ特化シフト</text>
+          <text class="nd-t" x="616" y="99" text-anchor="middle">主要都市へ拠点展開</text>
+          <text class="nd-t" x="946" y="99" text-anchor="middle" style="fill:var(--navy)">専門職紹介でシェアNo.1</text>
+          <rect class="nd" x="138" y="128" width="296" height="44" rx="10"/>
+          <rect class="nd" x="468" y="128" width="296" height="44" rx="10"/>
+          <rect x="798" y="128" width="296" height="44" rx="10" style="fill:var(--white);stroke:var(--navy);stroke-width:1.5"/>
+          <text class="nd-t" x="286" y="155" text-anchor="middle">RPOサービスを商品化</text>
+          <text class="nd-t" x="616" y="155" text-anchor="middle">大手取引先へ横展開</text>
+          <text class="nd-t" x="946" y="155" text-anchor="middle" style="fill:var(--navy)">M&amp;AでRPO 20億円規模へ</text>
+          <rect class="nd" x="138" y="184" width="296" height="44" rx="10"/>
+          <rect class="nd" x="468" y="184" width="296" height="44" rx="10"/>
+          <rect x="798" y="184" width="296" height="44" rx="10" style="fill:var(--white);stroke:var(--navy);stroke-width:1.5"/>
+          <text class="nd-t" x="286" y="211" text-anchor="middle">候補者DBを全面刷新</text>
+          <text class="nd-t" x="616" y="211" text-anchor="middle">AIマッチング全社導入</text>
+          <text class="nd-t" x="946" y="211" text-anchor="middle" style="fill:var(--navy)">CA決定数1.5倍を定着</text>
+          <path class="ar" d="M445 88l12 6-12 6z"/><path class="ar" d="M775 88l12 6-12 6z"/>
+          <path class="ar" d="M445 144l12 6-12 6z"/><path class="ar" d="M775 144l12 6-12 6z"/>
+          <path class="ar" d="M445 200l12 6-12 6z"/><path class="ar" d="M775 200l12 6-12 6z"/>
+          <text class="mn" x="0" y="252">各マイルストーンは担当役員のKPIに接続（数値目標はP.8、推進体制はP.9）</text>
+        </svg>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>仕込み → 拡大 → 刈り取りの<b>順番を守る</b>ことが、3年で最も速い道です。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 投資配分：構成横バー（%内側白文字）＋回収規律 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Investment</div><div class="h2">3か年で<span class="u">30億円</span>を、成長へ投じる</div>
+      <p class="subhead">財源は3か年の営業キャッシュフロー見込み28億円と既存借入枠の範囲内。回収規律と財務健全性を守りながら、RPOと候補者DBへ厚く配分します。</p></div>
+    <div class="tag">06 / INVESTMENT</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi" style="font-size:min(6vh,6vw)"><span class="count" data-to="30">30</span><span class="unit">億円</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">3か年の成長投資枠（営業CF 28億円＋既存借入枠内）</div>
+        </div>
+        <ul class="checks" style="margin-top:min(2.8vh,2.8vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>投資規律</b>：案件ごとにROIC 8%基準と撤退ラインを事前設定。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>財務規律</b>：自己資本比率45%以上を維持（FY25：48%）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>株主還元</b>：配当性向30%を継続し、成長と還元を両立。</span></li>
+        </ul>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">投資配分の内訳（3か年累計）</span><span class="n">総額 30.0億円＝100%</span></div>
+        <svg class="csvg" viewBox="0 0 520 84" role="img" aria-label="投資配分：RPO・M&A40%、候補者DB・システム25%、CA・営業の採用育成20%、拠点・ブランド15%">
+          <defs><clipPath id="cashbar"><rect x="0" y="14" width="520" height="56" rx="12"/></clipPath></defs>
+          <g clip-path="url(#cashbar)">
+            <rect x="0" y="14" width="208" height="56" fill="var(--navy)"/>
+            <rect x="208" y="14" width="130" height="56" fill="var(--steel)"/>
+            <rect x="338" y="14" width="104" height="56" fill="var(--graphite)"/>
+            <rect x="442" y="14" width="78" height="56" fill="var(--gray)"/>
+          </g>
+          <text x="104" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">40%</text>
+          <text x="104" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">RPO・M&amp;A</text>
+          <text x="273" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">25%</text>
+          <text x="273" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">候補者DB</text>
+          <text x="390" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">20%</text>
+          <text x="390" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">採用育成</text>
+          <text x="481" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">15%</text>
+          <text x="481" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">拠点</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;margin-top:min(1.4vh,1.4vw)">
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--navy);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">RPO・M&amp;A</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">第2柱の立ち上げとM&amp;A原資</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">12.0億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--steel);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">候補者DB・システム</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">DB刷新とAIマッチング基盤</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">7.5億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--graphite);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">CA・営業の採用育成</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">3年で+60名の採用と教育投資</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">6.0億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--gray);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">拠点・ブランド</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">主要都市の拠点展開と認知投資</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">4.5億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0 0;border-top:2px solid var(--navy)"><span style="font-size:min(1.45vh,1.45vw);font-weight:700;color:var(--navy)">合計（3か年累計）</span><span class="mono" style="margin-left:auto;font-size:min(1.7vh,1.7vw);color:var(--navy);font-weight:600">30.0億円</span></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>攻めの配分と守りの規律はセット——<b>使い切る計画ではなく、回収する計画</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 KPI：財務×事業KPIの一覧表。最右列=FY28目標をcol-hiで主役に -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Targets</div><div class="h2">コミットする数字は、<span class="u">この7つ</span></div>
+      <p class="subhead">財務と事業KPIをひとつの表で管理します。最右列のFY28目標が、全部門・全社員の共通ゴールです。</p></div>
+    <div class="tag">07 / KPI</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr>
+        <th style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">分類</th>
+        <th style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">指標</th>
+        <th class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY25 実績</th>
+        <th class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY26</th>
+        <th class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY27</th>
+        <th class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY28 目標</th>
+      </tr></thead>
+      <tbody>
+        <tr><td rowspan="5" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">財務</td><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">売上高（億円）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">62.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">73.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">85.0</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">100.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">営業利益（億円）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">5.6</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">7.3</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">9.4</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">12.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">営業利益率（%）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">9.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">10.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">11.0</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">12.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">ROE（%）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">8.2</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">9.5</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">11.0</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">12.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">RPO・新サービス売上比率（%）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">3</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">8</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">14</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">20</td></tr>
+        <tr><td rowspan="2" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">事業</td><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">年間決定人数（名）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">620</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">720</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">850</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">1,000</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">稼働スタッフ数（名）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">1,850</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">2,100</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">2,400</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">2,700</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>目標レンジは置かず、<b>コミットする1本の数字</b>だけを掲げます。<span style="color:var(--gray);font-weight:500;margin-left:8px">※算定前提（求人市況・稼働率等）は{{Appendix}}に明記</span></span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 推進体制とモニタリング：体制図＋月次/四半期/年次サイクル -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Governance</div><div class="h2">計画を、<span class="u">回し切る</span>体制</div>
+      <p class="subhead">作って終わりにしないための仕組みです。柱ごとに担当役員を置き、月次で測り、四半期で軌道修正し、年次で計画を磨き直します。</p></div>
+    <div class="tag">08 / GOVERNANCE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">推進体制</span><span class="n">柱ごとに担当役員を任命</span></div>
+        <svg class="fsvg" viewBox="0 0 460 262" role="img" aria-label="取締役会の監督のもと、代表取締役を委員長とする中計推進委員会が3本柱の担当役員を統括">
+          <rect class="nd" x="150" y="6" width="160" height="38" rx="10"/>
+          <text class="nd-t" x="230" y="30" text-anchor="middle">取締役会（監督）</text>
+          <line x1="230" y1="44" x2="230" y2="60" stroke="var(--silver)" stroke-width="1.5"/>
+          <path d="M225 60l5 8 5-8z" fill="var(--silver)"/>
+          <rect x="115" y="68" width="230" height="56" rx="12" style="fill:var(--navy)"/>
+          <text x="230" y="92" text-anchor="middle" style="font:700 14px var(--sans);fill:var(--white)">中計推進委員会</text>
+          <text x="230" y="110" text-anchor="middle" style="font:500 10.5px var(--sans);fill:rgba(255,255,255,.65)">委員長：代表取締役｜月次開催</text>
+          <line x1="230" y1="124" x2="230" y2="138" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="75" y1="138" x2="385" y2="138" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="75" y1="138" x2="75" y2="152" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="230" y1="138" x2="230" y2="152" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="385" y1="138" x2="385" y2="152" stroke="var(--silver)" stroke-width="1.5"/>
+          <rect class="nd" x="5" y="152" width="140" height="52" rx="10"/>
+          <rect class="nd" x="160" y="152" width="140" height="52" rx="10"/>
+          <rect class="nd" x="315" y="152" width="140" height="52" rx="10"/>
+          <text class="nd-t" x="75" y="174" text-anchor="middle" style="font-size:12.5px">第1柱 紹介・派遣</text>
+          <text x="75" y="192" text-anchor="middle" style="font:500 10.5px var(--sans);fill:var(--gray)">担当：{{取締役◯◯}}</text>
+          <text class="nd-t" x="230" y="174" text-anchor="middle" style="font-size:12px">第2柱 RPO・採用支援</text>
+          <text x="230" y="192" text-anchor="middle" style="font:500 10.5px var(--sans);fill:var(--gray)">担当：{{取締役◯◯}}</text>
+          <text class="nd-t" x="385" y="174" text-anchor="middle" style="font-size:12.5px">第3柱 DB・生産性</text>
+          <text x="385" y="192" text-anchor="middle" style="font:500 10.5px var(--sans);fill:var(--gray)">担当：{{取締役◯◯}}</text>
+          <line x1="0" y1="224" x2="460" y2="224" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <text class="mn" x="0" y="248">社外へ：四半期ごとに株主・お取引金融機関へ進捗を開示</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.7vh,1.7vw);justify-content:center">
+        <div class="card" style="padding:min(2vh,2vw) min(2.4vh,2.4vw)"><div class="idx">MONTHLY ― 月次</div><h3>KPIダッシュボードを全社公開</h3><p>P.8の7指標に加え、決定人数・稼働数は週次で更新し、全社員が同じ数字を見る状態を保ちます。</p></div>
+        <div class="card" style="padding:min(2vh,2vw) min(2.4vh,2.4vw)"><div class="idx">QUARTERLY ― 四半期</div><h3>推進委員会でレビューと修正</h3><p>未達の要因を分析し、打ち手と投資配分を組み替えます。結果は株主・金融機関へ開示します。</p></div>
+        <div class="card" style="padding:min(2vh,2vw) min(2.4vh,2.4vw)"><div class="idx">YEARLY ― 年次</div><h3>前提を再点検し、計画を更新</h3><p>求人市況・賃金相場の前提を検証して翌年度計画へ反映します。目標は下げず、道筋のほうを磨き直します。</p></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>未達は四半期で検知し、<b>打ち手を差し替える</b>——この運用が計画の信頼を作ります。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：全社キックオフ・説明会へ -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Kickoff</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">この計画を、全員の計画に。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">{{YYYY.MM.DD}} 全社キックオフを開催します。株主・お取引金融機関の皆さまには、四半期ごとに進捗をご報告します。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">キックオフ・説明会の詳細へ<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{社名}}　経営企画室　|　{{メール}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/08_業務改善DX提案_士業コンサル.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>業務改善・DX提案テンプレート（士業・コンサルティング） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙：削減インパクトの数字をアンカーに -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">DX</div>
+  <p class="kick">Internal DX Proposal</p>
+  <h1>
+    <span class="ln"><span style="--i:0">{{資料回収・仕訳入力業務}}の自動化で、</span></span>
+    <span class="ln"><span style="--i:1">年間3,600時間を取り戻すご提案</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">{{ツールA}} 導入稟議　|　起案：{{業務推進チーム}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline">{{社名}}</span><span class="mono">{{2026.07.18}}</span>
+  </div>
+</section>
+
+<!-- 02 現状分析：業務フロー＋ボトルネック図解（実測データ焼き込み。warnは仕訳入力の1点のみ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Current State</div><div class="h2">所内の手作業は、<span class="u">この1工程</span>に集中しています</div>
+      <p class="subhead">{{業務推進チーム}}ヒアリングをもとに、顧問先1件の月次業務を工程別に実測しました。時間を奪っているのは人ではなく、紙とメールと会計ソフトをまたぐ工程の設計です。</p></div>
+    <div class="tag">01 / CURRENT</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">現行フロー：顧問先1件あたりの月次所要時間</span><span class="n">月{{100}}件 × 300分 = 500時間/月</span></div>
+        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行5工程のうち仕訳入力に150分が集中">
+          <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
+          <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
+          <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="115" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
+          <text class="nd-t" x="50" y="53" text-anchor="middle">資料催促</text>
+          <text class="nd-t" x="165" y="53" text-anchor="middle">受領・整理</text>
+          <text class="nd-t hot" x="280" y="53" text-anchor="middle">仕訳入力</text>
+          <text class="nd-t" x="395" y="53" text-anchor="middle">月次レビュー</text>
+          <text class="nd-t" x="510" y="53" text-anchor="middle">報告書作成</text>
+          <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
+          <text class="an" x="0" y="104">1件あたり 計300分</text>
+          <text class="an hot" x="0" y="126">うち150分（50%）がこの1工程</text>
+          <path class="lead-l" d="M198 122 C 234 126 252 140 262 158"/>
+          <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
+          <rect class="bar" x="33" y="184" width="34" height="20" rx="4"/>
+          <rect class="bar" x="148" y="164" width="34" height="40" rx="4"/>
+          <rect class="bar hot" x="263" y="104" width="34" height="100" rx="4"/>
+          <rect class="bar" x="378" y="174" width="34" height="30" rx="4"/>
+          <rect class="bar" x="493" y="194" width="34" height="10" rx="4"/>
+          <text class="mn" x="50" y="176" text-anchor="middle">30分</text>
+          <text class="mn" x="165" y="156" text-anchor="middle">60分</text>
+          <text class="mn hot inbar" x="280" y="126" text-anchor="middle">150分</text>
+          <text class="mn" x="395" y="166" text-anchor="middle">45分</text>
+          <text class="mn" x="510" y="186" text-anchor="middle">15分</text>
+          <text class="mn" x="0" y="228">所要時間（分・{{業務推進チーム}}ヒアリングより）</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi"><span class="count" data-to="100">100</span><span class="unit">件/月</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">月次を担当する顧問先数</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.4vh,2.4vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">300<span class="unit">分/件</span></div><div class="kpi-l">現状の月次処理時間</div></div>
+          <div><div class="kpi sm">8<span class="unit">名</span></div><div class="kpi-l">月次に関与する担当者</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.4vh,2.4vw);font-size:min(1.7vh,1.7vw)">1件300分のうち150分が「仕訳入力」。繁忙期（12〜3月）は残業が1人あたり月45時間に達し、月次報告の提出が遅れています。</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは業務全体ではなく、<b>この1工程</b>だけです。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 課題の構造：空雨傘。warnは「雨」の帯1点のみ -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Cost of Inaction</div><div class="h2">「回っている」の裏で、<span class="u">月300時間</span>が消えています</div>
+      <p class="subhead">事実（空）と損失（雨）を分けて捉えます。現状維持は「無料」ではなく、見えないコストを払い続ける選択です。</p></div>
+    <div class="tag">02 / ISSUE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi"><span class="count" data-to="300">300</span><span class="unit">時間/月</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">付加価値を生まない催促・転記・照合作業（月{{100}}件 × 180分）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.4vh,2.4vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">75<span class="unit">万円/月</span></div><div class="kpi-l">人件費換算（時給{{2,500}}円）</div></div>
+          <div><div class="kpi sm">180<span class="unit">分/件</span></div><div class="kpi-l">自動化できる作業時間</div></div>
+        </div>
+        <div style="margin-top:min(2.4vh,2.4vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.4vh,1.4vw)">放置した場合の累積損失（人件費換算・判断を先送りするほど増える）</div>
+          <svg class="csvg" viewBox="0 0 340 120" role="img" aria-label="放置すると損失は毎月75万円ずつ累積し、12か月で900万円に達する">
+            <line class="grid-l" x1="0" y1="52" x2="340" y2="52"/>
+            <line class="grid-l" x1="0" y1="81" x2="340" y2="81"/>
+            <line x1="0" y1="110" x2="340" y2="110" stroke="var(--silver)" stroke-width="1"/>
+            <text class="axis-t" x="0" y="48">600万</text>
+            <text class="axis-t" x="0" y="77">300万</text>
+            <path class="area" d="M0,110 L340,23 L340,120 L0,120 Z"/>
+            <path class="draw" pathLength="1" d="M0,110 L340,23"/>
+            <circle class="dot key" cx="340" cy="23" r="5"/>
+            <text class="val-t" x="332" y="14" text-anchor="end">12か月で −900万円</text>
+          </svg>
+          <div style="display:flex;justify-content:space-between;font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:6px"><span>1か月目</span><span>毎月75万円ずつ累積</span><span>12か月目</span></div>
+        </div>
+      </div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">1件あたり月<b>300分</b>の手作業。うち180分は、判断を伴わない催促・転記・照合。</div></div>
+        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">月<b>300時間</b>・人件費換算<b>75万円</b>が、付加価値ゼロの作業に消えている。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">資料回収と仕訳をツールに任せ、人は月次レビューと顧問先への助言だけに集中する。</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>現状維持は無料ではありません。<b>毎月75万円</b>を払い続ける選択です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 改善方針：Before/After図解。After紺ベタ＋−60%バッジが主役 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">To-Be</div><div class="h2">工程を置き換える。<span class="u">手順は変えない</span>。</div>
+      <p class="subhead">画面や手順を覚え直す改善は定着しません。人手の3工程だけをツールに置き換え、顧問先とのやり取りの流れはそのまま残します。</p></div>
+    <div class="tag">03 / TO-BE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">改善方針：{{ツールA}}による自動化</h3>
+        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>催促をなくす</b>。資料依頼は自動リマインド、顧問先はスマホで提出。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>転記をなくす</b>。通帳・領収書をAI-OCRで読取り、{{会計ソフト}}へ自動仕訳。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>確認を絞る</b>。人の作業は仕訳レビューと例外対応だけに。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>報告を早める</b>。月次報告書は自動生成。提出を5営業日前倒し。</span></li>
+        </ul>
+      </div>
+      <div class="ba reveal" style="--i:1">
+        <div class="row before">
+          <div class="hd"><span class="k">BEFORE ― 現行</span><span class="t">300<span class="u">分/件</span></span></div>
+          <div class="chips">
+            <span class="chip">資料催促<span class="m">30分</span></span>
+            <span class="chip">受領・整理<span class="m">60分</span></span>
+            <span class="chip">仕訳入力<span class="m">150分</span></span>
+            <span class="chip">レビュー・報告書<span class="m">60分</span></span>
+          </div>
+          <div class="bar"><i style="width:100%"></i></div>
+        </div>
+        <div class="mid">
+          <svg class="ic" viewBox="0 0 24 24" width="20" height="20" style="stroke-width:2.2;color:var(--steel)"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          <span class="badge">−60%</span>
+          <span class="lbl">{{ツールA}} 導入</span>
+        </div>
+        <div class="row after">
+          <div class="hd"><span class="k">AFTER ― 導入後</span><span class="t">120<span class="u">分/件</span></span></div>
+          <div class="chips">
+            <span class="chip">自動リマインド回収</span>
+            <span class="chip">自動仕訳（AI-OCR）</span>
+            <span class="chip">レビューと助言のみ<span class="m">120分</span></span>
+          </div>
+          <div class="bar"><i style="width:40%"></i></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>顧問先も所内も覚え直すことはほぼゼロ。<b>いまの流れのまま</b>、1件300分が120分になります。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 効果試算：主役=年間3,600時間（極大）。右にウォーターフォール（warnはツール費1点のみ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Impact</div><div class="h2">効果は、<span class="u">時間と金額</span>の両方で試算しました</div>
+      <p class="subhead">対象は催促・転記・照合の削減分のみ。教育コストや副次効果は含めない、盛らない前提でこの数字です。</p></div>
+    <div class="tag">04 / IMPACT</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl">3,600<span class="unit">時間/年</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">取り戻せる時間（月{{100}}件 × 180分 × 12か月）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">300<span class="unit">時間/月</span></div><div class="kpi-l">毎月の削減時間</div></div>
+          <div><div class="kpi sm">−60<span class="unit">%</span></div><div class="kpi-l">1件あたりの月次時間</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">戻った時間は決算・申告の前倒しと、顧問先への助言・提案業務へ再配分します。人員削減の提案ではありません。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">年間効果の金額換算（ウォーターフォール）</span><span class="n">時給{{2,500}}円・初年度</span></div>
+        <svg class="csvg" viewBox="0 0 340 200" role="img" aria-label="人件費換算900万円からツール費140万円を引き、純効果は年760万円">
+          <line class="grid-l" x1="0" y1="82" x2="340" y2="82"/>
+          <line class="grid-l" x1="0" y1="130" x2="340" y2="130"/>
+          <text class="axis-t" x="0" y="78">600万</text>
+          <text class="axis-t" x="0" y="126">300万</text>
+          <line x1="0" y1="178" x2="340" y2="178" stroke="var(--silver)" stroke-width="1"/>
+          <rect x="58" y="34" width="64" height="144" rx="4" fill="var(--steel)"/>
+          <path class="lead-l" d="M122 34 L148 34"/>
+          <rect x="148" y="34" width="64" height="22" rx="4" fill="var(--warn)"/>
+          <path class="lead-l" d="M212 56 L238 56"/>
+          <rect x="238" y="56" width="64" height="122" rx="4" fill="var(--navy)"/>
+          <text x="90" y="26" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600" fill="var(--graphite)">+900万円</text>
+          <text x="180" y="26" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600" fill="var(--warn)">−140万円</text>
+          <text class="val-t" x="270" y="46" text-anchor="middle">760万円</text>
+          <text class="axis-t" x="90" y="194" text-anchor="middle">人件費換算</text>
+          <text class="axis-t" x="180" y="194" text-anchor="middle">ツール費（初年度）</text>
+          <text class="axis-t" x="270" y="194" text-anchor="middle">純効果</text>
+        </svg>
+        <div style="margin-top:12px;font-family:var(--mono);font-size:min(1.15vh,1.15vw);color:var(--gray)">900万円 = 3,600h × 2,500円　|　ツール費 = 初期20万円 + 月10万円 × 12</div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>人件費換算で<b>900万円</b>。ツール費を差し引いても、初年度<b>純効果760万円</b>（2年目以降は780万円/年）。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 ツール比較：推奨案の列を強調。チェック/バツで走査性 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Tool Selection</div><div class="h2">ツールは、<span class="u">3案を比較</span>して選びました</div>
+      <p class="subhead">最安でも最多機能でもなく、「効果が出て、費用が釣り合う」案を推奨します。弱みも含めて正直に並べています。</p></div>
+    <div class="tag">05 / TOOLS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr><th>比較軸</th><th class="col-hi">推奨：{{ツールA}}</th><th>{{ツールB}}（大手）</th><th>{{ツールC}}（最安）</th></tr></thead>
+      <tbody>
+        <tr><td>費用（初年度合計）</td><td class="col-hi num">1,400,000円</td><td class="num">2,760,000円</td><td class="num">480,000円</td></tr>
+        <tr><td>AI-OCR読取・自動仕訳</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>標準対応</span></td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>標準対応</span></td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>なし（入力補助のみ）</span></td></tr>
+        <tr><td>{{会計ソフト}}連携</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>標準対応</span></td><td>オプション（+月30,000円）</td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>CSV手動取込</span></td></tr>
+        <tr><td>導入支援</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>設定代行＋初月並走</span></td><td>有償（別途300,000円〜）</td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>なし（自所で設定）</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最安の{{ツールC}}では仕訳入力が残り、効果が出ません。<b>効果と費用の釣り合い</b>で{{ツールA}}を推奨します。<span style="color:var(--gray);font-weight:500;margin-left:8px">※{{2026年6月}}時点の公開料金・起案チーム調べ</span></span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 リスクと対策：定着・二重運用・例外の3点。対策は緑チェックで対に -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Risk &amp; Mitigation</div><div class="h2">つまずく理由は、<span class="u">先に</span>潰してあります</div>
+      <p class="subhead">DXの失敗要因は技術ではなく運用です。想定されるリスク3つに、対策をセットで用意しました。</p></div>
+    <div class="tag">06 / RISK</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)"><div class="grid g3">
+      <div class="card reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">RISK 01 ― 現場定着</div><h3>使われず、元に戻る</h3><p>操作が浸透せず、気づけば担当者ごとの自己流の手入力に戻っている——業務改善で最も多い失敗です。</p><div class="foot" style="font-family:var(--sans);font-size:min(1.35vh,1.35vw);color:var(--ink);align-items:flex-start;gap:9px;line-height:1.6"><span style="width:min(2.8vh,2.8vw);height:min(2.8vh,2.8vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:var(--navy)">対策</b>：研修は1人1時間で完了する設計。初月は推進チームが並走し、週次でつまずきを回収。</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></div><div class="idx">RISK 02 ― 二重運用</div><h3>紙とツールが併存する</h3><p>移行期に顧問先ごとに新旧の手順が並び、かえって工数が増える——移行が長引くほど起きやすくなります。</p><div class="foot" style="font-family:var(--sans);font-size:min(1.35vh,1.35vw);color:var(--ink);align-items:flex-start;gap:9px;line-height:1.6"><span style="width:min(2.8vh,2.8vw);height:min(2.8vh,2.8vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:var(--navy)">対策</b>：展開は担当チーム単位で4週間に区切り、切替日以降の月次は旧手順で処理しない。</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg></div><div class="idx">RISK 03 ― 例外対応</div><h3>定型外で手が止まる</h3><p>手書きの領収書や特殊な業種の取引で読取エラーが発生し、月次の確認が滞るおそれがあります。</p><div class="foot" style="font-family:var(--sans);font-size:min(1.35vh,1.35vw);color:var(--ink);align-items:flex-start;gap:9px;line-height:1.6"><span style="width:min(2.8vh,2.8vw);height:min(2.8vh,2.8vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:var(--navy)">対策</b>：例外は人が処理する専用フローを事前定義。発生率を月次でレビューし読取設定を改善。</span></div></div>
+    </div>
+      <div class="load reveal" style="--i:3;flex-direction:row;align-items:center;gap:min(2.6vh,2.6vw)">
+        <span style="font-family:var(--display);font-size:min(1.25vh,1.25vw);letter-spacing:.14em;font-weight:600;color:var(--steel);white-space:nowrap">EXIT RULE ― 撤退基準</span>
+        <span style="font-size:min(1.55vh,1.55vw);font-weight:500;color:var(--ink)">試験運用で自動仕訳の精度が<b style="color:var(--navy)">90%未満</b>なら全体展開せず中止します。その場合の支出は<span class="mono">最大40万円</span>（初期20万円＋月額2か月分）で止まります。</span>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>リスクを承知のうえで、<b>対策込み</b>の計画です。想定外は試験運用で先に洗い出します。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 導入ステップ：4ステップ＋作業負荷バー（現場ほぼゼロを可視化） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Roadmap</div><div class="h2">月次を止めずに、<span class="u">8週間</span>で移行します</div>
+      <p class="subhead">担当者の負荷は研修1時間と確認のみ。設定と移行作業は、{{業務推進チーム}}とシステム担当が引き受けます。</p></div>
+    <div class="tag">07 / ROADMAP</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <div class="grid g4">
+        <div class="card stepcard reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="idx">STEP 1 ― 第1-2週</div><h3>初期設定</h3><p>勘定科目・顧問先マスタ・承認ルートを設定。作業は推進チームが実施します。</p><div class="foot"><span class="n">0時間</span><span>担当者の作業</span></div></div>
+        <div class="card stepcard reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="idx">STEP 2 ― 第3-4週</div><h3>試験運用</h3><p>顧問先10件で実データ検証。自動仕訳の精度と例外率を確認します。</p><div class="foot"><span class="n">10件</span><span>で小さく検証</span></div></div>
+        <div class="card stepcard reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">STEP 3 ― 第5-8週</div><h3>全体展開</h3><p>担当チーム単位で切替。研修は1人1時間、初月は推進チームが並走します。</p><div class="foot"><span class="n">1時間</span><span>研修（1人あたり）</span></div></div>
+        <div class="card stepcard reveal" style="--i:3"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><div class="idx">STEP 4 ― 第9週〜</div><h3>本稼働・効果測定</h3><p>削減時間を月次でレビューし、決算・申告業務へ横展開します。</p><div class="foot"><span class="n">月次</span><span>で効果レビュー</span></div></div>
+      </div>
+      <div class="load reveal" style="--i:4">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">導入8週間の作業負荷の内訳</span><span class="n">合計 約34時間</span></div>
+        <div class="lr"><span class="ln">推進チーム</span><span class="track"><i style="width:88%;background:var(--navy)"></i></span><span class="lv">約30時間（推進・システム担当）</span></div>
+        <div class="lr"><span class="ln">月次の担当者</span><span class="track"><i style="width:12%;background:var(--silver)"></i></span><span class="lv">約4時間（研修1h＋確認）</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>担当者の負担は<b>1人あたり約1時間</b>。「繁忙期で移行できない」を計画で回避します。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 体制（RACI）：決裁者列を強調。工程に時期を併記し8週間計画と接続 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Team &amp; Governance</div><div class="h2">体制は組んであります。あとは<span class="u">動くだけ</span>です</div>
+      <p class="subhead">役割はRACIで固定し、各工程の説明責任（A）を1名に絞りました。ご承認いただければ、その週から着手します。</p></div>
+    <div class="tag">08 / TEAM</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr><th>工程（時期）</th><th style="text-align:center">{{業務推進チーム}}（起案）</th><th style="text-align:center">{{システム担当}}</th><th style="text-align:center">{{巡回監査担当}}</th><th class="col-hi" style="text-align:center">{{代表社員}}</th></tr></thead>
+      <tbody>
+        <tr><td>ツール契約（第1週）</td><td class="mono" style="text-align:center">R</td><td class="mono" style="text-align:center">C</td><td class="mono" style="text-align:center">C</td><td class="col-hi mono" style="text-align:center">A</td></tr>
+        <tr><td>環境構築・マスタ移行（第1-2週）</td><td class="mono" style="text-align:center">A</td><td class="mono" style="text-align:center">R</td><td class="mono" style="text-align:center">I</td><td class="col-hi mono" style="text-align:center">I</td></tr>
+        <tr><td>試験運用・検証（第3-4週）</td><td class="mono" style="text-align:center">A</td><td class="mono" style="text-align:center">C</td><td class="mono" style="text-align:center">R</td><td class="col-hi mono" style="text-align:center">I</td></tr>
+        <tr><td>全体展開・定着（第5-8週）</td><td class="mono" style="text-align:center">A</td><td class="mono" style="text-align:center">C</td><td class="mono" style="text-align:center">R</td><td class="col-hi mono" style="text-align:center">I</td></tr>
+        <tr><td>効果測定・月次報告（第9週〜）</td><td class="mono" style="text-align:center">R</td><td class="mono" style="text-align:center">I</td><td class="mono" style="text-align:center">C</td><td class="col-hi mono" style="text-align:center">A</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>{{代表社員}}にお願いするのは<b>2回だけ</b>——本日の承認と、月次レビューの確認です。<span style="color:var(--gray);font-weight:500;margin-left:8px">※R=実行／A=説明責任／C=相談／I=共有（Aは各行1名）</span></span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：承認依頼。決めないこともコスト、と再フレーム -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Approval Request</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">ご承認いただきたいのは、試験運用の開始です。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">費用は初期20万円＋月10万円。効果が出なければ1か月で止められます。<br>一方、判断を待つ1か月にも、約75万円の見えない損失が続きます。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{稟議システムURL}}">試験運用を承認する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{社名}}　|　{{業務推進チーム}}　|　{{起案者・内線}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

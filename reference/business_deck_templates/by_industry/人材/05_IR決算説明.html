@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/05_IR決算説明_人材.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IR・決算説明テンプレート（人材サービス） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙 -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">IR</div>
+  <p class="kick">IR / Earnings Presentation</p>
+  <h1>
+    <span class="ln"><span style="--i:0">{{2026年3月期}} 通期</span></span>
+    <span class="ln"><span style="--i:1">決算説明会</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">{{企業名}}（証券コード：{{XXXX}}｜東証{{プライム}}）</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0;color:rgba(255,255,255,.5)">
+    <span class="brandline" style="color:#fff">{{企業名}}</span><span class="mono">{{2026.5.15}}</span>
+  </div>
+</section>
+
+<!-- 02 業績ハイライト：主役=売上高YoY +14.6%（極大）。副KPI3連 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Highlights</div><div class="h2">当期は、<span class="u">増収増益</span>で着地しました</div>
+      <p class="subhead">通期は増収増益。売上高・営業利益・純利益のすべてが、3期連続で過去最高を更新しました。</p></div>
+    <div class="tag">01 / HIGHLIGHTS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <span style="align-self:flex-start;font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;font-weight:600;color:#fff;background:var(--navy);border-radius:999px;padding:6px 16px">3期連続 過去最高</span>
+        <div style="margin-top:min(2vh,2vw)">
+          <div class="kpi xl"><span style="font-size:.5em;color:var(--gray)">+</span><span class="count" data-to="14.6" data-dec="1">14.6</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">売上高 前期比（通期）</div>
+        </div>
+        <div class="mono" style="margin-top:min(2.4vh,2.4vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line);font-size:min(1.7vh,1.7vw);color:var(--graphite)">売上高 <b style="color:var(--navy)">642.0億円</b>（前期 560.0億円）</div>
+      </div>
+      <div class="reveal" style="--i:1;display:grid;gap:min(1.6vh,1.6vw);align-content:center">
+        <div class="stat" style="text-align:left;padding:min(2vh,2vw) min(2.6vh,2.6vw);display:flex;align-items:baseline;justify-content:space-between;gap:12px"><div><div class="kpi sm">63.5<span class="unit">億円</span></div><div class="kpi-l">営業利益（通期）</div></div><span class="mono" style="font-size:min(1.7vh,1.7vw);font-weight:600;color:var(--navy)">+21.4%</span></div>
+        <div class="stat" style="text-align:left;padding:min(2vh,2vw) min(2.6vh,2.6vw);display:flex;align-items:baseline;justify-content:space-between;gap:12px"><div><div class="kpi sm">9.9<span class="unit">%</span></div><div class="kpi-l">営業利益率（前期 9.3%）</div></div><span class="mono" style="font-size:min(1.7vh,1.7vw);font-weight:600;color:var(--navy)">+0.6pt</span></div>
+        <div class="stat" style="text-align:left;padding:min(2vh,2vw) min(2.6vh,2.6vw);display:flex;align-items:baseline;justify-content:space-between;gap:12px"><div><div class="kpi sm">41.8<span class="unit">億円</span></div><div class="kpi-l">親会社株主に帰属する当期純利益</div></div><span class="mono" style="font-size:min(1.7vh,1.7vw);font-weight:600;color:var(--navy)">+19.8%</span></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>売上・利益とも<b>3期連続で過去最高</b>。紹介の決定人数と派遣の稼働が、そろって成長を牽引しました。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 4期推移：グループ棒（売上=左軸・営業利益=右軸、当期のみ濃色、高さは実数比例） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Growth Trend</div><div class="h2">成長は<span class="u">4期連続</span>、そして加速しています</div>
+      <p class="subhead">通期ベースで4期連続の増収増益。売上の伸びに利益の伸びが先行し、収益性が着実に高まっています。</p></div>
+    <div class="tag">02 / TREND</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1fr 1.45fr">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi"><span style="font-size:.5em;color:var(--gray)">+</span>42<span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">売上高 3年間の成長（通期比較）</div>
+        </div>
+        <div style="display:flex;gap:min(3.6vh,3.6vw);margin-top:min(2.4vh,2.4vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">+12.4<span class="unit">%</span></div><div class="kpi-l">売上高CAGR（3年）</div></div>
+          <div><div class="kpi sm">+18.3<span class="unit">%</span></div><div class="kpi-l">営業利益CAGR（3年）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.4vh,2.4vw);font-size:min(1.65vh,1.65vw)">利益の伸びが売上の伸びを上回り、営業利益率は3年で 8.5% → 9.9% へ改善しました。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">売上高・営業利益の4期推移（通期実績）</span><span class="n">単位：億円｜濃色＝当期</span></div>
+        <svg class="fsvg" viewBox="0 0 560 240" role="img" aria-label="通期の売上高は452億円から642億円へ、営業利益は38.4億円から63.5億円へ拡大">
+          <rect x="20" y="8" width="11" height="11" rx="2" fill="var(--silver)"/>
+          <text class="mn" x="37" y="18">売上高（左軸）</text>
+          <rect x="130" y="8" width="11" height="11" rx="2" fill="var(--gray)"/>
+          <text class="mn" x="147" y="18">営業利益（右軸）</text>
+          <rect x="404" y="6" width="90" height="20" rx="10" fill="var(--navy)"/>
+          <text x="449" y="20" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">3年で +42%</text>
+          <line class="lead-l" x1="449" y1="26" x2="449" y2="32"/>
+          <line class="bl" x1="20" y1="196" x2="540" y2="196"/>
+          <rect class="bar" x="37" y="83" width="44" height="113" rx="4"/>
+          <rect class="bar" x="167" y="70.7" width="44" height="125.3" rx="4"/>
+          <rect class="bar" x="297" y="56" width="44" height="140" rx="4"/>
+          <rect class="bar" x="427" y="35.5" width="44" height="160.5" rx="4" style="fill:var(--navy)"/>
+          <rect class="bar" x="89" y="146.8" width="28" height="49.2" rx="3" style="fill:var(--gray)"/>
+          <rect class="bar" x="219" y="138.9" width="28" height="57.1" rx="3" style="fill:var(--gray)"/>
+          <rect class="bar" x="349" y="129.1" width="28" height="66.9" rx="3" style="fill:var(--gray)"/>
+          <rect class="bar" x="479" y="114.7" width="28" height="81.3" rx="3" style="fill:var(--steel)"/>
+          <text class="mn" x="59" y="76" text-anchor="middle">452</text>
+          <text class="mn" x="189" y="64" text-anchor="middle">501</text>
+          <text class="mn" x="319" y="49" text-anchor="middle">560</text>
+          <text class="mn inbar" x="449" y="53" text-anchor="middle" style="font-weight:600">642</text>
+          <text class="mn" x="103" y="141" text-anchor="middle">38.4</text>
+          <text class="mn" x="233" y="133" text-anchor="middle">44.6</text>
+          <text class="mn" x="363" y="123" text-anchor="middle">52.3</text>
+          <text class="mn" x="493" y="109" text-anchor="middle" style="font-weight:600;fill:var(--steel)">63.5</text>
+          <text class="mn" x="85" y="218" text-anchor="middle">23/3期</text>
+          <text class="mn" x="215" y="218" text-anchor="middle">24/3期</text>
+          <text class="mn" x="345" y="218" text-anchor="middle">25/3期</text>
+          <text class="mn" x="475" y="218" text-anchor="middle" style="font-weight:600;fill:var(--navy)">26/3期（当期）</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>一過性ではなく、<b>4期連続</b>の増収増益トレンドです。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 営業利益ブリッジ：階段状ウォーターフォール。減益要因（販管費増）のみ暖色 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Profit Bridge</div><div class="h2">増益の主因は、<span class="u">増収とミックス改善</span>です</div>
+      <p class="subhead">営業利益 +11.2億円の中身を分解します。減益要因も含め、増減の内訳を正直にお示しします。</p></div>
+    <div class="tag">03 / BRIDGE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.4fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">営業利益 増減ブリッジ（前期 → 当期）</span><span class="n">単位：億円</span></div>
+        <svg class="fsvg" viewBox="0 0 560 240" role="img" aria-label="前期52.3億円から増収効果9.8億円、ミックス改善4.6億円、販管費増マイナス3.2億円を経て当期63.5億円">
+          <line class="bl" x1="20" y1="200" x2="540" y2="200"/>
+          <rect class="bar" x="30" y="84.9" width="70" height="115.1" rx="4"/>
+          <rect class="bar" x="135" y="63.4" width="70" height="21.6" rx="4" style="fill:var(--steel)"/>
+          <rect class="bar" x="240" y="53.3" width="70" height="10.1" rx="3" style="fill:var(--steel)"/>
+          <rect class="bar hot" x="345" y="53.3" width="70" height="7" rx="3"/>
+          <rect class="bar" x="450" y="60.3" width="70" height="139.7" rx="4" style="fill:var(--navy)"/>
+          <line class="bl" x1="100" y1="84.9" x2="135" y2="84.9"/>
+          <line class="bl" x1="205" y1="63.4" x2="240" y2="63.4"/>
+          <line class="bl" x1="310" y1="53.3" x2="345" y2="53.3"/>
+          <line class="bl" x1="415" y1="60.3" x2="450" y2="60.3"/>
+          <text class="mn" x="65" y="77" text-anchor="middle" style="font-weight:600">52.3</text>
+          <text class="mn" x="170" y="56" text-anchor="middle" style="font-weight:600;fill:var(--steel)">+9.8</text>
+          <text class="mn" x="275" y="46" text-anchor="middle" style="font-weight:600;fill:var(--steel)">+4.6</text>
+          <text class="mn hot" x="380" y="45" text-anchor="middle">−3.2</text>
+          <text x="485" y="52" text-anchor="middle" style="font-family:var(--mono);font-size:14px;font-weight:600;fill:var(--navy)">63.5</text>
+          <text x="65" y="222" text-anchor="middle" style="font-size:12px;font-weight:600;fill:var(--graphite)">前期実績</text>
+          <text x="170" y="222" text-anchor="middle" style="font-size:12px;font-weight:600;fill:var(--graphite)">増収効果</text>
+          <text x="275" y="222" text-anchor="middle" style="font-size:12px;font-weight:600;fill:var(--graphite)">ミックス改善</text>
+          <text x="380" y="222" text-anchor="middle" style="font-size:12px;font-weight:600;fill:var(--graphite)">販管費増</text>
+          <text x="485" y="222" text-anchor="middle" style="font-size:12px;font-weight:700;fill:var(--navy)">当期実績</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <ul class="checks" style="gap:min(2vh,2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>増収効果 +9.8億円</b><br>決定人数 +17.0%・稼働スタッフ数 +4.6%。増収に伴う限界利益の増加。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>ミックス改善 +4.6億円</b><br>高採算の人材紹介構成比が上昇し、売上総利益率が0.8pt改善。</span></li>
+          <li><span class="ck" style="background:var(--cloud);color:var(--graphite)"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M6 12h12"/></svg></span><span><b>販管費増 −3.2億円</b><br>キャリアアドバイザー採用とマッチング基盤の先行投資。期初計画の想定内。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>販管費増は<b>計画内の先行投資</b>。増益の主因は収益構造の改善です。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 セグメント別構成比：積み上げ横バー（バー長=売上に比例、%は内側ラベル） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Segments</div><div class="h2">収益の牽引役は、<span class="u">人材紹介</span>です</div>
+      <p class="subhead">セグメント別では、高採算の人材紹介事業が構成比45%へ上昇。増収の66%を占めています。</p></div>
+    <div class="tag">04 / SEGMENT</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">セグメント別 売上構成（通期）</span><span class="n">単位：億円｜バー長は売上高に比例</span></div>
+        <svg class="fsvg" viewBox="0 0 560 220" role="img" aria-label="人材紹介の構成比は前期42%から当期45%へ上昇。売上は560億円から642億円へ拡大">
+          <rect x="20" y="4" width="11" height="11" rx="2" fill="var(--navy)"/>
+          <text x="37" y="14" style="font-size:12px;font-weight:600;fill:var(--graphite)">人材紹介</text>
+          <rect x="140" y="4" width="11" height="11" rx="2" fill="var(--steel)"/>
+          <text x="157" y="14" style="font-size:12px;font-weight:600;fill:var(--graphite)">人材派遣</text>
+          <rect x="260" y="4" width="11" height="11" rx="2" fill="var(--silver)"/>
+          <text x="277" y="14" style="font-size:12px;font-weight:600;fill:var(--graphite)">RPO・その他</text>
+          <text x="80" y="70" text-anchor="end" style="font-size:12px;font-weight:600;fill:var(--graphite)">前期</text>
+          <rect x="90" y="44" width="153.7" height="42" fill="var(--navy)"/>
+          <rect x="243.7" y="44" width="168.7" height="42" fill="var(--steel)"/>
+          <rect x="412.4" y="44" width="43.8" height="42" fill="var(--silver)"/>
+          <text x="166.9" y="70" text-anchor="middle" style="font-family:var(--mono);font-size:12px;font-weight:600;fill:#fff">42%</text>
+          <text x="328.1" y="70" text-anchor="middle" style="font-family:var(--mono);font-size:12px;font-weight:600;fill:#fff">46%</text>
+          <text x="434.3" y="70" text-anchor="middle" style="font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--graphite)">12%</text>
+          <text class="mn" x="463" y="70">560億</text>
+          <line class="lead-l" x1="243.7" y1="86" x2="279" y2="124"/>
+          <line class="lead-l" x1="412.4" y1="86" x2="459.5" y2="124"/>
+          <rect x="95" y="95" width="130" height="20" rx="10" fill="var(--navy)"/>
+          <text x="160" y="109" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">紹介構成比 +3pt</text>
+          <text x="80" y="154" text-anchor="end" style="font-size:12px;font-weight:700;fill:var(--navy)">当期</text>
+          <rect x="90" y="124" width="189" height="50" fill="var(--navy)"/>
+          <rect x="279" y="124" width="180.5" height="50" fill="var(--steel)"/>
+          <rect x="459.5" y="124" width="50.4" height="50" fill="var(--silver)"/>
+          <text x="184.5" y="154" text-anchor="middle" style="font-family:var(--mono);font-size:13px;font-weight:600;fill:#fff">45%</text>
+          <text x="369.3" y="154" text-anchor="middle" style="font-family:var(--mono);font-size:13px;font-weight:600;fill:#fff">43%</text>
+          <text x="484.7" y="154" text-anchor="middle" style="font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--graphite)">12%</text>
+          <text class="mn" x="516" y="154" style="font-weight:600;fill:var(--navy)">642億</text>
+          <text class="mn" x="184.5" y="192" text-anchor="middle">289億</text>
+          <text class="mn" x="369.3" y="192" text-anchor="middle">276億</text>
+          <text class="mn" x="484.7" y="192" text-anchor="middle">77億</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi">45<span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">人材紹介構成比（前期 42%）</div>
+        </div>
+        <div style="display:flex;gap:min(3.6vh,3.6vw);margin-top:min(2.4vh,2.4vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">+23.0<span class="unit">%</span></div><div class="kpi-l">人材紹介売上 前期比</div></div>
+          <div><div class="kpi sm">66<span class="unit">%</span></div><div class="kpi-l">増収額に占める紹介寄与</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.4vh,2.4vw);font-size:min(1.65vh,1.65vw)">増収 +82億円のうち +54億円を人材紹介が創出。決定人数と紹介単価の伸びが、P.4のミックス改善に直結しています。</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>高採算の人材紹介が増収の<b>3分の2</b>を占め、全社の利益率改善を牽引しています。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 事業KPI・財務：サマリテーブル（navyヘッダ・右揃え等幅） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">KPI / Balance Sheet</div><div class="h2">成長の質を、<span class="u">事業KPI</span>で示します</div>
+      <p class="subhead">決定人数・稼働スタッフ数・紹介単価の3指標がそろって伸長。財務の健全性も維持しています。</p></div>
+    <div class="tag">05 / KPI</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr><th>主要指標</th><th class="num">当期実績</th><th class="num">前期実績</th><th class="num col-hi">増減</th></tr></thead>
+      <tbody>
+        <tr><td>紹介決定人数（年間）</td><td class="num">24,100人</td><td class="num">20,600人</td><td class="num col-hi">+17.0%</td></tr>
+        <tr><td>派遣稼働スタッフ数（月平均）</td><td class="num">15,800人</td><td class="num">15,100人</td><td class="num col-hi">+4.6%</td></tr>
+        <tr><td>平均紹介単価</td><td class="num">120万円</td><td class="num">114万円</td><td class="num col-hi">+5.3%</td></tr>
+        <tr><td>自己資本比率</td><td class="num">61.2%</td><td class="num">59.8%</td><td class="num col-hi">+1.4pt</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>実質無借金</b>を維持。成長投資と株主還元の原資は十分です。<span style="color:var(--gray);font-weight:500;margin-left:8px">※現金及び現金同等物 118億円（前期末 102億円）</span></span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 来期ガイダンス：レンジ表記＋増加額列（col-hi）。下に増収内訳バー -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Guidance</div><div class="h2">来期も、<span class="u">2桁増益</span>を計画します</div>
+      <p class="subhead">2027年3月期は増収増益を計画。増収の3分の2を、高採算の人材紹介が担う想定です。</p></div>
+    <div class="tag">06 / GUIDANCE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <table class="reveal">
+        <thead><tr><th>{{2027年3月期}} 通期予想</th><th class="num">予想レンジ</th><th class="num">当期比</th><th class="num">当期実績</th><th class="num col-hi">増加額※</th></tr></thead>
+        <tbody>
+          <tr><td>売上高</td><td class="num">700〜720億円</td><td class="num">+9.0〜12.1%</td><td class="num">642.0億円</td><td class="num col-hi">+68億円</td></tr>
+          <tr><td>営業利益</td><td class="num">71〜75億円</td><td class="num">+11.8〜18.1%</td><td class="num">63.5億円</td><td class="num col-hi">+9.5億円</td></tr>
+          <tr><td>当期純利益</td><td class="num">47〜50億円</td><td class="num">+12.4〜19.6%</td><td class="num">41.8億円</td><td class="num col-hi">+6.7億円</td></tr>
+        </tbody>
+      </table>
+      <div class="load reveal" style="--i:1">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">増収 +68億円の内訳（レンジ中央値）</span><span class="n">+45 +15 +8 ＝ +68億円</span></div>
+        <div class="lr"><span class="ln">人材紹介</span><span class="track"><i style="width:66%;background:var(--navy)"></i></span><span class="lv">+45億円（構成比 66%）</span></div>
+        <div class="lr"><span class="ln">人材派遣</span><span class="track"><i style="width:22%;background:var(--steel)"></i></span><span class="lv">+15億円（構成比 22%）</span></div>
+        <div class="lr"><span class="ln">RPO・その他</span><span class="track"><i style="width:12%;background:var(--silver)"></i></span><span class="lv">+8億円（構成比 12%）</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成長ドライバーは引き続き<b>人材紹介</b>。CA採用は上期に前倒しで実施します。<span style="color:var(--gray);font-weight:500;margin-left:8px">※増加額は予想レンジ中央値と当期実績の差</span></span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 株主還元：配当推移ミニ棒（来期予想のみ濃色）＋方針checks -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Shareholder Returns</div><div class="h2">利益成長に連動し、<span class="u">増配</span>を継続します</div>
+      <p class="subhead">減配は行わない累進配当を基本方針とし、利益成長に応じて1株当たり配当を引き上げます。</p></div>
+    <div class="tag">07 / RETURNS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">1株当たり配当の推移</span><span class="n">単位：円｜濃色＝来期予想</span></div>
+        <svg class="fsvg" viewBox="0 0 340 190" role="img" aria-label="1株当たり配当は30円、34円、40円と増配し、来期は46円を予想">
+          <rect x="14" y="8" width="112" height="20" rx="10" fill="var(--navy)"/>
+          <text x="70" y="22" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">4期連続増配へ</text>
+          <line class="bl" x1="10" y1="160" x2="330" y2="160"/>
+          <rect class="bar" x="37" y="76" width="46" height="84" rx="4"/>
+          <rect class="bar" x="107" y="64.8" width="46" height="95.2" rx="4"/>
+          <rect class="bar" x="177" y="48" width="46" height="112" rx="4"/>
+          <rect class="bar" x="247" y="31.2" width="46" height="128.8" rx="4" style="fill:var(--navy)"/>
+          <text class="mn" x="60" y="68" text-anchor="middle">30</text>
+          <text class="mn" x="130" y="57" text-anchor="middle">34</text>
+          <text class="mn" x="200" y="40" text-anchor="middle">40</text>
+          <text class="mn" x="270" y="23" text-anchor="middle" style="font-weight:600;fill:var(--navy)">46（予）</text>
+          <text class="mn" x="60" y="180" text-anchor="middle">24/3期</text>
+          <text class="mn" x="130" y="180" text-anchor="middle">25/3期</text>
+          <text class="mn" x="200" y="180" text-anchor="middle">26/3期</text>
+          <text class="mn" x="270" y="180" text-anchor="middle" style="font-weight:600;fill:var(--navy)">27/3期（予）</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div style="display:flex;gap:min(3.4vh,3.4vw)">
+          <div><div class="kpi sm">46<span class="unit">円</span></div><div class="kpi-l">年間配当（来期予想）</div></div>
+          <div><div class="kpi sm">34.1<span class="unit">%</span></div><div class="kpi-l">配当性向（来期予想）</div></div>
+          <div><div class="kpi sm">40.3<span class="unit">%</span></div><div class="kpi-l">総還元性向（来期予想）</div></div>
+        </div>
+        <ul class="checks" style="margin-top:min(2.6vh,2.6vw);padding-top:min(2.4vh,2.4vw);border-top:1px solid var(--line)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>累進配当</b>を基本方針。減配は行いません。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>配当性向30%以上</b>を目安に、利益成長へ連動。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>自己株取得は機動的</b>に実施（当期 3億円実施済）。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>累進配当</b>が基本方針。利益成長に応じて還元水準を高めます。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 成長戦略：3本柱（最優先の01のみ紺ベタhero） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Growth Strategy</div><div class="h2">次の成長は、<span class="u">3つの柱</span>で作ります</div>
+      <p class="subhead">中期経営計画の達成に向けた投資の優先順位です。最優先は、決定人数の最大化に置きます。</p></div>
+    <div class="tag">08 / STRATEGY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 17l6-6 4 4 8-9"/><path d="M14 6h7v7"/></svg></div><div class="idx">01 ― 最優先</div><h3>年間決定人数を1.5倍へ</h3><p>AIマッチングとキャリアアドバイザー増員で、1人当たり決定数を引き上げます。</p><div class="foot"><span class="n">36,000人</span><span>年間決定人数目標（FY29）</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><div class="idx">02</div><h3>専門領域で単価を上げる</h3><p>医療・IT・管理部門の専門特化チームを増設し、ハイクラス領域で紹介単価を引き上げます。</p><div class="foot"><span class="n">150万円</span><span>平均紹介単価目標（FY29）</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M6 8.5v7"/><path d="M8.5 6c5 0 7 2.5 7 6"/></svg></div><div class="idx">03</div><h3>RPO・M&amp;Aで非連続成長</h3><p>採用プロセス代行の大型受注と、規律ある小規模M&amp;Aで収益源を多層化します。</p><div class="foot"><span class="n">30億円</span><span>投資枠（3年）</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>オーガニック成長と非連続成長の<b>両輪</b>で、次の中期計画へつなぎます。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{企業名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 IRお問い合わせ（dark CTA） -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">IR Contact</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">対話を、企業価値へ。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">ご質問・個別面談（1on1）のお申し込みは、IR窓口までお気軽にご連絡ください。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.6vh,3.6vw)">
+      <a class="btn" href="{{IRサイトURL}}">IRサイト・決算資料<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+      <div class="mono" style="font-size:min(1.5vh,1.5vw);color:rgba(255,255,255,.72);line-height:2">{{IR・経営企画部}}<br>TEL {{03-0000-0000}}<br>MAIL {{ir@example.co.jp}}</div>
+    </div>
+    <p style="margin-top:min(3vh,3vw);font-size:min(1.15vh,1.15vw);color:rgba(255,255,255,.45);max-width:92ch;line-height:1.8">本資料に記載された業績予想・将来見通しは、現時点で入手可能な情報に基づく当社の判断であり、実際の業績は雇用情勢・法規制等の様々な要因により大きく異なる可能性があります。</p>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{企業名}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

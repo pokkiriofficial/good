@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/11_製品仕様・技術カタログ_SaaS.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>製品仕様・技術カタログテンプレート（SaaS・IT） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙 -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">SPEC</div>
+  <p class="kick">Technical Specification</p>
+  <h1>
+    <span class="ln"><span style="--i:0">{{製品名}}の技術仕様と、</span></span>
+    <span class="ln"><span style="--i:1">導入要件のすべて</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">{{製品カテゴリ：クラウド型システム運用監視}}　|　{{自社名}}</p>
+  <p class="mono" style="margin-top:min(1.8vh,1.8vw);font-size:min(1.3vh,1.3vw);color:rgba(255,255,255,.55);letter-spacing:.08em">DOC {{SPEC-2026-001}}　·　Ver {{3.2}}　·　ISSUED {{2026.07.18}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline" style="color:#fff">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
+  </div>
+</section>
+
+<!-- 02 コア性能：主役=障害検知10秒（極大）。ノード数×検知時間チャートにSLA閾値（warn 1点）を焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Performance</div><div class="h2">1万ノードでも、検知は<span class="u">10秒</span></div>
+      <p class="subhead">検討の入口として、コア性能を先にお見せします。カタログ値ではなく、本番環境の実測値を測定条件つきで開示しています。</p></div>
+    <div class="tag">01 / PERFORMANCE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="10">10</span><span class="unit">秒</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">障害検知時間 p95（異常発生から検知まで・直近30日実測）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm"><span class="count" data-to="99.95" data-dec="2">99.95</span><span class="unit">%</span></div><div class="kpi-l">月間稼働率（直近12か月実績）</div></div>
+          <div><div class="kpi sm">350<span class="unit">種</span></div><div class="kpi-l">標準監視項目（メトリクス・ログ・外形）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">測定環境・手順はすべて付録に記載し、再現可能な形で公開しています。貴社環境での検証もご案内できます。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">ノードを増やしても、検知は遅れない</span><span class="n">監視ノード数 × 検知時間 p95（秒）</span></div>
+        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="監視ノード1万まで検知時間はSLA上限30秒の3分の1で安定">
+          <line class="grid-l" x1="0" y1="74" x2="340" y2="74"/><line class="grid-l" x1="0" y1="124" x2="340" y2="124"/><line class="grid-l" x1="0" y1="174" x2="340" y2="174"/>
+          <line x1="0" y1="24" x2="340" y2="24" style="stroke:var(--warn);stroke-width:1.4;stroke-dasharray:5 4"/>
+          <rect x="246" y="4" width="86" height="19" rx="9.5" style="fill:var(--warn)"/>
+          <text class="ann-t" x="289" y="17" text-anchor="middle">SLA上限 30秒</text>
+          <text class="axis-t" x="2" y="70">20秒</text>
+          <text class="axis-t" x="2" y="120">10秒</text>
+          <path class="area" d="M0,129 L85,127 L170,125.5 L255,124 L340,122 L340,190 L0,190 Z"/>
+          <path class="draw" pathLength="1" d="M0,129 L85,127 L170,125.5 L255,124 L340,122"/>
+          <rect class="ann-bg" x="196" y="50" width="118" height="22" rx="11"/>
+          <text class="ann-t" x="255" y="65" text-anchor="middle">上限まで3倍の余裕</text>
+          <path class="lead-l" d="M255 76 L255 111"/>
+          <circle class="dot" cx="0" cy="129" r="4.5"/><circle class="dot" cx="85" cy="127" r="4.5"/><circle class="dot" cx="170" cy="125.5" r="4.5"/><circle class="dot" cx="255" cy="124" r="4.5"/><circle class="dot key" cx="340" cy="122" r="5.5"/>
+          <text class="val-t" x="332" y="111" text-anchor="end">10.4秒</text>
+        </svg>
+        <div class="barx"><span>1,000</span><span>2,500</span><span>5,000</span><span>7,500</span><span>10,000 ノード</span></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>検知SLA上限30秒に対し、実測は<b>10秒</b>。1万ノード規模でも3倍の余裕があります。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 システム構成図：自社領域を紺系で区分。データの流れを矢印で焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Architecture</div><div class="h2">全体構成は、<span class="u">この一枚</span>で掴めます</div>
+      <p class="subhead">どこからどこまでが当社の管理範囲か——構成と責任分界点を1枚に集約しました。セキュリティ確認にそのままお使いいただけます。</p></div>
+    <div class="tag">02 / ARCHITECTURE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">システム構成と責任分界点</span><span class="n">詳細図は {{SPEC-2026-001}} 付録A</span></div>
+        <svg class="fsvg" viewBox="0 0 560 310" role="img" aria-label="監視エージェントから収集ゲートウェイ・分析エンジン・時系列データベースへ流れるシステム構成図">
+          <rect x="118" y="6" width="316" height="266" rx="14" style="fill:rgba(78,106,158,.08);stroke:var(--steel);stroke-width:1.2;stroke-dasharray:5 4"/>
+          <text class="mn" x="132" y="28" style="fill:var(--steel);font-weight:600;letter-spacing:.08em;font-size:10px">{{製品名}} CLOUD ― 当社管理領域</text>
+          <rect class="nd" x="0" y="76" width="94" height="56" rx="10"/>
+          <text class="nd-t" x="47" y="99" text-anchor="middle" style="font-size:12px">エージェント</text>
+          <text class="mn" x="47" y="117" text-anchor="middle" style="font-size:9px">サーバー / コンテナ</text>
+          <text class="mn" x="47" y="150" text-anchor="middle" style="font-size:9px">HTTPS / TLS 1.3</text>
+          <rect class="nd" x="136" y="78" width="104" height="52" rx="10"/>
+          <text class="nd-t" x="188" y="99" text-anchor="middle" style="font-size:12px">収集ゲートウェイ</text>
+          <text class="mn" x="188" y="117" text-anchor="middle" style="font-size:9px">認証 / レート制御</text>
+          <rect x="272" y="72" width="140" height="64" rx="10" style="fill:var(--navy)"/>
+          <text x="342" y="99" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--white);font-family:var(--sans)">分析エンジン</text>
+          <text class="mn" x="342" y="117" text-anchor="middle" style="font-size:9px;fill:rgba(255,255,255,.7)">異常検知 / 相関分析</text>
+          <rect class="nd" x="468" y="78" width="92" height="52" rx="10"/>
+          <text class="nd-t" x="514" y="99" text-anchor="middle" style="font-size:12px">通知・連携先</text>
+          <text class="mn" x="514" y="117" text-anchor="middle" style="font-size:9px">チャット・オンコール</text>
+          <text class="mn" x="514" y="150" text-anchor="middle" style="font-size:9px">API / Webhook</text>
+          <line x1="98" y1="104" x2="126" y2="104" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M126 99l8 5-8 5z"/>
+          <line x1="244" y1="104" x2="260" y2="104" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M260 99l8 5-8 5z"/>
+          <path class="ar" d="M424 99l-8 5 8 5z"/><line x1="426" y1="104" x2="458" y2="104" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M458 99l8 5-8 5z"/>
+          <path d="M322 136 V176 H235 V188" style="fill:none;stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M230 188l5 8 5-8z"/>
+          <path d="M361 136 V188" style="fill:none;stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M356 188l5 8 5-8z"/>
+          <rect class="nd" x="180" y="204" width="110" height="54" rx="10"/>
+          <text class="nd-t" x="235" y="226" text-anchor="middle" style="font-size:12px">時系列DB</text>
+          <text class="mn" x="235" y="243" text-anchor="middle" style="font-size:9px">AES-256 暗号化</text>
+          <rect class="nd" x="306" y="204" width="110" height="54" rx="10"/>
+          <text class="nd-t" x="361" y="226" text-anchor="middle" style="font-size:12px">ログストレージ</text>
+          <text class="mn" x="361" y="243" text-anchor="middle" style="font-size:9px">保持 400日</text>
+          <rect x="0" y="288" width="12" height="12" rx="3" style="fill:rgba(78,106,158,.08);stroke:var(--steel);stroke-width:1;stroke-dasharray:3 3"/>
+          <text class="mn" x="20" y="298" style="font-size:9.5px">当社管理領域（国内リージョン・冗長化構成）</text>
+          <line x1="268" y1="294" x2="296" y2="294" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M296 289l8 5-8 5z"/>
+          <text class="mn" x="312" y="298" style="font-size:9.5px">データの流れ（全経路暗号化）</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">構成のポイント</h3>
+        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>単一障害点なし</b>。全層を冗長化し、自動フェイルオーバー。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>導入はコマンド1行</b>。エージェントは約5分で監視開始。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>データは国内保管</b>。国外リージョンへの持ち出しなし。</span></li>
+        </ul>
+        <p style="margin-top:min(2.4vh,2.4vw);font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--gray)">稼働状況は {{status.example.com}} で常時公開</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>責任分界点まで<b>この1枚</b>。情報システム部門の事前確認を短縮できます。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 主要機能：card g3。主役=コア機能の紺ベタhero -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Features</div><div class="h2">主要機能は、<span class="u">3つ</span>に集約しました</div>
+      <p class="subhead">全機能一覧は{{別紙：機能一覧表}}に譲り、ここでは導入判断に効く3つだけをご紹介します。核はAI異常検知です。</p></div>
+    <div class="tag">03 / FEATURES</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M10 6.5h7.5v7.5"/></svg></div><div class="idx">F-01 ― コア</div><h3>AI異常検知</h3><p>350種の監視項目にAIがベースラインを自動学習。しきい値設定の手間なく、障害の予兆段階で検知します。</p><div class="foot"><span class="n">350種</span><span>監視項目を標準搭載</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg></div><div class="idx">F-02</div><h3>統合ダッシュボード</h3><p>メトリクス・ログ・外形監視を1画面に集約。障害時は関連データへ2クリックで到達し、原因特定を速めます。</p><div class="foot"><span class="n">10秒</span><span>最短収集間隔</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 10-4-2.5-7-5.5-7-10V6z"/><path d="M9 11.5l2 2 4-4"/></svg></div><div class="idx">F-03</div><h3>インシデント管理</h3><p>検知から通知・エスカレーション・対応記録までを一元化。当番表に沿って、担当者を自動で呼び出します。</p><div class="foot"><span class="n">400日</span><span>対応履歴の保持</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>多機能より<b>定着</b>。運用チームが迷わない設計で、引き継ぎは半日で完了します。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 スペック表：navyヘッダ表（mono右揃え）＋対応/非対応チェック -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Specifications</div><div class="h2">仕様は、<span class="u">条件つきの実測値</span>で明示します</div>
+      <p class="subhead">主要な仕様値と対応状況の抜粋です。測定条件のない数値は掲載しない方針で運用しています。</p></div>
+    <div class="tag">04 / SPEC</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
+      <table class="reveal">
+        <thead><tr><th>項目</th><th class="num">仕様値</th><th>測定条件</th></tr></thead>
+        <tbody>
+          <tr><td>障害検知時間（p95）</td><td class="num">10 秒</td><td>全テナント・直近30日</td></tr>
+          <tr><td>月間稼働率（SLA）</td><td class="num">99.95 %</td><td>未達時はクレジット返還</td></tr>
+          <tr><td>メトリクス取込</td><td class="num">400,000 点/s</td><td>負荷試験（付録B）</td></tr>
+          <tr><td>最大監視ノード数</td><td class="num">10,000</td><td>1テナントあたり</td></tr>
+          <tr><td>監視データ保持</td><td class="num">400 日</td><td>全プラン標準</td></tr>
+        </tbody>
+      </table>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">対応状況（抜粋）</span><span class="n">全文は {{SPEC-2026-001}}</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <ul class="checks" style="gap:min(1.9vh,1.9vw)">
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>SSO（SAML 2.0 / OIDC）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>監査ログAPI（保持 400日）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>IPアドレス制限・二要素認証</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>OpenTelemetry / Prometheus 互換</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>閲覧専用ID（無償・上限なし）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck" style="background:var(--mist);color:var(--gray)"><svg class="ic" viewBox="0 0 24 24" width="12" height="12" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span style="color:var(--gray)">オンプレミス提供（SaaS専用）</span></li>
+          </ul>
+        </div>
+        <div style="padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray)">対応形式の全一覧は付録C（{{最終更新 2026.07}}）</div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>掲載値はすべて<b>再現条件つき</b>。貴社での検証用に手順書もご提供できます。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 セキュリティ：第三者認証のバッジ風カード列＋暗号・運用のスタッツ -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Security</div><div class="h2">安全性は、<span class="u">第三者認証</span>で担保します</div>
+      <p class="subhead">認証は取得済みのもののみを審査番号つきで掲載しています。暗号方式と運用体制も、あわせてご確認ください。</p></div>
+    <div class="tag">05 / SECURITY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2vh,2vw)">
+      <div class="grid g4">
+        <div class="card reveal" style="align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 10-4-2.5-7-5.5-7-10V6z"/><path d="M9 11.5l2 2 4-4"/></svg></div><h3>ISO/IEC 27001</h3><p>情報セキュリティ（ISMS）</p><div class="foot" style="justify-content:center"><span class="mono">{{IS 123456}}</span></div></div>
+        <div class="card reveal" style="--i:1;align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M7 17a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 9 4.5 4.5 0 0 1 18 17.8"/><path d="M9 17h8"/></svg></div><h3>ISO/IEC 27017</h3><p>クラウドセキュリティ</p><div class="foot" style="justify-content:center"><span class="mono">{{CLS 123456}}</span></div></div>
+        <div class="card reveal" style="--i:2;align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg></div><h3>プライバシーマーク</h3><p>個人情報保護体制</p><div class="foot" style="justify-content:center"><span class="mono">{{12345678(01)}}</span></div></div>
+        <div class="card reveal" style="--i:3;align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><h3>SOC 2 Type II</h3><p>第三者保証報告書</p><div class="foot" style="justify-content:center"><span class="mono">年1回更新</span></div></div>
+      </div>
+      <div class="reveal" style="--i:4;display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw)">
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">AES-256</div><div class="kpi-l">保存データ暗号化（GCM）</div></div>
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">TLS 1.3</div><div class="kpi-l">通信暗号化（1.2未満は拒否）</div></div>
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">400日</div><div class="kpi-l">監査ログ保持・改ざん防止</div></div>
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">年2回</div><div class="kpi-l">第三者による脆弱性診断</div></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>認証は<b>取得済みのみ</b>掲載。審査番号での照会にも応じます。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 連携エコシステム：中心=自社（紺）・周囲に連携サービスをハブ状に接続 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Integrations</div><div class="h2">いまのツールと、<span class="u">そのまま</span>つながります</div>
+      <p class="subhead">既存ツールの置き換えは不要です。検知した異常を、いまお使いのチャットやオンコールへ自動で届けます。</p></div>
+    <div class="tag">06 / ECOSYSTEM</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1fr 1.35fr">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi"><span class="count" data-to="40">40</span><span class="unit">サービス</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">標準コネクタ数（{{2026.07}}時点）</div>
+        </div>
+        <ul class="checks" style="margin-top:min(2.8vh,2.8vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>ノーコード連携</b>。管理画面から数分で接続。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>REST API・Webhook</b>を全プランで開放。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>追加費用なし</b>。コネクタはすべて標準機能。</span></li>
+        </ul>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">連携エコシステム</span><span class="n">主要6カテゴリを抜粋</span></div>
+        <svg class="fsvg" viewBox="0 0 480 322" role="img" aria-label="中心の自社製品とチャット・オンコール・クラウド基盤など6カテゴリのサービスが接続されたエコシステム図">
+          <line x1="184" y1="138" x2="106" y2="56" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="296" y1="138" x2="374" y2="56" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="180" y1="162" x2="120" y2="162" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="300" y1="162" x2="360" y2="162" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="184" y1="186" x2="106" y2="268" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="296" y1="186" x2="374" y2="268" style="stroke:var(--silver);stroke-width:1.4"/>
+          <rect class="nd" x="28" y="16" width="112" height="40" rx="9"/><text class="nd-t" x="84" y="40" text-anchor="middle" style="font-size:11px">クラウド基盤</text>
+          <rect class="nd" x="8" y="142" width="112" height="40" rx="9"/><text class="nd-t" x="64" y="166" text-anchor="middle" style="font-size:11px">IdP / SSO</text>
+          <rect class="nd" x="28" y="268" width="112" height="40" rx="9"/><text class="nd-t" x="84" y="292" text-anchor="middle" style="font-size:11px">CI / CD</text>
+          <rect class="nd" x="340" y="16" width="112" height="40" rx="9"/><text class="nd-t" x="396" y="40" text-anchor="middle" style="font-size:11px">チャット</text>
+          <rect class="nd" x="360" y="142" width="112" height="40" rx="9"/><text class="nd-t" x="416" y="166" text-anchor="middle" style="font-size:11px">オンコール管理</text>
+          <rect class="nd" x="340" y="268" width="112" height="40" rx="9"/><text class="nd-t" x="396" y="292" text-anchor="middle" style="font-size:11px">チケット管理</text>
+          <rect x="180" y="135" width="120" height="54" rx="12" style="fill:var(--navy)"/>
+          <text x="240" y="158" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--white);font-family:var(--sans)">{{製品名}}</text>
+          <text class="mn" x="240" y="175" text-anchor="middle" style="font-size:8.5px;fill:rgba(255,255,255,.7)">MONITORING HUB</text>
+          <text class="mn" x="240" y="230" text-anchor="middle" style="font-size:9px">REST API / Webhook / OpenTelemetry</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>連携は<b>標準機能</b>。追加ライセンスや開発費はかかりません。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 導入要件チェックリスト：環境・権限・設定移行＋所要日数バー -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Requirements</div><div class="h2">導入は、<span class="u">5営業日</span>で本稼働へ</div>
+      <p class="subhead">導入前にご確認いただくのは3点だけ。エージェント展開と初期設定は当社が支援し、既存の監視は止めません。</p></div>
+    <div class="tag">07 / SETUP</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <div class="grid g3">
+        <div class="card reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg></div><div class="idx">REQ 01 ― 環境</div><h3>動作環境</h3>
+          <ul class="checks" style="gap:min(1vh,1vw)">
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>対応OS：Linux / Windows / コンテナ</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>通信は HTTPS:443 送信のみ開放</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>エージェント負荷 CPU 1%未満</span></li>
+          </ul>
+          <div class="foot"><span class="n">0.5日</span><span>環境準備</span></div></div>
+        <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></svg></div><div class="idx">REQ 02 ― 権限</div><h3>アカウント・権限</h3>
+          <ul class="checks" style="gap:min(1vh,1vw)">
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>管理者1名＋利用者リスト</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>SSO接続は任意（SAML / OIDC）</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>通知先の接続情報（チャット等）</span></li>
+          </ul>
+          <div class="foot"><span class="n">1日</span><span>初期設定（当社代行）</span></div></div>
+        <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v13c0 1.6 3.6 2.9 8 2.9s8-1.3 8-2.9v-13"/><path d="M4 12c0 1.6 3.6 2.9 8 2.9s8-1.3 8-2.9"/></svg></div><div class="idx">REQ 03 ― 移行</div><h3>監視設定の移行</h3>
+          <ul class="checks" style="gap:min(1vh,1vw)">
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>既存ツールの設定をAPIで取込</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>しきい値はAIが自動学習</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>移行作業は当社が実施</span></li>
+          </ul>
+          <div class="foot"><span class="n">1.5日</span><span>移行・検証</span></div></div>
+      </div>
+      <div class="load reveal" style="--i:3">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">キックオフから本稼働まで</span><span class="n">標準 5営業日</span></div>
+        <div class="lr" style="grid-template-columns:minmax(0,11em) 1fr auto"><span class="ln">設定・展開（当社支援）</span><span class="track"><i style="width:60%;background:var(--navy)"></i></span><span class="lv">3営業日</span></div>
+        <div class="lr" style="grid-template-columns:minmax(0,11em) 1fr auto"><span class="ln">検証・チューニング（両社）</span><span class="track"><i style="width:40%;background:var(--steel)"></i></span><span class="lv">2営業日</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>貴社側の作業は<b>約2時間</b>。既存の監視と並行稼働のまま、リスクなく切り替えます。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 料金・サポート：.plans 中央reco紺ベタ。サポート体制はプランに内包 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Pricing &amp; Support</div><div class="h2">料金は、<span class="u">ノード単位</span>の明朗会計です</div>
+      <p class="subhead">サポート体制はプランに含まれます。重大障害の受付は、全プラン24時間対応です。</p></div>
+    <div class="tag">08 / PRICING</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="plans" style="height:auto">
+      <div class="plan reveal"><h4>スタンダード</h4><div class="price">600<span class="u">円/ノード・月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>メトリクス・外形監視</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>メールサポート（翌営業日回答）</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>導入時オンライン研修つき</li></ul>
+        <div class="meta">想定：〜100ノード｜最低20ノードから</div></div>
+      <div class="plan reco reveal" style="--i:1"><span class="badge">おすすめ</span><h4>ビジネス</h4><div class="price">1,000<span class="u">円/ノード・月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>全機能＋ログ・SSO・監査ログ</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専任担当＋チャット（当日回答）</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>稼働率SLA 99.95%（返金保証）</li></ul>
+        <div class="meta">想定：100〜1,000ノード｜初期費用 0円</div></div>
+      <div class="plan reveal" style="--i:2"><h4>エンタープライズ</h4><div class="price" style="font-size:min(2.7vh,2.7vw)">個別お見積り</div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専有環境・カスタムSLA</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>24時間365日サポート＋専任TAM</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>移行・研修の個別プログラム</li></ul>
+        <div class="meta">想定：1,000ノード超｜情シス部門と個別設計</div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>金額は税別。ノードは<b>月単位で増減可</b>——監視していないノードに費用は発生しません。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：デモ・トライアル -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Next Step</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、いまの環境で検知をお試しください。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">検証用テナントを{{3営業日}}以内に発行。既存環境への試験導入は当社エンジニアが伴走します。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">デモ・トライアルを申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{自社名}}　|　{{メール}}　|　{{電話}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>

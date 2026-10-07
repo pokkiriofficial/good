@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/03_課題解決ホワイトペーパー_製造.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>課題解決ホワイトペーパーテンプレート（製造業） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙：give型ホワイトペーパー。読者の疑問文でDL直後の期待を作る -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">GUIDE</div>
+  <p class="kick">White Paper</p>
+  <h1>
+    <span class="ln"><span style="--i:0">なぜ町工場の現場から、</span></span>
+    <span class="ln"><span style="--i:1">「紙の記録」はなくならないのか</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">紙の日報・検査記録・手書き台帳を、調査データ×90日フレームワークで読み解く実務ガイド　|　{{自社名}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline" style="color:rgba(255,255,255,.92)">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
+  </div>
+</section>
+
+<!-- 02 この資料でわかること：give型宣言。主役=POINT 01（紺ベタ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Overview</div><div class="h2">この資料で、<span class="u">わかること</span></div>
+      <p class="subhead">情報収集の段階でも、そのまま社内検討に使えることを目指した実務ガイドです。結論から先に、数字で示します。</p></div>
+    <div class="tag">01 / OVERVIEW</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <div class="grid g3">
+        <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 20h16"/><path d="M7 20v-6M12 20V8M17 20v-9"/></svg></div><div class="idx">POINT 01</div><h3>実態を、数字で掴む</h3><p>製造現場の担当者516名の調査データと、紙が減らない「循環構造」の正体。課題を客観視できます。</p><div class="foot"><span class="n">P.03–04</span><span>統計と真因</span></div></div>
+        <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M5 5l5 5M10 5l-5 5"/><path d="M13 17l2.5 2.5L20 14.5"/></svg></div><div class="idx">POINT 02</div><h3>誤解を外し、地図を持つ</h3><p>よくある3つの誤解を事実で検証し、「データ駆動」の現場への最短ルートを1枚のマップに整理します。</p><div class="foot"><span class="n">P.05–06</span><span>誤解と事実／フレームワーク</span></div></div>
+        <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8l4 4-4 4"/></svg></div><div class="idx">POINT 03</div><h3>明日から、実践する</h3><p>90日の実践ステップと、3分でできる現在地チェック。読んだ直後から着手できます。</p><div class="foot"><span class="n">P.07–09</span><span>実践ステップと事例</span></div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)" class="reveal">
+        <div class="stat"><div class="kpi">8<span class="unit">分</span></div><div class="kpi-l">読了時間のめやす</div></div>
+        <div class="stat"><div class="kpi">516<span class="unit">名</span></div><div class="kpi-l">収録調査の回答者数（{{出所}}）</div></div>
+        <div class="stat"><div class="kpi">90<span class="unit">日</span></div><div class="kpi-l">実践フレームワークの期間</div></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>本書は<b>売り込み資料ではありません</b>。そのまま社内の検討資料としてお使いください。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 統計で見る課題：主役=71%（極大）。調査棒グラフは1本だけ紺で強調（バー幅=回答率×5px） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Data</div><div class="h2">現場の<span class="u">71%</span>が、同じ紙に向き合っている</div>
+      <p class="subhead">製造業の現場担当者516名に、日々の記録業務の課題を聞きました。最も多い回答は、2位を大きく引き離しています。</p></div>
+    <div class="tag">02 / DATA</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="71">71</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">「紙の記録の転記・清書にムダを感じる」と回答（{{出所}}・N=516）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm"><span class="count" data-to="5.5" data-dec="1">5.5</span><span class="unit">時間</span></div><div class="kpi-l">転記・集計に費やす時間（週・1人あたり）</div></div>
+          <div><div class="kpi sm">21<span class="unit">%</span></div><div class="kpi-l">対策に着手できている工場</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">10人中7人が同じ課題を感じながら、動けている工場は5社に1社。差は「知っているか」ではなく「仕組みにしたか」で生まれています。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">現場が感じている記録業務の課題（上位4項目）</span><span class="n">{{出所}}・N=516・複数回答</span></div>
+        <svg class="fsvg" viewBox="0 0 460 200" role="img" aria-label="記録業務の課題調査：紙の記録の転記・清書が多いが71%で最多">
+          <text class="nd-t" x="0" y="13" style="fill:var(--navy)">紙の記録の転記・清書が多い</text>
+          <rect x="182" y="1" width="70" height="16" rx="8" style="fill:var(--navy)"/>
+          <text x="217" y="12.5" text-anchor="middle" style="font-family:var(--display);font-size:9px;font-weight:600;letter-spacing:.14em;fill:#fff">最多回答</text>
+          <rect x="0" y="20" width="355" height="15" rx="4" style="fill:var(--navy)"/>
+          <text class="mn" x="363" y="32" style="fill:var(--navy);font-weight:600;font-size:13.5px">71%</text>
+          <text class="nd-t" x="0" y="61">台帳が工程ごとにバラバラ</text>
+          <rect class="bar" x="0" y="68" width="280" height="15" rx="4"/>
+          <text class="mn" x="288" y="80">56%</text>
+          <text class="nd-t" x="0" y="109">過去の記録を探すのに時間がかかる</text>
+          <rect class="bar" x="0" y="116" width="240" height="15" rx="4"/>
+          <text class="mn" x="248" y="128">48%</text>
+          <text class="nd-t" x="0" y="157">月末の集計・締めが遅れる</text>
+          <rect class="bar" x="0" y="164" width="185" height="15" rx="4"/>
+          <text class="mn" x="193" y="176">37%</text>
+          <text class="mn" x="0" y="197" style="font-size:10.5px">回答率・複数回答（{{出所}}・N=516）／バーの長さは回答率に比例</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>これは現場の怠慢ではなく、<b>製造業共通の構造課題</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 なぜ起きるか：紙運用の悪循環図＋空雨傘。warnは「断つべき起点」1点のみ -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Root Cause</div><div class="h2">原因は努力不足ではなく、<span class="u">構造</span>にある</div>
+      <p class="subhead">事実（空）・解釈（雨）・打ち手（傘）の順に分解すると、「わかっているのに紙に戻る」理由が見えてきます。</p></div>
+    <div class="tag">03 / CAUSE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">紙が減らない理由 ― 紙運用の悪循環</span><span class="n">{{出所}}・現場ヒアリング32社</span></div>
+        <svg class="fsvg" viewBox="0 0 540 258" role="img" aria-label="紙運用の悪循環：生産に追われる→様式の整備が後回し→紙の帳票が増え続ける→転記・照合が増える">
+          <rect class="tag-bg" x="363" y="0" width="104" height="19" rx="5"/>
+          <text class="tag-t" x="415" y="13" text-anchor="middle">CUT POINT</text>
+          <rect class="nd" x="20" y="24" width="210" height="48" rx="10"/>
+          <rect class="nd hot" x="310" y="24" width="210" height="48" rx="10"/>
+          <rect class="nd" x="310" y="168" width="210" height="48" rx="10"/>
+          <rect class="nd" x="20" y="168" width="210" height="48" rx="10"/>
+          <text class="nd-t" x="125" y="53" text-anchor="middle">日々の生産に追われる</text>
+          <text class="nd-t hot" x="415" y="53" text-anchor="middle">様式の整備が後回しに</text>
+          <text class="nd-t" x="415" y="197" text-anchor="middle">紙の帳票が増え続ける</text>
+          <text class="nd-t" x="125" y="197" text-anchor="middle">転記・照合が増える</text>
+          <line x1="236" y1="48" x2="296" y2="48" style="stroke:var(--silver);stroke-width:1.6"/>
+          <path class="ar" d="M296 43l8 5-8 5z"/>
+          <line x1="415" y1="76" x2="415" y2="156" style="stroke:var(--silver);stroke-width:1.6"/>
+          <path class="ar" d="M410 156h10l-5 8z"/>
+          <line x1="304" y1="192" x2="244" y2="192" style="stroke:var(--silver);stroke-width:1.6"/>
+          <path class="ar" d="M244 187l-8 5 8 5z"/>
+          <line x1="125" y1="164" x2="125" y2="90" style="stroke:var(--silver);stroke-width:1.6"/>
+          <path class="ar" d="M120 90l5-8 5 8z"/>
+          <text class="an" x="270" y="122" text-anchor="middle">悪循環は、1周ごとに加速する</text>
+          <text class="mn" x="270" y="142" text-anchor="middle">紙が増える → さらに転記が増える</text>
+          <text class="mn" x="20" y="252">※製造業の現場ヒアリングで最も多く観察された循環パターン（{{出所}}）</text>
+        </svg>
+      </div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">現場の<b>71%</b>が紙の記録に課題を感じ、1人あたり<b>週5.5時間</b>を転記・集計に費やしている（P.3）。</div></div>
+        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">放置すると1人あたり<b>年264時間</b>＝約33営業日分が、失われ続ける。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">循環は起点の1か所——<b>「様式整備の後回し」</b>を断てば止まる。方法は次章から。</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>犯人は「紙」ではなく「循環」。<b>起点の1か所</b>を断つのが定石です。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 誤解と事実：誤解=グレー×、事実=紺チェックの2列対比 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Myth &amp; Fact</div><div class="h2">よくある<span class="u">3つの誤解</span>と、事実</div>
+      <p class="subhead">紙が残り続ける現場には、共通の思い込みがあります。ひとつずつ、データで検証します。</p></div>
+    <div class="tag">04 / FACT</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div style="display:grid;grid-template-columns:1fr auto 1fr;gap:min(1.5vh,1.5vw) min(1.8vh,1.8vw);align-items:stretch">
+      <div class="reveal" style="font-family:var(--display);letter-spacing:.18em;font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--gray)">MYTH ― よくある誤解</div>
+      <span></span>
+      <div class="reveal" style="font-family:var(--display);letter-spacing:.18em;font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--navy)">FACT ― データが示す事実</div>
+
+      <div class="reveal" style="display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;background:var(--cloud);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
+        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--mist);color:var(--gray);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--graphite);font-weight:500"><b style="color:var(--ink)">「タブレットを配れば、紙はなくなる」</b><br>検討が"機器選び"から始まってしまう典型例。</span>
+      </div>
+      <div class="reveal" style="display:flex;align-items:center;color:var(--steel)"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="reveal" style="--i:1;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;background:var(--white);box-shadow:var(--sh-sm);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
+        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--cloud);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--ink);font-weight:500"><b style="color:var(--navy)">先に帳票、あとに機器。</b>様式を揃えない電子化は<span class="num" style="font-weight:600;color:var(--navy)">57%</span>が1年以内に紙へ逆戻りします（{{出所}}）。</span>
+      </div>
+
+      <div class="reveal" style="--i:1;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;background:var(--cloud);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
+        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--mist);color:var(--gray);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--graphite);font-weight:500"><b style="color:var(--ink)">「ベテランの検査判定は、紙でしか残せない」</b><br>"経験と勘だから"と、様式化自体を諦めてしまう。</span>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;align-items:center;color:var(--steel)"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="reveal" style="--i:2;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;background:var(--white);box-shadow:var(--sh-sm);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
+        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--cloud);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--ink);font-weight:500"><b style="color:var(--navy)">検査項目の約8割は、定型パターン。</b>チェック式の帳票に置き換えれば<span class="num" style="font-weight:600;color:var(--navy)">80%</span>は様式化できます（{{出所}}）。</span>
+      </div>
+
+      <div class="reveal" style="--i:2;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;background:var(--cloud);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
+        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--mist);color:var(--gray);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--graphite);font-weight:500"><b style="color:var(--ink)">「生産を止めてまで、改善の時間は取れない」</b><br>まとまった時間を確保しようとして挫折する。</span>
+      </div>
+      <div class="reveal" style="--i:2;display:flex;align-items:center;color:var(--steel)"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="reveal" style="--i:3;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;background:var(--white);box-shadow:var(--sh-sm);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
+        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--cloud);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>
+        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--ink);font-weight:500"><b style="color:var(--navy)">必要なのは、週30分。</b>先行する工場は<span class="num" style="font-weight:600;color:var(--navy)">90日</span>で月<span class="num" style="font-weight:600;color:var(--navy)">5時間</span>超の転記削減を実現しています（P.9）。</span>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>誤解を外すと、打ち手は「機器選び」ではなく<b>「様式の設計」</b>に変わります。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 フレームワーク：2軸ポジショニングマップ。現在地→右回りルート、warn=機器先行の失敗ルート1点 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Framework</div><div class="h2">目指す場所は<span class="u">右上</span>——ルートは右回り</div>
+      <p class="subhead">縦軸に「電子化への置き換え」、横軸に「記録様式の標準化」。現在地から右上への最短ルートは、1つだけです。</p></div>
+    <div class="tag">05 / FRAMEWORK</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.25fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">{{フレームワーク名：様式統一→電子化→自動集計}}</span><span class="n">現在地マップ</span></div>
+        <svg class="fsvg" viewBox="0 0 460 296" role="img" aria-label="2軸マップ：様式を揃えてから電子化する右回りルートが最短。機器先行は57%が紙に逆戻り">
+          <line class="bl" x1="252" y1="24" x2="252" y2="252"/>
+          <line class="bl" x1="64" y1="138" x2="432" y2="138"/>
+          <line x1="64" y1="252" x2="432" y2="252" style="stroke:var(--gray);stroke-width:1.5"/>
+          <path d="M432 247l10 5-10 5z" style="fill:var(--gray)"/>
+          <line x1="64" y1="252" x2="64" y2="24" style="stroke:var(--gray);stroke-width:1.5"/>
+          <path d="M59 24l5-10 5 10z" style="fill:var(--gray)"/>
+          <text class="mn" x="432" y="272" text-anchor="end">記録様式の標準化 →</text>
+          <text class="mn" transform="rotate(-90)" x="-252" y="18">電子化への置き換え →</text>
+          <rect x="264" y="34" width="160" height="92" rx="12" style="fill:rgba(78,106,158,.10);stroke:var(--steel);stroke-width:1.2"/>
+          <text x="344" y="52" text-anchor="middle" style="font-family:var(--display);font-size:9.5px;font-weight:600;letter-spacing:.22em;fill:var(--steel)">GOAL</text>
+          <text x="344" y="74" text-anchor="middle" style="font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--navy)">データ駆動</text>
+          <text class="mn" x="344" y="92" text-anchor="middle">記録がデータで回る状態</text>
+          <text class="an" x="78" y="48">機器先行</text>
+          <text class="mn" x="78" y="66">タブレットはあるが紙も残る</text>
+          <text class="an" x="264" y="166">様式止まり</text>
+          <text class="mn" x="264" y="184">帳票は揃ったが手集計</text>
+          <text class="an" x="114" y="166">手書き運用</text>
+          <text class="mn" x="114" y="184">様式も集計も紙のまま</text>
+          <line x1="100" y1="214" x2="100" y2="120" style="stroke:var(--warn);stroke-width:1.8;stroke-dasharray:5 4"/>
+          <path d="M94 98l12 12M106 98L94 110" style="stroke:var(--warn);stroke-width:2;fill:none"/>
+          <text class="mn" x="114" y="108" style="fill:var(--warn);font-weight:600">57%が紙に逆戻り</text>
+          <path d="M108 224H390V140" style="fill:none;stroke:var(--navy);stroke-width:2.4;stroke-linejoin:round"/>
+          <path d="M385 140l5-8 5 8z" style="fill:var(--navy)"/>
+          <circle cx="100" cy="224" r="6" style="fill:var(--navy)"/>
+          <text class="mn" x="76" y="246" style="fill:var(--navy);font-weight:600">現在地</text>
+          <text class="mn" x="120" y="214" style="fill:var(--navy);font-weight:600">STEP 1｜まず様式統一</text>
+          <text class="mn" x="382" y="204" text-anchor="end" style="fill:var(--navy);font-weight:600">STEP 2｜電子化</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">右回りが最短である理由</h3>
+        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>順番が9割</b>。機器は様式統一の後。逆順は57%が紙に逆戻りします（P.5）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>範囲を絞る</b>。全帳票ではなく、枚数の多い上位3帳票だけで始めます。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>90日で1周</b>。完璧を待たず、小さく回して改善を重ねます。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>右上への最短ルートは<b>右回り</b>——「様式を揃えてから電子化」の順です。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 実践ステップ：4ステップ＋時間投下バー（週30分で回ることを可視化） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Action Plan</div><div class="h2">90日で1周する、<span class="u">4つのステップ</span></div>
+      <p class="subhead">フレームワークを「明日の予定」に落とします。必要なのは大規模な設備投資ではなく、週30分の習慣です。</p></div>
+    <div class="tag">06 / ACTION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <div class="grid g4">
+        <div class="card stepcard reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="idx">STEP 1</div><h3>見える化</h3><p>現場で使う紙帳票を全種類集め、枚数と転記回数を1週間記録。感覚ではなく数字で掴みます。</p><div class="foot"><span class="n">W1–2</span><span>全帳票の棚卸し</span></div></div>
+        <div class="card stepcard reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></div><div class="idx">STEP 2</div><h3>絞り込み</h3><p>枚数×転記回数のマトリクスで、効果の大きい上位3帳票だけを選びます。</p><div class="foot"><span class="n">W3–4</span><span>上位3帳票を選定</span></div></div>
+        <div class="card stepcard reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><div class="idx">STEP 3</div><h3>様式統一</h3><p>テンプレートに沿ってチェック式の帳票へ作り直し。「書ける人が書く」のではなく型に流し込みます。</p><div class="foot"><span class="n">M2</span><span>帳票3種を統一</span></div></div>
+        <div class="card stepcard reveal" style="--i:3"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M21 12a9 9 0 1 1-2.9-6.6"/><path d="M21 3v5h-5"/></svg></div><div class="idx">STEP 4</div><h3>電子化</h3><p>統一した帳票の定型部分だけをタブレット入力に置き換え、削減時間を毎月測定します。</p><div class="foot"><span class="n">M3</span><span>定型転記を電子化</span></div></div>
+      </div>
+      <div class="load reveal" style="--i:4">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">継続に必要な時間投下（週あたり）</span><span class="n">90日合計：推進 約13時間＋現場 約6時間/人</span></div>
+        <div class="lr"><span class="ln">推進担当</span><span class="track"><i style="width:100%;background:var(--navy)"></i></span><span class="lv">週60分（帳票設計・レビュー）</span></div>
+        <div class="lr"><span class="ln">現場メンバー</span><span class="track"><i style="width:50%;background:var(--silver)"></i></span><span class="lv">週30分（記録・帳票への追記）</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成功条件はただ一つ——<b>週30分の「改善時間」</b>を生産計画に組み込むことです。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 チェックリスト：セルフチェック6問＋打ち手の難易度/効果 早見表。warn=「4個以上」判定1点 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Checklist</div><div class="h2">3分でわかる、自社工場の<span class="u">現在地診断</span></div>
+      <p class="subhead">あてはまる項目を数えるだけ。結果に応じた「最初の打ち手」を、右の早見表から選べます。</p></div>
+    <div class="tag">07 / CHECKLIST</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="align-items:center">
+      <div class="reveal">
+        <div class="dghead"><span class="t">セルフチェック ― あてはまる数を数える</span><span class="n">所要 約3分</span></div>
+        <ul class="checks" style="gap:min(1.3vh,1.3vw)">
+          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>同じ内容を<b>紙とPCに二重転記</b>している帳票がある</span></li>
+          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span><b>特定の人にしか読めない</b>手書きの記録・メモがある</span></li>
+          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>在庫台帳と実在庫が<b>棚卸しのたびに</b>合わない</span></li>
+          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>過去の検査記録を探すのに<b>10分以上</b>かかることがある</span></li>
+          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>日報の集計が<b>翌日以降にずれ込む</b>ことがある</span></li>
+          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>「改善の時間」が<b>生産計画に入っていない</b></span></li>
+        </ul>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.2vh,1.2vw);margin-top:min(2vh,2vw)">
+          <div style="border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:10px;padding:min(1.2vh,1.2vw) min(1.5vh,1.5vw);background:var(--white)"><div class="num" style="font-weight:600;color:var(--ok);font-size:min(1.5vh,1.5vw)">0–1個</div><div style="font-size:min(1.2vh,1.2vw);color:var(--graphite);margin-top:3px">良好。現状の型を維持</div></div>
+          <div style="border:1px solid var(--line);border-left:3px solid var(--silver);border-radius:10px;padding:min(1.2vh,1.2vw) min(1.5vh,1.5vw);background:var(--white)"><div class="num" style="font-weight:600;color:var(--graphite);font-size:min(1.5vh,1.5vw)">2–3個</div><div style="font-size:min(1.2vh,1.2vw);color:var(--graphite);margin-top:3px">注意。紙依存が進行中</div></div>
+          <div style="border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:min(1.2vh,1.2vw) min(1.5vh,1.5vw);background:var(--white)"><div class="num" style="font-weight:600;color:var(--warn);font-size:min(1.5vh,1.5vw)">4個以上</div><div style="font-size:min(1.2vh,1.2vw);color:var(--graphite);margin-top:3px">要対策。構造課題の疑い</div></div>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1">
+        <div class="dghead"><span class="t">最初の打ち手 ― 難易度と効果の早見表</span><span class="n">推奨＝帳票テンプレ</span></div>
+        <table style="font-size:min(1.5vh,1.5vw)">
+          <thead><tr><th>打ち手</th><th style="text-align:center">難易度</th><th style="text-align:center">効果</th><th>着手時期</th></tr></thead>
+          <tbody>
+            <tr><td>紙帳票の棚卸し（種類と枚数）</td><td style="text-align:center">低</td><td style="text-align:center">中</td><td class="num">今週から</td></tr>
+            <tr><td style="background:var(--cloud);color:var(--navy);font-weight:700">チェック式帳票テンプレの導入<span style="font-family:var(--display);font-size:.72em;letter-spacing:.08em;color:var(--navy);border:1px solid var(--navy);border-radius:999px;padding:2px 9px;margin-left:9px;white-space:nowrap">推奨</span></td><td style="background:var(--cloud);text-align:center;color:var(--navy);font-weight:700">低</td><td style="background:var(--cloud);text-align:center;color:var(--navy);font-weight:700">高</td><td class="num" style="background:var(--cloud);color:var(--navy);font-weight:700">1か月目</td></tr>
+            <tr><td>定型転記のタブレット化</td><td style="text-align:center">中</td><td style="text-align:center">高</td><td class="num">3か月目</td></tr>
+            <tr><td>生産管理システムの全面刷新</td><td style="text-align:center">高</td><td style="text-align:center">高</td><td class="num">段階導入で</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>4個以上</b>あてはまったら、「難易度・低×効果・高」の<b>帳票テンプレ</b>から始めましょう。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 事例ダイジェスト：主役=24時間→8時間。バーは数値比例（24/18/12/8 → 96/72/48/32） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Case Digest</div><div class="h2">同じ課題は、<span class="u">90日</span>でここまで変わる</div>
+      <p class="subhead">本書のフレームワークを実践した{{18}}社のうち、{{金属加工A社}}の90日をダイジェストでご紹介します。</p></div>
+    <div class="tag">08 / CASE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">月あたりの転記・集計時間（{{金属加工A社}}・従業員28名）</div>
+        <div style="display:flex;align-items:baseline;gap:min(2.2vh,2.2vw)">
+          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">24<span class="unit" style="color:var(--silver)">時間</span></span>
+          <svg class="ic" viewBox="0 0 24 24" width="26" height="26" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span class="kpi xl">8<span class="unit">時間</span></span>
+          <span class="mono" style="font-weight:600;font-size:min(1.7vh,1.7vw);color:#fff;background:var(--navy);border-radius:999px;padding:5px 14px;align-self:center">−67%</span>
+        </div>
+        <blockquote class="quote" style="align-self:flex-start;margin-top:min(3.2vh,3.2vw)">
+          <p style="font-size:min(1.95vh,1.95vw)">「最初の1か月は帳票集めばかりで半信半疑でした。チェック式の帳票が3種そろったあたりから、現場が自分で直し始めたんです。」</p>
+          <cite>{{金属加工A社}}　製造課長 {{氏名}}様</cite>
+        </blockquote>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
+        <div class="chartcard" style="height:auto;flex:0 0 auto">
+          <div class="dghead"><span class="t">転記・集計時間の推移</span><span class="n">単位：時間/月（{{金属加工A社}}実測）</span></div>
+          <svg class="fsvg" viewBox="0 0 400 168" role="img" aria-label="転記・集計時間の推移：月24時間から90日で8時間へ削減">
+            <line class="bl" x1="0" y1="142" x2="400" y2="142"/>
+            <rect class="bar" x="60" y="46" width="50" height="96" rx="4"/>
+            <rect class="bar" x="140" y="70" width="50" height="72" rx="4"/>
+            <rect class="bar" x="220" y="94" width="50" height="48" rx="4"/>
+            <rect x="300" y="110" width="50" height="32" rx="4" style="fill:var(--navy)"/>
+            <text class="mn" x="85" y="39" text-anchor="middle">24</text>
+            <text class="mn" x="165" y="63" text-anchor="middle">18</text>
+            <text class="mn" x="245" y="87" text-anchor="middle">12</text>
+            <text class="mn" x="325" y="103" text-anchor="middle" style="fill:var(--navy);font-weight:600;font-size:14px">8</text>
+            <text class="mn" x="85" y="162" text-anchor="middle">導入前</text>
+            <text class="mn" x="165" y="162" text-anchor="middle">1か月後</text>
+            <text class="mn" x="245" y="162" text-anchor="middle">2か月後</text>
+            <text class="mn" x="325" y="162" text-anchor="middle">3か月後</text>
+          </svg>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)">
+          <div class="stat"><div class="kpi">{{18}}<span class="unit">社</span></div><div class="kpi-l">フレームワーク実践企業</div></div>
+          <div class="stat"><div class="kpi">{{58}}<span class="unit">%</span></div><div class="kpi-l">平均削減率（転記・集計時間）</div></div>
+          <div class="stat"><div class="kpi">{{89}}<span class="unit">%</span></div><div class="kpi-l">90日プラン完走率</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>魔法ではなく<b>順番の力</b>。90日あれば、数字は動きます。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：売り込みは薄く。診断（相談）を1本に絞り、DLは静かに添える -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Next Step</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは30分、「現在地診断」から。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">P.8のチェック結果をお送りください。P.6のマップに貴社工場の現在地を置き、<br>最短ルートを無料で診断してお返しします。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.6vh,3.6vw)">
+      <a class="btn" href="{{リンク}}">無料の現在地診断を申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+    <p style="margin-top:min(2.6vh,2.6vw);font-size:min(1.45vh,1.45vw);color:rgba(255,255,255,.55);font-weight:500">実践テンプレート一式（帳票棚卸しシート・チェック式帳票テンプレ）のダウンロードは　<span class="mono" style="color:rgba(255,255,255,.82)">{{URL}}</span></p>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{自社名}}　|　{{メール}}　|　{{電話}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>
