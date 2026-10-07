@@ -57,7 +57,7 @@
           "id": {
             "type": "integer",
             "minimum": 1,
-            "maximum": 6
+            "maximum": 7
           },
           "title": {
             "type": "string",
@@ -230,7 +230,7 @@
         "theme": {
           "type": "integer",
           "minimum": 1,
-          "maximum": 6
+          "maximum": 7
         },
         "chapter": {
           "type": "integer",

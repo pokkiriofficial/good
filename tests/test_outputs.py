@@ -157,7 +157,7 @@ def test_form_has_no_sensitive_questions(spec):
 def test_line_has_guide_themes_and_closing(spec):
     names = [n for n, _ in build_templates.line_messages(spec)]
     assert names[0] == "00_案内" and names[-1] == "99_最後に"
-    assert len(names) == 4
+    assert len(names) == 5
 
 
 def test_line_lines_fit_phone_width(spec):
@@ -341,3 +341,34 @@ def test_line_menu_asks_bottle_cost(spec):
     assert "・例)鏡月/3000" in body
     wb = build_templates.build_workbook(spec, standalone=True)
     assert not any("原価" in str(c.value) for ws in wb for row in ws.iter_rows() for c in row if c.value)
+
+
+# ── キャスト・スタッフ名簿とキャスト別バック(6章) ─────────────
+
+
+def _item(spec, item_id):
+    return next(it for it in spec["items"] if it["id"] == item_id)
+
+
+def test_roster_has_furigana_join_date_and_member_kinds(spec):
+    cast, staff = _item(spec, "cast_roster"), _item(spec, "staff_roster")
+    assert "読み仮名" in cast["columns"] and "読み仮名" in staff["columns"]
+    assert any("入店日" in c for c in cast["columns"] + staff["columns"])
+    kinds = cast["cells"][cast["columns"].index("区分")]
+    assert kinds == ["在籍", "体験入店", "派遣", "日払い"]
+
+
+def test_cast_back_is_optional_line_theme_and_onsite_by_default(spec):
+    theme = next(t for t in spec["themes"] if t["id"] == 7)
+    assert theme.get("optional") is True
+    assert _item(spec, "member_back")["route"] == "onsite"
+    # ①の質問には、個人別の率を入れない(店舗一律か、キャストごとかだけを聞く)
+    assert not [it["id"] for it in spec["items"] if it["route"] == "form" and "キャストごとのバック" in it["label"]]
+
+
+def test_cast_back_theme_warns_and_has_no_pay_columns(spec):
+    body = dict(build_templates.line_messages(spec))["07_キャスト別バック"]
+    assert "訪問時にお店の方がPOSへ入力" in body
+    assert "個人情報は送らないでください" in body
+    item = _item(spec, "cast_back_table")
+    assert item["columns"] == ["源氏名", "バックの種類", "額または率"]
