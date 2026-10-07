@@ -341,3 +341,25 @@ def test_line_menu_asks_bottle_cost(spec):
     assert "・例)鏡月/3000" in body
     wb = build_templates.build_workbook(spec, standalone=True)
     assert not any("原価" in str(c.value) for ws in wb for row in ws.iter_rows() for c in row if c.value)
+
+
+def test_xlsx_bytes_do_not_depend_on_build_time(spec, monkeypatch):
+    """記入シートは、いつ作っても同じバイト列になる(差分が毎回出ない)。"""
+    import datetime as dt
+    import time
+
+    first = build_templates._xlsx_bytes(build_templates.build_workbook(spec, standalone=True))
+    real = time.time()
+    monkeypatch.setattr(time, "time", lambda: real + 3600)
+    monkeypatch.setattr(time, "localtime", lambda *a: dt.datetime.fromtimestamp(real + 3600).timetuple())
+    second = build_templates._xlsx_bytes(build_templates.build_workbook(spec, standalone=True))
+    assert first == second
+
+
+def test_xlsx_core_dates_are_fixed(spec):
+    import io
+    import zipfile
+
+    data = build_templates._xlsx_bytes(build_templates.build_workbook(spec, standalone=True))
+    core = zipfile.ZipFile(io.BytesIO(data)).read("docProps/core.xml").decode()
+    assert core.count("2026-01-01T00:00:00Z") == 2

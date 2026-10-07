@@ -9,9 +9,12 @@ from __future__ import annotations
 
 import argparse
 import base64
+import datetime
 import io
 import json
+import re
 import sys
+import zipfile
 from pathlib import Path
 
 import yaml
@@ -204,10 +207,26 @@ def build_workbook(spec: dict, skip: set[int] = frozenset(), standalone: bool = 
     return wb
 
 
+FIXED_TIME = datetime.datetime(2026, 1, 1)
+
+
 def _xlsx_bytes(wb: Workbook) -> bytes:
-    buf = io.BytesIO()
-    wb.save(buf)
-    return buf.getvalue()
+    """作成時刻を固定して書き出す。同じ入力なら、いつ作っても同じバイト列になる。"""
+    wb.properties.created = wb.properties.modified = FIXED_TIME
+    raw = io.BytesIO()
+    wb.save(raw)
+    out = io.BytesIO()
+    with zipfile.ZipFile(raw) as src, zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as dst:
+        for info in src.infolist():
+            fixed = zipfile.ZipInfo(info.filename, FIXED_TIME.timetuple()[:6])
+            fixed.compress_type = zipfile.ZIP_DEFLATED
+            fixed.external_attr = info.external_attr
+            data = src.read(info.filename)
+            if info.filename == "docProps/core.xml":
+                # openpyxl は保存の瞬間に更新日時を入れるため、固定値へ置き換える
+                data = re.sub(rb"(<dcterms:modified[^>]*>)[^<]*", rb"\g<1>2026-01-01T00:00:00Z", data)
+            dst.writestr(fixed, data)
+    return out.getvalue()
 
 
 def spreadsheet_url() -> str | None:
@@ -252,7 +271,7 @@ def main() -> None:
         (LINE_DIR / f"{name}.txt").write_text(body + "\n", encoding="utf-8")
     # 記入シートは1ファイルに全種類(1種類1シート)。Googleスプレッドシート版はこれを変換したもの
     XLSX.parent.mkdir(parents=True, exist_ok=True)
-    build_workbook(spec, skip, standalone=True).save(XLSX)
+    XLSX.write_bytes(_xlsx_bytes(build_workbook(spec, skip, standalone=True)))
     # 確認ページは、すべてのテーマを載せる
     PREVIEW.parent.mkdir(parents=True, exist_ok=True)
     PREVIEW.write_text(build_preview(spec, _xlsx_bytes(build_workbook(spec, standalone=True))), encoding="utf-8")
