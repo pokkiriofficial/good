@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/02_B2B営業提案_SaaS.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/04_採用ピッチ_不動産建設.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>B2B営業提案テンプレート（SaaS・IT） | KOKU</title>
+<title>採用ピッチテンプレート（不動産・建設） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -267,309 +267,371 @@
 <div class="deck-progress" id="progress"></div>
 <div class="deck-counter"><b id="cur">01</b> / 10</div>
 
-<!-- 01 表紙 -->
+<!-- 01 表紙：透明性（数字も弱みも開示）をフックにする -->
 <section class="slide cover">
-  <div class="grid-bg"></div><div class="wm">SaaS</div>
-  <p class="kick">Sales Proposal</p>
+  <div class="grid-bg"></div><div class="wm">JOIN</div>
+  <p class="kick">We Are Hiring</p>
   <h1>
-    <span class="ln"><span style="--i:0">{{見込み顧客名}}様の開発・運用を、</span></span>
-    <span class="ln"><span style="--i:1">情報の一元化で速くするご提案</span></span>
+    <span class="ln"><span style="--i:0">残業も休日も、隠しません。</span></span>
+    <span class="ln"><span style="--i:1">{{社名}}、ありのままの採用資料</span></span>
   </h1>
   <div class="rule"></div>
-  <p class="sub">{{提案サービス名}}　|　{{自社名}}</p>
+  <p class="sub">{{施工管理・不動産営業・設計}} 採用ピッチ　|　{{社名}} 採用チーム</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
-    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.07.19}}</span>
+    <span class="brandline">{{社名}}</span><span class="mono">{{2026.07.18}} 更新</span>
   </div>
 </section>
 
-<!-- 02 市場環境：主役=前年比118%（極大）。チャートに実数値と注釈を焼き込み -->
+<!-- 02 ミッション：大コピー1枚。事業説明の前に「なぜ働くか」 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Market</div><div class="h2">SaaS市場は、いま<span class="u">追い風</span>にあります</div>
-      <p class="subhead">{{見込み顧客名}}様の属するSaaS市場は年々拡大し、先行して開発・運用の基盤を整えた企業がシェアを伸ばしています。</p></div>
-    <div class="tag">01 / MARKET</div>
+    <div><div class="eyebrow">Mission</div><div class="h2">私たちは、何のために働くのか</div>
+      <p class="subhead">事業内容の前に、存在理由からお話しします。ここに共感できるかどうかが、いちばん大事な相性です。</p></div>
+    <div class="tag">01 / MISSION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(3vh,3vw)">
+      <div class="reveal" style="text-align:center">
+        <p style="font-size:min(4.3vh,4.3vw);font-weight:700;color:var(--navy);line-height:1.5;letter-spacing:.01em">「{{建てて終わり、売って終わり}}」を、<br>{{建設×不動産の総合力}}で<span style="color:var(--steel)">終わらせる</span>。</p>
+        <div style="width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(2.6vh,2.6vw) auto 0"></div>
+        <p class="lead" style="margin:min(2.4vh,2.4vw) auto 0;max-width:58ch;text-align:center;font-size:min(1.7vh,1.7vw)">{{なぜこの事業をやるのか。例：建てた後に直したい・手放したい人が、相談先を持てない地域の現実。原体験と想いで語る1〜2文}}</p>
+      </div>
+      <div class="grid g3">
+        <div class="card reveal" style="--i:1"><div class="idx">MISSION ― 果たす使命</div><h3>{{建てた後まで、責任を持つ}}</h3><p>{{例：施工から売買・管理まで、この地域の暮らしの続きに伴走する。}}</p></div>
+        <div class="card reveal" style="--i:2"><div class="idx">VISION ― 目指す未来</div><h3>{{5年後のありたい姿}}</h3><p>{{例：このエリアで「土地も建物も、まず相談される」一番手になる。}}</p></div>
+        <div class="card reveal" style="--i:3"><div class="idx">VALUE ― 行動基準</div><h3>{{価値観を一言で}}</h3><p>{{例：図面より現場の事実で話す。役職ではなく、正しさで決める。}}</p></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>スキルは入社後に伸ばせます。<b>この一文への共感</b>だけは、先に確かめさせてください。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 事業紹介：card g3・主力事業をheroに。構成比は合計100% -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Business</div><div class="h2">事業は<span class="u">3つ</span>。稼ぐ柱と、次の柱</div>
+      <p class="subhead">施工の「フロー」収益と、賃貸管理の「ストック」収益の両輪。挑戦できるのは、景気に潰されない構造があるからです。</p></div>
+    <div class="tag">02 / BUSINESS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 21V4a1 1 0 0 1 1-1h9v18"/><path d="M14 8h5a1 1 0 0 1 1 1v12"/><path d="M2 21h20"/><path d="M8 7h2M8 11h2M8 15h2"/></svg></div><div class="idx">01 ― 主力事業</div><h3>{{建築事業（総合建設）}}</h3><p>創業以来の中核。{{地域}}の住宅・学校・工場を公共/民間の両輪でつくり、継続受注が収益の土台。施工管理の新メンバーはまずここで型を身につけます。</p><div class="foot"><span class="n">60%</span><span>売上構成比</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><div class="idx">02 ― 第二の柱</div><h3>{{不動産事業（仲介・賃貸管理）}}</h3><p>建てた後の売買・管理まで伴走。管理{{1,800戸}}のストック収益が、景気変動の緩衝材になっています。</p><div class="foot"><span class="n">30%</span><span>売上構成比</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg></div><div class="idx">03 ― 挑戦中</div><h3>{{リノベーション・空き家再生}}</h3><p>次の柱の候補。年次に関係なく、手を挙げた人がつくっている領域です。</p><div class="foot"><span class="n">10%</span><span>売上構成比</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>安定した主力があるから、<b>挑戦しても潰れない</b>。それがこの構成比の意味です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 数字で見る会社：主役=完全週休2日実施率92%（極大）＋statグリッド6連。聞きにくい数字も開示 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">By the Numbers</div><div class="h2">数字で見る、{{社名}}のいま</div>
+      <p class="subhead">良い数字だけを選んでいません。残業や休日のような「この業界で聞きにくい数字」ほど、先に開示するのが方針です。</p></div>
+    <div class="tag">03 / NUMBERS</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi xl"><span class="count" data-to="118">118</span><span class="unit">%</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">国内SaaS市場の成長率（前年比・{{出所}}）</div>
+          <div class="kpi xl"><span class="count" data-to="92">92</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">完全週休2日（4週8休以上）の実施率（全現場・{{2025年度}}）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm"><span class="count" data-to="1.9" data-dec="1">1.9</span><span class="unit">兆円</span></div><div class="kpi-l">市場規模（{{出所}}）</div></div>
-          <div><div class="kpi sm">+58<span class="unit">%</span></div><div class="kpi-l">累計成長（{{'21}}→{{今}}）</div></div>
+          <div><div class="kpi sm">8期<span class="unit">連続</span></div><div class="kpi-l">増収</div></div>
+          <div><div class="kpi sm"><span class="count" data-to="120">120</span><span class="unit">日</span></div><div class="kpi-l">年間休日</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">市場が伸びるほど、機能開発の速度そのものが競争力になります。運用の基盤を先に整えた企業が、そのまま優位を築いています。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">母数と集計期間を示せる数字だけを載せています。現場ごとの閉所実績と残業の集計表は、カジュアル面談でそのままお見せします。</p>
       </div>
-      <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">国内SaaS市場規模の推移</span><span class="n">単位：兆円（{{出所}}）</span></div>
-        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="市場推移：5年で1.2兆円から1.9兆円へ拡大">
-          <line class="grid-l" x1="0" y1="48" x2="340" y2="48"/><line class="grid-l" x1="0" y1="96" x2="340" y2="96"/><line class="grid-l" x1="0" y1="144" x2="340" y2="144"/>
-          <path class="area" d="M0,150 L68,133 L136,124 L204,104 L272,82 L340,34 L340,190 L0,190 Z"/>
-          <path class="draw" pathLength="1" d="M0,150 L68,133 L136,124 L204,104 L272,82 L340,34"/>
-          <rect class="ann-bg" x="120" y="48" width="88" height="22" rx="11"/>
-          <text class="ann-t" x="164" y="63" text-anchor="middle">5年で +58%</text>
-          <path class="lead-l" d="M164 72 L164 108"/>
-          <text class="axis-t" x="2" y="124">1.2兆円</text>
-          <circle class="dot" cx="68" cy="133" r="4.5"/><circle class="dot" cx="136" cy="124" r="4.5"/><circle class="dot" cx="204" cy="104" r="4.5"/><circle class="dot" cx="272" cy="82" r="4.5"/><circle class="dot key" cx="340" cy="34" r="5.5"/>
-          <text class="val-t" x="332" y="24" text-anchor="end">1.9兆円</text>
+      <div class="reveal" style="--i:1;display:grid;grid-template-columns:repeat(2,1fr);gap:min(1.6vh,1.6vw);align-content:center">
+        <div class="stat"><div class="kpi">152<span class="unit">名</span></div><div class="kpi-l">従業員数（{{2026.06}}時点）</div></div>
+        <div class="stat"><div class="kpi">36.2<span class="unit">歳</span></div><div class="kpi-l">平均年齢</div></div>
+        <div class="stat"><div class="kpi">21.5<span class="unit">h/月</span></div><div class="kpi-l">平均残業（現場含む全社・直近1年）</div></div>
+        <div class="stat"><div class="kpi">71<span class="unit">%</span></div><div class="kpi-l">有給取得率</div></div>
+        <div class="stat"><div class="kpi">84<span class="unit">%</span></div><div class="kpi-l">3年定着率</div></div>
+        <div class="stat"><div class="kpi">55<span class="unit">%</span></div><div class="kpi-l">中途入社比率</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>残業と休日</b>——この業界で聞きにくい数字ほど、こちらから先に出します。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 成長パス：SVGタイムライン（1→3→5年目、役割と年収レンジ）。数値は面談時開示の等級表と整合させる -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Career Path</div><div class="h2">入社後の道すじと、<span class="u">年収</span>を公開します</div>
+      <p class="subhead">何ができれば、いくら上がるのか。等級・昇格条件・資格手当・年収レンジは全社員に公開されています。入社前も同じものをお見せします。</p></div>
+    <div class="tag">04 / CAREER</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.35fr 1fr">
+      <div class="chartcard reveal" style="justify-content:flex-start">
+        <div class="dghead"><span class="t">モデルキャリアと年収レンジ（施工管理職）</span><span class="n">{{2026年度}}実績・賞与込み</span></div>
+        <div style="flex:1;display:flex;align-items:center">
+        <svg class="fsvg" viewBox="0 0 560 250" role="img" aria-label="1年目担当400から480万、3年目主任・現場代理人480から600万、5年目現場所長600から750万">
+          <rect x="0" y="0" width="158" height="22" rx="11" style="fill:var(--navy)"/>
+          <text x="79" y="15" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">昇格チャンスは年2回</text>
+          <line class="bl" x1="0" y1="200" x2="560" y2="200"/>
+          <rect class="bar" x="68" y="102" width="64" height="98" rx="4"/>
+          <rect class="bar" x="248" y="80" width="64" height="120" rx="4"/>
+          <rect x="428" y="50" width="64" height="150" rx="4" style="fill:var(--navy)"/>
+          <path class="lead-l" d="M100 102 L280 80 L460 50"/>
+          <circle cx="100" cy="102" r="4.5" style="fill:#fff;stroke:var(--navy);stroke-width:2.5"/>
+          <circle cx="280" cy="80" r="4.5" style="fill:#fff;stroke:var(--navy);stroke-width:2.5"/>
+          <circle cx="460" cy="50" r="5.5" style="fill:var(--navy);stroke:var(--navy);stroke-width:2.5"/>
+          <text class="an" x="100" y="70" text-anchor="middle">担当</text>
+          <text class="mn" x="100" y="88" text-anchor="middle" style="fill:var(--navy);font-weight:600">400–480万</text>
+          <text class="an" x="280" y="48" text-anchor="middle">主任・現場代理人</text>
+          <text class="mn" x="280" y="66" text-anchor="middle" style="fill:var(--navy);font-weight:600">480–600万</text>
+          <text class="an" x="460" y="18" text-anchor="middle">現場所長</text>
+          <text class="mn" x="460" y="36" text-anchor="middle" style="fill:var(--navy);font-weight:600">600–750万</text>
+          <text class="mn" x="100" y="155" text-anchor="middle" style="fill:var(--graphite)">G1–G2</text>
+          <text class="mn" x="280" y="144" text-anchor="middle" style="fill:var(--graphite)">G3</text>
+          <text class="mn inbar" x="460" y="129" text-anchor="middle">G4–G5</text>
+          <text class="mn" x="100" y="222" text-anchor="middle" style="fill:var(--ink);font-weight:600">1年目</text>
+          <text class="mn" x="280" y="222" text-anchor="middle" style="fill:var(--ink);font-weight:600">3年目</text>
+          <text class="mn" x="460" y="222" text-anchor="middle" style="fill:var(--ink);font-weight:600">5年目</text>
+          <text class="mn" x="100" y="240" text-anchor="middle">先輩とペアで現場</text>
+          <text class="mn" x="280" y="240" text-anchor="middle">1現場を任される</text>
+          <text class="mn" x="460" y="240" text-anchor="middle">複数現場を統括</text>
         </svg>
-        <div class="barx"><span>{{'21}}</span><span>{{'22}}</span><span>{{'23}}</span><span>{{'24}}</span><span>{{'25}}</span><span>{{今}}</span></div>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>市場が伸びている<b>今こそ</b>、開発・運用の基盤を整える好機です。</span></div>
-    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 03 ボトルネック：フロー図解を実データで焼き込み。主役=警告色の1工程 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Bottleneck</div><div class="h2">開発速度の足かせは、<span class="u">この工程</span>に集中しています</div>
-      <p class="subhead">事実（空）と、その事実が招く損失（雨）を分けて捉えます。原因はエンジニアの力量ではなく、情報の置き場の設計にあります。</p></div>
-    <div class="tag">02 / ISSUE</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">現行フロー：障害1件あたりの所要時間</span><span class="n">月{{80}}件 × 40分 ≒ 53時間/月</span></div>
-        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行の障害対応5工程のうち情報の収集に40分が集中">
-          <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
-          <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
-          <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="115" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
-          <text class="nd-t" x="50" y="53" text-anchor="middle">検知・受付</text>
-          <text class="nd-t" x="165" y="53" text-anchor="middle">一次切り分け</text>
-          <text class="nd-t hot" x="280" y="53" text-anchor="middle">情報の収集</text>
-          <text class="nd-t" x="395" y="53" text-anchor="middle">影響範囲判断</text>
-          <text class="nd-t" x="510" y="53" text-anchor="middle">報告・記録</text>
-          <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
-          <text class="an" x="0" y="104">1件あたり 計70分</text>
-          <text class="an hot" x="0" y="126">うち40分（57%）がこの1工程</text>
-          <path class="lead-l" d="M198 122 C 234 126 252 140 262 158"/>
-          <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
-          <rect class="bar" x="33" y="189" width="34" height="15" rx="4"/>
-          <rect class="bar" x="148" y="174" width="34" height="30" rx="4"/>
-          <rect class="bar hot" x="263" y="84" width="34" height="120" rx="4"/>
-          <rect class="bar" x="378" y="174" width="34" height="30" rx="4"/>
-          <rect class="bar" x="493" y="189" width="34" height="15" rx="4"/>
-          <text class="mn" x="50" y="181" text-anchor="middle">5分</text>
-          <text class="mn" x="165" y="166" text-anchor="middle">10分</text>
-          <text class="mn hot inbar" x="280" y="106" text-anchor="middle">40分</text>
-          <text class="mn" x="395" y="166" text-anchor="middle">10分</text>
-          <text class="mn" x="510" y="181" text-anchor="middle">5分</text>
-          <text class="mn" x="0" y="228">所要時間（分・{{現状ヒアリング}}より）</text>
-        </svg>
-      </div>
-      <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">ログ・Wiki・チャットが散在し、1件あたり<b>約40分</b>を情報探しに使っている。</div></div>
-        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">月あたり<b>約53時間</b>、エンジニアの時間が機能開発から失われている。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">この1工程を一元化すれば、失われた時間が開発に戻ります。</div></div>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは開発体制ではなく、<b>この1工程</b>だけです。</span></div>
-    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 04 3つのアプローチ：主役=最優先の01を紺ベタ -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Approach</div><div class="h2">解決の道すじは、<span class="u">3つ</span>に絞りました</div>
-      <p class="subhead">あれもこれもではなく、効果の大きい3点に集中します。最優先は、ボトルネックに直結する情報収集の自動化です。</p></div>
-    <div class="tag">03 / APPROACH</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="grid g3">
-      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div class="idx">01 ― 最優先</div><h3>情報収集を自動化する</h3><p>ログ・監視・チケットを自動で束ね、探して回る工程そのものを減らします。P.3のボトルネックに直結する打ち手です。</p><div class="foot"><span class="n">−60%</span><span>対応時間</span></div></div>
-      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3v18M4 9l8-6 8 6"/><path d="M6 12v7h12v-7"/></svg></div><div class="idx">02</div><h3>設計情報を一元化する</h3><p>仕様書・手順書・障害履歴を1か所に集約し、探す時間をなくします。</p><div class="foot"><span class="n">1つ</span><span>の置き場に集約</span></div></div>
-      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><div class="idx">03</div><h3>リリース判断を速くする</h3><p>品質指標をリアルタイムで可視化し、判断の待ち時間を削ります。</p><div class="foot"><span class="n">即時</span><span>に可視化</span></div></div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つの打ち手は、いずれも<b>開発チームの手を止めず</b>に効きます。</span></div>
-    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 05 ソリューション：Before/After図解を焼き込み。主役=−60%バッジと紺のAfter -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Solution</div><div class="h2">ご提案する解決策</div>
-      <p class="subhead">散在した情報を、既存ツールと連携済みの一元基盤に集約します。導入初日から今のワークフローのまま使える設計です。</p></div>
-    <div class="tag">04 / SOLUTION</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split">
-      <div class="ba reveal">
-        <div class="row before">
-          <div class="hd"><span class="k">BEFORE ― 現在</span><span class="t">70<span class="u">分/件</span></span></div>
-          <div class="chips">
-            <span class="chip">情報の収集<span class="m">40分</span></span>
-            <span class="chip">切り分け・判断<span class="m">20分</span></span>
-            <span class="chip">報告・記録<span class="m">10分</span></span>
-          </div>
-          <div class="bar"><i style="width:100%"></i></div>
         </div>
-        <div class="mid">
-          <svg class="ic" viewBox="0 0 24 24" width="20" height="20" style="stroke-width:2.2;color:var(--steel)"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-          <span class="badge">−60%</span>
-          <span class="lbl">{{ソリューション名}} 導入</span>
+        <div style="border-top:1px solid var(--line);padding-top:min(1.3vh,1.3vw);font-size:min(1.25vh,1.25vw);color:var(--gray);font-weight:500">※レンジは理論値ではなく、在籍者の実額から作成（資格手当・現場手当込み）。等級表の全文は面談でお見せします。</div>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <ul class="checks">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>資格手当は明文化</b>。1級建築施工管理技士 月3万円、1級建築士 月4万円——取れば必ず上がります。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>昇格条件は文書で公開</b>。「どの規模の現場を収められれば上がるか」が等級ごとに明文化されています。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>評価は半期ごと</b>。1on1は月1回。期末に突然評価が下がる「サプライズ」はありません。</span></li>
+        </ul>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:min(1.5vh,1.5vw);margin-top:min(3vh,3vw)">
+          <div class="stat"><div class="kpi">14<span class="unit">名</span></div><div class="kpi-l">昨年度の昇格者（152名中）</div></div>
+          <div class="stat"><div class="kpi">2<span class="unit">年</span></div><div class="kpi-l">現場代理人への最短登用</div></div>
         </div>
-        <div class="row after">
-          <div class="hd"><span class="k">AFTER ― 導入後</span><span class="t">28<span class="u">分/件</span></span></div>
-          <div class="chips">
-            <span class="chip">自動収集・自動突合<span class="m">3分</span></span>
-            <span class="chip">切り分け・判断<span class="m">17分</span></span>
-            <span class="chip">報告・自動記録<span class="m">8分</span></span>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最短<b>2年</b>で現場代理人。基準は在籍年数ではなく、<b>できること</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 1日の流れ：縦タイムテーブル（時刻mono＋帯）。残業21.5h/月（P.04）と退勤時刻を整合 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">A Day</div><div class="h2">1日の時間は、<span class="u">現場</span>に寄せる設計です</div>
+      <p class="subhead">{{施工管理・中途3年目}}メンバーのある1日。書類はクラウドで現場内に収め、持ち帰り仕事をなくしています（直行直帰のため時刻は目安）。</p></div>
+    <div class="tag">05 / A DAY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.25fr 1fr">
+      <div class="chartcard reveal" style="justify-content:flex-start">
+        <div class="dghead"><span class="t">ある1日のタイムテーブル</span><span class="n">所定 8:00–17:00・休憩1h</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:min(1.5vh,1.5vw)">
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">8:00</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">朝礼・KY活動</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:14%;background:var(--steel);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">30分</span>
           </div>
-          <div class="bar"><i style="width:40%"></i></div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">8:30</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">現場巡回・品質確認</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:100%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">3h30分</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">12:00</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">昼休憩</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:29%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">1h</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">13:00</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">工程会議・職長打合せ</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:43%;background:var(--steel);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">1h30分</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">14:30</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">現場巡回・翌日の段取り</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:57%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">2h</span>
+          </div>
+          <div style="display:grid;grid-template-columns:3.4em minmax(0,10.5em) 1fr auto;align-items:center;gap:min(1.7vh,1.7vw)">
+            <span class="mono" style="font-size:min(1.4vh,1.4vw);color:var(--graphite)">16:30</span>
+            <span style="font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--ink)">日報・現場から直帰</span>
+            <span style="display:block;height:min(1.5vh,1.5vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:14%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--gray);min-width:4.5em;text-align:right">30分</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:min(2.6vh,2.6vw);margin-top:min(1.8vh,1.8vw);padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line)">
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:min(1.2vh,1.2vw);color:var(--graphite);font-weight:500"><i style="width:10px;height:10px;border-radius:3px;background:var(--navy)"></i>現場</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:min(1.2vh,1.2vw);color:var(--graphite);font-weight:500"><i style="width:10px;height:10px;border-radius:3px;background:var(--steel)"></i>会議・打合せ</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:min(1.2vh,1.2vw);color:var(--graphite);font-weight:500"><i style="width:10px;height:10px;border-radius:3px;background:var(--silver)"></i>その他</span>
         </div>
       </div>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">{{ソリューション名}}</h3>
-        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>対応時間を最大60%削減</b>。ログ収集と突合を自動化。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>属人化を解消</b>。障害対応の手順を仕組みとして残す。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>再発を未然に防止</b>。原因と対処を検索可能な形で蓄積。</span></li>
+        <div>
+          <div class="kpi" style="font-size:min(6.4vh,6.4vw)"><span class="count" data-to="69">69</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">勤務時間に占める現場時間（5.5h／8h）</div>
+        </div>
+        <ul class="checks" style="margin-top:min(2.8vh,2.8vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>直行直帰OK</b>。社用車1人1台。現場と自宅の位置で、事務所に寄らない日をつくれます。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>書類は現場で完結</b>。電子黒板・クラウド施工管理で、夜の事務作業を持ち帰りません。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>平均退勤は18:05</b>。P.04の平均残業21.5h/月と同じ集計です。</span></li>
         </ul>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ツールの入れ替えは不要。<b>いまのスタックのまま</b>、速く・正確になります。</span></div>
-    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>休みと退勤は根性ではなく<b>設計</b>で守る——閉所日が先にカレンダーを埋めています。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 06 競合優位性：主役=自社列。チェック/バツで走査性を上げる -->
+<!-- 07 社員の声：quote＋写真スロット（このデッキのみ1枚可）。年齢・年次はP.04/P.05と整合 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Why Us</div><div class="h2">他社にない、<span class="u">決定的な違い</span></div>
-      <p class="subhead">費用・期間・サポート・縛りの4軸で比較します。勝てる軸だけでなく、正直に並べています。</p></div>
-    <div class="tag">05 / COMPARE</div>
+    <div><div class="eyebrow">Voices</div><div class="h2">入社した理由を、<span class="u">本人の言葉</span>で</div>
+      <p class="subhead">広報用に脚色していません。カジュアル面談では、ここに登場する社員と直接話すこともできます。</p></div>
+    <div class="tag">06 / VOICES</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><table class="reveal">
-      <thead><tr><th>比較軸</th><th class="col-hi">{{自社名}}</th><th>{{競合A：大手統合ツール}}</th><th>{{競合B：OSS自前運用}}</th></tr></thead>
-      <tbody>
-        <tr><td>初期費用</td><td class="col-hi num">50,000円</td><td class="num">300,000円〜</td><td class="num">0〜10,000円</td></tr>
-        <tr><td>導入期間</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>最短2週間</span></td><td>2〜3か月</td><td>即日（自力構築）</td></tr>
-        <tr><td>サポート</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>専任エンジニアが並走</span></td><td>問い合わせ窓口</td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>コミュニティのみ</span></td></tr>
-        <tr><td>契約の縛り</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>なし</span></td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>年間契約</span></td><td>なし</td></tr>
-      </tbody>
-    </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>「速く始められて、縛られない」——それが<b>{{自社名}}</b>の立ち位置です。<span style="color:var(--gray);font-weight:500;margin-left:8px">※相場は各社公開料金の一般的範囲（{{時点}}・当社調べ）</span></span></div>
-    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 07 導入実績：主役=「70分→28分」の極大数字 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Track Record</div><div class="h2">導入実績と、お客様の声</div>
-      <p class="subhead">同じ規模・同じ業種のSaaS企業が、すでに成果を出しています。掲載は許諾済みのもののみです。</p></div>
-    <div class="tag">06 / PROOF</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split">
-      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
-        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">障害1件あたりの平均対応時間（導入2か月時点）</div>
-        <div style="display:flex;align-items:baseline;gap:min(2.2vh,2.2vw)">
-          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">70分</span>
-          <svg class="ic" viewBox="0 0 24 24" width="26" height="26" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          <span class="kpi xl">28分</span>
-        </div>
-        <blockquote class="quote" style="align-self:flex-start;margin-top:min(3.2vh,3.2vw)">
-          <p style="font-size:min(1.95vh,1.95vw)">「エンジニアを増やさず、導入2か月でここまで来ました。開発チームの抵抗もほとんどありませんでした。」</p>
-          <cite>{{導入企業名}}　開発本部 {{氏名}}様</cite>
-        </blockquote>
+    <div class="fillcenter"><div class="split" style="grid-template-columns:0.72fr 1fr">
+      <div class="frame reveal">
+        <div class="fi"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+        <span style="max-width:26ch;text-align:center;line-height:1.7">社員写真を配置：{{氏名}}さんの現場での自然なスナップ（ヘルメット着用可）。目線が右のコメント側（右向き）になる一枚を。推奨 4:5・胸から上。</span>
       </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
-        <div class="logos" style="height:auto;grid-auto-rows:min(6.4vh,6.4vw);flex:0 0 auto">
-          <div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div>
-          <div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div>
-        </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center;gap:min(3vh,3vw)">
+        <blockquote class="quote" style="align-self:stretch">
+          <p>「面接で聞いた休日と、入社後の実感が同じでした。閉所日が現場カレンダーで先に決まっているので、家族との予定が立てられる。それが一番の入社理由です。」</p>
+          <cite>{{氏名}}（29歳・中途入社2年目／前職：{{住宅営業}}）</cite>
+        </blockquote>
+        <blockquote class="quote" style="align-self:stretch;border-left-color:var(--silver)">
+          <p style="font-size:min(1.9vh,1.9vw)">「2級から1級へ、会社の費用負担で取りました。合格した月から手当がつくので、頑張りが年収に直結します。」</p>
+          <cite>{{氏名}}（33歳・中途入社5年目／1級建築施工管理技士）</cite>
+        </blockquote>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)">
-          <div class="stat"><div class="kpi">{{48}}<span class="unit">社</span></div><div class="kpi-l">導入社数</div></div>
-          <div class="stat"><div class="kpi">{{98}}<span class="unit">%</span></div><div class="kpi-l">契約継続率</div></div>
-          <div class="stat"><div class="kpi">{{60}}<span class="unit">%</span></div><div class="kpi-l">平均対応時間削減</div></div>
+          <div class="stat"><div class="kpi">38<span class="unit">%</span></div><div class="kpi-l">社員紹介経由の入社</div></div>
+          <div class="stat"><div class="kpi">84<span class="unit">%</span></div><div class="kpi-l">3年定着率（P.04と同じ）</div></div>
+          <div class="stat"><div class="kpi">4.1<span class="unit">/5</span></div><div class="kpi-l">社内サーベイ総合（{{2026.06}}）</div></div>
         </div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>{{N}}社</b>の導入実績。同規模のSaaS企業の事例は個別にご紹介できます。</span></div>
-    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ご希望があれば、面談に<b>現場社員が同席</b>します。聞きにくいことは本人にどうぞ。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 08 導入プロセス：4ステップ＋作業負荷バー図解（貴社ほぼゼロを可視化） -->
+<!-- 08 働く環境：checks×2カード。利用率つきで「使われる制度」を証明（92%・71%はP.04と整合） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Onboarding</div><div class="h2">本稼働まで、<span class="u">低負荷</span>で移行できます</div>
-      <p class="subhead">導入時のいちばんの不安は「開発チームの工数」と「定着」。その両方を、当社の並走で肩代わりします。</p></div>
-    <div class="tag">07 / STEPS</div>
+    <div><div class="eyebrow">Environment</div><div class="h2">制度は、<span class="u">使われて</span>はじめて福利厚生です</div>
+      <p class="subhead">並べるだけの制度紹介はしません。主要な制度は、利用率・実績とセットで開示します。</p></div>
+    <div class="tag">07 / BENEFITS</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
-      <div class="grid g4">
-        <div class="card stepcard reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="idx">STEP 1</div><h3>トライアル</h3><p>2週間の無料お試し。ステージング環境の実データで効果を確認します。</p><div class="foot"><span class="n">2週間</span><span>無料</span></div></div>
-        <div class="card stepcard reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="idx">STEP 2</div><h3>連携設定</h3><p>既存の監視・リポジトリと接続。設定作業は当社が代行します。</p><div class="foot"><span class="n">代行</span><span>設定は当社が</span></div></div>
-        <div class="card stepcard reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">STEP 3</div><h3>並走支援</h3><p>導入初月は開発チームに並走。つまずきをその場で解消します。</p><div class="foot"><span class="n">初月</span><span>現場に並走</span></div></div>
-        <div class="card stepcard reveal" style="--i:3"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 12l4 4 14-12"/><path d="M12 20l4-4"/></svg></div><div class="idx">STEP 4</div><h3>本稼働</h3><p>約1か月で全チーム展開。以降は保守で運用を維持します。</p><div class="foot"><span class="n">約1か月</span><span>で全チーム展開</span></div></div>
+    <div class="fillcenter"><div class="grid g2" style="height:100%;align-items:stretch">
+      <div class="chartcard reveal" style="justify-content:flex-start">
+        <div class="dghead"><span class="t">働き方の制度</span><span class="n">利用実績は{{直近1年}}</span></div>
+        <ul class="checks" style="flex:1;justify-content:space-evenly;gap:min(1.2vh,1.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>完全週休2日（4週8休以上）</b>——実施率 <span class="num" style="font-weight:600;color:var(--navy)">92%</span>（P.04と同じ集計）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>社用車1人1台貸与</b>——直行直帰OK。ETC・給油カード付き。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>有給の取得推奨日</b>——全社平均取得率 <span class="num" style="font-weight:600;color:var(--navy)">71%</span>（P.04と同じ集計）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>男性育休</b>——直近5年の取得 <span class="num" style="font-weight:600;color:var(--navy)">2名/5名</span>。低い数字も、そのまま載せます。</span></li>
+        </ul>
+        <div style="margin-top:auto;padding-top:min(1.8vh,1.8vw);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:min(1.2vh,1.2vw)">
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">完全週休2日の実施</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:92%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">92%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">有給取得</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:71%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">71%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">男性育休（直近5年）</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:40%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">40%</span>
+          </div>
+        </div>
+      </div>
+      <div class="chartcard reveal" style="--i:1;justify-content:flex-start">
+        <div class="dghead"><span class="t">資格取得への投資</span><span class="n">費用は会社負担</span></div>
+        <ul class="checks" style="flex:1;justify-content:space-evenly;gap:min(1.2vh,1.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>資格取得支援</b>——受験料・講習費・登録料は会社負担。合格で資格手当（P.05）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>資格学校の費用補助 上限30万円</b>——1級建築士・1級施工管理技士などが対象。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>試験前の特別休暇3日</b>——直前は勉強に専念できます。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>月1回の1on1</b>——評価と切り離した、キャリアの対話の場。</span></li>
+        </ul>
+        <div style="margin-top:auto;padding-top:min(1.8vh,1.8vw);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:min(1.2vh,1.2vw)">
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">資格手当の受給</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:58%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">58%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">昨年度の受験合格率</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:62%;background:var(--navy);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">62%</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,9em) 1fr auto;align-items:center;gap:min(1.8vh,1.8vw)">
+            <span style="font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)">資格学校補助の利用</span>
+            <span style="display:block;height:min(1.2vh,1.2vw);background:var(--mist);border-radius:99px;overflow:hidden"><i style="display:block;height:100%;width:21%;background:var(--silver);border-radius:99px"></i></span>
+            <span class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--graphite);min-width:3.5em;text-align:right">21%</span>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>数字が低い制度は、低いまま見せます。<b>飾らないこと</b>がいちばんの福利厚生だと考えています。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 選考フロー：timeline 4step（現場見学含む）＋所要日数バー。「サイレントお祈り」をしない宣言 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Selection</div><div class="h2">選考は<span class="u">4ステップ</span>。最短2週間です</div>
+      <p class="subhead">実際の現場を見てから決められる選考です。各ステップの結果は、3営業日以内に必ずご連絡します。連絡が来ないまま終わる「サイレントお祈り」はしません。</p></div>
+    <div class="tag">08 / PROCESS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.4vh,2.4vw)">
+      <div class="timeline">
+        <div class="step reveal"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/></svg></div><div class="cn"></div><div class="k">STEP 1 ― 30分</div><h4>カジュアル面談</h4><p>選考ではありません。この資料の数字を、閉所実績や残業の元データごと率直にお話しします。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">オンライン｜服装自由</p></div>
+        <div class="step reveal" style="--i:1"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="cn"></div><div class="k">STEP 2 ― 90分</div><h4>現場見学＋一次面接</h4><p>配属予定の現場を見てから、現場所長と面接。ヘルメット・作業着はこちらで用意します。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">対面・現場｜結果は3営業日以内</p></div>
+        <div class="step reveal" style="--i:2"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5L7 22l5-3 5 3-1.5-9.5"/></svg></div><div class="cn"></div><div class="k">STEP 3 ― 60分</div><h4>最終面接</h4><p>代表と。ミッションへの共感と、キャリアの方向をすり合わせます。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">対面・本社｜結果は3営業日以内</p></div>
+        <div class="step reveal" style="--i:3"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div><div class="cn"></div><div class="k">STEP 4 ― 書面</div><h4>オファー面談</h4><p>年収・等級・資格手当・入社日を書面で提示。ご家族と相談する時間も考慮します。</p><p class="mono" style="font-size:min(1.15vh,1.15vw);color:var(--gray);margin-top:min(1.1vh,1.1vw)">回答期限は柔軟に設定</p></div>
       </div>
       <div class="load reveal" style="--i:4">
-        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">導入1か月の作業負荷の内訳</span><span class="n">合計 約22時間</span></div>
-        <div class="lr"><span class="ln">当社の作業</span><span class="track"><i style="width:91%;background:var(--navy)"></i></span><span class="lv">約20時間</span></div>
-        <div class="lr"><span class="ln">貴社の作業</span><span class="track"><i style="width:9%;background:var(--silver)"></i></span><span class="lv">約2時間（確認のみ）</span></div>
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">応募から内定までの日数</span><span class="n">{{直近1年}}の実績</span></div>
+        <div class="lr"><span class="ln">最短のケース</span><span class="track"><i style="width:56%;background:var(--navy)"></i></span><span class="lv">約10営業日（2週間）</span></div>
+        <div class="lr"><span class="ln">平均</span><span class="track"><i style="width:100%;background:var(--silver)"></i></span><span class="lv">約18営業日</span></div>
+        <div style="padding-top:min(1vh,1vw);border-top:1px solid var(--line);font-size:min(1.25vh,1.25vw);color:var(--gray);font-weight:500">※在職中の方は土曜・夕方の面接も調整します。入社日は内定後のご相談でOK（最長{{3か月}}お待ちします）。</div>
       </div>
     </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>開発チームの工数は<b>ほぼゼロ</b>。設定も定着も、当社が引き受けます。</span></div>
-    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>選考中の疑問は、<b>面接官に直接</b>聞ける連絡先をお渡しします。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 09 料金：主役=中央プランを紺ベタ反転 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Pricing</div><div class="h2">ご予算に合わせた、3つのプラン</div>
-      <p class="subhead">まずは中央のスタンダードから。過不足があれば、上下のプランへ無理なく移れます。</p></div>
-    <div class="tag">08 / PRICING</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="plans" style="height:auto">
-      <div class="plan reveal"><h4>エントリー</h4><div class="price">30,000<span class="u">円/月</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>基本機能</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>メールサポート</li></ul>
-        <div class="meta">想定：〜10名の開発チーム</div></div>
-      <div class="plan reco reveal" style="--i:1"><span class="badge">おすすめ</span><h4>スタンダード</h4><div class="price">50,000<span class="u">円/月</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>全機能＋自動収集</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専任エンジニアの並走</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>契約の縛りなし</li></ul>
-        <div class="meta">想定：〜50名｜初期 50,000円</div></div>
-      <div class="plan reveal" style="--i:2"><h4>プレミアム</h4><div class="price">120,000<span class="u">円/月</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>個別カスタム連携開発</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>優先サポート</li></ul>
-        <div class="meta">想定：50名超｜専任PM付き</div></div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>金額は税別。<b>値引き前提の煽りは行いません</b>——内訳の明快さで選ばれます。</span></div>
-    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 10 CTA -->
+<!-- 10 CTA：応募ではなく「まず話す・見に来る」へ心理的ハードルを下げる -->
 <section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
-    <p class="kick" style="color:var(--steel)">Next Step</p>
-    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、2週間の無料トライアルから。</h1>
-    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">貴社の実データで効果をご確認いただいてから、ご判断ください。</p>
+    <p class="kick" style="color:var(--steel)">Casual Talk</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">志望動機は、まだなくていい。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">まずは15分、オンラインで話しませんか。現場見学だけのご参加も歓迎です。服装も、履歴書も要りません。</p>
     <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
-      <a class="btn" href="{{リンク}}">トライアルを申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="{{カジュアル面談の予約リンク}}">カジュアル面談を予約する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
     </div>
   </div>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
-    <span class="brandline">{{自社名}}　|　{{メール}}　|　{{電話}}</span><span class="pageno">10 / 10</span>
+    <span class="brandline">{{社名}} 採用チーム　|　{{メール}}　|　{{採用サイトURL}}</span><span class="pageno">10 / 10</span>
   </div>
 </section>
 

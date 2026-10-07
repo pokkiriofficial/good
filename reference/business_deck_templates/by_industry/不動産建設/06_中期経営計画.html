@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/01_稟議・投資決裁_物流運輸.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/06_中期経営計画_不動産建設.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>稟議・投資決裁テンプレート（物流・運輸） | KOKU</title>
+<title>中期経営計画テンプレート（不動産・建設） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -267,349 +267,362 @@
 <div class="deck-progress" id="progress"></div>
 <div class="deck-counter"><b id="cur">01</b> / 10</div>
 
-<!-- 01 表紙：静かな信頼。決裁に必要な事実だけを提示 -->
-<section class="slide cover">
-  <div class="grid-bg"></div><div class="wm">RINGI</div>
-  <p class="kick">Investment Approval</p>
+<!-- 01 表紙 -->
+<section class="slide dark cover">
+  <div class="grid-bg"></div><div class="wm">VISION</div>
+  <p class="kick">Mid-term Business Plan</p>
   <h1>
-    <span class="ln"><span style="--i:0">{{案件名}}への投資について、</span></span>
-    <span class="ln"><span style="--i:1">ご決裁をお願いいたします</span></span>
+    <span class="ln"><span style="--i:0">売上300億円へ。</span></span>
+    <span class="ln"><span style="--i:1">収益構造を変える3か年</span></span>
   </h1>
   <div class="rule"></div>
-  <p class="sub">起案：{{起案部門}}　{{氏名}}　|　稟議番号 {{No.}}</p>
+  <p class="sub">中期経営計画 {{FY26–FY28}}　|　{{社名}}</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
-    <span class="brandline">{{社名}}</span><span class="mono">決裁期日 {{YYYY.MM.DD}}</span>
+    <span class="brandline">{{社名}}</span><span class="mono">{{2026.07.18}}</span>
   </div>
 </section>
 
-<!-- 02 サマリー：結論ファースト。主役=回収期間14ヶ月（極大）＋累計収支Jカーブ -->
+<!-- 02 現在地：前中計の総括。主役=達成率103%（極大）＋statグリッド -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Executive Summary</div><div class="h2">結論：投資は<span class="u">14ヶ月</span>で回収できます</div>
-      <p class="subhead">初期投資900万円に対し、月次の純効果は75万円。承認から14ヶ月で回収し、以降は年間900万円の純効果が続きます。</p></div>
-    <div class="tag">01 / SUMMARY</div>
+    <div><div class="eyebrow">Review</div><div class="h2">前中計は、<span class="u">目標超過</span>で完走しました</div>
+      <p class="subhead">{{FY23–FY25}}の前中計は、売上・利益ともに計画を上回って着地。この実行力が、次の3か年計画の信用の裏づけです。</p></div>
+    <div class="tag">01 / REVIEW</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi xl"><span class="count" data-to="14">14</span><span class="unit">ヶ月</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資回収期間（承認起点・構築2ヶ月を含む）</div>
+          <div class="kpi xl"><span class="count" data-to="103">103</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">前中計 売上目標の達成率（計画213.0億円 → 実績220.0億円）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm">900<span class="unit">万円</span></div><div class="kpi-l">初期投資（車載器80台を含む・P.7）</div></div>
-          <div><div class="kpi sm">+900<span class="unit">万円/年</span></div><div class="kpi-l">年間純効果（運用費控除後）</div></div>
+          <div><div class="kpi sm">+30<span class="unit">億円</span></div><div class="kpi-l">3か年の増収幅（190 → 220）</div></div>
+          <div><div class="kpi sm">11.0<span class="unit">億円</span></div><div class="kpi-l">FY25 営業利益（過去最高）</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">見送れば年1,140万円の損失が続きます（P.4）。効果の前提はP.5、予算の上限はP.7、リスクはP.9で開示します。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">掲げた数字をやり切った3年間でした。この実行力を土台に、次は受注偏重からストック併用への構造転換へ踏み出します。</p>
       </div>
-      <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">累計収支の見通し（承認起点）</span><span class="n">単位：万円｜月次純効果75万円</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="累計収支：承認時マイナス900万円から14ヶ月で損益ゼロ、36ヶ月でプラス1,650万円">
-          <line class="grid-l" x1="0" y1="70" x2="340" y2="70"/>
-          <line x1="0" y1="118" x2="340" y2="118" style="stroke:var(--silver);stroke-dasharray:4 4"/>
-          <path d="M0,118 L132,118 L19,171 L0,171 Z" style="fill:var(--mist);opacity:.75"/>
-          <path class="area" d="M132,118 L340,118 L340,21 Z"/>
-          <path class="draw" pathLength="1" d="M0,171 L19,171 L340,21"/>
-          <text class="axis-t" x="2" y="114">0（損益分岐）</text>
-          <rect class="ann-bg" x="40" y="64" width="112" height="22" rx="11"/>
-          <text class="ann-t" x="96" y="79" text-anchor="middle">14ヶ月で回収</text>
-          <path class="lead-l" d="M96 88 L124 110"/>
-          <circle class="dot" cx="19" cy="171" r="4"/>
-          <circle class="dot key" cx="132" cy="118" r="5.5"/>
-          <circle class="dot" cx="340" cy="21" r="4.5"/>
-          <text class="val-t" x="336" y="13" text-anchor="end">+1,650万円</text>
-          <text class="axis-t" x="2" y="188">承認時 ▲900万円</text>
-          <text class="axis-t" x="132" y="188" text-anchor="middle">14ヶ月</text>
-          <text class="axis-t" x="338" y="188" text-anchor="end">36ヶ月</text>
-        </svg>
+      <div class="reveal" style="--i:1;display:grid;grid-template-columns:1fr 1fr;gap:min(1.8vh,1.8vw);align-content:center">
+        <div class="stat"><div class="kpi">5.0<span class="unit">%</span></div><div class="kpi-l">営業利益率（計画 4.5%）</div></div>
+        <div class="stat"><div class="kpi">42<span class="unit">%</span></div><div class="kpi-l">自己資本比率（3年で +5pt）</div></div>
+        <div class="stat"><div class="kpi">175<span class="unit">億円</span></div><div class="kpi-l">受注残高（FY25末・過去最高）</div></div>
+        <div class="stat"><div class="kpi">480<span class="unit">名</span></div><div class="kpi-l">従業員数（3年で +40名）</div></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>承認から<b>14ヶ月</b>で回収。以降は毎年<b>+900万円</b>が残り続けます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>約束を果たした<b>達成済みの現在地</b>から、次の3か年を始めます。</span></div>
     <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 03 課題整理（空雨傘）：フロー×工数バーを実数で焼き込み。主役=警告色の運行指示工程 -->
+<!-- 03 ビジョン：大コピー＋主役数字=FY28売上300億円（.kpi.xl） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Background</div><div class="h2">課題は、<span class="u">電話とホワイトボードの配車</span>に集中しています</div>
-      <p class="subhead">空（事実）・雨（解釈）・傘（打ち手）で整理しました。原因は配車担当の努力不足ではなく、電話と手書きに頼る工程の設計にあります。</p></div>
-    <div class="tag">02 / ISSUE</div>
+    <div><div class="eyebrow">Vision</div><div class="h2" style="font-size:min(5vh,5vw)">{{地域}}のまちづくりで、いちばん<span class="u">選ばれる会社</span>へ。</div>
+      <p class="subhead">規模はビジョンの結果です。選ばれる理由を増やした先に、この数字を置きます。</p></div>
+    <div class="tag">02 / VISION</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">現行フロー：月あたりの手作業時間</span><span class="n">250時間/月 × 4,000円/時 ≒ 年1,200万円</span></div>
-        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行5工程のうち運行指示・所在確認の電話に月85時間が集中">
-          <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
-          <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
-          <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="115" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
-          <text class="nd-t" x="50" y="53" text-anchor="middle">受注受付</text>
-          <text class="nd-t" x="165" y="53" text-anchor="middle">配車計画</text>
-          <text class="nd-t hot" x="280" y="53" text-anchor="middle">運行指示</text>
-          <text class="nd-t" x="395" y="53" text-anchor="middle">日報転記</text>
-          <text class="nd-t" x="510" y="53" text-anchor="middle">請求書作成</text>
-          <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
-          <text class="an" x="0" y="97">手作業は月250時間＝年1,200万円相当</text>
-          <text class="an hot" x="0" y="119">うち85時間（34%）が運行指示に集中</text>
-          <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
-          <rect class="bar" x="22" y="164" width="56" height="40" rx="4"/>
-          <rect class="bar" x="137" y="144" width="56" height="60" rx="4"/>
-          <rect class="bar hot" x="252" y="91" width="56" height="113" rx="4"/>
-          <rect class="bar" x="367" y="131" width="56" height="73" rx="4"/>
-          <rect class="bar" x="482" y="157" width="56" height="47" rx="4"/>
-          <text class="mn" x="50" y="156" text-anchor="middle">30時間</text>
-          <text class="mn" x="165" y="136" text-anchor="middle">45時間</text>
-          <text class="mn hot inbar" x="280" y="113" text-anchor="middle">85時間</text>
-          <text class="mn" x="395" y="123" text-anchor="middle">55時間</text>
-          <text class="mn" x="510" y="149" text-anchor="middle">35時間</text>
-          <text class="mn" x="0" y="228">月あたりの手作業時間（{{配車担当4名}}合算・現場実測 {{2026年6月}}）</text>
-        </svg>
+    <div class="fillcenter"><div class="reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+      <div class="kpi-l" style="margin:0 0 min(1.4vh,1.4vw);font-size:min(1.5vh,1.5vw)">売上高：FY25 実績 → FY28 目標</div>
+      <div style="display:flex;align-items:baseline;gap:min(2.6vh,2.6vw)">
+        <span class="kpi" style="font-size:min(4.6vh,4.6vw);color:var(--silver)">220<span class="unit">億円</span></span>
+        <svg class="ic" viewBox="0 0 24 24" width="28" height="28" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span class="kpi xl"><span class="count" data-to="300">300</span><span class="unit">億円</span></span>
+        <span class="mono" style="align-self:center;background:var(--cloud);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:min(1.4vh,1.4vw);color:var(--navy);font-weight:600">3か年 CAGR +10.9%</span>
       </div>
-      <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">{{配車担当4名}}の定型業務に、月<b>250時間</b>の手作業が発生している。</div></div>
-        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">人件費換算で<b>年1,200万円</b>。所在確認の電話が鳴り続け、繁忙期は配車ミスと請求漏れの温床に。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">手作業の60%を{{システム名}}で自動化し、配車担当の時間を荷主対応と帰り便の獲得に戻します。</div></div>
+      <div style="display:flex;gap:min(5vh,5vw);margin-top:min(3vh,3vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+        <div><div class="kpi sm">18.0<span class="unit">億円</span></div><div class="kpi-l">営業利益（FY28）</div></div>
+        <div><div class="kpi sm">6.0<span class="unit">%</span></div><div class="kpi-l">営業利益率（+1.0pt）</div></div>
+        <div><div class="kpi sm">25<span class="unit">%</span></div><div class="kpi-l">ストック収益比率（FY28）</div></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは配車担当の頑張りではなく、<b>工程そのもの</b>です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>言葉のビジョンを、<b>検証可能な数字</b>に翻訳したのがこの中計です。</span></div>
     <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 04 現状維持の損失（損失回避）：主役=▲1,140万円/年（警告色はここ1点） -->
+<!-- 04 成長ストーリー：実績3年＋計画3年の売上棒×利益率折れ線。CAGRバッジ焼き込み -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Cost of Inaction</div><div class="h2">「見送る」にも、<span class="u">費用</span>がかかります</div>
-      <p class="subhead">現状維持は無料ではありません。自動化できるはずの人件費と、空車のまま逃し続ける帰り便の機会が、毎月95万円ずつ積み上がります。</p></div>
-    <div class="tag">03 / INACTION</div>
+    <div><div class="eyebrow">Growth Story</div><div class="h2">300億円への<span class="u">道筋</span>を、年次で刻む</div>
+      <p class="subhead">建設事業の受注拡大（年+9%）に、管理・賃貸のストック収益（年+19%）を上乗せして全体で年+11%へ。実績3年と計画3年を同じ物差しで並べています。</p></div>
+    <div class="tag">03 / PLAN</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1fr 1.55fr">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <p class="lead" style="font-size:min(1.75vh,1.75vw)">伸び率は3年間ほぼ一定に平準化。最終年に賭ける「ホッケースティック計画」を排し、毎年の検証に耐える線を引きました。</p>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">+80<span class="unit">億円</span></div><div class="kpi-l">3か年の増収幅</div></div>
+          <div><div class="kpi sm">+7.0<span class="unit">億円</span></div><div class="kpi-l">営業利益の増益幅</div></div>
+        </div>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">売上高と営業利益率：実績 → 計画</span><span class="n">棒＝売上高（億円）／折線＝営業利益率</span></div>
+        <svg class="csvg" viewBox="0 0 560 250" role="img" aria-label="売上は実績190・205・220億円から計画244・270・300億円へ、営業利益率は4.3%から6.0%へ改善">
+          <line x1="8" y1="210" x2="552" y2="210" stroke="var(--line)" stroke-width="1"/>
+          <rect x="20" y="141.6" width="58" height="68.4" rx="4" fill="var(--silver)"/>
+          <rect x="112" y="136.2" width="58" height="73.8" rx="4" fill="var(--silver)"/>
+          <rect x="204" y="130.8" width="58" height="79.2" rx="4" fill="var(--silver)"/>
+          <rect x="296" y="122.2" width="58" height="87.8" rx="4" fill="var(--steel)"/>
+          <rect x="388" y="112.8" width="58" height="97.2" rx="4" fill="var(--steel)"/>
+          <rect x="480" y="102" width="58" height="108" rx="4" fill="var(--navy)"/>
+          <text class="axis-t" x="49" y="135.6" text-anchor="middle" style="font-size:12px">190</text>
+          <text class="axis-t" x="141" y="130.2" text-anchor="middle" style="font-size:12px">205</text>
+          <text class="axis-t" x="233" y="124.8" text-anchor="middle" style="font-size:12px">220</text>
+          <text class="axis-t" x="325" y="116.2" text-anchor="middle" style="font-size:12px;fill:var(--steel)">244</text>
+          <text class="axis-t" x="417" y="106.8" text-anchor="middle" style="font-size:12px;fill:var(--steel)">270</text>
+          <text class="val-t" x="509" y="95" text-anchor="middle">300</text>
+          <line x1="279" y1="40" x2="279" y2="210" stroke="var(--silver)" stroke-width="1" stroke-dasharray="4 4"/>
+          <text x="267" y="30" text-anchor="end" style="font:600 11px var(--sans);fill:var(--gray)">実績</text>
+          <text x="291" y="30" text-anchor="start" style="font:600 11px var(--sans);fill:var(--gray)">計画</text>
+          <rect class="ann-bg" x="340" y="8" width="130" height="24" rx="12"/>
+          <text class="ann-t" x="405" y="24" text-anchor="middle">売上CAGR +11%</text>
+          <path class="draw" pathLength="1" d="M49 88 L141 78 L233 71"/>
+          <path d="M233 71 L325 63 L417 56 L509 46" fill="none" stroke="var(--steel)" stroke-width="2" stroke-dasharray="6 5" stroke-linecap="round"/>
+          <circle class="dot" cx="49" cy="88" r="4" style="fill:var(--steel);stroke:var(--steel)"/>
+          <circle class="dot" cx="141" cy="78" r="4" style="fill:var(--steel);stroke:var(--steel)"/>
+          <circle class="dot" cx="233" cy="71" r="4" style="fill:var(--steel);stroke:var(--steel)"/>
+          <circle class="dot" cx="325" cy="63" r="4" style="stroke:var(--steel)"/>
+          <circle class="dot" cx="417" cy="56" r="4" style="stroke:var(--steel)"/>
+          <circle class="dot" cx="509" cy="46" r="4" style="stroke:var(--steel)"/>
+          <text x="49" y="75" text-anchor="middle" style="font:500 11px var(--mono);fill:var(--steel)">4.3%</text>
+          <text x="509" y="33" text-anchor="middle" style="font:600 12px var(--mono);fill:var(--steel)">6.0%</text>
+          <text class="axis-t" x="49" y="230" text-anchor="middle" style="font-size:11px">FY23</text>
+          <text class="axis-t" x="141" y="230" text-anchor="middle" style="font-size:11px">FY24</text>
+          <text class="axis-t" x="233" y="230" text-anchor="middle" style="font-size:11px">FY25</text>
+          <text class="axis-t" x="325" y="230" text-anchor="middle" style="font-size:11px">FY26</text>
+          <text class="axis-t" x="417" y="230" text-anchor="middle" style="font-size:11px">FY27</text>
+          <text class="axis-t" x="509" y="230" text-anchor="middle" style="font-size:11px">FY28</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成長は<b>年+11%で平準</b>——最終年に賭けない、検証可能な右肩上がりです。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 戦略3本柱：第1柱=hero（紺ベタは1画面1つ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Strategy</div><div class="h2">成長は、<span class="u">3本の柱</span>で実現する</div>
+      <p class="subhead">+80億円の増収を柱ごとに割り付けます。第1柱で+50億円、第2柱で+30億円、第3柱は完成工事総利益率+1.5ptで全体を支えます。</p></div>
+    <div class="tag">04 / STRATEGY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 21h16"/><path d="M6 21V9M10 21V9M14 21V9M18 21V9"/><path d="M4 9l8-6 8 6"/></svg></div><div class="idx">PILLAR 01 ― 受注の主力</div><h3>建設事業の受注拡大</h3><p>公共の維持・更新需要と民間の設備投資を両取りします。技術提案型入札の強化と設計施工一貫で、受注単価と粗利を引き上げます。</p><div class="foot"><span class="n">+50億円</span><span>増収寄与（完成工事高 175 → 225）</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div><div class="idx">PILLAR 02 ― 安定収益</div><h3>ストック収益の育成</h3><p>管理受託と賃貸運用を積み上げ、受注変動に左右されない安定収益を育てます。FY28にはストック収益比率25%へ引き上げます。</p><div class="foot"><span class="n">+30億円</span><span>増収寄与（ストック 45 → 75）</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">PILLAR 03 ― 実行力</div><h3>施工DXと人材確保</h3><p>ICT施工・BIM/CIMの標準化と、週休2日・処遇改善による担い手確保で、第1柱・第2柱を実行し切る現場力を高めます。</p><div class="foot"><span class="n">+1.5pt</span><span>完成工事総利益率の改善</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3本は独立ではなく、<b>第3柱が第1・第2柱の実行力を支える</b>構造です。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 3か年ロードマップ：年次レーン×マイルストーン＋現在地マーカー（暖色はここ1点のみ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Roadmap</div><div class="h2">3か年を、<span class="u">基盤 → 拡大 → 飛躍</span>で進める</div>
+      <p class="subhead">初年度に仕込み、2年目に広げ、3年目に刈り取る。柱ごとの主要マイルストーンを1枚に集約し、現在はFY26を計画どおり進行中です。</p></div>
+    <div class="tag">05 / ROADMAP</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">3か年ロードマップ：3本柱 × 年次マイルストーン</span><span class="n">FY26.04 → FY29.03</span></div>
+        <svg class="fsvg" viewBox="0 0 1120 258" role="img" aria-label="FY26基盤・FY27拡大・FY28飛躍の3か年ロードマップ。現在地は2026年7月">
+          <line x1="130" y1="26" x2="1100" y2="26" stroke="var(--silver)" stroke-width="1.5"/>
+          <polygon points="1100,20 1114,26 1100,32" fill="var(--silver)"/>
+          <line x1="130" y1="20" x2="130" y2="32" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="460" y1="20" x2="460" y2="32" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="790" y1="20" x2="790" y2="32" stroke="var(--silver)" stroke-width="1.5"/>
+          <circle cx="210" cy="26" r="5.5" fill="var(--warn)"/>
+          <text x="210" y="12" text-anchor="middle" style="font:600 12px var(--sans);fill:var(--warn)">現在地 2026.07</text>
+          <text x="290" y="55" text-anchor="middle" style="font:700 15px var(--sans);fill:var(--navy)">FY26 ― 基盤を固める</text>
+          <text x="615" y="55" text-anchor="middle" style="font:700 15px var(--sans);fill:var(--navy)">FY27 ― 拡大する</text>
+          <rect x="866" y="37" width="158" height="24" rx="12" fill="var(--navy)"/>
+          <text x="945" y="54" text-anchor="middle" style="font:700 13px var(--sans);fill:var(--white)">FY28 ― 飛躍する</text>
+          <text class="an" x="0" y="99">建設事業</text>
+          <text class="an" x="0" y="155">ストック収益</text>
+          <text class="an" x="0" y="211">DX・人材</text>
+          <rect class="nd" x="138" y="72" width="296" height="44" rx="10"/>
+          <rect class="nd" x="468" y="72" width="296" height="44" rx="10"/>
+          <rect x="798" y="72" width="296" height="44" rx="10" style="fill:var(--white);stroke:var(--navy);stroke-width:1.5"/>
+          <text class="nd-t" x="286" y="99" text-anchor="middle">選別受注と原価管理を徹底</text>
+          <text class="nd-t" x="616" y="99" text-anchor="middle">公共・民間の大型案件を獲得</text>
+          <text class="nd-t" x="946" y="99" text-anchor="middle" style="fill:var(--navy)">受注高245億円を達成</text>
+          <rect class="nd" x="138" y="128" width="296" height="44" rx="10"/>
+          <rect class="nd" x="468" y="128" width="296" height="44" rx="10"/>
+          <rect x="798" y="128" width="296" height="44" rx="10" style="fill:var(--white);stroke:var(--navy);stroke-width:1.5"/>
+          <text class="nd-t" x="286" y="155" text-anchor="middle">管理・賃貸の専任組織を新設</text>
+          <text class="nd-t" x="616" y="155" text-anchor="middle">管理受託を周辺エリアへ拡大</text>
+          <text class="nd-t" x="946" y="155" text-anchor="middle" style="fill:var(--navy)">ストック比率25%へ到達</text>
+          <rect class="nd" x="138" y="184" width="296" height="44" rx="10"/>
+          <rect class="nd" x="468" y="184" width="296" height="44" rx="10"/>
+          <rect x="798" y="184" width="296" height="44" rx="10" style="fill:var(--white);stroke:var(--navy);stroke-width:1.5"/>
+          <text class="nd-t" x="286" y="211" text-anchor="middle">ICT施工を主要現場へ導入</text>
+          <text class="nd-t" x="616" y="211" text-anchor="middle">BIM/CIMを全社標準に</text>
+          <text class="nd-t" x="946" y="211" text-anchor="middle" style="fill:var(--navy)">週休2日を全現場で実現</text>
+          <path class="ar" d="M445 88l12 6-12 6z"/><path class="ar" d="M775 88l12 6-12 6z"/>
+          <path class="ar" d="M445 144l12 6-12 6z"/><path class="ar" d="M775 144l12 6-12 6z"/>
+          <path class="ar" d="M445 200l12 6-12 6z"/><path class="ar" d="M775 200l12 6-12 6z"/>
+          <text class="mn" x="0" y="252">各マイルストーンは担当役員のKPIに接続（数値目標はP.8、推進体制はP.9）</text>
+        </svg>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>仕込み → 拡大 → 刈り取りの<b>順番を守る</b>ことが、3年で最も速い道です。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 投資配分：構成横バー（%内側白文字）＋回収規律 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Investment</div><div class="h2">3か年で<span class="u">40億円</span>を、成長へ投じる</div>
+      <p class="subhead">財源は3か年の営業キャッシュフロー見込み36億円と既存借入枠の範囲内。回収規律と財務健全性を守りながら、ストックとDXへ厚く配分します。</p></div>
+    <div class="tag">06 / INVESTMENT</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi xl" style="color:var(--warn)">▲1,140<span class="unit">万円/年</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資を見送った場合の年間損失（非効率コスト720万円＋機会損失420万円）</div>
+          <div class="kpi" style="font-size:min(6vh,6vw)"><span class="count" data-to="40">40</span><span class="unit">億円</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">3か年の成長投資枠（営業CF 36億円＋既存借入枠内）</div>
         </div>
-        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm" style="color:var(--graphite)">▲3,420<span class="unit">万円</span></div><div class="kpi-l">3年放置の累計損失</div></div>
-          <div><div class="kpi sm" style="color:var(--graphite)">▲5,700<span class="unit">万円</span></div><div class="kpi-l">5年放置の累計損失</div></div>
-        </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">この損失は、P.5の効果試算と同じ前提の裏返しです。二重計上はなく、金額は保守側に置いています。</p>
+        <ul class="checks" style="margin-top:min(2.8vh,2.8vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>投資規律</b>：収益不動産は利回り6%基準と売却ラインを事前設定。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>財務規律</b>：自己資本比率40%以上を維持（FY25：42%）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>株主還元</b>：配当性向30%を継続し、成長と還元を両立。</span></li>
+        </ul>
       </div>
       <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">見送った場合の累計損失</span><span class="n">単位：万円（毎月95万円で累積）</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="見送りの累計損失は1年で1,140万円、3年で3,420万円に拡大">
-          <line class="grid-l" x1="0" y1="70" x2="340" y2="70"/><line class="grid-l" x1="0" y1="120" x2="340" y2="120"/><line class="grid-l" x1="0" y1="170" x2="340" y2="170"/>
-          <path d="M0,170 L340,20 L340,170 Z" style="fill:var(--mist);opacity:.75"/>
-          <path class="draw" pathLength="1" d="M0,170 L340,20" style="stroke:var(--graphite)"/>
-          <rect class="ann-bg" x="30" y="36" width="140" height="22" rx="11"/>
-          <text class="ann-t" x="100" y="51" text-anchor="middle">毎月95万円ずつ拡大</text>
-          <path class="lead-l" d="M100 58 L136 104"/>
-          <circle class="dot" cx="113" cy="120" r="4.5" style="stroke:var(--graphite)"/>
-          <circle class="dot" cx="227" cy="70" r="4.5" style="stroke:var(--graphite)"/>
-          <circle class="dot" cx="340" cy="20" r="5.5" style="stroke:var(--graphite);fill:var(--graphite)"/>
-          <text class="axis-t" x="113" y="140" text-anchor="middle">▲1,140</text>
-          <text class="axis-t" x="227" y="90" text-anchor="middle">▲2,280</text>
-          <text class="val-t" x="336" y="12" text-anchor="end" style="fill:var(--ink)">▲3,420万円</text>
-          <text class="axis-t" x="2" y="188">0ヶ月</text>
-          <text class="axis-t" x="113" y="188" text-anchor="middle">12ヶ月</text>
-          <text class="axis-t" x="227" y="188" text-anchor="middle">24ヶ月</text>
-          <text class="axis-t" x="338" y="188" text-anchor="end">36ヶ月</text>
+        <div class="dghead"><span class="t">投資配分の内訳（3か年累計）</span><span class="n">総額 40.0億円＝100%</span></div>
+        <svg class="csvg" viewBox="0 0 520 84" role="img" aria-label="投資配分：収益不動産の取得40%、施工DX・システム25%、人材採用・育成20%、建設機械・設備15%">
+          <defs><clipPath id="cashbar"><rect x="0" y="14" width="520" height="56" rx="12"/></clipPath></defs>
+          <g clip-path="url(#cashbar)">
+            <rect x="0" y="14" width="208" height="56" fill="var(--navy)"/>
+            <rect x="208" y="14" width="130" height="56" fill="var(--steel)"/>
+            <rect x="338" y="14" width="104" height="56" fill="var(--graphite)"/>
+            <rect x="442" y="14" width="78" height="56" fill="var(--gray)"/>
+          </g>
+          <text x="104" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">40%</text>
+          <text x="104" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">収益不動産</text>
+          <text x="273" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">25%</text>
+          <text x="273" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">施工DX</text>
+          <text x="390" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">20%</text>
+          <text x="390" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">人材</text>
+          <text x="481" y="41" text-anchor="middle" style="font:700 15px var(--mono);fill:var(--white)">15%</text>
+          <text x="481" y="58" text-anchor="middle" style="font:600 10.5px var(--sans);fill:var(--white)">機械・設備</text>
         </svg>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>問いは「やるか否か」ではなく、<b>損失を止めるか、続けるか</b>です。</span></div>
-    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 05 投資対効果：ウォーターフォール（投資▲1,580→削減+2,040→増収+1,190→純効果+1,650）。金額比例・接続線つき -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Return on Investment</div><div class="h2">3年累計の純効果は、<span class="u">＋1,650万円</span>です</div>
-      <p class="subhead">総投資1,580万円（初期900万円＋運用680万円）に対し、効果は3,230万円。保守側の前提でも、投資を大きく上回ります。</p></div>
-    <div class="tag">04 / ROI</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">投資対効果ウォーターフォール（承認から36ヶ月）</span><span class="n">単位：万円｜効果は本稼働後34ヶ月分</span></div>
-        <svg class="fsvg" viewBox="0 0 560 258" role="img" aria-label="総投資1,580万円に対し削減2,040万円と増収1,190万円で、3年純効果は1,650万円">
-          <line class="bl" x1="0" y1="118" x2="560" y2="118"/>
-          <text class="mn" x="2" y="112">0</text>
-          <path class="lead-l" d="M120 197 L170 197"/>
-          <path class="lead-l" d="M260 95 L310 95"/>
-          <path class="lead-l" d="M400 36 L450 36"/>
-          <rect class="bar hot" x="30" y="118" width="90" height="79" rx="4"/>
-          <rect class="bar" x="170" y="95" width="90" height="102" rx="4" style="fill:var(--steel)"/>
-          <rect class="bar" x="310" y="36" width="90" height="59" rx="4" style="fill:var(--steel)"/>
-          <rect class="bar" x="450" y="36" width="90" height="82" rx="4" style="fill:var(--navy)"/>
-          <text class="mn hot" x="75" y="213" text-anchor="middle">▲1,580</text>
-          <text class="mn" x="215" y="87" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋2,040</text>
-          <text class="mn" x="355" y="28" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋1,190</text>
-          <text class="an" x="495" y="28" text-anchor="middle" style="fill:var(--navy);font-size:15px">＋1,650</text>
-          <text class="mn" x="75" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">総投資（3年）</text>
-          <text class="mn" x="215" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">コスト削減</text>
-          <text class="mn" x="355" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">実車率改善</text>
-          <text class="mn" x="495" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">3年純効果</text>
-        </svg>
-      </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">効果算定の前提（保守側）</h3>
-        <ul class="checks" style="margin-top:min(2.2vh,2.2vw);gap:min(1.5vh,1.5vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>削減 60万円/月</b>：手作業250時間の60%を自動化（150時間×4,000円/時）。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>増収 35万円/月</b>：動態データで帰り便を獲得し実車率62%→63.5%（月間粗利2,300万円×1.5%）。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>費用は上限計上</b>：予備費100万円・運用費20万円/月（通信費込み）を含む。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>構築期間はゼロ計上</b>：効果は本稼働（3ヶ月目）以降のみ算入。</span></li>
-        </ul>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>効果は投資の<b>約2.0倍</b>（3,230万円÷1,580万円）。前提はすべて保守側です。</span></div>
-    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 06 選択肢の比較（松竹梅）：主役=中央B案の紺ベタ -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Options</div><div class="h2">3案を比較し、<span class="u">B案</span>を推奨します</div>
-      <p class="subhead">「試験」「標準」「全面」の3案で検討しました。効果・回収・リスクのバランスで、全社標準導入のB案が最適です。</p></div>
-    <div class="tag">05 / OPTIONS</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="plans" style="height:auto">
-      <div class="plan reveal"><h4>A案｜配車のみ・1営業所試験</h4><div class="price">240<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>初期投資が最小で済む</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>ドライバーへの影響が小さい</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>動態なしで所在確認電話が残る</li></ul>
-        <div class="meta">回収 約17ヶ月｜3年純効果 +300万円</div></div>
-      <div class="plan reco reveal" style="--i:1"><span class="badge">推奨</span><h4>B案｜配車＋動態を全社導入</h4><div class="price">900<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>電話・ホワイトボードを根本解消</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>年間純効果900万円・回収14ヶ月</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>営業所ごと段階切替・繁忙期回避</li></ul>
-        <div class="meta">回収 14ヶ月｜3年純効果 +1,650万円</div></div>
-      <div class="plan reveal" style="--i:2"><h4>C案｜配車＋動態＋請求連携</h4><div class="price">2,000<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>効果は最大（100万円/月）</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>基幹連携で構築6ヶ月・回収が遠い</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>改修・保守の負担が大きい</li></ul>
-        <div class="meta">回収 約26ヶ月｜3年純効果 +1,000万円</div></div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>安い案は効果が薄く、大きい案は回収が遠い。<b>B案が投資効率の最適点</b>です。</span></div>
-    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 07 費用内訳：navyヘッダ表＋合計行強調。右に3年総投資と執行ルール -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Budget</div><div class="h2">ご承認いただく予算は、<span class="u">900万円</span>が上限です</div>
-      <p class="subhead">初期投資の内訳です。予備費まで含めた総額で、これを上限とします。超過が見込まれる場合は、執行前に再稟議します。</p></div>
-    <div class="tag">06 / BUDGET</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.25fr 1fr;align-items:center">
-      <table class="reveal">
-        <thead><tr><th>費目</th><th>内容</th><th class="num">金額（万円）</th></tr></thead>
-        <tbody>
-          <tr><td>車載器・取付工事</td><td>GPS車載器 80台×5万円（取付費込み）</td><td class="num">400</td></tr>
-          <tr><td>導入・初期設定</td><td>{{システム名}}設定・車両80台登録（固定価格）</td><td class="num">280</td></tr>
-          <tr><td>データ移行・現場教育</td><td>荷主・コースデータ移行＋ドライバー説明会3回</td><td class="num">120</td></tr>
-          <tr><td>予備費</td><td>想定外対応（初期費の約13%）</td><td class="num">100</td></tr>
-          <tr><td style="background:var(--cloud);color:var(--navy);font-weight:700">初期投資 合計</td><td style="background:var(--cloud)"></td><td class="num" style="background:var(--cloud);color:var(--navy);font-weight:700;font-size:min(2vh,2vw)">900</td></tr>
-        </tbody>
-      </table>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(2vh,2vw);justify-content:center">
-        <div>
-          <div class="kpi">1,580<span class="unit">万円</span></div>
-          <div class="kpi-l">3年総投資（初期900万円＋運用20万円/月×34ヶ月）</div>
+        <div style="display:flex;flex-direction:column;margin-top:min(1.4vh,1.4vw)">
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--navy);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">収益不動産の取得</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">賃貸・管理のストック収益源を積み増し</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">16.0億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--steel);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">施工DX・システム</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">ICT施工・BIM/CIMと基幹システム刷新</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">10.0億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--graphite);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">人材採用・育成</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">3年で+50名の採用と資格取得支援</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">8.0億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0;border-top:1px solid var(--line)"><span style="width:12px;height:12px;border-radius:3px;background:var(--gray);flex:none"></span><span style="font-size:min(1.45vh,1.45vw);font-weight:600;color:var(--ink)">建設機械・設備</span><span style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500">生産性と安全を支える維持更新投資</span><span class="mono" style="margin-left:auto;font-size:min(1.45vh,1.45vw);color:var(--navy);font-weight:600">6.0億円</span></div>
+          <div style="display:flex;align-items:center;gap:10px;padding:min(1.25vh,1.25vw) 0 0;border-top:2px solid var(--navy)"><span style="font-size:min(1.45vh,1.45vw);font-weight:700;color:var(--navy)">合計（3か年累計）</span><span class="mono" style="margin-left:auto;font-size:min(1.7vh,1.7vw);color:var(--navy);font-weight:600">40.0億円</span></div>
         </div>
-        <div class="load">
-          <div class="lr"><span class="ln">初期投資</span><span class="track"><i style="width:100%;background:var(--steel)"></i></span><span class="lv">900万円（一時）</span></div>
-          <div class="lr"><span class="ln">運用費</span><span class="track"><i style="width:76%;background:var(--silver)"></i></span><span class="lv">680万円（34ヶ月）</span></div>
-        </div>
-        <ul class="checks" style="gap:min(1.2vh,1.2vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">支払いは検収後。契約時30%／検収後70%の分割。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">増車時の車載器追加は本稟議に含めず、都度稟議。</span></li>
-        </ul>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>表示額が上限です。予備費が未使用なら、<b>その分は執行しません</b>。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>攻めの配分と守りの規律はセット——<b>使い切る計画ではなく、回収する計画</b>です。</span></div>
     <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 08 実行スケジュール：timeline 4step＋移行期間の作業負荷バー -->
+<!-- 08 KPI：財務×非財務の一覧表。最右列=FY28目標をcol-hiで主役に -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Execution Plan</div><div class="h2">承認から<span class="u">3ヶ月目</span>に、本稼働します</div>
-      <p class="subhead">契約から2ヶ月で取付・移行し、3ヶ月目に本稼働。配車担当と現場の負荷は、教育と受入テストの約40時間だけに抑えます。</p></div>
-    <div class="tag">07 / SCHEDULE</div>
+    <div><div class="eyebrow">Targets</div><div class="h2">コミットする数字は、<span class="u">この7つ</span></div>
+      <p class="subhead">財務と非財務をひとつの表で管理します。最右列のFY28目標が、全部門・全現場の共通ゴールです。</p></div>
+    <div class="tag">07 / KPI</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter" style="gap:min(2.6vh,2.6vw)">
-      <div class="timeline">
-        <div class="step reveal"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><div class="k">PHASE 01｜W1–W2</div><h4>契約・キックオフ</h4><p>決裁後2週間で契約締結。推進責任者と営業所オーナーを任命します。</p></div>
-        <div class="step reveal" style="--i:1"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="k">PHASE 02｜M1</div><h4>構築・車載器取付</h4><p>配車マスタ設定と車載器取付。取付は夜間・休車時間に行い、輸送を止めません。</p></div>
-        <div class="step reveal" style="--i:2"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M4 7h12M13 3l4 4-4 4"/><path d="M20 17H8M11 13l-4 4 4 4"/></svg></div><div class="k">PHASE 03｜M2</div><h4>移行・並行稼働</h4><p>ホワイトボードと並行運用で検証。ドライバー説明会3回をこの月に完了します。</p></div>
-        <div class="step reveal" style="--i:3"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M3 17l6-6 4 4 8-9"/><path d="M14 6h7v7"/></svg></div><div class="k">PHASE 04｜M3〜</div><h4>本稼働・効果測定</h4><p>3ヶ月目から効果を計上。月次レポートとKPIゲート（3・6ヶ月）で検証します。</p></div>
-      </div>
-      <div class="load reveal" style="--i:4">
-        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">移行期間（2ヶ月）の作業負荷</span><span class="n">合計 約360時間</span></div>
-        <div class="lr"><span class="ln">ベンダー側</span><span class="track"><i style="width:89%;background:var(--navy)"></i></span><span class="lv">約320時間</span></div>
-        <div class="lr"><span class="ln">配車担当・営業所</span><span class="track"><i style="width:11%;background:var(--silver)"></i></span><span class="lv">約40時間（教育・受入テスト）</span></div>
-      </div>
-    </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>輸送を止めない移行計画。<b>3ヶ月目から効果</b>が数字に表れます。</span></div>
+    <div class="fillcenter"><table class="reveal">
+      <thead><tr>
+        <th style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">分類</th>
+        <th style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">指標</th>
+        <th class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY25 実績</th>
+        <th class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY26</th>
+        <th class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY27</th>
+        <th class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">FY28 目標</th>
+      </tr></thead>
+      <tbody>
+        <tr><td rowspan="5" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">財務</td><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">受注高（億円）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">190</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">205</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">225</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">245</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">売上高（億円）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">220.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">244.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">270.0</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">300.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">営業利益（億円）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">11.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">13.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">15.1</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">18.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">完成工事総利益率（%）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">11.5</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">12.0</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">12.5</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">13.0</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">ストック収益比率（%）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">20</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">22</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">23</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">25</td></tr>
+        <tr><td rowspan="2" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">非財務</td><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">1級施工管理技士（名）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">82</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">95</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">108</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">120</td></tr>
+        <tr><td style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">週休2日実施現場比率（%）</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">60</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">75</td><td class="num" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">90</td><td class="num col-hi" style="padding:min(1.5vh,1.5vw) min(2vh,2vw)">100</td></tr>
+      </tbody>
+    </table></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>目標レンジは置かず、<b>コミットする1本の数字</b>だけを掲げます。<span style="color:var(--gray);font-weight:500;margin-left:8px">※算定前提（公共投資・資材市況等）は{{Appendix}}に明記</span></span></div>
     <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 09 リスクと対策：リスク×影響度×対策×残存度。機能色ドットで走査性 -->
+<!-- 09 推進体制とモニタリング：体制図＋月次/四半期/年次サイクル -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Risk &amp; Mitigation</div><div class="h2">リスクは、<span class="u">対策とセット</span>で開示します</div>
-      <p class="subhead">都合の良い項目だけを並べていません。影響度と、対策後に残る残存リスクまで示し、判断に必要な材料を揃えました。</p></div>
-    <div class="tag">08 / RISK</div>
+    <div><div class="eyebrow">Governance</div><div class="h2">計画を、<span class="u">回し切る</span>体制</div>
+      <p class="subhead">作って終わりにしないための仕組みです。柱ごとに担当役員を置き、月次で測り、四半期で軌道修正し、年次で計画を磨き直します。</p></div>
+    <div class="tag">08 / GOVERNANCE</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><table class="reveal">
-      <thead><tr><th>想定リスク</th><th>影響度</th><th class="col-hi">回避・低減策</th><th>残存リスク</th></tr></thead>
-      <tbody>
-        <tr><td>効果が想定を下回る</td><td>中</td><td class="col-hi">KPIゲート（3・6ヶ月）で検証。未達なら拡張を停止し、原因を是正</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-        <tr><td>繁忙期と切替が重なる</td><td>中</td><td class="col-hi">切替は閑散期に設定。並行稼働中は旧運用へ即日戻せる体制を維持</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-        <tr><td>ドライバーが操作に定着しない</td><td style="color:var(--ink);font-weight:700">高</td><td class="col-hi">操作は乗務前後の2タップのみ。説明会3回＋営業所ごとに世話役を任命</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--gray)"></i>中</span></td></tr>
-        <tr><td>撤退判断の遅れ</td><td>低</td><td class="col-hi">中止基準を事前合意：6ヶ月時点で効果が計画の50%未満なら縮小</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-      </tbody>
-    </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最大の懸念はドライバーへの定着。<b>2タップ運用と並走体制</b>で残存「中」まで抑え、受容可能と判断しています。</span></div>
+    <div class="fillcenter"><div class="split">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">推進体制</span><span class="n">柱ごとに担当役員を任命</span></div>
+        <svg class="fsvg" viewBox="0 0 460 262" role="img" aria-label="取締役会の監督のもと、代表取締役を委員長とする中計推進委員会が3本柱の担当役員を統括">
+          <rect class="nd" x="150" y="6" width="160" height="38" rx="10"/>
+          <text class="nd-t" x="230" y="30" text-anchor="middle">取締役会（監督）</text>
+          <line x1="230" y1="44" x2="230" y2="60" stroke="var(--silver)" stroke-width="1.5"/>
+          <path d="M225 60l5 8 5-8z" fill="var(--silver)"/>
+          <rect x="115" y="68" width="230" height="56" rx="12" style="fill:var(--navy)"/>
+          <text x="230" y="92" text-anchor="middle" style="font:700 14px var(--sans);fill:var(--white)">中計推進委員会</text>
+          <text x="230" y="110" text-anchor="middle" style="font:500 10.5px var(--sans);fill:rgba(255,255,255,.65)">委員長：代表取締役｜月次開催</text>
+          <line x1="230" y1="124" x2="230" y2="138" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="75" y1="138" x2="385" y2="138" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="75" y1="138" x2="75" y2="152" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="230" y1="138" x2="230" y2="152" stroke="var(--silver)" stroke-width="1.5"/>
+          <line x1="385" y1="138" x2="385" y2="152" stroke="var(--silver)" stroke-width="1.5"/>
+          <rect class="nd" x="5" y="152" width="140" height="52" rx="10"/>
+          <rect class="nd" x="160" y="152" width="140" height="52" rx="10"/>
+          <rect class="nd" x="315" y="152" width="140" height="52" rx="10"/>
+          <text class="nd-t" x="75" y="174" text-anchor="middle" style="font-size:12.5px">第1柱 建設事業</text>
+          <text x="75" y="192" text-anchor="middle" style="font:500 10.5px var(--sans);fill:var(--gray)">担当：{{取締役◯◯}}</text>
+          <text class="nd-t" x="230" y="174" text-anchor="middle" style="font-size:12.5px">第2柱 ストック収益</text>
+          <text x="230" y="192" text-anchor="middle" style="font:500 10.5px var(--sans);fill:var(--gray)">担当：{{取締役◯◯}}</text>
+          <text class="nd-t" x="385" y="174" text-anchor="middle" style="font-size:12.5px">第3柱 DX・人材</text>
+          <text x="385" y="192" text-anchor="middle" style="font:500 10.5px var(--sans);fill:var(--gray)">担当：{{取締役◯◯}}</text>
+          <line x1="0" y1="224" x2="460" y2="224" stroke="var(--line)" stroke-dasharray="4 4"/>
+          <text class="mn" x="0" y="248">社外へ：四半期ごとに株主・金融機関・協力会社へ進捗を開示</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.7vh,1.7vw);justify-content:center">
+        <div class="card" style="padding:min(2vh,2vw) min(2.4vh,2.4vw)"><div class="idx">MONTHLY ― 月次</div><h3>KPIダッシュボードを全社公開</h3><p>P.8の7指標を月次で更新し、本社も現場も同じ数字を見る状態を保ちます。ズレは最速で検知します。</p></div>
+        <div class="card" style="padding:min(2vh,2vw) min(2.4vh,2.4vw)"><div class="idx">QUARTERLY ― 四半期</div><h3>推進委員会でレビューと修正</h3><p>未達の要因を分析し、打ち手と投資配分を組み替えます。結果は株主・金融機関へ開示します。</p></div>
+        <div class="card" style="padding:min(2vh,2vw) min(2.4vh,2.4vw)"><div class="idx">YEARLY ― 年次</div><h3>前提を再点検し、計画を更新</h3><p>公共投資・資材価格の前提を検証して翌年度計画へ反映します。目標は下げず、道筋のほうを磨き直します。</p></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>未達は四半期で検知し、<b>打ち手を差し替える</b>——この運用が計画の信頼を作ります。</span></div>
     <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 10 承認要求（dark CTA）：求める意思決定を3点で明示 -->
+<!-- 10 CTA：全社キックオフ・説明会へ -->
 <section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
-    <p class="kick" style="color:var(--steel)">Decision</p>
-    <h1 style="font-size:min(5.2vh,5.2vw);font-weight:700;line-height:1.24;margin-top:min(2.2vh,2.2vw)">ご承認いただきたい事項は、3点です。</h1>
-    <p class="sub" style="margin-top:min(1.8vh,1.8vw);font-size:min(1.8vh,1.8vw);color:rgba(255,255,255,.72);font-weight:500">回収14ヶ月・3年純効果＋1,650万円。根拠は本資料P.2–P.9のとおりです。</p>
-    <ul class="checks" style="margin-top:min(3vh,3vw);gap:min(1.6vh,1.6vw)">
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">初期投資900万円</b>の予算執行（P.7の内訳を上限とする）</span></li>
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">{{システム名}}導入（B案・全社80台）</b>の実行着手と契約締結</span></li>
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>推進責任者として<b style="color:#fff">{{氏名}}</b>を任命（月次で効果を報告）</span></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.4vh,3.4vw)">
-      <a class="btn" href="{{リンク}}">電子稟議で承認する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <span class="mono" style="font-size:min(1.5vh,1.5vw);color:rgba(255,255,255,.65)">決裁期日 {{YYYY.MM.DD}}</span>
+    <p class="kick" style="color:var(--steel)">Kickoff</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">この計画を、全現場の計画に。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">{{YYYY.MM.DD}} 全社キックオフを開催します。株主・金融機関・協力会社の皆さまには、四半期ごとに進捗をご報告します。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">キックオフ・説明会の詳細へ<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
     </div>
   </div>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
-    <span class="brandline">{{起案部門}}　|　{{氏名}}　|　{{連絡先}}</span><span class="pageno">10 / 10</span>
+    <span class="brandline">{{社名}}　経営企画室　|　{{メール}}</span><span class="pageno">10 / 10</span>
   </div>
 </section>
 

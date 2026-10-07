@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/02_B2B営業提案_物流運輸.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/12_顧客成功事例_不動産建設.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>B2B営業提案テンプレート（物流・運輸） | KOKU</title>
+<title>顧客成功事例テンプレート（不動産・建設） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -267,74 +267,63 @@
 <div class="deck-progress" id="progress"></div>
 <div class="deck-counter"><b id="cur">01</b> / 10</div>
 
-<!-- 01 表紙 -->
+<!-- 01 表紙：主役=成果の対比を一言で（監督1人 月40時間→14時間）。1社の導入記録として誠実なトーン -->
 <section class="slide cover">
-  <div class="grid-bg"></div><div class="wm">B2B</div>
-  <p class="kick">Sales Proposal</p>
+  <div class="grid-bg"></div><div class="wm">CASE</div>
+  <p class="kick">Customer Success Story</p>
   <h1>
-    <span class="ln"><span style="--i:0">{{見込み顧客名}}様の配車業務を、</span></span>
-    <span class="ln"><span style="--i:1">仕組みで軽くするご提案</span></span>
+    <span class="ln"><span style="--i:0">監督1人 月40時間の書類作業が、</span></span>
+    <span class="ln"><span style="--i:1">3か月で14時間になるまで。</span></span>
   </h1>
   <div class="rule"></div>
-  <p class="sub">{{提案サービス名}}　|　{{自社名}}</p>
+  <p class="sub">{{総合建設A社}}様 導入事例　|　{{自社製品名}}　|　{{自社名}}</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
-    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.07.19}}</span>
+    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
   </div>
 </section>
 
-<!-- 02 市場環境：主役=前年比110%（極大）。チャートに実数値と注釈を焼き込み -->
+<!-- 02 顧客プロフィール：類似性で自分ごと化。左=プロフィール表、右=共通点3バンド -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Market</div><div class="h2">荷物は増え、運べる時間は<span class="u">減っています</span></div>
-      <p class="subhead">小口配送の需要は伸び続ける一方、2024年問題で拘束時間に上限が生まれました。いまの車両数のまま、より多く運ぶ設計が要ります。</p></div>
-    <div class="tag">01 / MARKET</div>
+    <div><div class="eyebrow">Client Profile</div><div class="h2">{{見込み顧客名}}様と、<span class="u">よく似た建設会社</span>の記録です</div>
+      <p class="subhead">規模・課題・体制が近い1社の記録です。ご自身の現場に置き換えながらお読みください。</p></div>
+    <div class="tag">01 / PROFILE</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
-      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
-        <div>
-          <div class="kpi xl"><span class="count" data-to="110">110</span><span class="unit">%</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">小口貨物の輸送需要（前年比・{{出所}}）</div>
-        </div>
-        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm"><span class="count" data-to="24.5" data-dec="1">24.5</span><span class="unit">兆円</span></div><div class="kpi-l">物流市場規模（{{出所}}）</div></div>
-          <div><div class="kpi sm">+22<span class="unit">%</span></div><div class="kpi-l">累計成長（{{'21}}→{{今}}）</div></div>
-        </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">増える荷物を、増やせない稼働時間で運びきる。差がつくのは車両数ではなく、配車の組み方です。</p>
-      </div>
-      <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">物流市場規模の推移</span><span class="n">単位：兆円（{{出所}}）</span></div>
-        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="物流市場推移：5年で20.1兆円から24.5兆円へ拡大">
-          <line class="grid-l" x1="0" y1="48" x2="340" y2="48"/><line class="grid-l" x1="0" y1="96" x2="340" y2="96"/><line class="grid-l" x1="0" y1="144" x2="340" y2="144"/>
-          <path class="area" d="M0,150 L68,128 L136,134 L204,86 L272,92 L340,34 L340,190 L0,190 Z"/>
-          <path class="draw" pathLength="1" d="M0,150 L68,128 L136,134 L204,86 L272,92 L340,34"/>
-          <rect class="ann-bg" x="120" y="48" width="88" height="22" rx="11"/>
-          <text class="ann-t" x="164" y="63" text-anchor="middle">5年で +22%</text>
-          <path class="lead-l" d="M164 72 L164 110"/>
-          <text class="axis-t" x="2" y="124">20.1兆円</text>
-          <circle class="dot" cx="68" cy="128" r="4.5"/><circle class="dot" cx="136" cy="134" r="4.5"/><circle class="dot" cx="204" cy="86" r="4.5"/><circle class="dot" cx="272" cy="92" r="4.5"/><circle class="dot key" cx="340" cy="34" r="5.5"/>
-          <text class="val-t" x="332" y="24" text-anchor="end">24.5兆円</text>
-        </svg>
-        <div class="barx"><span>{{'21}}</span><span>{{'22}}</span><span>{{'23}}</span><span>{{'24}}</span><span>{{'25}}</span><span>{{今}}</span></div>
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center"><table>
+        <thead><tr><th>企業プロフィール</th><th>{{総合建設A社}}様</th></tr></thead>
+        <tbody>
+          <tr><td>業種</td><td>{{総合建設業（建築・土木）}}</td></tr>
+          <tr><td>規模</td><td>従業員{{150}}名・現場監督{{20}}名</td></tr>
+          <tr><td>導入前の課題</td><td>施工写真の整理と工事書類の作成に月800時間</td></tr>
+          <tr><td>導入範囲</td><td>工事部・工務部の2部門・監督20名</td></tr>
+          <tr><td>導入時期</td><td>{{2025年10月}}（本稼働から9か月）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band"><div class="k">共通点 01 ― 規模</div><div class="v">従業員<b>150名規模</b>・監督20名。専任のIT担当者は不在。</div></div>
+        <div class="band"><div class="k">共通点 02 ― 課題</div><div class="v">施工写真と工事書類の<b>手作業と属人化</b>。工期末に集中。</div></div>
+        <div class="band"><div class="k">共通点 03 ― 体制</div><div class="v">現場主導で導入・定着。<b>協力会社を含めて</b>並走支援を活用。</div></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>荷物が増えている<b>今こそ</b>、配車の仕組みを整える好機です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>特別な会社の話ではありません。<b>貴社と同じ条件</b>から始まった記録です。</span></div>
     <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 03 ボトルネック：フロー図解を実データで焼き込み。主役=警告色の1工程 -->
+<!-- 03 導入前の課題：フロー図解に実測値を焼き込み。--warnは写真整理工程の1点のみ -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Bottleneck</div><div class="h2">配車が滞る原因は、<span class="u">この工程</span>に集中しています</div>
-      <p class="subhead">事実（空）と、それが招く損失（雨）を分けます。原因は配車担当の力不足ではなく、工程の設計にあります。</p></div>
-    <div class="tag">02 / ISSUE</div>
+    <div><div class="eyebrow">The Challenge</div><div class="h2">時間の<span class="u">50%</span>が、1つの工程に消えていた</div>
+      <p class="subhead">導入前の施工写真・工事書類フローを実測すると、損失は特定の1工程に集中していました。</p></div>
+    <div class="tag">02 / CHALLENGE</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
       <div class="chartcard reveal">
-        <div class="dghead"><span class="t">現行フロー：配車1件あたりの所要時間</span><span class="n">月{{300}}件 × 30分 ≒ 150時間/月</span></div>
-        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行の配車業務5工程のうち配車計画の作成に30分が集中">
+        <div class="dghead"><span class="t">導入前フロー：工事書類1件あたりの所要時間</span><span class="n">月800件 × 60分 ≒ 800時間/月</span></div>
+        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="導入前5工程のうち写真整理に30分が集中">
           <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
           <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
           <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
@@ -342,229 +331,264 @@
           <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
           <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
           <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
-          <text class="nd-t" x="50" y="53" text-anchor="middle">受注受付</text>
-          <text class="nd-t" x="165" y="53" text-anchor="middle">車両選定</text>
-          <text class="nd-t hot" x="280" y="53" text-anchor="middle">配車計画</text>
-          <text class="nd-t" x="395" y="53" text-anchor="middle">乗務員連絡</text>
-          <text class="nd-t" x="510" y="53" text-anchor="middle">日報転記</text>
+          <text class="nd-t" x="50" y="53" text-anchor="middle">現場撮影</text>
+          <text class="nd-t" x="165" y="53" text-anchor="middle">内容確認</text>
+          <text class="nd-t hot" x="280" y="53" text-anchor="middle">写真整理</text>
+          <text class="nd-t" x="395" y="53" text-anchor="middle">書類作成</text>
+          <text class="nd-t" x="510" y="53" text-anchor="middle">上長承認</text>
           <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
           <text class="an" x="0" y="104">1件あたり 計60分</text>
           <text class="an hot" x="0" y="126">うち30分（50%）がこの1工程</text>
-          <path class="lead-l" d="M198 122 C 234 126 252 140 262 158"/>
+          <path class="lead-l" d="M198 122 C 234 128 252 140 262 152"/>
           <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
-          <rect class="bar" x="33" y="184" width="34" height="20" rx="4"/>
-          <rect class="bar" x="148" y="172" width="34" height="32" rx="4"/>
-          <rect class="bar hot" x="263" y="84" width="34" height="120" rx="4"/>
-          <rect class="bar" x="378" y="184" width="34" height="20" rx="4"/>
-          <rect class="bar" x="493" y="156" width="34" height="48" rx="4"/>
-          <text class="mn" x="50" y="176" text-anchor="middle">5分</text>
-          <text class="mn" x="165" y="164" text-anchor="middle">8分</text>
-          <text class="mn hot inbar" x="280" y="106" text-anchor="middle">30分</text>
-          <text class="mn" x="395" y="176" text-anchor="middle">5分</text>
-          <text class="mn" x="510" y="148" text-anchor="middle">12分</text>
-          <text class="mn" x="0" y="228">所要時間（分・{{現状ヒアリング}}より）</text>
+          <rect class="bar" x="33" y="175" width="34" height="29" rx="4"/>
+          <rect class="bar" x="148" y="179" width="34" height="25" rx="4"/>
+          <rect class="bar hot" x="263" y="96" width="34" height="108" rx="4"/>
+          <rect class="bar" x="378" y="172" width="34" height="32" rx="4"/>
+          <rect class="bar" x="493" y="182" width="34" height="22" rx="4"/>
+          <text class="mn" x="50" y="167" text-anchor="middle">8分</text>
+          <text class="mn" x="165" y="171" text-anchor="middle">7分</text>
+          <text class="mn hot inbar" x="280" y="118" text-anchor="middle">30分</text>
+          <text class="mn" x="395" y="164" text-anchor="middle">9分</text>
+          <text class="mn" x="510" y="174" text-anchor="middle">6分</text>
+          <text class="mn" x="0" y="228">所要時間（分・導入前に現場で実測）</text>
         </svg>
       </div>
-      <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">配車1件あたり<b>約30分</b>を、計画の組み直しに使っている。</div></div>
-        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">月あたり<b>約150時間</b>が、車を1kmも走らせない作業に消えている。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">この1工程を自動化すれば、実車率と荷主対応に時間が戻ります。</div></div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">写真整理・書類作業の時間（導入前・監督20名計）</div>
+        <div class="kpi xl" style="font-size:min(6.4vh,6.4vw)"><span class="count" data-to="800">800</span><span class="unit">時間/月</span></div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.4vh,2.4vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">800<span class="unit">件/月</span></div><div class="kpi-l">工事書類の作成件数</div></div>
+          <div><div class="kpi sm">40<span class="unit">時間/月</span></div><div class="kpi-l">監督1人あたりの書類時間</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.4vh,2.4vw);font-size:min(1.7vh,1.7vw)">月800時間はフルタイム5人分。うち400時間が、施工品質を生まない写真整理だけに消えていました。</p>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは業務全体ではなく、<b>配車計画の1工程</b>だけです。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>全工程ではなく、<b>写真整理の1工程</b>に損失が集中していました。</span></div>
     <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 04 3つのアプローチ：主役=最優先の01を紺ベタ -->
+<!-- 04 選定理由：左=比較3案の小表（自社行をハイライト）、右=決め手checks（協力会社も使える） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Approach</div><div class="h2">解決の道すじは、<span class="u">3つ</span>に絞りました</div>
-      <p class="subhead">あれもこれもではなく、効果の大きい3点に集中します。最優先は、ボトルネックに直結する配車計画の自動化です。</p></div>
-    <div class="tag">03 / APPROACH</div>
+    <div><div class="eyebrow">Why Chosen</div><div class="h2">決め手は、<span class="u">確かめられる</span>ことでした</div>
+      <p class="subhead">施工管理パッケージ・増員との3案比較。決め手は機能より、リスクの小ささでした。</p></div>
+    <div class="tag">03 / DECISION</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="grid g3">
-      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><div class="idx">01 ― 最優先</div><h3>配車計画を自動で組む</h3><p>荷姿・車格・時間指定の条件を登録すれば、配車案を自動提示。人は例外だけを判断します。P.3のボトルネックに直結する打ち手です。</p><div class="foot"><span class="n">−60%</span><span>配車作業時間</span></div></div>
-      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3v18M4 9l8-6 8 6"/><path d="M6 12v7h12v-7"/></svg></div><div class="idx">02</div><h3>運行情報を一元化する</h3><p>配車表・日報・デジタコの実績を1つの台帳に集約し、探す時間をなくします。</p><div class="foot"><span class="n">1つ</span><span>の台帳に集約</span></div></div>
-      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><div class="idx">03</div><h3>実車率と拘束時間を見る</h3><p>車両ごとの実車率と乗務員の拘束時間を即時に可視化し、判断の待ち時間を削ります。</p><div class="foot"><span class="n">即時</span><span>に可視化</span></div></div>
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center;gap:min(1.6vh,1.6vw)">
+        <table>
+          <thead><tr><th>検討した選択肢</th><th class="num">初期費用</th><th>検討時の評価</th></tr></thead>
+          <tbody>
+            <tr><td>大手施工管理パッケージ</td><td class="num">5,000,000円〜</td><td>機能は十分。ただし導入に6か月</td></tr>
+            <tr><td>書類担当の増員</td><td class="num">月300,000円〜</td><td>属人化と現場戻りは解消しない</td></tr>
+            <tr><td class="col-hi">{{自社製品名}}</td><td class="col-hi num">100,000円</td><td class="col-hi">2週間で効果を実測できる</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500;line-height:1.6">※金額は{{総合建設A社}}様の検討時点（{{2025年9月}}）の見積・公開料金による。</p>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">選定の決め手となった3点</h3>
+        <ul class="checks" style="margin-top:min(2.2vh,2.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>協力会社もそのまま使えた</b>。職長がスマホで撮るだけ。IDの追加費用なし。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>導入前に効果を実測できた</b>。2週間の無料トライアルで、実データ50現場を検証。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>やめる自由があった</b>。契約の縛りなし。初期10万円＋監督1名 月1.25万円の明朗会計。</span></li>
+        </ul>
+        <div style="margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <p style="font-size:min(1.7vh,1.7vw);color:var(--ink);font-weight:500;line-height:1.65">「最後は、トライアルの実測値がすべてでした。数字が出ていたので、社内の説得は要りませんでした。」</p>
+          <p style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500;margin-top:6px">— {{総合建設A社}} 管理本部長（選定責任者）</p>
+        </div>
+      </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つの打ち手は、いずれも<b>乗務員の手間を増やさず</b>に効きます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>高機能より、<b>確かめられること</b>。それがこの会社の選び方でした。</span></div>
     <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 05 ソリューション：Before/After図解を焼き込み。主役=−60%バッジと紺のAfter -->
+<!-- 05 導入プロセス：タイムライン4ステップ（各期間mono）＋唯一のつまずきを正直に -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Solution</div><div class="h2">ご提案する解決策</div>
-      <p class="subhead">配車室の手作業を、条件を登録済みの配車ロジックで置き換えます。導入初日から今の配車表のまま使えます。</p></div>
-    <div class="tag">04 / SOLUTION</div>
+    <div><div class="eyebrow">The Journey</div><div class="h2">検討から本稼働まで、<span class="u">7週間</span></div>
+      <p class="subhead">特別なITスキルは不要でした。山場は3週目の「現場の壁」——越え方も記録しています。</p></div>
+    <div class="tag">04 / JOURNEY</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="split">
-      <div class="ba reveal">
-        <div class="row before">
-          <div class="hd"><span class="k">BEFORE ― 現在</span><span class="t">30<span class="u">分/件</span></span></div>
-          <div class="chips">
-            <span class="chip">配車表の組み直し<span class="m">14分</span></span>
-            <span class="chip">車両・乗務員の照合<span class="m">10分</span></span>
-            <span class="chip">日報の手入力<span class="m">6分</span></span>
-          </div>
-          <div class="bar"><i style="width:100%"></i></div>
+    <div class="fillcenter" style="gap:min(2.6vh,2.6vw)">
+      <div class="timeline">
+        <div class="step reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
+          <div class="k">STEP 1</div><h4>検討・比較</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">期間：3週間</div>
+          <p>大手パッケージ・増員案と比較。決め手は「試せること」（P.04）。</p></div>
+        <div class="step reveal" style="--i:1;display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="k">STEP 2</div><h4>無料トライアル</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">期間：2週間</div>
+          <p>実データ50現場で検証。1件60分→21分を監督自身が実測。</p></div>
+        <div class="step reveal" style="--i:2;display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div>
+          <div class="k">STEP 3</div><h4>初期設定・研修</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">期間：2週間</div>
+          <p>台帳設定と協力会社への配布は{{自社名}}が代行。現場は確認のみ。</p></div>
+        <div class="step reveal" style="--i:3;display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M3 12l4 4 14-12"/><path d="M12 20l4-4"/></svg></div>
+          <div class="k">STEP 4</div><h4>本稼働</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">検討から7週間</div>
+          <p>2部門・監督20名と協力会社で運用開始。以降は週次で定着支援。</p></div>
+      </div>
+      <div class="grid g2">
+        <div class="load reveal" style="--i:4;justify-content:center">
+          <div class="dghead" style="margin-bottom:2px"><span class="t">唯一のつまずきと、乗り越え方</span><span class="n">導入3週目</span></div>
+          <p style="font-size:min(1.5vh,1.5vw);color:var(--graphite);font-weight:500;line-height:1.65">「事務所で紙に貼るほうが速い」——ベテラン監督の慣れが、移行の壁に。<b style="color:var(--navy)">先行1名の実測値（60分→21分）を全員に共有</b>すると、翌週には全員が自主的に移行した。</p>
         </div>
-        <div class="mid">
-          <svg class="ic" viewBox="0 0 24 24" width="20" height="20" style="stroke-width:2.2;color:var(--steel)"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-          <span class="badge">−60%</span>
-          <span class="lbl">{{ソリューション名}} 導入</span>
-        </div>
-        <div class="row after">
-          <div class="hd"><span class="k">AFTER ― 導入後</span><span class="t">12<span class="u">分/件</span></span></div>
-          <div class="chips">
-            <span class="chip">配車案を自動提示</span>
-            <span class="chip">実績を自動取込</span>
-            <span class="chip">例外調整のみ人が判断<span class="m">12分</span></span>
-          </div>
-          <div class="bar"><i style="width:40%"></i></div>
+        <div class="load reveal" style="--i:5;justify-content:center">
+          <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">導入1か月の作業負荷の内訳</span><span class="n">合計 約33時間</span></div>
+          <div class="lr"><span class="ln">支援側の作業</span><span class="track"><i style="width:91%;background:var(--navy)"></i></span><span class="lv">約30時間</span></div>
+          <div class="lr"><span class="ln">現場側の作業</span><span class="track"><i style="width:9%;background:var(--silver)"></i></span><span class="lv">約3時間（確認のみ）</span></div>
         </div>
       </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">{{ソリューション名}}</h3>
-        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>配車作業を最大60%削減</b>。計画づくりを自動化。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>属人化を解消</b>。ベテランの配車勘を条件として残す。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>拘束時間の超過を未然に防止</b>。改善基準告示の上限を自動チェック。</span></li>
-        </ul>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>覚え直しは不要。<b>いまの配車表のまま</b>、速く・正確になります。</span></div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>山場は3週目の「現場の壁」。<b>実測値の共有</b>で越えられます。</span></div>
     <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 06 競合優位性：主役=自社列。チェック/バツで走査性を上げる -->
+<!-- 06 定量成果：主役=60分→21分の対比（kpi.xl）。右=月次推移チャートに実数値焼き込み -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Why Us</div><div class="h2">他社にない、<span class="u">決定的な違い</span></div>
-      <p class="subhead">費用・期間・サポート・縛りの4軸で、正直に比較します。</p></div>
-    <div class="tag">05 / COMPARE</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><table class="reveal">
-      <thead><tr><th>比較軸</th><th class="col-hi">{{自社名}}</th><th>{{大手配車システム}}</th><th>{{表計算での自社運用}}</th></tr></thead>
-      <tbody>
-        <tr><td>初期費用</td><td class="col-hi num">50,000円</td><td class="num">1,200,000円〜</td><td class="num">0円</td></tr>
-        <tr><td>導入期間</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>最短2週間</span></td><td>4〜6か月</td><td>即日（自力）</td></tr>
-        <tr><td>配車室への同行支援</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>専任担当が現場に並走</span></td><td>問い合わせ窓口</td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>なし</span></td></tr>
-        <tr><td>契約の縛り</td><td class="col-hi"><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.4;color:var(--navy)"><path d="M5 12l5 5L20 6"/></svg>なし</span></td><td><span class="cellflex"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.2;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg>5年リース契約</span></td><td>なし</td></tr>
-      </tbody>
-    </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>「速く始められて、縛られない」——それが<b>{{自社名}}</b>の立ち位置です。<span style="color:var(--gray);font-weight:500;margin-left:8px">※相場は各社公開料金の一般的範囲（{{時点}}・当社調べ）</span></span></div>
-    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 07 導入実績：主役=「5日→2日」の極大数字 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Track Record</div><div class="h2">導入実績と、お客様の声</div>
-      <p class="subhead">同じ車両規模の運送事業者が、すでに成果を出しています。掲載は許諾済みです。</p></div>
-    <div class="tag">06 / PROOF</div>
+    <div><div class="eyebrow">The Results</div><div class="h2">監督の書類時間は、<span class="u">約3分の1</span>になりました</div>
+      <p class="subhead">トライアル時と同じ測定条件による、{{総合建設A社}}様の導入後3か月の実測値です。</p></div>
+    <div class="tag">05 / RESULTS</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
-        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">運行実績の月次締め（導入2か月時点）</div>
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">工事書類1件あたりの処理時間（導入3か月時点）</div>
         <div style="display:flex;align-items:baseline;gap:min(2.2vh,2.2vw)">
-          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">5日</span>
+          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">60分</span>
           <svg class="ic" viewBox="0 0 24 24" width="26" height="26" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          <span class="kpi xl">2日</span>
+          <span class="kpi xl"><span class="count" data-to="21">21</span>分</span>
         </div>
-        <blockquote class="quote" style="align-self:flex-start;margin-top:min(3.2vh,3.2vw)">
-          <p style="font-size:min(1.95vh,1.95vw)">「配車担当を増やさず、2か月でここまで来ました。入力も増えていません。」</p>
-          <cite>{{導入企業名}}　運行管理部 {{氏名}}様</cite>
-        </blockquote>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">520<span class="unit">時間/月</span></div><div class="kpi-l">創出された時間（監督20名計）</div></div>
+          <div><div class="kpi sm">0<span class="unit">件</span></div><div class="kpi-l">書類の差し戻し（3か月連続）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">短縮39分 × 月800件 ＝ 月520時間。監督1人あたり月26時間が、現場管理と安全確認に戻りました。</p>
       </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
-        <div class="logos" style="height:auto;grid-auto-rows:min(6.4vh,6.4vw);flex:0 0 auto">
-          <div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div>
-          <div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div><div class="lg">LOGO</div>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)">
-          <div class="stat"><div class="kpi">{{48}}<span class="unit">社</span></div><div class="kpi-l">導入運送事業者</div></div>
-          <div class="stat"><div class="kpi">{{98}}<span class="unit">%</span></div><div class="kpi-l">契約継続率</div></div>
-          <div class="stat"><div class="kpi">{{60}}<span class="unit">%</span></div><div class="kpi-l">平均配車作業削減</div></div>
-        </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">写真整理・書類作業時間の推移</span><span class="n">単位：時間/月（監督20名計）</span></div>
+        <svg class="fsvg" viewBox="0 0 340 190" role="img" aria-label="写真整理・書類作業時間が3か月で800時間から280時間へ減少">
+          <rect x="120" y="6" width="120" height="22" rx="11" style="fill:var(--navy)"/>
+          <text x="180" y="21" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">3か月で −65%</text>
+          <path class="lead-l" d="M240 17 C 280 22 294 60 297 110"/>
+          <line class="bl" x1="0" y1="160" x2="340" y2="160"/>
+          <rect class="bar" x="20" y="34" width="46" height="126" rx="4"/>
+          <rect class="bar" x="105" y="62" width="46" height="98" rx="4"/>
+          <rect class="bar" x="190" y="92" width="46" height="68" rx="4"/>
+          <rect x="274" y="116" width="46" height="44" rx="4" style="fill:var(--navy)"/>
+          <text class="mn" x="43" y="27" text-anchor="middle">800</text>
+          <text class="mn" x="128" y="55" text-anchor="middle">620</text>
+          <text class="mn" x="213" y="85" text-anchor="middle">430</text>
+          <text class="mn inbar" x="297" y="132" text-anchor="middle" style="font-weight:600">280</text>
+        </svg>
+        <div class="barx"><span>導入時</span><span>1か月後</span><span>2か月後</span><span>3か月後</span></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>{{N}}社</b>の導入実績。同じ車格・同じ荷主構成の事例は個別にご紹介できます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>書類時間は<b>約3分の1</b>。創出された月520時間が、現場管理に回っています。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 ROI：左=投資対効果の小表（残業減を内訳に明示）、右=主役5.5倍（kpi.xl）＋回収期間 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Return on Investment</div><div class="h2">投資は、<span class="u">約2.2か月</span>で回収されました</div>
+      <p class="subhead">効果は「時間の人件費換算」のみで保守的に計算。受注増や手戻り防止は含みません。</p></div>
+    <div class="tag">06 / ROI</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center;gap:min(1.6vh,1.6vw)">
+        <table>
+          <thead><tr><th>投資対効果の内訳（初年度）</th><th class="num">金額</th></tr></thead>
+          <tbody>
+            <tr><td>初期費用（一括）</td><td class="num">100,000円</td></tr>
+            <tr><td>月額費用（12,500円 × 20名 × 12か月）</td><td class="num">3,000,000円</td></tr>
+            <tr><td>年間投資額 合計</td><td class="num">3,100,000円</td></tr>
+            <tr><td>削減効果A：残業の削減（割増賃金）</td><td class="num">7,500,000円</td></tr>
+            <tr><td>削減効果B：所定内時間の再配分</td><td class="num">9,600,000円</td></tr>
+            <tr><td class="col-hi">年間削減効果 合計（人件費換算）</td><td class="col-hi num">17,100,000円</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500;line-height:1.6">※A＝月200時間（監督1人10時間）× 3,125円/時 × 12か月。B＝月320時間（同16時間）× 2,500円/時 × 12か月。時間単価は{{総合建設A社}}様の社内実績値で換算。</p>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">初年度の投資対効果（削減効果 ÷ 投資額）</div>
+        <div class="kpi xl"><span class="count" data-to="5.5" data-dec="1">5.5</span><span class="unit">倍</span></div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">2.2<span class="unit">か月</span></div><div class="kpi-l">投資回収期間（310万円 ÷ 142.5万円/月）</div></div>
+          <div><div class="kpi sm">142.5<span class="unit">万円/月</span></div><div class="kpi-l">毎月の創出価値（時間換算）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">3か月目からは、投資を上回る価値が毎月積み上がる計算です。</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>初年度から<b>投資の5.5倍</b>のリターン。回収まで約2.2か月でした。</span></div>
     <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 08 導入プロセス：4ステップ＋作業負荷バー図解（貴社ほぼゼロを可視化） -->
+<!-- 08 顧客の声：左=大きめの引用（工事部長）、右=数字に表れない3つの変化 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Onboarding</div><div class="h2">本稼働まで、<span class="u">低負荷</span>で移行できます</div>
-      <p class="subhead">導入時のいちばんの不安は「手間」と「配車室への定着」。その両方を、当社の並走で肩代わりします。</p></div>
-    <div class="tag">07 / STEPS</div>
+    <div><div class="eyebrow">Voice of Customer</div><div class="h2">数字の裏で、<span class="u">現場の空気</span>が変わった</div>
+      <p class="subhead">KPIに表れない変化こそ定着の証拠。導入9か月時点の声をそのまま掲載します。</p></div>
+    <div class="tag">07 / VOICE</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
-      <div class="grid g4">
-        <div class="card stepcard reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="idx">STEP 1</div><h3>トライアル</h3><p>2週間の無料お試し。実際の運行データで効果を確認します。</p><div class="foot"><span class="n">2週間</span><span>無料</span></div></div>
-        <div class="card stepcard reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="idx">STEP 2</div><h3>初期設定</h3><p>車両・乗務員・荷主マスタの登録は当社が代行します。</p><div class="foot"><span class="n">代行</span><span>マスタ登録は当社が</span></div></div>
-        <div class="card stepcard reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">STEP 3</div><h3>並走支援</h3><p>導入初月は配車室に並走。朝の締切に間に合う運用へ調整します。</p><div class="foot"><span class="n">初月</span><span>配車室に並走</span></div></div>
-        <div class="card stepcard reveal" style="--i:3"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 12l4 4 14-12"/><path d="M12 20l4-4"/></svg></div><div class="idx">STEP 4</div><h3>本稼働</h3><p>約1か月で全営業所へ展開。以降は保守で運用を維持します。</p><div class="foot"><span class="n">約1か月</span><span>で全営業所展開</span></div></div>
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.15fr 1fr">
+      <blockquote class="quote reveal" style="align-self:center">
+        <p style="font-size:min(2.9vh,2.9vw)">「驚いたのは、数字より先に現場の空気が変わったことです。写真整理のために夜、事務所へ戻る監督がいなくなり、日中を現場で使えるようになりました。」</p>
+        <cite>{{総合建設A社}}　工事部長 {{氏名}}様（導入9か月時点）</cite>
+      </blockquote>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">数字に表れない、3つの変化</h3>
+        <ul class="checks" style="margin-top:min(2.2vh,2.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>監督の直行直帰が定着</b>。写真整理のための事務所戻りが消えた。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>協力会社から写真が届く</b>。職長への催促と回収の往復がなくなった。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>竣工書類が即日そろう</b>。検査前の週末出勤がゼロになった。</span></li>
+        </ul>
+        <div style="margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <p style="font-size:min(1.7vh,1.7vw);color:var(--ink);font-weight:500;line-height:1.65">「土曜に事務所へ写真整理をしに来ることが、なくなりました。」</p>
+          <p style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500;margin-top:6px">— 工務部 現場監督 {{氏名}}様</p>
+        </div>
       </div>
-      <div class="load reveal" style="--i:4">
-        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">導入1か月の作業負荷の内訳</span><span class="n">合計 約22時間</span></div>
-        <div class="lr"><span class="ln">当社の作業</span><span class="track"><i style="width:91%;background:var(--navy)"></i></span><span class="lv">約20時間</span></div>
-        <div class="lr"><span class="ln">貴社の作業</span><span class="track"><i style="width:9%;background:var(--silver)"></i></span><span class="lv">約2時間（確認のみ）</span></div>
-      </div>
-    </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>配車担当の作業は<b>ほぼゼロ</b>。設定も定着も、当社が引き受けます。</span></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>数字の裏で、<b>現場の空気</b>が変わる。それが定着の証拠です。</span></div>
     <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 09 料金：主役=中央プランを紺ベタ反転 -->
+<!-- 09 成功要因の分析：3点・1点hero。事例を普遍化し「あなたの会社でも」へ接続 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Pricing</div><div class="h2">車両台数に応じた、3つのプラン</div>
-      <p class="subhead">保有台数だけで決まる明朗会計です。増車・減車に合わせて、上下のプランへ無理なく移れます。</p></div>
-    <div class="tag">08 / PRICING</div>
+    <div><div class="eyebrow">Success Factors</div><div class="h2">成功の要因は、<span class="u">3つ</span>に整理できます</div>
+      <p class="subhead">同じ規模・同じ課題であれば、この3つは貴社でも同じ手順でなぞれます。</p></div>
+    <div class="tag">08 / ANALYSIS</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="plans" style="height:auto">
-      <div class="plan reveal"><h4>エントリー</h4><div class="price">30,000<span class="u">円/月</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>配車表・日報の一元管理</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>メールサポート</li></ul>
-        <div class="meta">想定：〜10台｜1台あたり 3,000円</div></div>
-      <div class="plan reco reveal" style="--i:1"><span class="badge">おすすめ</span><h4>スタンダード</h4><div class="price">60,000<span class="u">円/月</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>配車計画の自動作成</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>拘束時間の自動チェック</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専任担当の並走／縛りなし</li></ul>
-        <div class="meta">想定：〜30台｜1台あたり 2,000円｜初期 50,000円</div></div>
-      <div class="plan reveal" style="--i:2"><h4>プレミアム</h4><div class="price">120,000<span class="u">円/月</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>複数営業所・デジタコ連携</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>優先サポート</li></ul>
-        <div class="meta">想定：〜80台｜1台あたり 1,500円｜専任PM付き</div></div>
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div><div class="idx">01 ― 核心</div><h3>直す工程を、1つに絞った</h3><p>施工管理全体の刷新ではなく、時間の50%が集中する写真整理だけをクラウド化。だから効果が最速で立ち上がりました。</p><div class="foot"><span class="n">−65%</span><span>3か月の短縮率</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">02</div><h3>監督が、先に納得した</h3><p>実測値を全員で共有し、体感してから全面移行しました。</p><div class="foot"><span class="n">2週間</span><span>体感までの期間</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div><div class="idx">03</div><h3>協力会社まで巻き込んだ</h3><p>職長への配布は{{自社名}}が代行。現場全体で定着させました。</p><div class="foot"><span class="n">7週間</span><span>検討から本稼働まで</span></div></div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>金額は税別。<b>値引き前提の煽りは行いません</b>——台数あたり単価の明快さで選ばれます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つの要因に特殊な条件はありません。<b>{{見込み顧客名}}様でも再現可能</b>です。</span></div>
     <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 10 CTA -->
+<!-- 10 CTA：貴社の数字で同じ試算を（同業向け相談への誘導） -->
 <section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
     <p class="kick" style="color:var(--steel)">Next Step</p>
-    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、2週間の無料トライアルから。</h1>
-    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">実際の運行データで効果をご確認いただいてから、ご判断ください。</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、貴社の数字で“同じ試算”を。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">監督の人数と月間の工事書類の件数を伺えれば、この事例と同じ形式のROI試算を無料で作成します。2週間の無料トライアルもご用意しています。</p>
     <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
-      <a class="btn" href="{{リンク}}">トライアルを申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="{{リンク}}">無料でROI試算を依頼する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
     </div>
   </div>

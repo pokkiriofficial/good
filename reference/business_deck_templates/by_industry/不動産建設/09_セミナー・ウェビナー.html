@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/01_稟議・投資決裁_飲食小売.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/09_セミナー・ウェビナー_不動産建設.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>稟議・投資決裁テンプレート（飲食・小売） | KOKU</title>
+<title>セミナー・ウェビナーテンプレート（不動産・建設） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -267,349 +267,367 @@
 <div class="deck-progress" id="progress"></div>
 <div class="deck-counter"><b id="cur">01</b> / 10</div>
 
-<!-- 01 表紙：静かな信頼。決裁に必要な事実だけを提示 -->
+<!-- 01 表紙 -->
 <section class="slide cover">
-  <div class="grid-bg"></div><div class="wm">RINGI</div>
-  <p class="kick">Investment Approval</p>
+  <div class="grid-bg"></div><div class="wm" style="font-size:min(40vh,30vw);bottom:-7vh;color:rgba(255,255,255,.08)">SEMINAR</div>
+  <p class="kick">Seminar / Webinar</p>
   <h1>
-    <span class="ln"><span style="--i:0">{{案件名}}への投資について、</span></span>
-    <span class="ln"><span style="--i:1">ご決裁をお願いいたします</span></span>
+    <span class="ln"><span style="--i:0">{{工務店・建設会社の経営者}}のための</span></span>
+    <span class="ln"><span style="--i:1">現場監督の残業を減らす、書類仕事のDX講座</span></span>
   </h1>
   <div class="rule"></div>
-  <p class="sub">起案：{{起案部門}}　{{氏名}}　|　稟議番号 {{No.}}</p>
+  <p class="sub">{{2026.08.20（木）18:30–20:00}}　|　{{オンライン開催}}　|　講師 {{講師氏名}}</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
-    <span class="brandline">{{社名}}</span><span class="mono">決裁期日 {{YYYY.MM.DD}}</span>
+    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.08.20}}</span>
   </div>
 </section>
 
-<!-- 02 サマリー：結論ファースト。主役=回収期間14ヶ月（極大）＋累計収支Jカーブ -->
+<!-- 02 アジェンダ：タイムテーブル表（navyヘッダ・時刻mono・現在行ハイライト） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Executive Summary</div><div class="h2">結論：投資は<span class="u">14ヶ月</span>で回収できます</div>
-      <p class="subhead">初期投資840万円に対し、月次の純効果は70万円。承認から14ヶ月で回収し、以降は年間840万円の純効果が続きます。</p></div>
-    <div class="tag">01 / SUMMARY</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split">
-      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
-        <div>
-          <div class="kpi xl"><span class="count" data-to="14">14</span><span class="unit">ヶ月</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資回収期間（承認起点・構築2ヶ月を含む）</div>
-        </div>
-        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm">840<span class="unit">万円</span></div><div class="kpi-l">初期投資（一時費用・P.7）</div></div>
-          <div><div class="kpi sm">+840<span class="unit">万円/年</span></div><div class="kpi-l">年間純効果（利用料控除後）</div></div>
-        </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">見送れば年1,200万円の損失が続きます（P.4）。効果の前提はP.5、予算の上限はP.7、リスクはP.9で開示します。</p>
-      </div>
-      <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">累計収支の見通し（承認起点）</span><span class="n">単位：万円｜月次純効果70万円</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="累計収支：承認時マイナス840万円から14ヶ月で損益ゼロ、36ヶ月でプラス1,540万円">
-          <line class="grid-l" x1="0" y1="70" x2="340" y2="70"/>
-          <line x1="0" y1="118" x2="340" y2="118" style="stroke:var(--silver);stroke-dasharray:4 4"/>
-          <path d="M0,118 L132,118 L19,164 L0,164 Z" style="fill:var(--mist);opacity:.75"/>
-          <path class="area" d="M132,118 L340,118 L340,33 Z"/>
-          <path class="draw" pathLength="1" d="M0,164 L19,164 L340,33"/>
-          <text class="axis-t" x="2" y="114">0（損益分岐）</text>
-          <rect class="ann-bg" x="40" y="64" width="112" height="22" rx="11"/>
-          <text class="ann-t" x="96" y="79" text-anchor="middle">14ヶ月で回収</text>
-          <path class="lead-l" d="M96 88 L124 110"/>
-          <circle class="dot" cx="19" cy="164" r="4"/>
-          <circle class="dot key" cx="132" cy="118" r="5.5"/>
-          <circle class="dot" cx="340" cy="33" r="4.5"/>
-          <text class="val-t" x="336" y="25" text-anchor="end">+1,540万円</text>
-          <text class="axis-t" x="2" y="188">承認時 ▲840万円</text>
-          <text class="axis-t" x="132" y="188" text-anchor="middle">14ヶ月</text>
-          <text class="axis-t" x="338" y="188" text-anchor="end">36ヶ月</text>
-        </svg>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>承認から<b>14ヶ月</b>で回収。以降は毎年<b>+840万円</b>が残り続けます。</span></div>
-    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 03 課題整理（空雨傘）：フロー×工数バーを実数で焼き込み。主役=警告色のFAX発注工程 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Background</div><div class="h2">課題は、<span class="u">FAX発注の手作業</span>に集中しています</div>
-      <p class="subhead">空（事実）・雨（解釈）・傘（打ち手）で整理しました。原因は店長の努力不足ではなく、FAXと電話に頼る工程の設計にあります。</p></div>
-    <div class="tag">02 / ISSUE</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">現行フロー：月あたりの手作業時間</span><span class="n">500時間/月 × 2,000円/時 ≒ 年1,200万円</span></div>
-        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行5工程のうちFAX発注に月180時間が集中">
-          <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
-          <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
-          <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="115" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
-          <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
-          <text class="nd-t" x="50" y="53" text-anchor="middle">在庫確認</text>
-          <text class="nd-t" x="165" y="53" text-anchor="middle">棚卸記帳</text>
-          <text class="nd-t hot" x="280" y="53" text-anchor="middle">FAX発注</text>
-          <text class="nd-t" x="395" y="53" text-anchor="middle">廃棄記録</text>
-          <text class="nd-t" x="510" y="53" text-anchor="middle">本部集計</text>
-          <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
-          <text class="an" x="0" y="97">手作業は月500時間＝年1,200万円相当</text>
-          <text class="an hot" x="0" y="119">うち180時間（36%）がFAX発注に集中</text>
-          <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
-          <rect class="bar" x="22" y="144" width="56" height="60" rx="4"/>
-          <rect class="bar" x="137" y="151" width="56" height="53" rx="4"/>
-          <rect class="bar hot" x="252" y="84" width="56" height="120" rx="4"/>
-          <rect class="bar" x="367" y="144" width="56" height="60" rx="4"/>
-          <rect class="bar" x="482" y="164" width="56" height="40" rx="4"/>
-          <text class="mn" x="50" y="136" text-anchor="middle">90時間</text>
-          <text class="mn" x="165" y="143" text-anchor="middle">80時間</text>
-          <text class="mn hot inbar" x="280" y="106" text-anchor="middle">180時間</text>
-          <text class="mn" x="395" y="136" text-anchor="middle">90時間</text>
-          <text class="mn" x="510" y="156" text-anchor="middle">60時間</text>
-          <text class="mn" x="0" y="228">月あたりの手作業時間（{{12店舗}}＋本部合算・現場実測 {{2026年6月}}）</text>
-        </svg>
-      </div>
-      <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">{{12店舗}}の発注・棚卸・廃棄管理に、月<b>500時間</b>の手作業。店長1人がFAX発注に費やす時間は月15時間（毎日約30分）。</div></div>
-        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">人件費換算で<b>年1,200万円</b>。勘に頼る発注が過剰在庫を生み、廃棄ロス率3.0%の温床に。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">手作業の60%を{{システム名}}で自動化し、売上データで発注量を適正化します。</div></div>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは店長の頑張りではなく、<b>工程そのもの</b>です。</span></div>
-    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 04 現状維持の損失（損失回避）：主役=▲1,200万円/年（警告色はここ1点） -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Cost of Inaction</div><div class="h2">「見送る」にも、<span class="u">費用</span>がかかります</div>
-      <p class="subhead">現状維持は無料ではありません。自動化できるはずの人件費と、過剰発注による廃棄ロスが、毎月100万円ずつ積み上がります。</p></div>
-    <div class="tag">03 / INACTION</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split">
-      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
-        <div>
-          <div class="kpi xl" style="color:var(--warn)">▲1,200<span class="unit">万円/年</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資を見送った場合の年間損失（非効率コスト720万円＋廃棄ロス480万円）</div>
-        </div>
-        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm" style="color:var(--graphite)">▲3,600<span class="unit">万円</span></div><div class="kpi-l">3年放置の累計損失</div></div>
-          <div><div class="kpi sm" style="color:var(--graphite)">▲6,000<span class="unit">万円</span></div><div class="kpi-l">5年放置の累計損失</div></div>
-        </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">この損失は、P.5の効果試算と同じ前提の裏返しです。二重計上はなく、金額は保守側に置いています。</p>
-      </div>
-      <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">見送った場合の累計損失</span><span class="n">単位：万円（毎月100万円で累積）</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="見送りの累計損失は1年で1,200万円、3年で3,600万円に拡大">
-          <line class="grid-l" x1="0" y1="70" x2="340" y2="70"/><line class="grid-l" x1="0" y1="120" x2="340" y2="120"/><line class="grid-l" x1="0" y1="170" x2="340" y2="170"/>
-          <path d="M0,170 L340,20 L340,170 Z" style="fill:var(--mist);opacity:.75"/>
-          <path class="draw" pathLength="1" d="M0,170 L340,20" style="stroke:var(--graphite)"/>
-          <rect class="ann-bg" x="30" y="36" width="140" height="22" rx="11"/>
-          <text class="ann-t" x="100" y="51" text-anchor="middle">毎月100万円ずつ拡大</text>
-          <path class="lead-l" d="M100 58 L136 104"/>
-          <circle class="dot" cx="113" cy="120" r="4.5" style="stroke:var(--graphite)"/>
-          <circle class="dot" cx="227" cy="70" r="4.5" style="stroke:var(--graphite)"/>
-          <circle class="dot" cx="340" cy="20" r="5.5" style="stroke:var(--graphite);fill:var(--graphite)"/>
-          <text class="axis-t" x="113" y="140" text-anchor="middle">▲1,200</text>
-          <text class="axis-t" x="227" y="90" text-anchor="middle">▲2,400</text>
-          <text class="val-t" x="336" y="12" text-anchor="end" style="fill:var(--ink)">▲3,600万円</text>
-          <text class="axis-t" x="2" y="188">0ヶ月</text>
-          <text class="axis-t" x="113" y="188" text-anchor="middle">12ヶ月</text>
-          <text class="axis-t" x="227" y="188" text-anchor="middle">24ヶ月</text>
-          <text class="axis-t" x="338" y="188" text-anchor="end">36ヶ月</text>
-        </svg>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>問いは「やるか否か」ではなく、<b>損失を止めるか、続けるか</b>です。</span></div>
-    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 05 投資対効果：ウォーターフォール（投資▲1,860→時間削減+2,040→廃棄削減+1,360→純効果+1,540）。金額比例・接続線つき -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Return on Investment</div><div class="h2">3年累計の純効果は、<span class="u">＋1,540万円</span>です</div>
-      <p class="subhead">総投資1,860万円（初期840万円＋利用料1,020万円）に対し、効果は3,400万円。保守側の前提でも、投資を大きく上回ります。</p></div>
-    <div class="tag">04 / ROI</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">投資対効果ウォーターフォール（承認から36ヶ月）</span><span class="n">単位：万円｜効果は本稼働後34ヶ月分</span></div>
-        <svg class="fsvg" viewBox="0 0 560 258" role="img" aria-label="総投資1,860万円に対し時間削減2,040万円と廃棄削減1,360万円で、3年純効果は1,540万円">
-          <line class="bl" x1="0" y1="118" x2="560" y2="118"/>
-          <text class="mn" x="2" y="112">0</text>
-          <path class="lead-l" d="M120 202 L170 202"/>
-          <path class="lead-l" d="M260 110 L310 110"/>
-          <path class="lead-l" d="M400 49 L450 49"/>
-          <rect class="bar hot" x="30" y="118" width="90" height="84" rx="4"/>
-          <rect class="bar" x="170" y="110" width="90" height="92" rx="4" style="fill:var(--steel)"/>
-          <rect class="bar" x="310" y="49" width="90" height="61" rx="4" style="fill:var(--steel)"/>
-          <rect class="bar" x="450" y="49" width="90" height="69" rx="4" style="fill:var(--navy)"/>
-          <text class="mn hot" x="75" y="218" text-anchor="middle">▲1,860</text>
-          <text class="mn" x="215" y="102" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋2,040</text>
-          <text class="mn" x="355" y="41" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋1,360</text>
-          <text class="an" x="495" y="41" text-anchor="middle" style="fill:var(--navy);font-size:15px">＋1,540</text>
-          <text class="mn" x="75" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">総投資（3年）</text>
-          <text class="mn" x="215" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">時間削減</text>
-          <text class="mn" x="355" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">廃棄削減</text>
-          <text class="mn" x="495" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">3年純効果</text>
-        </svg>
-      </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">効果算定の前提（保守側）</h3>
-        <ul class="checks" style="margin-top:min(2.2vh,2.2vw);gap:min(1.5vh,1.5vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>時間削減 60万円/月</b>：手作業500時間の60%を自動化（300時間×2,000円/時）。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>廃棄削減 40万円/月</b>：ロス率3.0%→2.5%（全店月商8,000万円×▲0.5pt）。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>費用は上限計上</b>：予備費120万円・利用料30万円/月（2.5万円×12店舗）を含む。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>構築期間はゼロ計上</b>：効果は本稼働（3ヶ月目）以降のみ算入。</span></li>
-        </ul>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>効果は投資の<b>約1.8倍</b>（3,400万円÷1,860万円）。前提はすべて保守側です。</span></div>
-    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 06 選択肢の比較（松竹梅）：主役=中央B案の紺ベタ -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Options</div><div class="h2">3案を比較し、<span class="u">B案</span>を推奨します</div>
-      <p class="subhead">「試験」「全店」「全面」の3案で検討しました。効果・回収・現場負荷のバランスで、発注に絞って全店導入するB案が最適です。</p></div>
-    <div class="tag">05 / OPTIONS</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="plans" style="height:auto">
-      <div class="plan reveal"><h4>A案｜2店舗で試験導入</h4><div class="price">80<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>初期投資が最小で済む</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>現場への影響が2店舗に限定</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>残り10店舗の損失が続く</li></ul>
-        <div class="meta">回収 約18ヶ月｜3年純効果 +90万円</div></div>
-      <div class="plan reco reveal" style="--i:1"><span class="badge">推奨</span><h4>B案｜全店・発注導入</h4><div class="price">840<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>FAX発注を全12店舗で廃止</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>年間純効果840万円・回収14ヶ月</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>2店舗先行→順次展開で繁忙期を回避</li></ul>
-        <div class="meta">回収 14ヶ月｜3年純効果 +1,540万円</div></div>
-      <div class="plan reveal" style="--i:2"><h4>C案｜発注＋在庫＋分析</h4><div class="price">1,800<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>効果は最大（130万円/月）</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>構築4ヶ月・回収が遠い</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>店長が覚える機能が多く負担大</li></ul>
-        <div class="meta">回収 約25ヶ月｜3年純効果 +920万円</div></div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>試験だけでは損失が続き、全面導入は現場が持たない。<b>B案が投資効率の最適点</b>です。</span></div>
-    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 07 費用内訳：navyヘッダ表＋合計行強調。右に3年総投資と執行ルール -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Budget</div><div class="h2">ご承認いただく予算は、<span class="u">840万円</span>が上限です</div>
-      <p class="subhead">初期投資の内訳です。予備費まで含めた総額で、これを上限とします。超過が見込まれる場合は、執行前に再稟議します。</p></div>
-    <div class="tag">06 / BUDGET</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.25fr 1fr;align-items:center">
-      <table class="reveal">
-        <thead><tr><th>費目</th><th>内容</th><th class="num">金額（万円）</th></tr></thead>
-        <tbody>
-          <tr><td>導入・初期設定</td><td>{{システム名}}・要件定義・環境構築（固定価格）</td><td class="num">300</td></tr>
-          <tr><td>店舗機器</td><td>発注用タブレット12台・設置・回線設定</td><td class="num">180</td></tr>
-          <tr><td>マスタ整備・現場教育</td><td>商品・仕入先データ登録＋全店研修3回</td><td class="num">240</td></tr>
-          <tr><td>予備費</td><td>想定外対応（初期費の約17%）</td><td class="num">120</td></tr>
-          <tr><td style="background:var(--cloud);color:var(--navy);font-weight:700">初期投資 合計</td><td style="background:var(--cloud)"></td><td class="num" style="background:var(--cloud);color:var(--navy);font-weight:700;font-size:min(2vh,2vw)">840</td></tr>
-        </tbody>
-      </table>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(2vh,2vw);justify-content:center">
-        <div>
-          <div class="kpi">1,860<span class="unit">万円</span></div>
-          <div class="kpi-l">3年総投資（初期840万円＋利用料30万円/月×34ヶ月）</div>
-        </div>
-        <div class="load">
-          <div class="lr"><span class="ln">初期投資</span><span class="track"><i style="width:82%;background:var(--steel)"></i></span><span class="lv">840万円（一時）</span></div>
-          <div class="lr"><span class="ln">利用料</span><span class="track"><i style="width:100%;background:var(--silver)"></i></span><span class="lv">1,020万円（34ヶ月）</span></div>
-        </div>
-        <ul class="checks" style="gap:min(1.2vh,1.2vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">支払いは検収後。契約時30%／検収後70%の分割。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">在庫・分析機能の追加は本稟議に含めず、必要時は都度稟議。</span></li>
-        </ul>
-      </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>表示額が上限です。予備費が未使用なら、<b>その分は執行しません</b>。</span></div>
-    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 08 実行スケジュール：timeline 4step＋移行期間の作業負荷バー -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Execution Plan</div><div class="h2">承認から<span class="u">3ヶ月目</span>に、本稼働します</div>
-      <p class="subhead">契約から2ヶ月で先行導入と全店展開を終え、3ヶ月目に本稼働。店舗の負荷は、研修と並行稼働の約40時間だけに抑えます。</p></div>
-    <div class="tag">07 / SCHEDULE</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter" style="gap:min(2.6vh,2.6vw)">
-      <div class="timeline">
-        <div class="step reveal"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><div class="k">PHASE 01｜W1–W2</div><h4>契約・キックオフ</h4><p>決裁後2週間で契約締結。推進責任者と各店舗の推進リーダーを任命します。</p></div>
-        <div class="step reveal" style="--i:1"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="k">PHASE 02｜M1</div><h4>マスタ整備・先行導入</h4><p>商品・仕入先マスタを登録し、2店舗で先行導入。店舗ヒアリングは各1時間のみです。</p></div>
-        <div class="step reveal" style="--i:2"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M4 7h12M13 3l4 4-4 4"/><path d="M20 17H8M11 13l-4 4 4 4"/></svg></div><div class="k">PHASE 03｜M2</div><h4>全店展開・並行稼働</h4><p>FAXと併用しながら残り10店舗へ順次展開。全店研修3回をこの月に完了します。</p></div>
-        <div class="step reveal" style="--i:3"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M3 17l6-6 4 4 8-9"/><path d="M14 6h7v7"/></svg></div><div class="k">PHASE 04｜M3〜</div><h4>本稼働・効果測定</h4><p>3ヶ月目にFAXを廃止し効果を計上。月次レポートとKPIゲート（3・6ヶ月）で検証します。</p></div>
-      </div>
-      <div class="load reveal" style="--i:4">
-        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">移行期間（2ヶ月）の作業負荷</span><span class="n">合計 約360時間</span></div>
-        <div class="lr"><span class="ln">ベンダー側</span><span class="track"><i style="width:89%;background:var(--navy)"></i></span><span class="lv">約320時間</span></div>
-        <div class="lr"><span class="ln">店舗側</span><span class="track"><i style="width:11%;background:var(--silver)"></i></span><span class="lv">約40時間（研修・並行稼働の確認）</span></div>
-      </div>
-    </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>営業を止めない移行計画。<b>3ヶ月目から効果</b>が数字に表れます。</span></div>
-    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
-  </div>
-</section>
-
-<!-- 09 リスクと対策：リスク×影響度×対策×残存度。機能色ドットで走査性 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Risk &amp; Mitigation</div><div class="h2">リスクは、<span class="u">対策とセット</span>で開示します</div>
-      <p class="subhead">都合の良い項目だけを並べていません。影響度と、対策後に残る残存リスクまで示し、判断に必要な材料を揃えました。</p></div>
-    <div class="tag">08 / RISK</div>
+    <div><div class="eyebrow">Agenda</div><div class="h2">本日の<span class="u">90分</span>の歩き方</div>
+      <p class="subhead">ゴールは「明日、自社の現場で再現できる」状態です。講義は最小限に、ワークと質疑に時間を厚く配分しています。</p></div>
+    <div class="tag">01 / AGENDA</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><table class="reveal">
-      <thead><tr><th>想定リスク</th><th>影響度</th><th class="col-hi">回避・低減策</th><th>残存リスク</th></tr></thead>
+      <thead><tr><th style="width:15%">時刻</th><th style="width:41%">プログラム</th><th style="width:32%">ねらい</th><th class="num" style="width:12%">所要</th></tr></thead>
       <tbody>
-        <tr><td>廃棄削減が想定を下回る</td><td>中</td><td class="col-hi">KPIゲート（3・6ヶ月）で店舗別に検証。未達店舗は推奨発注量を再調整</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-        <tr><td>導入コストの超過</td><td>中</td><td class="col-hi">固定価格契約＋予備費120万円。超過見込み時は執行前に再稟議</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-        <tr><td>店長が習熟せず定着しない</td><td style="color:var(--ink);font-weight:700">高</td><td class="col-hi">全店研修3回を予算化・2店舗先行で操作を検証・ベンダーが3ヶ月並走</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--gray)"></i>中</span></td></tr>
-        <tr><td>繁忙期に導入が重なる</td><td>低</td><td class="col-hi">移行は閑散期に完了する計画。遅延時はFAX併用を延長し、切替を順延</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
+        <tr>
+          <td class="col-hi" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="cellflex"><span class="mono">18:30</span><span style="font-family:var(--display);font-size:min(1vh,1vw);letter-spacing:.16em;font-weight:600;color:#fff;background:var(--steel);border-radius:999px;padding:3px 10px">NOW</span></span></td>
+          <td class="col-hi" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">オープニング／本日のゴール共有</td>
+          <td class="col-hi" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">90分の到達点を揃える</td>
+          <td class="col-hi num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">5分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">18:35</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">第1部：なぜ現場監督の残業は減らないのか</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">残業の内訳を事実ベースで掴む</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">20分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">18:55</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">第2部：書類DX 3ステップ（本日の核心）</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">再現できる「型」を学ぶ</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">25分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">19:20</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">第3部：実践ワーク＋共有</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">自社の1帳票に当てはめる</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">15分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">19:35</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">導入事例・質疑応答</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">疑問をゼロにして持ち帰る</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">15分</td>
+        </tr>
+        <tr>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)"><span class="mono">19:50</span></td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">ご案内・アンケート</td>
+          <td style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">次の一歩を選ぶ</td>
+          <td class="num" style="padding:min(1.7vh,1.7vw) min(2.2vh,2.2vw)">10分</td>
+        </tr>
       </tbody>
     </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最大の懸念は店長の習熟。<b>研修予算と先行導入</b>で残存「中」まで抑え、受容可能と判断しています。</span></div>
-    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ご質問は<b>随時チャットへ</b>。19:35からまとめてお答えします。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 10 承認要求（dark CTA）：求める意思決定を3点で明示 -->
+<!-- 03 講師紹介：略歴＋実績statグリッド（主役=累計受講者数） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Speaker</div><div class="h2">講師紹介——<span class="u">現場で再現できた手順</span>だけを、お渡しします</div>
+      <p class="subhead">理論の紹介ではありません。{{42}}社の工務店・建設会社の支援現場で、実際に残業が減った手順に絞ってお話しします。</p></div>
+    <div class="tag">02 / SPEAKER</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(3.1vh,3.1vw);font-weight:700;color:var(--navy)">{{講師氏名}}</h3>
+        <div class="kpi-l" style="font-size:min(1.6vh,1.6vw)">{{自社名}} 代表／{{建設DX支援・研修講師}}</div>
+        <ul style="list-style:none;margin-top:min(2.8vh,2.8vw);display:flex;flex-direction:column;gap:min(2vh,2vw)">
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2007</span><span>{{中堅ゼネコン}}入社。現場監督として施工管理に10年従事</span></li>
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2017</span><span>独立。工務店・建設会社の書類DX伴走支援を開始</span></li>
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2020</span><span>本講座を開講。以来、累計2,600名が受講</span></li>
+          <li style="display:flex;gap:16px;align-items:baseline;font-size:min(1.85vh,1.85vw);color:var(--graphite);font-weight:500;line-height:1.6"><span class="mono" style="color:var(--steel);font-weight:600;font-size:min(1.55vh,1.55vw);flex:none">2025</span><span>著書『{{書名}}』刊行。登壇・寄稿多数</span></li>
+        </ul>
+        <div style="margin-top:min(2.8vh,2.8vw);padding-top:min(2vh,2vw);border-top:1px solid var(--line)">
+          <span class="kpi-l" style="margin:0;font-size:min(1.5vh,1.5vw)">専門領域：施工帳票の電子化／日報・写真台帳の運用設計／現場のDX人材育成</span>
+        </div>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
+        <div class="stat" style="padding:min(2.8vh,2.8vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(5.6vh,5.6vw)">2,600<span class="unit">名</span></div><div class="kpi-l">累計受講者数（2020–2026）</div></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.8vh,1.8vw)">
+          <div class="stat" style="padding:min(2.4vh,2.4vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">74<span class="unit">回</span></div><div class="kpi-l">登壇・研修</div></div>
+          <div class="stat" style="padding:min(2.4vh,2.4vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">42<span class="unit">社</span></div><div class="kpi-l">伴走支援企業</div></div>
+          <div class="stat" style="padding:min(2.4vh,2.4vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">9<span class="unit">年</span></div><div class="kpi-l">現場支援歴</div></div>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>今日持ち帰っていただくのは、理論ではなく<b>再現手順</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 第1部・なぜ今：主役=3.2時間/日。空雨傘で事実と解釈を分離 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Why Now</div><div class="h2">残業の正体は、現場ではなく<span class="u">書類仕事</span>です</div>
+      <p class="subhead">まず、いま起きている事実から。現場監督の働き方を取り巻く前提は、この数年で静かに、しかし決定的に変わりました。</p></div>
+    <div class="tag">03 / WHY NOW</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi" style="font-size:min(6.6vh,6.6vw)">3.2<span class="unit">時間/日</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">現場監督が書類作成・事務作業に費やす時間（建設業実態調査・{{出所}}）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">45<span class="unit">時間</span></div><div class="kpi-l">時間外労働の月上限。罰則付きで適用中（{{出所}}）</div></div>
+          <div><div class="kpi sm">62<span class="unit">%</span></div><div class="kpi-l">帳票がいまも紙・Excel中心の現場（{{出所}}）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">この前提では、増員や気合いではなく「書類の設計」が労務の勝敗を分けます。</p>
+      </div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">現場監督は1日<b>3.2時間</b>を書類仕事に費やし、多くを定時後に処理している。</div></div>
+        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">書類を減らさない限り、<b>月45時間の上限規制</b>と工期の両立は根性では成立しない。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">書類仕事は、本日の<b>3ステップ</b>で現場を止めずに減らせます。</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>変わったのは<b>前提</b>であって、監督の能力の問題ではありません。設計で取り返せます。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 第2部・フレームワーク：3ステップ図SVG（箱＋矢印＋要点）を焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Framework</div><div class="h2">本日の核心——<span class="u">3ステップ</span>の全体像</div>
+      <p class="subhead">難しいITの話はしません。「棚卸し → 電子化 → 定着」の順で、誰でも回せる形に分解してあります。</p></div>
+    <div class="tag">04 / FRAMEWORK</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr;height:auto">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">「現場監督の残業を減らす」書類DX 3ステップ</span><span class="n">18:55 – 19:20 で解説</span></div>
+        <svg class="fsvg" viewBox="0 0 560 234" role="img" aria-label="書類DX3ステップ：棚卸し、電子化、定着の流れと各要点">
+          <rect x="193" y="0" width="174" height="22" rx="11" style="fill:var(--navy)"/>
+          <text x="280" y="15" text-anchor="middle" style="font-family:var(--display);font-size:10px;font-weight:600;fill:#fff;letter-spacing:.08em">本日19:20〜のワークで実践</text>
+          <rect class="nd" x="0" y="36" width="158" height="58" rx="10"/>
+          <rect class="nd" x="201" y="36" width="158" height="58" rx="10"/>
+          <rect class="nd" x="402" y="36" width="158" height="58" rx="10"/>
+          <text x="79" y="59" text-anchor="middle" class="mn" style="font-size:10px;fill:var(--steel);letter-spacing:.14em">STEP 1</text>
+          <text class="nd-t" x="79" y="80" text-anchor="middle">書類を棚卸しする</text>
+          <text x="280" y="59" text-anchor="middle" class="mn" style="font-size:10px;fill:var(--steel);letter-spacing:.14em">STEP 2</text>
+          <text class="nd-t" x="280" y="80" text-anchor="middle">現場から電子化する</text>
+          <text x="481" y="59" text-anchor="middle" class="mn" style="font-size:10px;fill:var(--steel);letter-spacing:.14em">STEP 3</text>
+          <text class="nd-t" x="481" y="80" text-anchor="middle">回して定着させる</text>
+          <line x1="163" y1="65" x2="190" y2="65" style="stroke:var(--silver);stroke-width:2"/>
+          <path class="ar" d="M190 60l9 5-9 5z"/>
+          <line x1="364" y1="65" x2="391" y2="65" style="stroke:var(--silver);stroke-width:2"/>
+          <path class="ar" d="M391 60l9 5-9 5z"/>
+          <text x="2" y="120" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・帳票と提出先を一覧化</text>
+          <text x="2" y="141" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・二重入力を洗い出す</text>
+          <text x="2" y="162" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・やめる書類を決める</text>
+          <text x="203" y="120" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・日報・写真台帳から着手</text>
+          <text x="203" y="141" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・入力は現場で1回だけ</text>
+          <text x="203" y="162" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・承認の手順を簡素化</text>
+          <text x="404" y="120" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・週次15分の振り返り</text>
+          <text x="404" y="141" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・残業時間で効果検証</text>
+          <text x="404" y="162" style="font-family:var(--sans);font-size:12px;fill:var(--graphite)">・型を更新し続ける</text>
+          <line x1="0" y1="184" x2="560" y2="184" class="bl"/>
+          <text class="an" x="0" y="208">90分で3ステップを一巡し、持ち帰って再現できる状態にします。</text>
+          <text class="mn" x="0" y="229" style="font-size:11px">各ステップの記入例：配布ワークシート P.2〜4</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">このフレームワークの狙い</h3>
+        <ul class="checks" style="margin-top:min(2.2vh,2.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>明日ひとりで再現できる</b>粒度まで、分解済み。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>高価なシステムは不要</b>。いまのスマホとExcelで始められる。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>最初の変化まで平均30日</b>。小さく速く回します。</span></li>
+        </ul>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>覚えるのは<b>3語だけ</b>——棚卸し・電子化・定着。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 第3部・実践ワーク：進行タイムライン＋時間配分バー -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Work</div><div class="h2">聞いて終わりにしない、<span class="u">15分</span>の実践ワーク</div>
+      <p class="subhead">学んだ型を、自社で最も手間な帳票1枚でいきなり使ってみます。うまく書けなくても大丈夫——手を動かすことが目的です。</p></div>
+    <div class="tag">05 / WORK</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.4vh,2.4vw)">
+      <div class="timeline">
+        <div class="step reveal"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:20 – 19:22</div><h4>テーマ確認</h4><p>ワークシートP.3を開き、記入例を確認します。</p></div>
+        <div class="step reveal" style="--i:1"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:22 – 19:29</div><h4>個人ワーク</h4><p>最も手間な帳票1枚を、3ステップの型で分解します。</p></div>
+        <div class="step reveal" style="--i:2"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:29 – 19:33</div><h4>ペア共有</h4><p>隣の方（オンラインはブレイクアウト）と2分ずつ交換。</p></div>
+        <div class="step reveal" style="--i:3"><div class="cn" style="left:calc(-100% + min(8vh,8vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="k" style="font-family:var(--mono);letter-spacing:0">19:33 – 19:35</div><h4>全体共有</h4><p>2〜3名の気づきを取り上げ、講師が補足します。</p></div>
+      </div>
+      <div class="load reveal" style="--i:4">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">15分の時間配分——主役は「個人ワーク」です</span><span class="n">19:20 – 19:35・合計15分</span></div>
+        <div class="lr"><span class="ln">テーマ確認</span><span class="track"><i style="width:13%;background:var(--silver)"></i></span><span class="lv">2分</span></div>
+        <div class="lr"><span class="ln">個人ワーク</span><span class="track"><i style="width:47%;background:var(--navy)"></i></span><span class="lv">7分</span></div>
+        <div class="lr"><span class="ln">ペア共有</span><span class="track"><i style="width:27%;background:var(--steel)"></i></span><span class="lv">4分</span></div>
+        <div class="lr"><span class="ln">全体共有</span><span class="track"><i style="width:13%;background:var(--silver)"></i></span><span class="lv">2分</span></div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>上手に書くことより、<b>自社の1帳票</b>で手を動かすことが持ち帰りの最短ルートです。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 受講効果：主役=+50%（極大）。受講前後の棒グラフを焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Results</div><div class="h2">受講企業で、<span class="u">残業の数字</span>が動いています</div>
+      <p class="subhead">学んで終わりにせず、受講90日後の残業時間まで追跡しています（受講企業{{42}}社・n=580・当社調査）。</p></div>
+    <div class="tag">06 / RESULTS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi xl"><span class="count" data-to="50">+50</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">受講90日後、「残業月45時間以内」の監督比率の伸び（46%→69%・受講企業平均）</div>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">95<span class="unit">%</span></div><div class="kpi-l">受講後アンケート満足度</div></div>
+          <div><div class="kpi sm">72<span class="unit">%</span></div><div class="kpi-l">30日後の実践率</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">特別な会社の数字ではありません。型を回した会社に、同じ傾きが再現されています。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">受講前後の変化（上限内率＝残業月45時間以内）</span><span class="n">単位：%・当社調査</span></div>
+        <svg class="csvg" viewBox="0 0 352 186" role="img" aria-label="受講前後比較：理解度52→86、実践率33→72、上限内率46→69">
+          <rect x="0" y="5" width="11" height="11" rx="3" style="fill:var(--silver)"/>
+          <text class="axis-t" x="17" y="14">受講前</text>
+          <rect x="64" y="5" width="11" height="11" rx="3" style="fill:var(--navy)"/>
+          <text class="axis-t" x="81" y="14">受講後</text>
+          <line class="grid-l" x1="0" y1="60" x2="352" y2="60"/>
+          <line class="grid-l" x1="0" y1="110" x2="352" y2="110"/>
+          <text class="axis-t" x="0" y="56">100</text>
+          <text class="axis-t" x="0" y="106">50</text>
+          <line x1="0" y1="160" x2="352" y2="160" style="stroke:var(--line)"/>
+          <rect x="51" y="108" width="30" height="52" rx="4" style="fill:var(--silver)"/>
+          <rect x="89" y="74" width="30" height="86" rx="4" style="fill:var(--navy)"/>
+          <rect x="161" y="127" width="30" height="33" rx="4" style="fill:var(--silver)"/>
+          <rect x="199" y="88" width="30" height="72" rx="4" style="fill:var(--navy)"/>
+          <rect x="271" y="114" width="30" height="46" rx="4" style="fill:var(--silver)"/>
+          <rect x="309" y="91" width="30" height="69" rx="4" style="fill:var(--navy)"/>
+          <text class="mn" x="66" y="103" text-anchor="middle">52</text>
+          <text class="val-t" x="104" y="69" text-anchor="middle">86</text>
+          <text class="mn" x="176" y="122" text-anchor="middle">33</text>
+          <text class="val-t" x="214" y="83" text-anchor="middle">72</text>
+          <text class="mn" x="286" y="109" text-anchor="middle">46</text>
+          <text class="val-t" x="324" y="86" text-anchor="middle">69</text>
+          <rect class="ann-bg" x="277" y="54" width="56" height="20" rx="10"/>
+          <text class="ann-t" x="305" y="68" text-anchor="middle">+50%</text>
+          <path class="lead-l" d="M305 74 L305 100"/>
+          <text class="mn" x="85" y="178" text-anchor="middle" style="font-size:11px">理解度（直後）</text>
+          <text class="mn" x="195" y="178" text-anchor="middle" style="font-size:11px">実践率（30日後）</text>
+          <text class="mn" x="305" y="178" text-anchor="middle" style="font-size:11px">上限内率（90日後）</text>
+        </svg>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成果の分かれ目は<b>実践率</b>。同じ手順は、配布ワークシートに全て載せています。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 受講者の声：quote＋アンケートstat -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Voices</div><div class="h2">先に受けた方々の、<span class="u">率直な声</span></div>
+      <p class="subhead">受講後アンケート（直近{{5}}回・n=186）より。いずれも許諾を得て掲載しています。</p></div>
+    <div class="tag">07 / VOICES</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.6vh,1.6vw);font-size:min(1.45vh,1.45vw)">自由記述より</div>
+        <blockquote class="quote" style="align-self:flex-start">
+          <p style="font-size:min(2.6vh,2.6vw)">「講義で終わらないのが良かった。ワークで作った『日報の型』を、翌日の朝礼からそのまま使えました。」</p>
+          <cite>{{工務店・工事部長（従業員45名）}}</cite>
+        </blockquote>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(2.6vh,2.6vw);justify-content:center">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.6vh,1.6vw)">
+          <div class="stat" style="padding:min(2.2vh,2.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">92<span class="unit">%</span></div><div class="kpi-l">また参加したい</div></div>
+          <div class="stat" style="padding:min(2.2vh,2.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">94<span class="unit">%</span></div><div class="kpi-l">明日から使える</div></div>
+          <div class="stat" style="padding:min(2.2vh,2.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(3.2vh,3.2vw)">79<span class="unit">%</span></div><div class="kpi-l">同僚に勧めたい</div></div>
+        </div>
+        <blockquote class="quote" style="align-self:flex-start">
+          <p style="font-size:min(1.9vh,1.9vw)">「ITが苦手な監督でも置いていかれない。ワークの時間配分が絶妙でした。」</p>
+          <cite>{{地場ゼネコン・現場監督}}</cite>
+        </blockquote>
+        <blockquote class="quote" style="align-self:flex-start">
+          <p style="font-size:min(1.9vh,1.9vw)">「月45時間の上限対応に間に合いました。経営会議の報告資料もそのまま作れた。」</p>
+          <cite>{{総合建設業・総務部長}}</cite>
+        </blockquote>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>声に共通するのは<b>「翌日から使えた」</b>。本講座の設計思想そのものです。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 今日から実践する3つ＋伴走支援のご案内（紺ベタは右カード1つのみ） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Action</div><div class="h2">今日から実践するのは、<span class="u">3つ</span>だけ</div>
+      <p class="subhead">全部やろうとしないでください。この3つだけで、最初の変化は必ず作れます。順番どおりが近道です。</p></div>
+    <div class="tag">08 / ACTION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.2fr 1fr;height:auto">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(2.4vh,2.4vw);font-size:min(1.45vh,1.45vw)">チェックリスト——今週中に、この順番で</div>
+        <ul class="checks" style="gap:min(2.6vh,2.6vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>帳票を棚卸しする</b>——ワークシートP.3の型で一覧化（所要30分）</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>日報を1帳票だけ電子化する</b>——入力テンプレはDL資料に同梱（所要60分）</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>次の現場で1週間試す</b>——結果をメモして、翌週に振り返る（所要5分）</span></li>
+        </ul>
+      </div>
+      <div class="card hero reveal" style="--i:1;align-self:center;gap:min(1.6vh,1.6vw)">
+        <div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <div class="idx">OUR SUPPORT ― ご案内は本日ここだけ</div>
+        <h3>{{伴走支援サービス名}}</h3>
+        <p>ひとりで回すのが難しければ、帳票の棚卸しから定着まで90日間並走します。本日の3ステップを、貴社の現場と帳票に合わせて実装します。</p>
+        <div class="foot"><span class="n">無料</span><span>初回相談30分（オンライン）</span></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つ合わせて<b>合計95分</b>。学びは、今週動いた人だけの資産になります。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：アンケート＋個別相談 -->
 <section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
-    <p class="kick" style="color:var(--steel)">Decision</p>
-    <h1 style="font-size:min(5.2vh,5.2vw);font-weight:700;line-height:1.24;margin-top:min(2.2vh,2.2vw)">ご承認いただきたい事項は、3点です。</h1>
-    <p class="sub" style="margin-top:min(1.8vh,1.8vw);font-size:min(1.8vh,1.8vw);color:rgba(255,255,255,.72);font-weight:500">回収14ヶ月・3年純効果＋1,540万円。根拠は本資料P.2–P.9のとおりです。</p>
-    <ul class="checks" style="margin-top:min(3vh,3vw);gap:min(1.6vh,1.6vw)">
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">初期投資840万円</b>の予算執行（P.7の内訳を上限とする）</span></li>
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">{{システム名}}導入（B案・全12店舗）</b>の実行着手と契約締結</span></li>
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>推進責任者として<b style="color:#fff">{{氏名}}</b>を任命（月次で効果を報告）</span></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.4vh,3.4vw)">
-      <a class="btn" href="{{リンク}}">電子稟議で承認する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <span class="mono" style="font-size:min(1.5vh,1.5vw);color:rgba(255,255,255,.65)">決裁期日 {{YYYY.MM.DD}}</span>
+    <p class="kick" style="color:var(--steel)">Next Step</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">学びを、現場監督の定時退社に。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">アンケートにご回答いただいた方へ、本日の資料とワークシート完全版をお渡しします。<br>個別相談（30分・無料）は先着{{10}}社です。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">個別相談を予約する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:9px">
+        <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+        <span style="font-size:min(1.2vh,1.2vw);color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.06em">アンケート／資料DL</span>
+      </div>
     </div>
   </div>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
-    <span class="brandline">{{起案部門}}　|　{{氏名}}　|　{{連絡先}}</span><span class="pageno">10 / 10</span>
+    <span class="brandline">{{自社名}}　|　{{メール}}　|　次回開催 {{2026.09.17}}</span><span class="pageno">10 / 10</span>
   </div>
 </section>
 

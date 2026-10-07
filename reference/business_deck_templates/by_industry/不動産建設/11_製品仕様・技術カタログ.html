@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/03_課題解決ホワイトペーパー_SaaS.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/11_製品仕様・技術カタログ_不動産建設.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>課題解決ホワイトペーパーテンプレート（SaaS・IT） | KOKU</title>
+<title>製品仕様・技術カタログテンプレート（不動産・建設） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -267,375 +267,342 @@
 <div class="deck-progress" id="progress"></div>
 <div class="deck-counter"><b id="cur">01</b> / 10</div>
 
-<!-- 01 表紙：give型ホワイトペーパー。読者の疑問文でDL直後の期待を作る -->
+<!-- 01 表紙 -->
 <section class="slide cover">
-  <div class="grid-bg"></div><div class="wm">GUIDE</div>
-  <p class="kick">White Paper</p>
+  <div class="grid-bg"></div><div class="wm">SPEC</div>
+  <p class="kick">Technical Specification</p>
   <h1>
-    <span class="ln"><span style="--i:0">なぜIT企業の現場から、</span></span>
-    <span class="ln"><span style="--i:1">手作業の運用はなくならないのか</span></span>
+    <span class="ln"><span style="--i:0">{{製品名}}の技術仕様と、</span></span>
+    <span class="ln"><span style="--i:1">導入要件のすべて</span></span>
   </h1>
   <div class="rule"></div>
-  <p class="sub">調査データ×90日フレームワークで読み解く実務ガイド　|　{{自社名}}</p>
+  <p class="sub">{{製品カテゴリ：クラウド型施工管理・写真管理システム}}　|　{{自社名}}</p>
+  <p class="mono" style="margin-top:min(1.8vh,1.8vw);font-size:min(1.3vh,1.3vw);color:rgba(255,255,255,.55);letter-spacing:.08em">DOC {{SPEC-2026-001}}　·　Ver {{3.2}}　·　ISSUED {{2026.07.18}}</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
-    <span class="brandline" style="color:rgba(255,255,255,.92)">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
+    <span class="brandline" style="color:#fff">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
   </div>
 </section>
 
-<!-- 02 この資料でわかること：give型宣言。主役=POINT 01（紺ベタ） -->
+<!-- 02 コア性能：主役=写真自動仕分け精度98.5%（極大）。負荷×反映時間チャートに目標閾値（warn 1点）を焼き込み -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Overview</div><div class="h2">この資料で、<span class="u">わかること</span></div>
-      <p class="subhead">情報収集の段階でも、そのまま社内検討に使えることを目指した実務ガイドです。結論から先に、数字で示します。</p></div>
-    <div class="tag">01 / OVERVIEW</div>
-  </div>
-  <div class="s-body">
-    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
-      <div class="grid g3">
-        <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 20h16"/><path d="M7 20v-6M12 20V8M17 20v-9"/></svg></div><div class="idx">POINT 01</div><h3>実態を、数字で掴む</h3><p>IT企業の運用担当者478名の調査データと、抜け出せない「循環構造」の正体。課題を客観視できます。</p><div class="foot"><span class="n">P.03–04</span><span>統計と真因</span></div></div>
-        <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M5 5l5 5M10 5l-5 5"/><path d="M13 17l2.5 2.5L20 14.5"/></svg></div><div class="idx">POINT 02</div><h3>誤解を外し、地図を持つ</h3><p>よくある3つの誤解を事実で検証し、目指す姿への最短ルートを1枚のマップに整理します。</p><div class="foot"><span class="n">P.05–06</span><span>誤解と事実／フレームワーク</span></div></div>
-        <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8l4 4-4 4"/></svg></div><div class="idx">POINT 03</div><h3>明日から、実践する</h3><p>90日の実践ステップと、3分でできる現在地チェック。読んだ直後から着手できます。</p><div class="foot"><span class="n">P.07–09</span><span>実践ステップと事例</span></div></div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)" class="reveal">
-        <div class="stat"><div class="kpi">8<span class="unit">分</span></div><div class="kpi-l">読了時間のめやす</div></div>
-        <div class="stat"><div class="kpi">478<span class="unit">名</span></div><div class="kpi-l">収録調査の回答者数（{{出所}}）</div></div>
-        <div class="stat"><div class="kpi">90<span class="unit">日</span></div><div class="kpi-l">実践フレームワークの期間</div></div>
-      </div>
-    </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>本書は<b>売り込み資料ではありません</b>。そのまま社内の検討資料としてお使いください。</span></div>
-    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
-  </div>
-</section>
-
-<!-- 03 統計で見る課題：主役=71%（極大）。調査棒グラフは1本だけ紺で強調 -->
-<section class="slide">
-  <div class="s-head">
-    <div><div class="eyebrow">Data</div><div class="h2">現場の<span class="u">71%</span>が、同じ壁に直面している</div>
-      <p class="subhead">SaaS・IT企業の運用担当者478名に、日常の運用業務の課題を聞きました。最も多い回答は、2位を大きく引き離しています。</p></div>
-    <div class="tag">02 / DATA</div>
+    <div><div class="eyebrow">Performance</div><div class="h2">10現場でも100現場でも、精度は<span class="u">98.5%</span></div>
+      <p class="subhead">検討の入口として、コア性能を先にお見せします。カタログ値ではなく、実際の現場での実測値を測定条件つきで開示しています。</p></div>
+    <div class="tag">01 / PERFORMANCE</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi xl"><span class="count" data-to="71">71</span><span class="unit">%</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">「リリースや確認などの手作業運用にムダを感じる」と回答（{{出所}}・N=478）</div>
+          <div class="kpi xl"><span class="count" data-to="98.5" data-dec="1">98.5</span><span class="unit">%</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">写真自動仕分けの精度（直近30日・120万枚で実測）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm"><span class="count" data-to="7.5" data-dec="1">7.5</span><span class="unit">時間</span></div><div class="kpi-l">手作業の運用に費やす時間（週・1人あたり）</div></div>
-          <div><div class="kpi sm">24<span class="unit">%</span></div><div class="kpi-l">対策に着手できている企業</div></div>
+          <div><div class="kpi sm"><span class="count" data-to="2.4" data-dec="1">2.4</span><span class="unit">秒</span></div><div class="kpi-l">アップロード反映 p95（LTE回線・現場実測）</div></div>
+          <div><div class="kpi sm">1,000<span class="unit">枚</span></div><div class="kpi-l">最大同時アップロード（負荷試験）</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">10人中7人が同じ課題を感じながら、動けている企業は4社に1社。差は「知っているか」ではなく「仕組みにしたか」で生まれています。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">測定環境・手順はすべて付録に記載し、再現可能な形で公開しています。貴社の現場での検証もご案内できます。</p>
       </div>
       <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">現場が感じている運用課題（上位4項目）</span><span class="n">{{出所}}・N=478・複数回答</span></div>
-        <svg class="fsvg" viewBox="0 0 460 200" role="img" aria-label="運用課題の実態調査：リリース・デプロイが手作業が71%で最多">
-          <text class="nd-t" x="0" y="13" style="fill:var(--navy)">リリース・デプロイが手作業</text>
-          <rect x="186" y="1" width="70" height="16" rx="8" style="fill:var(--navy)"/>
-          <text x="221" y="12.5" text-anchor="middle" style="font-family:var(--display);font-size:9px;font-weight:600;letter-spacing:.14em;fill:#fff">最多回答</text>
-          <rect x="0" y="20" width="355" height="15" rx="4" style="fill:var(--navy)"/>
-          <text class="mn" x="363" y="32" style="fill:var(--navy);font-weight:600;font-size:13.5px">71%</text>
-          <text class="nd-t" x="0" y="61">問い合わせ対応が属人化している</text>
-          <rect class="bar" x="0" y="68" width="280" height="15" rx="4"/>
-          <text class="mn" x="288" y="80">56%</text>
-          <text class="nd-t" x="0" y="109">顧客・契約情報がExcel台帳のまま</text>
-          <rect class="bar" x="0" y="116" width="240" height="15" rx="4"/>
-          <text class="mn" x="248" y="128">48%</text>
-          <text class="nd-t" x="0" y="157">障害対応の手順書がない</text>
-          <rect class="bar" x="0" y="164" width="185" height="15" rx="4"/>
-          <text class="mn" x="193" y="176">37%</text>
-          <text class="mn" x="0" y="197" style="font-size:10.5px">回答率・複数回答（{{出所}}・N=478）／バーの長さは回答率に比例</text>
+        <div class="dghead"><span class="t">現場が混み合っても、反映は安定</span><span class="n">同時アップロード枚数 × 反映時間 p95（秒）</span></div>
+        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="同時アップロード1,000枚まで反映時間は目標上限6秒の半分以下で安定">
+          <line class="grid-l" x1="0" y1="74" x2="340" y2="74"/><line class="grid-l" x1="0" y1="124" x2="340" y2="124"/><line class="grid-l" x1="0" y1="174" x2="340" y2="174"/>
+          <line x1="0" y1="24" x2="340" y2="24" style="stroke:var(--warn);stroke-width:1.4;stroke-dasharray:5 4"/>
+          <rect x="246" y="4" width="86" height="19" rx="9.5" style="fill:var(--warn)"/>
+          <text class="ann-t" x="289" y="17" text-anchor="middle">目標上限 6秒</text>
+          <text class="axis-t" x="2" y="70">4秒</text>
+          <text class="axis-t" x="2" y="120">2秒</text>
+          <path class="area" d="M0,131.5 L85,128 L170,125 L255,121.5 L340,115 L340,190 L0,190 Z"/>
+          <path class="draw" pathLength="1" d="M0,131.5 L85,128 L170,125 L255,121.5 L340,115"/>
+          <rect class="ann-bg" x="196" y="50" width="118" height="22" rx="11"/>
+          <text class="ann-t" x="255" y="65" text-anchor="middle">上限まで2.5倍の余裕</text>
+          <path class="lead-l" d="M255 76 L255 108"/>
+          <circle class="dot" cx="0" cy="131.5" r="4.5"/><circle class="dot" cx="85" cy="128" r="4.5"/><circle class="dot" cx="170" cy="125" r="4.5"/><circle class="dot" cx="255" cy="121.5" r="4.5"/><circle class="dot key" cx="340" cy="115" r="5.5"/>
+          <text class="val-t" x="332" y="104" text-anchor="end">2.4秒</text>
         </svg>
+        <div class="barx"><span>200</span><span>400</span><span>600</span><span>800</span><span>1,000 枚</span></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>これは個人のスキルの問題ではなく、<b>IT業界共通の構造課題</b>です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>目標上限6秒に対し、実測は<b>2.4秒</b>。朝夕の一斉アップロード時にも2.5倍の余裕があります。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 システム構成図：自社領域を紺系で区分。データの流れを矢印で焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Architecture</div><div class="h2">全体構成は、<span class="u">この一枚</span>で掴めます</div>
+      <p class="subhead">どこからどこまでが当社の管理範囲か——構成と責任分界点を1枚に集約しました。元請・施主のセキュリティ確認にそのままお使いいただけます。</p></div>
+    <div class="tag">02 / ARCHITECTURE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">システム構成と責任分界点</span><span class="n">詳細図は {{SPEC-2026-001}} 付録A</span></div>
+        <svg class="fsvg" viewBox="0 0 560 310" role="img" aria-label="現場スマホから同期ゲートウェイ・アプリケーション・データベースへ流れ、CADや検査帳票へ連携するシステム構成図">
+          <rect x="118" y="6" width="316" height="266" rx="14" style="fill:rgba(78,106,158,.08);stroke:var(--steel);stroke-width:1.2;stroke-dasharray:5 4"/>
+          <text class="mn" x="132" y="28" style="fill:var(--steel);font-weight:600;letter-spacing:.08em;font-size:10px">{{製品名}} CLOUD ― 当社管理領域</text>
+          <rect class="nd" x="0" y="76" width="94" height="56" rx="10"/>
+          <text class="nd-t" x="47" y="99" text-anchor="middle" style="font-size:12px">現場スマホ</text>
+          <text class="mn" x="47" y="117" text-anchor="middle" style="font-size:9px">撮影・電子小黒板</text>
+          <text class="mn" x="47" y="150" text-anchor="middle" style="font-size:9px">HTTPS / TLS 1.3</text>
+          <rect class="nd" x="136" y="78" width="104" height="52" rx="10"/>
+          <text class="nd-t" x="188" y="99" text-anchor="middle" style="font-size:12px">API Gateway</text>
+          <text class="mn" x="188" y="117" text-anchor="middle" style="font-size:9px">WAF / 差分同期</text>
+          <rect x="272" y="72" width="140" height="64" rx="10" style="fill:var(--navy)"/>
+          <text x="342" y="99" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--white);font-family:var(--sans)">アプリケーション</text>
+          <text class="mn" x="342" y="117" text-anchor="middle" style="font-size:9px;fill:rgba(255,255,255,.7)">AI仕分け / 冗長化</text>
+          <rect class="nd" x="468" y="78" width="92" height="52" rx="10"/>
+          <text class="nd-t" x="514" y="99" text-anchor="middle" style="font-size:12px">外部サービス</text>
+          <text class="mn" x="514" y="117" text-anchor="middle" style="font-size:9px">CAD・検査帳票等</text>
+          <text class="mn" x="514" y="150" text-anchor="middle" style="font-size:9px">API / Webhook</text>
+          <line x1="98" y1="104" x2="126" y2="104" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M126 99l8 5-8 5z"/>
+          <line x1="244" y1="104" x2="260" y2="104" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M260 99l8 5-8 5z"/>
+          <path class="ar" d="M424 99l-8 5 8 5z"/><line x1="426" y1="104" x2="458" y2="104" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M458 99l8 5-8 5z"/>
+          <path d="M322 136 V176 H235 V188" style="fill:none;stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M230 188l5 8 5-8z"/>
+          <path d="M361 136 V188" style="fill:none;stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M356 188l5 8 5-8z"/>
+          <rect class="nd" x="180" y="204" width="110" height="54" rx="10"/>
+          <text class="nd-t" x="235" y="226" text-anchor="middle" style="font-size:12px">データベース</text>
+          <text class="mn" x="235" y="243" text-anchor="middle" style="font-size:9px">AES-256 暗号化</text>
+          <rect class="nd" x="306" y="204" width="110" height="54" rx="10"/>
+          <text class="nd-t" x="361" y="226" text-anchor="middle" style="font-size:12px">写真ストレージ</text>
+          <text class="mn" x="361" y="243" text-anchor="middle" style="font-size:9px">日次バックアップ</text>
+          <rect x="0" y="288" width="12" height="12" rx="3" style="fill:rgba(78,106,158,.08);stroke:var(--steel);stroke-width:1;stroke-dasharray:3 3"/>
+          <text class="mn" x="20" y="298" style="font-size:9.5px">当社管理領域（国内リージョン・冗長化構成）</text>
+          <line x1="268" y1="294" x2="296" y2="294" style="stroke:var(--silver);stroke-width:1.6"/><path class="ar" d="M296 289l8 5-8 5z"/>
+          <text class="mn" x="312" y="298" style="font-size:9.5px">データの流れ（全経路暗号化）</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">構成のポイント</h3>
+        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>単一障害点なし</b>。全層を冗長化し、自動フェイルオーバー。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>圏外でも止まらない</b>。端末に記録し、電波回復時に自動同期。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>データは国内保管</b>。国外リージョンへの持ち出しなし。</span></li>
+        </ul>
+        <p style="margin-top:min(2.4vh,2.4vw);font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--gray)">稼働状況は {{status.example.com}} で常時公開</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>責任分界点まで<b>この1枚</b>。元請・情報システム部門の事前確認を短縮できます。</span></div>
     <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 04 なぜ起きるか：悪循環サイクル図＋空雨傘。warnは「断つべき起点」1点のみ -->
+<!-- 04 主要機能：card g3。主役=コア機能の紺ベタhero -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Root Cause</div><div class="h2">原因は努力不足ではなく、<span class="u">構造</span>にある</div>
-      <p class="subhead">事実（空）・解釈（雨）・打ち手（傘）の順に分解すると、「わかっているのに抜け出せない」理由が見えてきます。</p></div>
-    <div class="tag">03 / CAUSE</div>
+    <div><div class="eyebrow">Features</div><div class="h2">主要機能は、<span class="u">3つ</span>に集約しました</div>
+      <p class="subhead">全機能一覧は{{別紙：機能一覧表}}に譲り、ここでは導入判断に効く3つだけをご紹介します。核は写真の自動仕分けです。</p></div>
+    <div class="tag">03 / FEATURES</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">抜け出せない理由 ― 手作業運用の悪循環</span><span class="n">{{出所}}・現場ヒアリング27社</span></div>
-        <svg class="fsvg" viewBox="0 0 540 258" role="img" aria-label="手作業運用の悪循環：リリースや対応に追われる→自動化・文書化が後回し→手順が個人の中に残る→確認・手戻りが増える">
-          <rect class="tag-bg" x="363" y="0" width="104" height="19" rx="5"/>
-          <text class="tag-t" x="415" y="13" text-anchor="middle">CUT POINT</text>
-          <rect class="nd" x="20" y="24" width="210" height="48" rx="10"/>
-          <rect class="nd hot" x="310" y="24" width="210" height="48" rx="10"/>
-          <rect class="nd" x="310" y="168" width="210" height="48" rx="10"/>
-          <rect class="nd" x="20" y="168" width="210" height="48" rx="10"/>
-          <text class="nd-t" x="125" y="53" text-anchor="middle">リリースや対応に追われる</text>
-          <text class="nd-t hot" x="415" y="53" text-anchor="middle">自動化・文書化が後回しに</text>
-          <text class="nd-t" x="415" y="197" text-anchor="middle">手順が個人の中に残る</text>
-          <text class="nd-t" x="125" y="197" text-anchor="middle">確認・手戻りが増える</text>
-          <line x1="236" y1="48" x2="296" y2="48" style="stroke:var(--silver);stroke-width:1.6"/>
-          <path class="ar" d="M296 43l8 5-8 5z"/>
-          <line x1="415" y1="76" x2="415" y2="156" style="stroke:var(--silver);stroke-width:1.6"/>
-          <path class="ar" d="M410 156h10l-5 8z"/>
-          <line x1="304" y1="192" x2="244" y2="192" style="stroke:var(--silver);stroke-width:1.6"/>
-          <path class="ar" d="M244 187l-8 5 8 5z"/>
-          <line x1="125" y1="164" x2="125" y2="90" style="stroke:var(--silver);stroke-width:1.6"/>
-          <path class="ar" d="M120 90l5-8 5 8z"/>
-          <text class="an" x="270" y="122" text-anchor="middle">悪循環は、1周ごとに加速する</text>
-          <text class="mn" x="270" y="142" text-anchor="middle">時間が減る → さらに自動化が遠のく</text>
-          <text class="mn" x="20" y="252">※SaaS・IT企業の現場ヒアリングで最も多く観察された循環パターン（{{出所}}）</text>
-        </svg>
-      </div>
-      <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">現場の<b>71%</b>が手作業の運用に課題を感じ、1人あたり<b>週7.5時間</b>を費やしている（P.3）。</div></div>
-        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">放置すると1人あたり<b>年360時間</b>＝約45営業日分が、失われ続ける。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">循環は起点の1か所——<b>「自動化・文書化の後回し」</b>を断てば止まる。方法は次章から。</div></div>
-      </div>
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><path d="M10 6.5h7.5v7.5"/></svg></div><div class="idx">F-01 ― コア</div><h3>写真の自動仕分け</h3><p>撮影した写真をAIが工種・工程・部位で判定し、台帳の該当ページへ自動整理。夜の事務所での仕分け作業をなくします。</p><div class="foot"><span class="n">98.5%</span><span>自動判定の精度（実測）</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg></div><div class="idx">F-02</div><h3>電子小黒板・台帳出力</h3><p>小黒板は撮影と同時に合成し、改ざん検知情報を付与。工事写真台帳は国交省様式でそのまま出力できます。</p><div class="foot"><span class="n">即時</span><span>の黒板合成・台帳反映</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 10-4-2.5-7-5.5-7-10V6z"/><path d="M9 11.5l2 2 4-4"/></svg></div><div class="idx">F-03</div><h3>権限・監査ログ</h3><p>元請・協力会社・施主で見える範囲を分離。全操作を記録し、いつ・誰が・何を、を追跡できます。</p><div class="foot"><span class="n">400日</span><span>ログ保持</span></div></div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>犯人は「人」ではなく「循環」。<b>起点の1か所</b>を断つのが定石です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>多機能より<b>定着</b>。現場が迷わない設計で、研修は半日で完了します。</span></div>
     <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 05 誤解と事実：誤解=グレー×、事実=紺チェックの2列対比 -->
+<!-- 05 スペック表：navyヘッダ表（mono右揃え）＋対応/非対応チェック -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Myth &amp; Fact</div><div class="h2">よくある<span class="u">3つの誤解</span>と、事実</div>
-      <p class="subhead">対策が進まない現場には、共通の思い込みがあります。ひとつずつ、データで検証します。</p></div>
-    <div class="tag">04 / FACT</div>
+    <div><div class="eyebrow">Specifications</div><div class="h2">仕様は、<span class="u">条件つきの実測値</span>で明示します</div>
+      <p class="subhead">主要な仕様値と対応状況の抜粋です。測定条件のない数値は掲載しない方針で運用しています。</p></div>
+    <div class="tag">04 / SPEC</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div style="display:grid;grid-template-columns:1fr auto 1fr;gap:min(1.5vh,1.5vw) min(1.8vh,1.8vw);align-items:stretch">
-      <div class="reveal" style="font-family:var(--display);letter-spacing:.18em;font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--gray)">MYTH ― よくある誤解</div>
-      <span></span>
-      <div class="reveal" style="font-family:var(--display);letter-spacing:.18em;font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--navy)">FACT ― データが示す事実</div>
-
-      <div class="reveal" style="display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;background:var(--cloud);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
-        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--mist);color:var(--gray);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--graphite);font-weight:500"><b style="color:var(--ink)">「CI/CDツールを入れれば解決する」</b><br>検討が&#8221;機能比較&#8221;から始まってしまう典型例。</span>
-      </div>
-      <div class="reveal" style="display:flex;align-items:center;color:var(--steel)"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="reveal" style="--i:1;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;background:var(--white);box-shadow:var(--sh-sm);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
-        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--cloud);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>
-        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--ink);font-weight:500"><b style="color:var(--navy)">先に手順、あとにツール。</b>運用設計のない導入は<span class="num" style="font-weight:600;color:var(--navy)">57%</span>が1年以内に形骸化します（{{出所}}）。</span>
-      </div>
-
-      <div class="reveal" style="--i:1;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;background:var(--cloud);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
-        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--mist);color:var(--gray);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--graphite);font-weight:500"><b style="color:var(--ink)">「うちの運用は特殊で言語化できない」</b><br>&#8221;複雑なシステムだから&#8221;と、文書化自体を諦めてしまう。</span>
-      </div>
-      <div class="reveal" style="--i:1;display:flex;align-items:center;color:var(--steel)"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="reveal" style="--i:2;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;background:var(--white);box-shadow:var(--sh-sm);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
-        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--cloud);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>
-        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--ink);font-weight:500"><b style="color:var(--navy)">運用の約8割は、定型パターン。</b>Runbookテンプレートを使えば<span class="num" style="font-weight:600;color:var(--navy)">80%</span>は文書化できます（{{出所}}）。</span>
-      </div>
-
-      <div class="reveal" style="--i:2;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;background:var(--cloud);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
-        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--mist);color:var(--gray);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--graphite);font-weight:500"><b style="color:var(--ink)">「開発が忙しくて、改善の時間が取れない」</b><br>まとまった時間を確保しようとして挫折する。</span>
-      </div>
-      <div class="reveal" style="--i:2;display:flex;align-items:center;color:var(--steel)"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="reveal" style="--i:3;display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;background:var(--white);box-shadow:var(--sh-sm);padding:min(2vh,2vw) min(2.3vh,2.3vw)">
-        <span style="width:min(3vh,3vw);height:min(3vh,3vw);border-radius:50%;background:var(--cloud);color:var(--navy);display:flex;align-items:center;justify-content:center;flex:none"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>
-        <span style="font-size:min(1.6vh,1.6vw);line-height:1.6;color:var(--ink);font-weight:500"><b style="color:var(--navy)">必要なのは、週30分。</b>先行企業は<span class="num" style="font-weight:600;color:var(--navy)">90日</span>で月<span class="num" style="font-weight:600;color:var(--navy)">15時間</span>超の削減を実現しています（P.9）。</span>
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
+      <table class="reveal">
+        <thead><tr><th>項目</th><th class="num">仕様値</th><th>測定条件</th></tr></thead>
+        <tbody>
+          <tr><td>写真自動仕分けの精度</td><td class="num">98.5 %</td><td>直近30日・120万枚で実測</td></tr>
+          <tr><td>アップロード反映（p95）</td><td class="num">2.4 秒</td><td>LTE回線・現場実測</td></tr>
+          <tr><td>月間稼働率（SLA）</td><td class="num">99.9 %</td><td>未達時はクレジット返還</td></tr>
+          <tr><td>最大同時アップロード</td><td class="num">1,000 枚</td><td>1現場あたり（付録B）</td></tr>
+          <tr><td>写真保存容量</td><td class="num">無制限</td><td>全プラン・枚数上限なし</td></tr>
+        </tbody>
+      </table>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">対応状況（抜粋）</span><span class="n">全文は {{SPEC-2026-001}}</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <ul class="checks" style="gap:min(1.9vh,1.9vw)">
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>電子小黒板（信憑性確認・改ざん検知）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>工事写真台帳（国交省様式で出力）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>SSO（SAML 2.0 / OIDC）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>IPアドレス制限・二要素認証</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>閲覧専用ID（無償・上限なし）</span></li>
+            <li style="font-size:min(1.65vh,1.65vw)"><span class="ck" style="background:var(--mist);color:var(--gray)"><svg class="ic" viewBox="0 0 24 24" width="12" height="12" style="stroke-width:2.4"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span style="color:var(--gray)">オンプレミス提供（SaaS専用）</span></li>
+          </ul>
+        </div>
+        <div style="padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray)">対応形式の全一覧は付録C（{{最終更新 2026.07}}）</div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>誤解を外すと、打ち手は「ツール選び」ではなく<b>「定着の設計」</b>に変わります。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>掲載値はすべて<b>再現条件つき</b>。貴社の現場での検証用に手順書もご提供できます。</span></div>
     <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 06 フレームワーク：2軸ポジショニングマップ。現在地→右回りルート、warn=ツール先行の失敗ルート1点 -->
+<!-- 06 セキュリティ：第三者認証のバッジ風カード列＋暗号・運用のスタッツ -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Framework</div><div class="h2">目指す場所は<span class="u">右上</span>——ルートは右回り</div>
-      <p class="subhead">縦軸に「自動化への置き換え」、横軸に「運用手順の標準化」。現在地から右上への最短ルートは、1つだけです。</p></div>
-    <div class="tag">05 / FRAMEWORK</div>
+    <div><div class="eyebrow">Security</div><div class="h2">安全性は、<span class="u">第三者認証</span>で担保します</div>
+      <p class="subhead">認証は取得済みのもののみを審査番号つきで掲載しています。元請・施主のセキュリティ調査票にも、この構成でご回答いただけます。</p></div>
+    <div class="tag">05 / SECURITY</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="split" style="grid-template-columns:1.25fr 1fr">
-      <div class="chartcard reveal">
-        <div class="dghead"><span class="t">{{フレームワーク名：見える化→Runbook化→自動化}}</span><span class="n">現在地マップ</span></div>
-        <svg class="fsvg" viewBox="0 0 460 296" role="img" aria-label="2軸マップ：Runbook化してから自動化する右回りルートが最短。ツール先行は57%が形骸化">
-          <line class="bl" x1="252" y1="24" x2="252" y2="252"/>
-          <line class="bl" x1="64" y1="138" x2="432" y2="138"/>
-          <line x1="64" y1="252" x2="432" y2="252" style="stroke:var(--gray);stroke-width:1.5"/>
-          <path d="M432 247l10 5-10 5z" style="fill:var(--gray)"/>
-          <line x1="64" y1="252" x2="64" y2="24" style="stroke:var(--gray);stroke-width:1.5"/>
-          <path d="M59 24l5-10 5 10z" style="fill:var(--gray)"/>
-          <text class="mn" x="432" y="272" text-anchor="end">運用手順の標準化 →</text>
-          <text class="mn" transform="rotate(-90)" x="-252" y="18">自動化への置き換え →</text>
-          <rect x="264" y="34" width="160" height="92" rx="12" style="fill:rgba(78,106,158,.10);stroke:var(--steel);stroke-width:1.2"/>
-          <text x="344" y="52" text-anchor="middle" style="font-family:var(--display);font-size:9.5px;font-weight:600;letter-spacing:.22em;fill:var(--steel)">GOAL</text>
-          <text x="344" y="74" text-anchor="middle" style="font-family:var(--sans);font-size:15px;font-weight:700;fill:var(--navy)">自動運用</text>
-          <text class="mn" x="344" y="92" text-anchor="middle">運用が仕組みで回る状態</text>
-          <text class="an" x="78" y="48">ツール先行</text>
-          <text class="mn" x="78" y="66">CI/CDはあるが定着しない</text>
-          <text class="an" x="264" y="166">標準化止まり</text>
-          <text class="mn" x="264" y="184">Runbookはあるが手作業</text>
-          <text class="an" x="114" y="166">属人運用</text>
-          <text class="mn" x="114" y="184">手順は頭の中・作業は手</text>
-          <line x1="100" y1="214" x2="100" y2="120" style="stroke:var(--warn);stroke-width:1.8;stroke-dasharray:5 4"/>
-          <path d="M94 98l12 12M106 98L94 110" style="stroke:var(--warn);stroke-width:2;fill:none"/>
-          <text class="mn" x="114" y="108" style="fill:var(--warn);font-weight:600">57%が形骸化</text>
-          <path d="M108 224H390V140" style="fill:none;stroke:var(--navy);stroke-width:2.4;stroke-linejoin:round"/>
-          <path d="M385 140l5-8 5 8z" style="fill:var(--navy)"/>
-          <circle cx="100" cy="224" r="6" style="fill:var(--navy)"/>
-          <text class="mn" x="76" y="246" style="fill:var(--navy);font-weight:600">現在地</text>
-          <text class="mn" x="120" y="214" style="fill:var(--navy);font-weight:600">STEP 1｜まずRunbook化</text>
-          <text class="mn" x="382" y="204" text-anchor="end" style="fill:var(--navy);font-weight:600">STEP 2｜自動化</text>
-        </svg>
+    <div class="fillcenter" style="gap:min(2vh,2vw)">
+      <div class="grid g4">
+        <div class="card reveal" style="align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 10-4-2.5-7-5.5-7-10V6z"/><path d="M9 11.5l2 2 4-4"/></svg></div><h3>ISO/IEC 27001</h3><p>情報セキュリティ（ISMS）</p><div class="foot" style="justify-content:center"><span class="mono">{{IS 123456}}</span></div></div>
+        <div class="card reveal" style="--i:1;align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M7 17a5 5 0 1 1 1-9.9A6 6 0 0 1 19.5 9 4.5 4.5 0 0 1 18 17.8"/><path d="M9 17h8"/></svg></div><h3>ISO/IEC 27017</h3><p>クラウドセキュリティ</p><div class="foot" style="justify-content:center"><span class="mono">{{CLS 123456}}</span></div></div>
+        <div class="card reveal" style="--i:2;align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14v3"/></svg></div><h3>プライバシーマーク</h3><p>個人情報保護体制</p><div class="foot" style="justify-content:center"><span class="mono">{{12345678(01)}}</span></div></div>
+        <div class="card reveal" style="--i:3;align-items:center;text-align:center"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><h3>SOC 2 Type II</h3><p>第三者保証報告書</p><div class="foot" style="justify-content:center"><span class="mono">年1回更新</span></div></div>
       </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">右回りが最短である理由</h3>
-        <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>順番が9割</b>。ツールはRunbookの後。逆順は57%が形骸化します（P.5）。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>範囲を絞る</b>。全運用ではなく、時間を食う上位3業務だけで始めます。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>90日で1周</b>。完璧なパイプラインを待たず、小さく回して改善を重ねます。</span></li>
-        </ul>
+      <div class="reveal" style="--i:4;display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw)">
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">AES-256</div><div class="kpi-l">保存データ暗号化（GCM）</div></div>
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">TLS 1.3</div><div class="kpi-l">通信暗号化（1.2未満は拒否）</div></div>
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">400日</div><div class="kpi-l">監査ログ保持・改ざん防止</div></div>
+        <div class="stat"><div class="kpi" style="font-size:min(2.4vh,2.4vw)">年2回</div><div class="kpi-l">第三者による脆弱性診断</div></div>
       </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>右上への最短ルートは<b>右回り</b>——「Runbook化してから自動化」の順です。</span></div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>認証は<b>取得済みのみ</b>掲載。審査番号での照会にも応じます。</span></div>
     <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 07 実践ステップ：4ステップ＋時間投下バー（週30分で回ることを可視化） -->
+<!-- 07 連携エコシステム：中心=自社（紺）・周囲に連携サービスをハブ状に接続 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Action Plan</div><div class="h2">90日で1周する、<span class="u">4つのステップ</span></div>
-      <p class="subhead">フレームワークを「明日の予定」に落とします。必要なのは大規模プロジェクトではなく、週30分の習慣です。</p></div>
-    <div class="tag">06 / ACTION</div>
+    <div><div class="eyebrow">Integrations</div><div class="h2">いまのツールと、<span class="u">そのまま</span>つながります</div>
+      <p class="subhead">既存ツールの置き換えは不要です。会計・勤怠・電子契約——いまの業務の間に入り、データを自動で受け渡します。</p></div>
+    <div class="tag">06 / ECOSYSTEM</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
-      <div class="grid g4">
-        <div class="card stepcard reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="idx">STEP 1</div><h3>見える化</h3><p>チーム全員で1週間、運用作業と所要時間を記録。感覚ではなく数字で掴みます。</p><div class="foot"><span class="n">W1–2</span><span>全運用作業の時間記録</span></div></div>
-        <div class="card stepcard reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></div><div class="idx">STEP 2</div><h3>絞り込み</h3><p>頻度×時間のマトリクスで、効果の大きい上位3業務だけを選びます。</p><div class="foot"><span class="n">W3–4</span><span>上位3業務を選定</span></div></div>
-        <div class="card stepcard reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></div><div class="idx">STEP 3</div><h3>Runbook化</h3><p>テンプレートに沿って手順書化。「書ける人が書く」のではなく型に流し込みます。</p><div class="foot"><span class="n">M2</span><span>Runbook3本を作成</span></div></div>
-        <div class="card stepcard reveal" style="--i:3"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M21 12a9 9 0 1 1-2.9-6.6"/><path d="M21 3v5h-5"/></svg></div><div class="idx">STEP 4</div><h3>自動化</h3><p>Runbookのうち定型部分だけをスクリプトやCIに置き換え、削減時間を毎月測定します。</p><div class="foot"><span class="n">M3</span><span>定型リリースを自動化</span></div></div>
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1fr 1.35fr">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div>
+          <div class="kpi"><span class="count" data-to="24">24</span><span class="unit">サービス</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">標準コネクタ数（{{2026.07}}時点）</div>
+        </div>
+        <ul class="checks" style="margin-top:min(2.8vh,2.8vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>ノーコード連携</b>。管理画面から数分で接続。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>REST API・Webhook</b>を全プランで開放。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>追加費用なし</b>。コネクタはすべて標準機能。</span></li>
+        </ul>
       </div>
-      <div class="load reveal" style="--i:4">
-        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">継続に必要な時間投下（週あたり）</span><span class="n">90日合計：推進 約13時間＋現場 約6時間/人</span></div>
-        <div class="lr"><span class="ln">推進担当</span><span class="track"><i style="width:100%;background:var(--navy)"></i></span><span class="lv">週60分（設計・レビュー）</span></div>
-        <div class="lr"><span class="ln">現場エンジニア</span><span class="track"><i style="width:50%;background:var(--silver)"></i></span><span class="lv">週30分（記録・Runbookの追記）</span></div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">連携エコシステム</span><span class="n">主要6カテゴリを抜粋</span></div>
+        <svg class="fsvg" viewBox="0 0 480 322" role="img" aria-label="中心の自社製品と会計・勤怠・電子契約・CADなど6カテゴリのサービスが接続されたエコシステム図">
+          <line x1="184" y1="138" x2="106" y2="56" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="296" y1="138" x2="374" y2="56" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="180" y1="162" x2="120" y2="162" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="300" y1="162" x2="360" y2="162" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="184" y1="186" x2="106" y2="268" style="stroke:var(--silver);stroke-width:1.4"/>
+          <line x1="296" y1="186" x2="374" y2="268" style="stroke:var(--silver);stroke-width:1.4"/>
+          <rect class="nd" x="28" y="16" width="112" height="40" rx="9"/><text class="nd-t" x="84" y="40" text-anchor="middle" style="font-size:11px">会計・原価管理</text>
+          <rect class="nd" x="8" y="142" width="112" height="40" rx="9"/><text class="nd-t" x="64" y="166" text-anchor="middle" style="font-size:11px">IdP / SSO</text>
+          <rect class="nd" x="28" y="268" width="112" height="40" rx="9"/><text class="nd-t" x="84" y="292" text-anchor="middle" style="font-size:11px">勤怠管理SaaS</text>
+          <rect class="nd" x="340" y="16" width="112" height="40" rx="9"/><text class="nd-t" x="396" y="40" text-anchor="middle" style="font-size:11px">電子契約</text>
+          <rect class="nd" x="360" y="142" width="112" height="40" rx="9"/><text class="nd-t" x="416" y="166" text-anchor="middle" style="font-size:11px">CAD・BIM</text>
+          <rect class="nd" x="340" y="268" width="112" height="40" rx="9"/><text class="nd-t" x="396" y="292" text-anchor="middle" style="font-size:11px">チャット</text>
+          <rect x="180" y="135" width="120" height="54" rx="12" style="fill:var(--navy)"/>
+          <text x="240" y="158" text-anchor="middle" style="font-size:13px;font-weight:700;fill:var(--white);font-family:var(--sans)">{{製品名}}</text>
+          <text class="mn" x="240" y="175" text-anchor="middle" style="font-size:8.5px;fill:rgba(255,255,255,.7)">DATA HUB</text>
+          <text class="mn" x="240" y="230" text-anchor="middle" style="font-size:9px">REST API / Webhook / SAML・OIDC</text>
+        </svg>
       </div>
-    </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>成功条件はただ一つ——<b>週30分の「仕組み時間」</b>をカレンダーで確保することです。</span></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>連携は<b>標準機能</b>。追加ライセンスや開発費はかかりません。</span></div>
     <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 08 チェックリスト：セルフチェック6問＋打ち手の難易度/効果 早見表。warn=「4個以上」判定1点 -->
+<!-- 08 導入要件チェックリスト：環境・権限・データ移行＋所要日数バー -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Checklist</div><div class="h2">3分でわかる、自社の<span class="u">現在地診断</span></div>
-      <p class="subhead">あてはまる項目を数えるだけ。結果に応じた「最初の打ち手」を、右の早見表から選べます。</p></div>
-    <div class="tag">07 / CHECKLIST</div>
+    <div><div class="eyebrow">Requirements</div><div class="h2">導入は、<span class="u">10営業日</span>で本稼働へ</div>
+      <p class="subhead">導入前にご確認いただくのは3点だけ。移行作業の大半は当社が実施し、進行中の工事は止めません。</p></div>
+    <div class="tag">07 / SETUP</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="split" style="align-items:center">
-      <div class="reveal">
-        <div class="dghead"><span class="t">セルフチェック ― あてはまる数を数える</span><span class="n">所要 約3分</span></div>
-        <ul class="checks" style="gap:min(1.3vh,1.3vw)">
-          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>特定のエンジニアしか触れない作業が<b>3つ以上</b>ある</span></li>
-          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>同じ顧客情報を<b>Excel台帳とシステムの両方</b>に入力している</span></li>
-          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>Runbook・引き継ぎ資料が<b>1年以上</b>更新されていない</span></li>
-          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>問い合わせ・障害対応が<b>特定のベテラン</b>に集中している</span></li>
-          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>担当者が<b>1週間休むと止まる</b>リリース・対応がある</span></li>
-          <li style="font-size:min(1.6vh,1.6vw)"><span class="ck" style="background:var(--cloud);color:var(--graphite);border-radius:8px"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2"><rect x="4" y="4" width="16" height="16" rx="3"/></svg></span><span>「改善・自動化の時間」が<b>定例予定に入っていない</b></span></li>
-        </ul>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.2vh,1.2vw);margin-top:min(2vh,2vw)">
-          <div style="border:1px solid var(--line);border-left:3px solid var(--ok);border-radius:10px;padding:min(1.2vh,1.2vw) min(1.5vh,1.5vw);background:var(--white)"><div class="num" style="font-weight:600;color:var(--ok);font-size:min(1.5vh,1.5vw)">0–1個</div><div style="font-size:min(1.2vh,1.2vw);color:var(--graphite);margin-top:3px">良好。現状の型を維持</div></div>
-          <div style="border:1px solid var(--line);border-left:3px solid var(--silver);border-radius:10px;padding:min(1.2vh,1.2vw) min(1.5vh,1.5vw);background:var(--white)"><div class="num" style="font-weight:600;color:var(--graphite);font-size:min(1.5vh,1.5vw)">2–3個</div><div style="font-size:min(1.2vh,1.2vw);color:var(--graphite);margin-top:3px">注意。属人化が進行中</div></div>
-          <div style="border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:min(1.2vh,1.2vw) min(1.5vh,1.5vw);background:var(--white)"><div class="num" style="font-weight:600;color:var(--warn);font-size:min(1.5vh,1.5vw)">4個以上</div><div style="font-size:min(1.2vh,1.2vw);color:var(--graphite);margin-top:3px">要対策。構造課題の疑い</div></div>
-        </div>
+    <div class="fillcenter" style="gap:min(2.2vh,2.2vw)">
+      <div class="grid g3">
+        <div class="card reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg></div><div class="idx">REQ 01 ― 環境</div><h3>動作環境</h3>
+          <ul class="checks" style="gap:min(1vh,1vw)">
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>スマホアプリ（iOS / Android）＋ブラウザ</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>圏外でも撮影・記録（復帰時に自動同期）</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>通信は HTTPS:443 のみ開放</span></li>
+          </ul>
+          <div class="foot"><span class="n">0.5日</span><span>環境準備</span></div></div>
+        <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></svg></div><div class="idx">REQ 02 ― 権限</div><h3>アカウント・権限</h3>
+          <ul class="checks" style="gap:min(1vh,1vw)">
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>管理者1名＋利用者リスト</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>SSO接続は任意（SAML / OIDC）</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>協力会社は閲覧専用ID（無償）で招待</span></li>
+          </ul>
+          <div class="foot"><span class="n">2日</span><span>初期設定（当社代行）</span></div></div>
+        <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v13c0 1.6 3.6 2.9 8 2.9s8-1.3 8-2.9v-13"/><path d="M4 12c0 1.6 3.6 2.9 8 2.9s8-1.3 8-2.9"/></svg></div><div class="idx">REQ 03 ― データ移行</div><h3>データ移行</h3>
+          <ul class="checks" style="gap:min(1vh,1vw)">
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>既存の写真・図面は一括投入</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>検証ツールで移行前チェック</span></li>
+            <li style="font-size:min(1.4vh,1.4vw)"><span class="ck" style="width:min(2.4vh,2.4vw);height:min(2.4vh,2.4vw)"><svg class="ic" viewBox="0 0 24 24" width="11" height="11" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span><span>移行作業は当社が実施</span></li>
+          </ul>
+          <div class="foot"><span class="n">3日</span><span>移行・検証</span></div></div>
       </div>
-      <div class="reveal" style="--i:1">
-        <div class="dghead"><span class="t">最初の打ち手 ― 難易度と効果の早見表</span><span class="n">推奨＝Runbookテンプレ</span></div>
-        <table style="font-size:min(1.5vh,1.5vw)">
-          <thead><tr><th>打ち手</th><th style="text-align:center">難易度</th><th style="text-align:center">効果</th><th>着手時期</th></tr></thead>
-          <tbody>
-            <tr><td>運用作業の時間記録（棚卸し）</td><td style="text-align:center">低</td><td style="text-align:center">中</td><td class="num">今週から</td></tr>
-            <tr><td style="background:var(--cloud);color:var(--navy);font-weight:700">Runbookテンプレの導入<span style="font-family:var(--display);font-size:.72em;letter-spacing:.08em;color:var(--navy);border:1px solid var(--navy);border-radius:999px;padding:2px 9px;margin-left:9px;white-space:nowrap">推奨</span></td><td style="background:var(--cloud);text-align:center;color:var(--navy);font-weight:700">低</td><td style="background:var(--cloud);text-align:center;color:var(--navy);font-weight:700">高</td><td class="num" style="background:var(--cloud);color:var(--navy);font-weight:700">1か月目</td></tr>
-            <tr><td>定型リリースの自動化</td><td style="text-align:center">中</td><td style="text-align:center">高</td><td class="num">3か月目</td></tr>
-            <tr><td>運用フローの全面刷新</td><td style="text-align:center">高</td><td style="text-align:center">高</td><td class="num">段階導入で</td></tr>
-          </tbody>
-        </table>
+      <div class="load reveal" style="--i:3">
+        <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">キックオフから本稼働まで</span><span class="n">標準 10営業日</span></div>
+        <div class="lr" style="grid-template-columns:minmax(0,11em) 1fr auto"><span class="ln">設定・移行（当社）</span><span class="track"><i style="width:60%;background:var(--navy)"></i></span><span class="lv">6営業日</span></div>
+        <div class="lr" style="grid-template-columns:minmax(0,11em) 1fr auto"><span class="ln">検証・研修（両社）</span><span class="track"><i style="width:40%;background:var(--steel)"></i></span><span class="lv">4営業日</span></div>
       </div>
-    </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>4個以上</b>あてはまったら、「難易度・低×効果・高」の<b>Runbookテンプレ</b>から始めましょう。</span></div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>貴社側の作業は<b>約3時間</b>。進行中の工事を止めずに本稼働まで進みます。</span></div>
     <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 09 事例ダイジェスト：主役=28時間→10時間。バーは数値比例（28/21/14/10 → 112/84/56/40） -->
+<!-- 09 料金・サポート：.plans 中央reco紺ベタ。サポート体制はプランに内包 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Case Digest</div><div class="h2">同じ課題は、<span class="u">90日</span>でここまで変わる</div>
-      <p class="subhead">本書のフレームワークを実践した{{18}}社のうち、{{SaaS企業A社}}の90日をダイジェストでご紹介します。</p></div>
-    <div class="tag">08 / CASE</div>
+    <div><div class="eyebrow">Pricing &amp; Support</div><div class="h2">料金は、<span class="u">ID単位</span>の明朗会計です</div>
+      <p class="subhead">課金対象は現場監督・事務の利用IDのみ。協力会社・施主の閲覧は無償です。重大障害の受付は、全プラン24時間対応です。</p></div>
+    <div class="tag">08 / PRICING</div>
   </div>
   <div class="s-body">
-    <div class="fillcenter"><div class="split">
-      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
-        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">月あたりの手作業運用時間（{{SaaS企業A社}}・エンジニア26名）</div>
-        <div style="display:flex;align-items:baseline;gap:min(2.2vh,2.2vw)">
-          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">28<span class="unit" style="color:var(--silver)">時間</span></span>
-          <svg class="ic" viewBox="0 0 24 24" width="26" height="26" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          <span class="kpi xl">10<span class="unit">時間</span></span>
-          <span class="mono" style="font-weight:600;font-size:min(1.7vh,1.7vw);color:#fff;background:var(--navy);border-radius:999px;padding:5px 14px;align-self:center">−64%</span>
-        </div>
-        <blockquote class="quote" style="align-self:flex-start;margin-top:min(3.2vh,3.2vw)">
-          <p style="font-size:min(1.95vh,1.95vw)">「最初の1か月は半信半疑でした。Runbookが3本できたあたりから、チームが自走し始めたんです。」</p>
-          <cite>{{SaaS企業A社}}　SRE・業務改善担当 {{氏名}}様</cite>
-        </blockquote>
-      </div>
-      <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(1.8vh,1.8vw);justify-content:center">
-        <div class="chartcard" style="height:auto;flex:0 0 auto">
-          <div class="dghead"><span class="t">手作業運用時間の推移</span><span class="n">単位：時間/月（{{SaaS企業A社}}実測）</span></div>
-          <svg class="fsvg" viewBox="0 0 400 168" role="img" aria-label="手作業運用時間の推移：月28時間から90日で10時間へ削減">
-            <line class="bl" x1="0" y1="142" x2="400" y2="142"/>
-            <rect class="bar" x="60" y="30" width="50" height="112" rx="4"/>
-            <rect class="bar" x="140" y="58" width="50" height="84" rx="4"/>
-            <rect class="bar" x="220" y="86" width="50" height="56" rx="4"/>
-            <rect x="300" y="102" width="50" height="40" rx="4" style="fill:var(--navy)"/>
-            <text class="mn" x="85" y="23" text-anchor="middle">28</text>
-            <text class="mn" x="165" y="51" text-anchor="middle">21</text>
-            <text class="mn" x="245" y="79" text-anchor="middle">14</text>
-            <text class="mn" x="325" y="95" text-anchor="middle" style="fill:var(--navy);font-weight:600;font-size:14px">10</text>
-            <text class="mn" x="85" y="162" text-anchor="middle">導入前</text>
-            <text class="mn" x="165" y="162" text-anchor="middle">1か月後</text>
-            <text class="mn" x="245" y="162" text-anchor="middle">2か月後</text>
-            <text class="mn" x="325" y="162" text-anchor="middle">3か月後</text>
-          </svg>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.5vh,1.5vw)">
-          <div class="stat"><div class="kpi">{{18}}<span class="unit">社</span></div><div class="kpi-l">フレームワーク実践企業</div></div>
-          <div class="stat"><div class="kpi">{{58}}<span class="unit">%</span></div><div class="kpi-l">平均削減率（手作業運用時間）</div></div>
-          <div class="stat"><div class="kpi">{{89}}<span class="unit">%</span></div><div class="kpi-l">90日プラン完走率</div></div>
-        </div>
-      </div>
+    <div class="fillcenter"><div class="plans" style="height:auto">
+      <div class="plan reveal"><h4>スタンダード</h4><div class="price">900<span class="u">円/ID・月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>写真管理・電子小黒板・台帳出力</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>閲覧専用IDは無償・上限なし</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>メールサポート（翌営業日回答）</li></ul>
+        <div class="meta">想定：〜30名｜最低5IDから</div></div>
+      <div class="plan reco reveal" style="--i:1"><span class="badge">おすすめ</span><h4>ビジネス</h4><div class="price">1,400<span class="u">円/ID・月</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>全機能＋API・SSO・検査帳票</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専任担当＋チャット（当日回答）</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>稼働率SLA 99.9%（返金保証）</li></ul>
+        <div class="meta">想定：30〜300名｜初期費用 0円</div></div>
+      <div class="plan reveal" style="--i:2"><h4>エンタープライズ</h4><div class="price" style="font-size:min(2.7vh,2.7vw)">個別お見積り</div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>専有環境・カスタムSLA</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>24時間365日サポート＋専任TAM</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>移行・研修の個別プログラム</li></ul>
+        <div class="meta">想定：300名超｜情報システム部門と個別設計</div></div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>魔法ではなく<b>順番の力</b>。90日あれば、数字は動きます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>金額は税別。IDは<b>月単位で増減可</b>——工事の谷間に、使わない席の費用は発生しません。</span></div>
     <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 10 CTA：売り込みは薄く。診断（相談）を1本に絞り、DLは静かに添える -->
+<!-- 10 CTA：デモ・トライアル -->
 <section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
     <p class="kick" style="color:var(--steel)">Next Step</p>
-    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは30分、「現在地診断」から。</h1>
-    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">P.8のチェック結果をお送りください。P.6のマップに貴社の現在地を置き、<br>最短ルートを無料で診断してお返しします。</p>
-    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.6vh,3.6vw)">
-      <a class="btn" href="{{リンク}}">無料の現在地診断を申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、いまの現場でお確かめください。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">デモテナントを{{3営業日}}以内に発行。1現場でのトライアルは当社エンジニアが伴走します。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">デモ・トライアルを申し込む<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
     </div>
-    <p style="margin-top:min(2.6vh,2.6vw);font-size:min(1.45vh,1.45vw);color:rgba(255,255,255,.55);font-weight:500">実践テンプレート一式（棚卸しシート・Runbookテンプレ）のダウンロードは　<span class="mono" style="color:rgba(255,255,255,.82)">{{URL}}</span></p>
   </div>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
     <span class="brandline">{{自社名}}　|　{{メール}}　|　{{電話}}</span><span class="pageno">10 / 10</span>
