@@ -371,4 +371,6 @@ def test_cast_back_theme_warns_and_has_no_pay_columns(spec):
     assert "訪問時にお店の方がPOSへ入力" in body
     assert "個人情報は送らないでください" in body
     item = _item(spec, "cast_back_table")
-    assert item["columns"] == ["源氏名", "バックの種類", "額または率"]
+    assert item["columns"] == ["源氏名", "バックの種類", "単位", "金額または率"]
+    # 店舗によって、円でも%でも書ける
+    assert item["cells"][item["columns"].index("単位")] == ["円", "%"]
