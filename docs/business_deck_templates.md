@@ -1,11 +1,11 @@
 # ビジネス資料テンプレート集(スライド作成の標準資産)
 
-資料(スライド・提案書・報告書など)を作るときは、まずこの文書で用途に合うテンプレートを選び、`reference/business_deck_templates/decks/` の実物HTMLを土台にする。
+資料(スライド・提案書・報告書など)を作るときは、まずこの文書で用途に合うテンプレートを選び、`reference/business_deck_templates/by_industry/標準/` の実物HTMLを土台にする。
 
 - 公開URL: https://business-deck-templates.vercel.app/
 - Vercel: チーム `koku`(team_XbYXQzuiEhlmNRnobKYkWMaf)/ プロジェクト `business-deck-templates`(prj_JTzU4NCSO6noVlrcXRlfxrmjugeb)
 - 取り込み日: 2026-10-07(最新デプロイ `dpl_DcXs1F1EbCUQZPq5fnzSoKn8t9AH`)
-- 取り込み済み: 標準版12本のHTML全文(`reference/business_deck_templates/decks/`)。業種版96本は構造が同じなので、必要時に取得する(3章)
+- 取り込み済み: 標準版12本のHTML全文(`reference/business_deck_templates/by_industry/標準/`)。業種版96本は構造が同じなので、必要時に取得する(3章)
 
 ## 1. 全体像
 
@@ -126,7 +126,7 @@
 
 1. 用途を決める(12用途から選ぶ。該当なしなら近い用途を土台にして構成だけ変える)
 2. 業種を決める(8業種。なければ標準版)。必要なら4章の方法で業種版を取得する
-3. `reference/business_deck_templates/decks/` の該当HTMLを `cp` して土台にする(元ファイルは直さない)
+3. `reference/business_deck_templates/by_industry/標準/` の該当HTMLを `cp` して土台にする(元ファイルは直さない)
 4. `{{ }}` を実データに置換する。数値を変えたら、バーの寸法・合計・割合・`aria-label`・takeaway・「P.○」の参照・`data-to` を**全部**そろえる
 5. 見出しを主張型(20字以内)に直し、締めのCTAを1つに絞る
 6. 他社ブランドにするなら `:root` の色トークンのみ差し替える。アクセントは1画面1か所を守る
@@ -147,7 +147,7 @@
 
 ```
 docs/business_deck_templates.md                      ← この文書
-reference/business_deck_templates/decks/NN_用途.html  ← 標準版12本の全文
+reference/business_deck_templates/by_industry/{標準,業種}/NN_用途.html  ← 業種別フォルダ
 reference/business_deck_templates/README.md           ← 取り込みの概要
 ```
 

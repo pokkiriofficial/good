@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="ja">
+<!-- 自動生成物。編集は _src/12_顧客成功事例_医療介護.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>顧客成功事例テンプレート（医療・介護） | KOKU</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#17233E; --steel:#4E6A9E; --hover:#24365B;
+    --ink:#1D1D1F; --graphite:#424245; --gray:#86868B;
+    --silver:#D2D2D7; --mist:#E8E8ED; --cloud:#F5F5F7; --white:#FFFFFF; --line:#E3E7EE;
+    --ok:#2E7D5B; --ok-tint:#EBF4EF; --warn:#C0392B; --warn-tint:#FBEEEC;
+    --display:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+    --sans:-apple-system,system-ui,"Hiragino Sans","Noto Sans JP",sans-serif;
+    --mono:"JetBrains Mono","SF Mono",Menlo,monospace;
+    --sh-sm:0 1px 2px rgba(23,35,62,.05),0 1px 3px rgba(23,35,62,.06);
+    --sh-md:0 4px 12px rgba(23,35,62,.06),0 12px 28px rgba(23,35,62,.08);
+    --sh-lg:0 10px 30px rgba(23,35,62,.10),0 24px 60px rgba(23,35,62,.10);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-snap-type:y proximity;background:#0d1017}
+  body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+
+  .slide{position:relative;width:100vw;height:56.25vw;max-height:100vh;max-width:177.78vh;margin:0 auto;
+    background:var(--white);scroll-snap-align:center;overflow:hidden;
+    display:flex;flex-direction:column;padding:min(4.2vw,4.2vh) min(6vw,6vh);isolation:isolate}
+  .slide.dark{background:var(--navy);color:#fff}
+  .slide + .slide{margin-top:14px}
+  .s-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none}
+  .subhead{font-size:min(1.65vh,1.65vw);color:var(--graphite);font-weight:500;margin-top:min(1.1vh,1.1vw);max-width:64ch;line-height:1.7}
+  .s-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;padding:min(2.4vh,2.4vw) 0 0}
+  .fillcenter{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+  .takeaway{margin-top:auto;display:flex;align-items:center;gap:13px;border-top:1px solid var(--line);
+    padding-top:min(1.9vh,1.9vw);color:var(--ink);font-weight:500;font-size:min(1.55vh,1.55vw)}
+  .takeaway .tk{width:min(3.4vh,3.4vw);height:min(3.4vh,3.4vw);border-radius:9px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;flex:none}
+  .takeaway b{color:var(--navy);font-weight:700}
+  .s-foot{display:flex;align-items:center;justify-content:space-between;color:var(--gray);margin-top:min(1.7vh,1.7vw);flex:none;
+    font-size:min(1.15vh,1.15vw);letter-spacing:.04em}
+  .dark .s-foot{color:rgba(255,255,255,.5)}
+  .pageno{font-family:var(--mono)} .brandline{font-family:var(--display);letter-spacing:.24em;font-weight:600;color:var(--navy)}
+  .dark .brandline{color:#fff}
+
+  .eyebrow{font-family:var(--display);font-size:min(1.45vh,1.45vw);font-weight:600;letter-spacing:.26em;
+    text-transform:uppercase;color:var(--steel);display:inline-flex;align-items:center;gap:11px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--steel);border-radius:2px}
+  .h2{font-size:min(4.2vh,4.2vw);font-weight:700;color:var(--navy);letter-spacing:.01em;line-height:1.3;margin-top:min(1.2vh,1.2vw)}
+  .h2 .u{color:var(--steel)}
+  .tag{font-family:var(--display);font-size:min(1.3vh,1.3vw);letter-spacing:.1em;color:var(--gray);font-weight:600;white-space:nowrap;padding-top:4px}
+
+  .lead{font-size:min(1.8vh,1.8vw);line-height:1.8;color:var(--graphite);font-weight:500;max-width:52ch}
+  .grid{display:grid;gap:min(2vh,2vw)}
+  .g3{grid-template-columns:repeat(3,1fr)} .g2{grid-template-columns:1fr 1fr} .g4{grid-template-columns:repeat(4,1fr)}
+  .stepcard{position:relative}
+  .stepcard:not(:first-child)::before{content:"";position:absolute;top:min(4.4vh,4.4vw);left:calc(-1 * min(1.3vh,1.3vw) - 1px);width:min(2.6vh,2.6vw);height:2px;background:linear-gradient(90deg,var(--silver),var(--steel));transform:translateX(-50%)}
+  .split{display:grid;grid-template-columns:1.02fr 1fr;gap:min(3.6vh,3.6vw);align-items:stretch;height:100%}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  .card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+  .card .ico{width:min(5vh,5vw);height:min(5vh,5vw);border-radius:12px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center}
+  .card .idx{font-family:var(--display);font-size:min(1.35vh,1.35vw);font-weight:600;color:var(--steel);letter-spacing:.1em}
+  .card h3{font-size:min(2vh,2vw);font-weight:700;color:var(--navy)}
+  .card p{font-size:min(1.5vh,1.5vw);color:var(--graphite);line-height:1.72;font-weight:500}
+  .card .foot{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.3vh,1.3vw);color:var(--navy);display:flex;align-items:baseline;gap:6px}
+  .card .foot .n{font-weight:600;font-size:min(2vh,2vw)}
+  /* 主役カード（紺ベタ・1画面に1枚だけ） */
+  .card.hero{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);color:#fff;box-shadow:var(--sh-lg)}
+  .card.hero .ico{background:rgba(255,255,255,.1);color:#fff}
+  .card.hero .idx{color:rgba(255,255,255,.65)}
+  .card.hero h3{color:#fff}
+  .card.hero p{color:rgba(255,255,255,.76)}
+  .card.hero .foot{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.85)}
+  .card.hero .foot .n{font-size:min(3.1vh,3.1vw);color:#fff}
+
+  .kpi{font-family:var(--mono);font-weight:600;font-size:min(5vh,5vw);color:var(--navy);line-height:1;letter-spacing:-.02em}
+  .kpi .unit{font-size:.38em;color:var(--gray);margin-left:4px;font-weight:500}
+  .kpi-l{font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(.8vh,.8vw);font-weight:500}
+  .kpi.xl{font-size:min(8.6vh,8.6vw);letter-spacing:-.03em}
+  .kpi.sm{font-size:min(2.9vh,2.9vw)}
+
+  .checks{display:flex;flex-direction:column;gap:min(1.7vh,1.7vw)}
+  .checks li{display:flex;gap:13px;align-items:flex-start;list-style:none;font-size:min(1.8vh,1.8vw);color:var(--ink);font-weight:500;line-height:1.55}
+  .checks .ck{width:min(3.2vh,3.2vw);height:min(3.2vh,3.2vw);border-radius:50%;background:var(--ok-tint);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;flex:none;margin-top:1px}
+  .checks b{color:var(--navy);font-weight:700}
+
+  .frame{border:1px solid var(--line);border-radius:16px;background:radial-gradient(120% 120% at 20% 0%,#fff,var(--cloud));
+    box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;color:var(--steel);height:100%}
+  .frame .fi{width:min(6vh,6vw);height:min(6vh,6vw);border-radius:14px;background:#fff;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+  .frame span{font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500}
+
+  .chartcard{border:1px solid var(--line);border-radius:16px;padding:min(2.8vh,2.8vw);box-shadow:var(--sh-sm);background:#fff;
+    display:flex;flex-direction:column;justify-content:center;height:100%}
+  .dghead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:min(1.7vh,1.7vw)}
+  .dghead .t{font-size:min(1.55vh,1.55vw);font-weight:700;color:var(--navy)}
+  .dghead .n{font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);white-space:nowrap}
+  .csvg{width:100%;height:auto;display:block;overflow:visible}
+  .csvg .grid-l{stroke:var(--line);stroke-width:1}
+  .csvg .area{fill:rgba(78,106,158,.10);opacity:0;transition:opacity 1s .55s ease}
+  .in .csvg .area{opacity:1}
+  .csvg .draw{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.5s .2s var(--ease)}
+  .in .csvg .draw{stroke-dashoffset:0}
+  .csvg .dot{fill:#fff;stroke:var(--navy);stroke-width:2.5;opacity:0;transition:opacity .4s 1.3s ease}
+  .in .csvg .dot{opacity:1} .csvg .dot.key{fill:var(--navy)}
+  .csvg .axis-t{font-family:var(--mono);font-size:10px;fill:var(--gray)}
+  .csvg .val-t{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--navy)}
+  .csvg .ann-bg{fill:var(--navy)}
+  .csvg .ann-t{font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff}
+  .csvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .barx{display:flex;gap:min(1.4vh,1.4vw);margin-top:10px}.barx span{flex:1;text-align:center;font-size:min(1.15vh,1.15vw);color:var(--gray)}
+
+  /* プロセスフロー図解（実データ焼き込み） */
+  .fsvg{width:100%;height:auto;display:block;overflow:visible}
+  .fsvg .nd{fill:var(--cloud);stroke:var(--silver)}
+  .fsvg .nd.hot{fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.6}
+  .fsvg .nd-t{font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)}
+  .fsvg .nd-t.hot{fill:var(--warn)}
+  .fsvg .ar{fill:var(--silver)}
+  .fsvg .bl{stroke:var(--line);stroke-dasharray:4 4}
+  .fsvg .bar{fill:var(--silver)} .fsvg .bar.hot{fill:var(--warn)}
+  .fsvg .mn{font-family:var(--mono);font-size:12px;fill:var(--gray)}
+  .fsvg .mn.hot{font-size:14px;font-weight:600;fill:var(--warn)}
+  .fsvg .mn.inbar{fill:#fff}
+  .fsvg .lead-l{fill:none;stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3}
+  .fsvg .an{font-family:var(--sans);font-size:13.5px;font-weight:700;fill:var(--ink)}
+  .fsvg .an.hot{fill:var(--warn)}
+  .fsvg .tag-bg{fill:var(--warn)}
+  .fsvg .tag-t{font-family:var(--display);font-size:9.5px;font-weight:600;fill:#fff;letter-spacing:.18em}
+
+  .srk{display:flex;flex-direction:column;gap:min(1.6vh,1.6vw);justify-content:center;height:100%}
+  .srk .band{border:1px solid var(--line);border-left:4px solid var(--silver);border-radius:12px;padding:min(2.1vh,2.1vw) min(2.6vh,2.6vw);background:#fff;box-shadow:var(--sh-sm)}
+  .srk .band .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.14em;color:var(--gray);font-weight:600}
+  .srk .band .v{font-size:min(1.75vh,1.75vw);color:var(--ink);font-weight:500;margin-top:4px;line-height:1.5}
+  .srk .sora{border-left-color:var(--gray)} .srk .ame{border-left-color:var(--warn)}
+  .srk .kasa{border-left-color:var(--steel);background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .srk .kasa .k{color:rgba(255,255,255,.62)} .srk .kasa .v{color:#fff}
+
+  /* Before/After 図解 */
+  .ba{display:flex;flex-direction:column;gap:min(1.4vh,1.4vw);justify-content:center;height:100%}
+  .ba .row{border:1px solid var(--line);border-radius:14px;padding:min(1.9vh,1.9vw) min(2.4vh,2.4vw);background:#fff;box-shadow:var(--sh-sm)}
+  .ba .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .ba .k{font-family:var(--display);font-size:min(1.15vh,1.15vw);letter-spacing:.18em;font-weight:600;color:var(--gray)}
+  .ba .t{font-family:var(--mono);font-weight:600;font-size:min(2.3vh,2.3vw);color:var(--ink)}
+  .ba .t .u{font-size:.52em;color:var(--gray);font-weight:500}
+  .ba .chips{display:flex;gap:8px;margin-top:min(1.2vh,1.2vw);flex-wrap:wrap}
+  .ba .chip{font-size:min(1.25vh,1.25vw);font-weight:600;color:var(--graphite);background:var(--cloud);border:1px solid var(--line);border-radius:8px;padding:5px 11px;display:inline-flex;gap:7px;align-items:baseline}
+  .ba .chip .m{font-family:var(--mono);color:var(--gray);font-weight:500}
+  .ba .bar{height:8px;border-radius:99px;background:var(--mist);margin-top:min(1.4vh,1.4vw);overflow:hidden}
+  .ba .bar i{display:block;height:100%;border-radius:99px;background:var(--graphite)}
+  .ba .row.after{background:linear-gradient(135deg,#1a2947,var(--navy));border-color:var(--navy);box-shadow:var(--sh-md)}
+  .ba .row.after .k{color:rgba(255,255,255,.62)}
+  .ba .row.after .t{color:#fff} .ba .row.after .t .u{color:rgba(255,255,255,.55)}
+  .ba .row.after .chip{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:rgba(255,255,255,.92)}
+  .ba .row.after .chip .m{color:rgba(255,255,255,.6)}
+  .ba .row.after .bar{background:rgba(255,255,255,.14)} .ba .row.after .bar i{background:#fff}
+  .ba .mid{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gray)}
+  .ba .mid .badge{font-family:var(--mono);font-weight:600;font-size:min(1.8vh,1.8vw);color:#fff;background:var(--navy);border-radius:999px;padding:6px 18px;box-shadow:var(--sh-sm)}
+  .ba .mid .lbl{font-size:min(1.3vh,1.3vw);font-weight:600;color:var(--graphite)}
+
+  table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);font-size:min(1.6vh,1.6vw)}
+  thead th{background:var(--navy);color:#fff;font-weight:700;font-size:min(1.45vh,1.45vw);letter-spacing:.03em;padding:min(1.9vh,1.9vw) min(2.2vh,2.2vw);text-align:left}
+  tbody td{padding:min(2.5vh,2.5vw) min(2.2vh,2.2vw);border-top:1px solid var(--line);color:var(--graphite);font-weight:500}
+  tbody td:first-child{color:var(--ink);font-weight:600}
+  td.num,th.num{text-align:right;font-family:var(--mono)}
+  .col-hi{background:var(--cloud)} thead th.col-hi{background:var(--steel)} tbody td.col-hi{color:var(--navy);font-weight:700}
+  .cellflex{display:inline-flex;align-items:center;gap:8px;vertical-align:middle}
+
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:start}
+  .step{position:relative;padding:0 min(1.6vh,1.6vw)}
+  .step .dot{width:min(5.2vh,5.2vw);height:min(5.2vh,5.2vw);border-radius:14px;background:var(--cloud);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm);border:1px solid var(--line)}
+  .step .cn{position:absolute;top:min(2.6vh,2.6vw);left:calc(-50% + min(2.6vh,2.6vw));right:calc(50% + min(3vh,3vw));height:2px;
+    background:linear-gradient(90deg,var(--silver),var(--steel))}
+  .step:first-child .cn{display:none}
+  .step .k{font-family:var(--display);font-size:min(1.2vh,1.2vw);letter-spacing:.12em;color:var(--steel);font-weight:600;margin-top:min(1.6vh,1.6vw)}
+  .step h4{font-size:min(1.85vh,1.85vw);font-weight:700;color:var(--navy);margin-top:4px}
+  .step p{font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500;margin-top:6px;line-height:1.6}
+
+  /* 作業負荷バー */
+  .load{border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:min(1.8vh,1.8vw) min(2.4vh,2.4vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .load .lr{display:grid;grid-template-columns:minmax(0,7.5em) 1fr auto;align-items:center;gap:min(2.2vh,2.2vw)}
+  .load .ln{font-size:min(1.4vh,1.4vw);font-weight:600;color:var(--graphite)}
+  .load .track{height:min(1.3vh,1.3vw);background:var(--mist);border-radius:99px;overflow:hidden}
+  .load .track i{display:block;height:100%;border-radius:99px}
+  .load .lv{font-family:var(--mono);font-size:min(1.35vh,1.35vw);color:var(--graphite);white-space:nowrap;text-align:right;min-width:11em}
+
+  .plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:min(1.9vh,1.9vw);align-items:stretch;height:100%}
+  .plan{border:1px solid var(--line);border-radius:18px;padding:min(2.9vh,2.9vw);background:#fff;box-shadow:var(--sh-sm);display:flex;flex-direction:column}
+  .plan h4{font-size:min(1.9vh,1.9vw);font-weight:700;color:var(--navy)}
+  .plan .badge{align-self:flex-start;font-family:var(--display);font-size:min(1.1vh,1.1vw);letter-spacing:.1em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 12px;margin-bottom:min(1.1vh,1.1vw)}
+  .plan .price{font-family:var(--mono);font-weight:600;font-size:min(3.3vh,3.3vw);color:var(--ink);margin-top:min(.7vh,.7vw)}
+  .plan .price .u{font-size:.36em;color:var(--gray)}
+  .plan ul{list-style:none;margin-top:min(1.7vh,1.7vw);display:flex;flex-direction:column;gap:min(1.1vh,1.1vw)}
+  .plan li{font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500;display:flex;gap:9px;align-items:flex-start}
+  .plan li .ck{color:var(--steel);flex:none;margin-top:2px}
+  .plan .meta{margin-top:auto;padding-top:min(1.4vh,1.4vw);border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:min(1.2vh,1.2vw);color:var(--gray);letter-spacing:.02em}
+  .plan.reco .meta{border-top-color:rgba(255,255,255,.16);color:rgba(255,255,255,.65)}
+  /* おすすめプラン＝紺ベタ反転で中央を主役に */
+  .plan.reco{background:linear-gradient(160deg,#1a2947,var(--navy));border:1.5px solid var(--navy);box-shadow:var(--sh-lg)}
+  .plan.reco .badge{background:#fff;color:var(--navy)}
+  .plan.reco h4{color:#fff}
+  .plan.reco .price{color:#fff;font-size:min(4vh,4vw)}
+  .plan.reco .price .u{color:rgba(255,255,255,.55)}
+  .plan.reco li{color:rgba(255,255,255,.86)}
+  .plan.reco li .ck{color:rgba(255,255,255,.7)}
+
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:min(1.5vh,1.5vw);height:100%}
+  .logos .lg{border:1px solid var(--line);border-radius:12px;background:var(--cloud);
+    display:flex;align-items:center;justify-content:center;color:var(--gray);font-family:var(--display);font-weight:600;font-size:min(1.4vh,1.4vw);letter-spacing:.08em}
+  .quote{border-left:3px solid var(--navy);padding-left:min(2.6vh,2.6vw);align-self:center}
+  .quote p{font-size:min(2.4vh,2.4vw);line-height:1.6;color:var(--ink);font-weight:500}
+  .quote cite{display:block;font-style:normal;font-size:min(1.4vh,1.4vw);color:var(--gray);margin-top:min(1.6vh,1.6vw)}
+  .stat{border:1px solid var(--line);border-radius:12px;padding:min(1.7vh,1.7vw) min(1.2vh,1.2vw);text-align:center;background:#fff;box-shadow:var(--sh-sm)}
+  .stat .kpi{font-size:min(2.8vh,2.8vw)}
+  .stat .kpi-l{margin-top:5px}
+
+  .btn{display:inline-flex;align-items:center;gap:11px;background:#fff;color:var(--navy);border-radius:12px;
+    padding:min(1.9vh,1.9vw) min(3.2vh,3.2vw);font-size:min(1.75vh,1.75vw);font-weight:700;text-decoration:none;box-shadow:var(--sh-md);transition:transform .25s var(--ease)}
+  .btn:hover{transform:translateY(-2px)}
+  .qr{width:min(15vh,15vw);height:min(15vh,15vw);border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);color:var(--navy)}
+
+  .cover{justify-content:center;background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.16),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%);color:#fff}
+  .cover .grid-bg{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%);mask-image:radial-gradient(120% 90% at 100% 0,#000,transparent 65%)}
+  .cover .wm{position:absolute;right:-1vw;bottom:-9vh;font-family:var(--display);font-weight:700;font-size:min(52vh,42vw);color:rgba(255,255,255,.05);line-height:.8;z-index:0}
+  .cover>*{position:relative;z-index:1}
+  .cover .s-foot{color:rgba(255,255,255,.5)}
+  .cover .brandline{color:#fff}
+  .cover .kick{font-family:var(--display);font-size:min(1.6vh,1.6vw);letter-spacing:.34em;text-transform:uppercase;color:var(--steel)}
+  .cover h1{font-size:min(6.2vh,6.2vw);font-weight:700;line-height:1.22;letter-spacing:.01em;margin-top:min(3vh,3vw)}
+  .cover h1 .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .cover h1 .ln>span{display:block;transform:translateY(115%);transition:transform 1s var(--ease);transition-delay:calc(.1s + var(--i,0)*.09s)}
+  .in .cover h1 .ln>span{transform:none}
+  .cover .sub{margin-top:min(3vh,3vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500}
+  .cover .rule{width:56px;height:3px;background:var(--steel);border-radius:3px;margin:min(3.2vh,3.2vw) 0 0}
+
+  .reveal{opacity:0;transform:translateY(20px);filter:blur(5px);transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s ease;transition-delay:calc(var(--i,0)*70ms)}
+  .in .reveal{opacity:1;transform:none;filter:none}
+  @keyframes barpulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+
+  .deck-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--navy),var(--steel));z-index:60;transition:width .12s linear}
+  .deck-counter{position:fixed;bottom:16px;right:18px;z-index:60;font-family:var(--mono);font-size:11px;color:#fff;background:rgba(23,35,62,.72);backdrop-filter:blur(8px);border-radius:999px;padding:6px 13px}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}.csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}}
+  @media print{
+    html,body{background:#fff}.slide{margin:0!important;box-shadow:none;page-break-after:always;width:1280px;height:720px;max-width:none;max-height:none}
+    .deck-progress,.deck-counter{display:none}.reveal{opacity:1;transform:none;filter:none}.cover h1 .ln>span{transform:none}
+    .csvg .draw{stroke-dashoffset:0}.csvg .area,.csvg .dot{opacity:1}
+    @page{size:1280px 720px;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="deck-progress" id="progress"></div>
+<div class="deck-counter"><b id="cur">01</b> / 10</div>
+
+<!-- 01 表紙：主役=成果の対比を一言で（165時間→55時間）。1施設の導入記録として誠実なトーン -->
+<section class="slide cover">
+  <div class="grid-bg"></div><div class="wm">CASE</div>
+  <p class="kick">Customer Success Story</p>
+  <h1>
+    <span class="ln"><span style="--i:0">月165時間の手書き介護記録が、</span></span>
+    <span class="ln"><span style="--i:1">3か月で55時間になるまで。</span></span>
+  </h1>
+  <div class="rule"></div>
+  <p class="sub">{{特別養護老人ホームA苑}}様 導入事例　|　{{自社製品名}}　|　{{自社名}}</p>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
+    <span class="brandline">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
+  </div>
+</section>
+
+<!-- 02 施設プロフィール：類似性で自分ごと化。左=プロフィール表、右=共通点3バンド -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Client Profile</div><div class="h2">{{見込み顧客名}}様と、<span class="u">よく似た施設</span>の記録です</div>
+      <p class="subhead">規模・課題・体制が近い1施設の記録です。ご自身の現場に置き換えながらお読みください。</p></div>
+    <div class="tag">01 / PROFILE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center"><table>
+        <thead><tr><th>施設プロフィール</th><th>{{特別養護老人ホームA苑}}様</th></tr></thead>
+        <tbody>
+          <tr><td>種別</td><td>{{特別養護老人ホーム（介護老人福祉施設）}}</td></tr>
+          <tr><td>規模</td><td>職員{{60}}名・入居{{80}}名</td></tr>
+          <tr><td>導入前の課題</td><td>手書き介護記録の転記に月165時間</td></tr>
+          <tr><td>導入範囲</td><td>介護・看護の2部門・10名（1ユニット先行）</td></tr>
+          <tr><td>導入時期</td><td>{{2025年10月}}（本稼働から9か月）</td></tr>
+        </tbody>
+      </table></div>
+      <div class="srk reveal" style="--i:1">
+        <div class="band"><div class="k">共通点 01 ― 規模</div><div class="v">職員<b>50〜80名</b>規模の単独施設。専任のIT担当者は不在。</div></div>
+        <div class="band"><div class="k">共通点 02 ― 課題</div><div class="v">記録の<b>手書きと二重転記</b>が常態化。申し送り前に業務が集中。</div></div>
+        <div class="band"><div class="k">共通点 03 ― 体制</div><div class="v">現場主導で導入・定着。<b>外部の並走支援</b>を活用。</div></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>特別な施設の話ではありません。<b>同じ条件</b>から始まった記録です。</span></div>
+    <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 03 導入前の課題：フロー図解に実測値を焼き込み。--warnは転記工程の1点のみ -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">The Challenge</div><div class="h2">時間の<span class="u">49%</span>が、1つの工程に消えていた</div>
+      <p class="subhead">導入前の介護記録フローを実測すると、損失は特定の1工程に集中していました。</p></div>
+    <div class="tag">02 / CHALLENGE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
+      <div class="chartcard reveal">
+        <div class="dghead"><span class="t">導入前フロー：介護記録にかかる1日あたりの所要時間</span><span class="n">職員10名 × 45分 × 22日 ≒ 165時間/月</span></div>
+        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="導入前5工程のうち転記・入力に22分が集中">
+          <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
+          <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
+          <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="115" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
+          <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
+          <text class="nd-t" x="50" y="53" text-anchor="middle">手書き記入</text>
+          <text class="nd-t" x="165" y="53" text-anchor="middle">内容確認</text>
+          <text class="nd-t hot" x="280" y="53" text-anchor="middle">転記・入力</text>
+          <text class="nd-t" x="395" y="53" text-anchor="middle">申し送り作成</text>
+          <text class="nd-t" x="510" y="53" text-anchor="middle">記録の保管</text>
+          <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
+          <text class="an" x="0" y="104">職員1人1日あたり 計45分</text>
+          <text class="an hot" x="0" y="126">うち22分（49%）がこの1工程</text>
+          <path class="lead-l" d="M198 122 C 234 128 252 140 262 152"/>
+          <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
+          <rect class="bar" x="33" y="174" width="34" height="30" rx="4"/>
+          <rect class="bar" x="148" y="179" width="34" height="25" rx="4"/>
+          <rect class="bar hot" x="263" y="94" width="34" height="110" rx="4"/>
+          <rect class="bar" x="378" y="174" width="34" height="30" rx="4"/>
+          <rect class="bar" x="493" y="174" width="34" height="30" rx="4"/>
+          <text class="mn" x="50" y="166" text-anchor="middle">6分</text>
+          <text class="mn" x="165" y="171" text-anchor="middle">5分</text>
+          <text class="mn hot inbar" x="280" y="116" text-anchor="middle">22分</text>
+          <text class="mn" x="395" y="166" text-anchor="middle">6分</text>
+          <text class="mn" x="510" y="166" text-anchor="middle">6分</text>
+          <text class="mn" x="0" y="228">所要時間（分・導入前に現場で実測）</text>
+        </svg>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">介護記録に費やしていた時間（導入前・2部門10名計）</div>
+        <div class="kpi xl" style="font-size:min(6.4vh,6.4vw)"><span class="count" data-to="165">165</span><span class="unit">時間/月</span></div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.4vh,2.4vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">10<span class="unit">名</span></div><div class="kpi-l">記録を担当する職員</div></div>
+          <div><div class="kpi sm">8<span class="unit">件/月</span></div><div class="kpi-l">記録不備による返戻</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.4vh,2.4vw);font-size:min(1.7vh,1.7vw)">月165時間はフルタイム約1人分。うち81時間が、ケアを生まない転記に消えていました。</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>全工程ではなく、<b>転記・入力の1工程</b>に損失が集中していました。</span></div>
+    <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 04 選定理由：左=比較3案の小表（自社行をハイライト）、右=決め手checks（高齢職員でも使える） -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Why Chosen</div><div class="h2">決め手は、<span class="u">誰でも使える</span>ことでした</div>
+      <p class="subhead">大手システム・増員との3案比較。決め手は機能の多さより、現場の使いやすさでした。</p></div>
+    <div class="tag">03 / DECISION</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center;gap:min(1.6vh,1.6vw)">
+        <table>
+          <thead><tr><th>検討した選択肢</th><th class="num">初期費用</th><th>検討時の評価</th></tr></thead>
+          <tbody>
+            <tr><td>大手介護記録システム</td><td class="num">2,400,000円〜</td><td>機能は十分。ただし導入に6か月</td></tr>
+            <tr><td>記録担当の増員</td><td class="num">月230,000円〜</td><td>属人化と記録漏れは解消しない</td></tr>
+            <tr><td class="col-hi">{{自社製品名}}</td><td class="col-hi num">50,000円</td><td class="col-hi">2週間で効果を実測できる</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500;line-height:1.6">※金額は{{特別養護老人ホームA苑}}様の検討時点（{{2025年9月}}）の見積・公開料金による。</p>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">選定の決め手となった3点</h3>
+        <ul class="checks" style="margin-top:min(2.2vh,2.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>60代の職員でも初日から使えた</b>。手書き入力と定型選択のみで、キーボード操作は不要。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>現場の負担がなかった</b>。記録様式の設定は{{自社名}}が代行。操作研修も費用内。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>やめる自由があった</b>。契約の縛りなし。初期5万円＋月5万円の明朗会計。</span></li>
+        </ul>
+        <div style="margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <p style="font-size:min(1.7vh,1.7vw);color:var(--ink);font-weight:500;line-height:1.65">「決め手は実測値でした。数字が出ていたので、法人本部の説得は要りませんでした。」</p>
+          <p style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500;margin-top:6px">— {{特別養護老人ホームA苑}} 事務長（選定責任者）</p>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>高機能より、<b>全員が使えること</b>。それがこの施設の選び方でした。</span></div>
+    <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 05 導入プロセス：タイムライン4ステップ（各期間mono）＋唯一のつまずきを正直に -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">The Journey</div><div class="h2">検討から本稼働まで、<span class="u">7週間</span></div>
+      <p class="subhead">特別なITスキルは不要でした。山場は3週目の「手書きの壁」——越え方も記録しています。</p></div>
+    <div class="tag">04 / JOURNEY</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter" style="gap:min(2.6vh,2.6vw)">
+      <div class="timeline">
+        <div class="step reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
+          <div class="k">STEP 1</div><h4>検討・比較</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">期間：3週間</div>
+          <p>大手システム・増員と比較。決め手は使いやすさ（P.04）。</p></div>
+        <div class="step reveal" style="--i:1;display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <div class="k">STEP 2</div><h4>無料トライアル</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">期間：2週間</div>
+          <p>1ユニット10名で検証。1日45分→15分を現場自身が実測。</p></div>
+        <div class="step reveal" style="--i:2;display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div>
+          <div class="k">STEP 3</div><h4>様式設定・研修</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">期間：2週間</div>
+          <p>設定は{{自社名}}が代行。現場作業は確認のみ約2時間。</p></div>
+        <div class="step reveal" style="--i:3;display:flex;flex-direction:column;align-items:center;text-align:center"><div class="cn"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M3 12l4 4 14-12"/><path d="M12 20l4-4"/></svg></div>
+          <div class="k">STEP 4</div><h4>本稼働</h4><div class="mono" style="font-size:min(1.25vh,1.25vw);color:var(--steel);font-weight:600;margin-top:5px">検討から7週間</div>
+          <p>2部門10名で運用開始。以降は週次レビューで定着を支援。</p></div>
+      </div>
+      <div class="grid g2">
+        <div class="load reveal" style="--i:4;justify-content:center">
+          <div class="dghead" style="margin-bottom:2px"><span class="t">唯一のつまずきと、乗り越え方</span><span class="n">導入3週目</span></div>
+          <p style="font-size:min(1.5vh,1.5vw);color:var(--graphite);font-weight:500;line-height:1.65">「手書きのほうが早い」——60代のベテラン職員の慣れが、移行の壁に。<b style="color:var(--navy)">先行1名の実測値（45分→15分）を全員に共有</b>すると、翌週には全員が自主的に移行した。</p>
+        </div>
+        <div class="load reveal" style="--i:5;justify-content:center">
+          <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">導入1か月の作業負荷の内訳</span><span class="n">合計 約22時間</span></div>
+          <div class="lr"><span class="ln">支援側の作業</span><span class="track"><i style="width:91%;background:var(--navy)"></i></span><span class="lv">約20時間</span></div>
+          <div class="lr"><span class="ln">現場側の作業</span><span class="track"><i style="width:9%;background:var(--silver)"></i></span><span class="lv">約2時間（確認のみ）</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>山場は3週目の「手書きの壁」。<b>実測値の共有</b>で越えられます。</span></div>
+    <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 06 定量成果：主役=45分→15分の対比（kpi.xl）。右=月次推移チャートに実数値焼き込み -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">The Results</div><div class="h2">記録の時間は、<span class="u">3分の1</span>になりました</div>
+      <p class="subhead">測定条件はトライアル時と同一。{{特別養護老人ホームA苑}}様の3か月実測値です。</p></div>
+    <div class="tag">05 / RESULTS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">職員1人1日あたりの記録時間（導入3か月時点）</div>
+        <div style="display:flex;align-items:baseline;gap:min(2.2vh,2.2vw)">
+          <span class="kpi" style="font-size:min(5vh,5vw);color:var(--silver)">45分</span>
+          <svg class="ic" viewBox="0 0 24 24" width="26" height="26" style="stroke-width:2.2;color:var(--steel);align-self:center"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <span class="kpi xl"><span class="count" data-to="15">15</span>分</span>
+        </div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">110<span class="unit">時間/月</span></div><div class="kpi-l">創出された時間</div></div>
+          <div><div class="kpi sm">1<span class="unit">件/月</span></div><div class="kpi-l">記録不備による返戻（8件→1件）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">短縮30分 × 職員10名 × 月22日 ＝ 月110時間。空いた時間は、入居者との対話とケアの見直しに充てられています。</p>
+      </div>
+      <div class="chartcard reveal" style="--i:1">
+        <div class="dghead"><span class="t">介護記録にかかる時間の推移</span><span class="n">単位：時間/月（2部門10名計）</span></div>
+        <svg class="fsvg" viewBox="0 0 340 190" role="img" aria-label="介護記録の時間が3か月で165時間から55時間へ減少">
+          <rect x="120" y="6" width="120" height="22" rx="11" style="fill:var(--navy)"/>
+          <text x="180" y="21" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:#fff">3か月で −67%</text>
+          <path class="lead-l" d="M240 17 C 280 22 294 62 297 112"/>
+          <line class="bl" x1="0" y1="160" x2="340" y2="160"/>
+          <rect class="bar" x="20" y="34" width="46" height="126" rx="4"/>
+          <rect class="bar" x="105" y="62" width="46" height="98" rx="4"/>
+          <rect class="bar" x="190" y="93" width="46" height="67" rx="4"/>
+          <rect x="274" y="118" width="46" height="42" rx="4" style="fill:var(--navy)"/>
+          <text class="mn" x="43" y="27" text-anchor="middle">165</text>
+          <text class="mn" x="128" y="55" text-anchor="middle">128</text>
+          <text class="mn" x="213" y="86" text-anchor="middle">88</text>
+          <text class="mn inbar" x="297" y="134" text-anchor="middle" style="font-weight:600">55</text>
+        </svg>
+        <div class="barx"><span>導入時</span><span>1か月後</span><span>2か月後</span><span>3か月後</span></div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>記録の時間は<b>3分の1</b>。創出された月110時間が、入居者と向き合う時間に回っています。</span></div>
+    <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 07 ROI：左=投資対効果の小表（返戻減を含む）、右=主役4.6倍（kpi.xl）＋回収期間 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Return on Investment</div><div class="h2">投資は、<span class="u">約2.6か月</span>で回収されました</div>
+      <p class="subhead">効果は記録時間の人件費換算と返戻減のみで保守的に計算。増収効果は含みません。</p></div>
+    <div class="tag">06 / ROI</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split">
+      <div class="reveal" style="display:flex;flex-direction:column;justify-content:center;gap:min(1.6vh,1.6vw)">
+        <table>
+          <thead><tr><th>投資対効果の内訳（初年度）</th><th class="num">金額</th></tr></thead>
+          <tbody>
+            <tr><td>年間投資額（初期50,000円＋月額50,000円×12か月）</td><td class="num">650,000円</td></tr>
+            <tr><td>削減効果① 記録時間（人件費換算）</td><td class="num">2,640,000円</td></tr>
+            <tr><td>削減効果② 返戻の再請求事務</td><td class="num">360,000円</td></tr>
+            <tr><td class="col-hi">年間削減効果 合計</td><td class="col-hi num">3,000,000円</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:min(1.35vh,1.35vw);color:var(--gray);font-weight:500;line-height:1.6">※①＝110時間/月 × 2,000円/時 × 12か月。②＝返戻8件/月→1件/月の再請求事務の削減分（月30,000円換算）。時間単価は{{特別養護老人ホームA苑}}様の社内実績値による。</p>
+      </div>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <div class="kpi-l" style="margin:0 0 min(1.2vh,1.2vw);font-size:min(1.5vh,1.5vw)">初年度の投資対効果（削減効果 ÷ 投資額）</div>
+        <div class="kpi xl"><span class="count" data-to="4.6" data-dec="1">4.6</span><span class="unit">倍</span></div>
+        <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <div><div class="kpi sm">2.6<span class="unit">か月</span></div><div class="kpi-l">投資回収期間（65万円 ÷ 25万円/月）</div></div>
+          <div><div class="kpi sm">25<span class="unit">万円/月</span></div><div class="kpi-l">毎月の創出価値（時間＋返戻）</div></div>
+        </div>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">3か月目からは、投資を上回る価値が毎月積み上がる計算です。</p>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>初年度から<b>投資の4.6倍</b>のリターン。回収まで約2.6か月でした。</span></div>
+    <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 08 顧客の声：左=大きめの引用（施設長）、右=数字に表れない3つの変化 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Voice of Customer</div><div class="h2">数字の裏で、<span class="u">ケアの時間</span>が戻った</div>
+      <p class="subhead">KPIに表れない変化こそ定着の証拠。導入9か月時点の声をそのまま掲載します。</p></div>
+    <div class="tag">07 / VOICE</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="split" style="grid-template-columns:1.15fr 1fr">
+      <blockquote class="quote reveal" style="align-self:center">
+        <p style="font-size:min(2.9vh,2.9vw)">「驚いたのは、数字より先に職員の表情が変わったことです。申し送り前の記録の追い込みが消え、その分だけ入居者のそばにいられる時間が増えました。」</p>
+        <cite>{{特別養護老人ホームA苑}}　施設長 {{氏名}}様（導入9か月時点）</cite>
+      </blockquote>
+      <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">数字に表れない、3つの変化</h3>
+        <ul class="checks" style="margin-top:min(2.2vh,2.2vw)">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>申し送りが15分短くなった</b>。夜勤明けの記録の追い込みが消えた。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>記録の検索が数秒に</b>。ご家族や実地指導の照会に、その場で答えられる。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>記録漏れがその場で分かる</b>。書き直しと差し戻しがゼロになった。</span></li>
+        </ul>
+        <div style="margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
+          <p style="font-size:min(1.7vh,1.7vw);color:var(--ink);font-weight:500;line-height:1.65">「入居者さんの話をゆっくり聞ける日が増えました。それが一番うれしいです。」</p>
+          <p style="font-size:min(1.3vh,1.3vw);color:var(--gray);font-weight:500;margin-top:6px">— 介護職員 {{氏名}}様</p>
+        </div>
+      </div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>数字の裏で、<b>現場の空気</b>が変わる。それが定着の証拠です。</span></div>
+    <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 09 成功要因の分析：3点・1点hero。事例を普遍化し「あなたの施設でも」へ接続 -->
+<section class="slide">
+  <div class="s-head">
+    <div><div class="eyebrow">Success Factors</div><div class="h2">成功の要因は、<span class="u">3つ</span>に整理できます</div>
+      <p class="subhead">同じ規模・同じ課題であれば、この3つは貴施設でも同じ手順でなぞれます。</p></div>
+    <div class="tag">08 / ANALYSIS</div>
+  </div>
+  <div class="s-body">
+    <div class="fillcenter"><div class="grid g3">
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div><div class="idx">01 ― 核心</div><h3>直す工程を、1つに絞った</h3><p>記録業務全体の刷新ではなく、時間の49%が集中する転記・入力だけをデジタル化。だから効果が最速で立ち上がりました。</p><div class="foot"><span class="n">−67%</span><span>3か月の短縮率</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="idx">02</div><h3>1ユニットから始めた</h3><p>全館一斉ではなく10名で先行。体感してから横展開しました。</p><div class="foot"><span class="n">2週間</span><span>体感までの期間</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div><div class="idx">03</div><h3>並走支援を使い切った</h3><p>週次レビューで運用を微調整。{{自社名}}と伴走しました。</p><div class="foot"><span class="n">7週間</span><span>検討から本稼働まで</span></div></div>
+    </div></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3つの要因に特殊な条件はありません。<b>{{見込み顧客名}}様でも再現可能</b>です。</span></div>
+    <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{自社名}}</span></div>
+  </div>
+</section>
+
+<!-- 10 CTA：貴施設の数字で同じ試算を（同業向け相談への誘導） -->
+<section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
+  <div class="grid-bg"></div>
+  <div style="position:relative;z-index:1">
+    <p class="kick" style="color:var(--steel)">Next Step</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">まずは、貴施設の数字で“同じ試算”を。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">職員数と1日の記録時間を伺えれば、この事例と同じ形式のROI試算を無料で作成します。2週間の無料トライアルもご用意しています。</p>
+    <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
+      <a class="btn" href="{{リンク}}">無料でROI試算を依頼する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>
+    </div>
+  </div>
+  <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);z-index:1;margin:0">
+    <span class="brandline">{{自社名}}　|　{{メール}}　|　{{電話}}</span><span class="pageno">10 / 10</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');cu(e.target);io.unobserve(e.target);}});},{threshold:.3});
+  slides.forEach(function(s){io.observe(s);});
+  function cu(sc){sc.querySelectorAll('.count').forEach(function(el){var to=parseFloat(el.dataset.to)||0,d=(el.dataset.dec|0);if(reduce){el.textContent=to.toFixed(d);return;}var t0=null;function st(ts){if(t0===null)t0=ts;var p=Math.min((ts-t0)/900,1);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(st);else el.textContent=to.toFixed(d);}requestAnimationFrame(st);});}
+  var prog=document.getElementById('progress'),cur=document.getElementById('cur');
+  function os(){var h=document.documentElement.scrollHeight-innerHeight;if(prog)prog.style.width=(h>0?scrollY/h*100:0)+'%';var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(cur)cur.textContent=String(ix+1).padStart(2,'0');}
+  addEventListener('scroll',os,{passive:true});os();
+  addEventListener('keydown',function(e){var mid=scrollY+innerHeight/2,ix=0;for(var i=0;i<slides.length;i++){if(mid>=slides[i].offsetTop)ix=i;}if(['ArrowRight','ArrowDown',' '].indexOf(e.key)>-1){e.preventDefault();if(slides[ix+1])slides[ix+1].scrollIntoView({behavior:reduce?'auto':'smooth'});}if(['ArrowLeft','ArrowUp'].indexOf(e.key)>-1){e.preventDefault();if(slides[ix-1])slides[ix-1].scrollIntoView({behavior:reduce?'auto':'smooth'});}});
+})();
+</script>
+</body>
+</html>
