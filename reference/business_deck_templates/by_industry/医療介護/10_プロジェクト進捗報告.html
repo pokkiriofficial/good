@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/10_プロジェクト進捗報告.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/10_プロジェクト進捗報告_医療介護.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>プロジェクト進捗報告テンプレート | KOKU</title>
+<title>プロジェクト進捗報告テンプレート（医療・介護） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -272,8 +272,8 @@
   <div class="grid-bg"></div><div class="wm">REPORT</div>
   <p class="kick">Progress Report</p>
   <h1>
-    <span class="ln"><span style="--i:0">{{プロジェクト名}}</span></span>
-    <span class="ln"><span style="--i:1">月次進捗のご報告</span></span>
+    <span class="ln"><span style="--i:0">{{記録・請求システム導入プロジェクト}}</span></span>
+    <span class="ln"><span style="--i:1">理事会 月次進捗のご報告</span></span>
   </h1>
   <div class="rule"></div>
   <p class="sub">第8週末（{{2026.07.31}}）時点　|　報告者 {{自社名}}／PM {{氏名}}</p>
@@ -285,8 +285,8 @@
 <!-- 02 全体サマリー：結論ファースト。主役=進捗68%（計画比+3pt） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Summary</div><div class="h2">全体は<span class="u">計画線上</span>。ご判断いただく論点は1つです</div>
-      <p class="subhead">結論から申し上げます。進捗は計画比+3ptで先行、遅延は外部API起因のテスト1系統のみ。本日はそのリカバリー案（A案）のご承認をお願いします。</p></div>
+    <div><div class="eyebrow">Summary</div><div class="h2">全体は<span class="u">計画線上</span>。ご審議いただく論点は1つです</div>
+      <p class="subhead">結論から申し上げます。3拠点導入の進捗は計画比+3ptで先行、遅延は国保連の伝送様式改定に起因する請求突合テスト1系統のみ。本日はそのリカバリー案（A案）のご承認をお願いします。</p></div>
     <div class="tag">01 / SUMMARY</div>
   </div>
   <div class="s-body">
@@ -300,27 +300,27 @@
           <div><div class="kpi sm">+3<span class="unit">pt</span></div><div class="kpi-l">計画比（計画 65%）</div></div>
           <div><div class="kpi sm">8<span class="unit">/12週</span></div><div class="kpi-l">経過週数</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">A案を本日ご承認いただければ、リリース {{08/28}} は予定どおり維持できます。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">A案を本日ご承認いただければ、9月請求からの新システム切替は予定どおり維持できます。</p>
       </div>
       <div class="chartcard reveal" style="--i:1">
         <div class="dghead"><span class="t">ワークストリーム別ステータス</span><span class="n">第8週末時点</span></div>
         <div style="display:flex;flex-direction:column;flex:1;min-height:0">
           <div style="flex:1;display:grid;grid-template-columns:auto 6.5em 1fr auto;align-items:center;gap:min(1.6vh,1.6vw)">
             <span style="width:.85em;height:.85em;border-radius:50%;background:var(--ok);flex:none"></span>
-            <span style="font-weight:700;color:var(--navy);font-size:min(1.7vh,1.7vw)">要件・設計</span>
-            <span style="font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500">完了（第4週に検収済）</span>
+            <span style="font-weight:700;color:var(--navy);font-size:min(1.7vh,1.7vw)">要件・試行</span>
+            <span style="font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500">完了（第4週に試行検収済）</span>
             <span class="mono" style="font-size:min(1.6vh,1.6vw);font-weight:600;color:var(--navy)">100%</span>
           </div>
           <div style="flex:1;display:grid;grid-template-columns:auto 6.5em 1fr auto;align-items:center;gap:min(1.6vh,1.6vw);border-top:1px solid var(--line)">
             <span style="width:.85em;height:.85em;border-radius:50%;background:var(--ok);flex:none"></span>
-            <span style="font-weight:700;color:var(--navy);font-size:min(1.7vh,1.7vw)">開発・実装</span>
-            <span style="font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500">順調 ― 画面2本を前倒し</span>
+            <span style="font-weight:700;color:var(--navy);font-size:min(1.7vh,1.7vw)">全拠点展開</span>
+            <span style="font-size:min(1.4vh,1.4vw);color:var(--graphite);font-weight:500">順調 ― 残2拠点も記録運用を開始</span>
             <span class="mono" style="font-size:min(1.6vh,1.6vw);font-weight:600;color:var(--navy)">85%</span>
           </div>
           <div style="flex:1;display:grid;grid-template-columns:auto 6.5em 1fr auto;align-items:center;gap:min(1.6vh,1.6vw);border-top:1px solid var(--line)">
             <span style="width:.85em;height:.85em;border-radius:50%;background:var(--warn);flex:none"></span>
-            <span style="font-weight:700;color:var(--navy);font-size:min(1.7vh,1.7vw)">テスト</span>
-            <span style="font-size:min(1.4vh,1.4vw);color:var(--warn);font-weight:600">遅延 ― 結合2本が停止（P.06）</span>
+            <span style="font-weight:700;color:var(--navy);font-size:min(1.7vh,1.7vw)">請求切替</span>
+            <span style="font-size:min(1.4vh,1.4vw);color:var(--warn);font-weight:600">遅延 ― 突合テスト2件が停止（P.06）</span>
             <span class="mono" style="font-size:min(1.6vh,1.6vw);font-weight:600;color:var(--navy)">20%</span>
           </div>
           <div style="flex:1;display:grid;grid-template-columns:auto 6.5em 1fr auto;align-items:center;gap:min(1.6vh,1.6vw);border-top:1px solid var(--line)">
@@ -341,34 +341,34 @@
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Schedule</div><div class="h2">全体工程は、<span class="u">第8週末</span>で計画線上にあります</div>
-      <p class="subhead">全12週のうち第8週が終了。設計までは完了し、開発は最終盤、テストが立ち上がり期です。計画から外れているのはテスト工程のみです。</p></div>
+      <p class="subhead">全12週のうち第8週が終了。1拠点試行までは完了し、全拠点展開は最終盤、請求切替が立ち上がり期です。計画から外れているのは請求切替のみです。</p></div>
     <div class="tag">02 / SCHEDULE</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="chartcard reveal">
       <div class="dghead"><span class="t">フェーズ別スケジュール（全12週）</span>
         <span class="n" style="display:inline-flex;align-items:center;gap:7px"><i style="width:10px;height:10px;border-radius:3px;background:var(--navy)"></i>完了<i style="width:10px;height:10px;border-radius:3px;background:var(--steel);margin-left:12px"></i>進行中<i style="width:10px;height:10px;border-radius:3px;background:var(--mist);margin-left:12px"></i>未着手</span></div>
-      <svg class="fsvg" viewBox="0 0 1000 292" role="img" aria-label="ガントチャート：5フェーズ12週、第8週末時点。テストのみ遅延">
+      <svg class="fsvg" viewBox="0 0 1000 292" role="img" aria-label="ガントチャート：5フェーズ12週、第8週末時点。請求切替のみ遅延">
         <line x1="150" y1="36" x2="150" y2="264" style="stroke:var(--line)"/><line x1="220" y1="36" x2="220" y2="264" style="stroke:var(--line)"/><line x1="290" y1="36" x2="290" y2="264" style="stroke:var(--line)"/><line x1="360" y1="36" x2="360" y2="264" style="stroke:var(--line)"/><line x1="430" y1="36" x2="430" y2="264" style="stroke:var(--line)"/><line x1="500" y1="36" x2="500" y2="264" style="stroke:var(--line)"/><line x1="570" y1="36" x2="570" y2="264" style="stroke:var(--line)"/><line x1="640" y1="36" x2="640" y2="264" style="stroke:var(--line)"/><line x1="780" y1="36" x2="780" y2="264" style="stroke:var(--line)"/><line x1="850" y1="36" x2="850" y2="264" style="stroke:var(--line)"/><line x1="920" y1="36" x2="920" y2="264" style="stroke:var(--line)"/><line x1="990" y1="36" x2="990" y2="264" style="stroke:var(--line)"/>
         <line x1="150" y1="264" x2="990" y2="264" style="stroke:var(--line)"/>
-        <text x="140" y="60" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">要件定義</text>
+        <text x="140" y="60" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">要件整理</text>
         <text x="140" y="74" text-anchor="end" style="font-family:var(--mono);font-size:10px;fill:var(--gray)">W1–W2</text>
         <rect x="150" y="51" width="140" height="22" rx="5" style="fill:var(--navy)"/>
         <text x="220" y="66" text-anchor="middle" style="font-family:var(--sans);font-size:11px;font-weight:700;fill:var(--white)">完了</text>
-        <text x="140" y="104" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">基本設計</text>
+        <text x="140" y="104" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">1拠点試行</text>
         <text x="140" y="118" text-anchor="end" style="font-family:var(--mono);font-size:10px;fill:var(--gray)">W2–W4</text>
         <rect x="220" y="95" width="210" height="22" rx="5" style="fill:var(--navy)"/>
         <text x="325" y="110" text-anchor="middle" style="font-family:var(--sans);font-size:11px;font-weight:700;fill:var(--white)">完了</text>
-        <text x="140" y="148" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">開発・実装</text>
+        <text x="140" y="148" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">全拠点展開</text>
         <text x="140" y="162" text-anchor="end" style="font-family:var(--mono);font-size:10px;fill:var(--gray)">W4–W9</text>
         <rect x="360" y="139" width="420" height="22" rx="5" style="fill:var(--steel)"/>
         <text x="570" y="154" text-anchor="middle" style="font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--white)">進行中 85%</text>
-        <text x="140" y="192" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">テスト</text>
+        <text x="140" y="192" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">請求切替</text>
         <text x="140" y="206" text-anchor="end" style="font-family:var(--mono);font-size:10px;fill:var(--gray)">W8–W11</text>
         <rect x="640" y="183" width="280" height="22" rx="5" style="fill:var(--steel)"/>
         <text x="780" y="198" text-anchor="middle" style="font-family:var(--sans);font-size:12px;font-weight:700;fill:var(--white)">進行中 20%</text>
-        <text x="628" y="198" text-anchor="end" style="font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--warn)">結合2本が停止中（対策 P.07）</text>
-        <text x="140" y="236" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">リリース準備</text>
+        <text x="628" y="198" text-anchor="end" style="font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--warn)">突合2件が停止中（対策 P.07）</text>
+        <text x="140" y="236" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">定着支援</text>
         <text x="140" y="250" text-anchor="end" style="font-family:var(--mono);font-size:10px;fill:var(--gray)">W11–W12</text>
         <rect x="850" y="227" width="140" height="22" rx="5" style="fill:var(--mist)"/>
         <text x="920" y="242" text-anchor="middle" style="font-family:var(--sans);font-size:11px;font-weight:600;fill:var(--gray)">未着手</text>
@@ -383,16 +383,16 @@
         <text x="990" y="284" text-anchor="middle" style="font-family:var(--mono);font-size:11px;fill:var(--gray)">W12</text>
       </svg>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>計画から外れているのは<b>テスト工程の1点</b>のみ。数値の内訳は次ページで確認します。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>計画から外れているのは<b>請求切替の1点</b>のみ。数値の内訳は次ページで確認します。</span></div>
     <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 04 KPI実績表：計画/実績/差異＋ステータスドット。warnはテスト消化率のみ -->
+<!-- 04 KPI実績表：計画/実績/差異＋ステータスドット。warnは請求突合テストのみ -->
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">KPI</div><div class="h2">管理指標は、<span class="u">5項目中4項目</span>が計画以上です</div>
-      <p class="subhead">計画・実績・差異を同じ物差しで並べました。マイナスはテスト消化率のみ。原因は単一で、対策はP.07でご提案します。</p></div>
+      <p class="subhead">計画・実績・差異を同じ物差しで並べました。マイナスは請求突合テストのみ。原因は単一で、対策はP.07でご提案します。</p></div>
     <div class="tag">03 / KPI</div>
   </div>
   <div class="s-body">
@@ -400,52 +400,52 @@
       <thead><tr><th>管理指標</th><th class="num">計画</th><th class="num">実績</th><th class="num">差異</th><th>状態</th></tr></thead>
       <tbody>
         <tr><td>全体進捗率（工数加重）</td><td class="num">65%</td><td class="num">68%</td><td class="num">+3pt</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
-        <tr><td>画面実装（全38本）</td><td class="num">30本</td><td class="num">32本</td><td class="num">+2本</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
-        <tr><td>テスト消化率</td><td class="num">25%</td><td class="num">20%</td><td class="num" style="color:var(--warn);font-weight:700">−5pt</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block;flex:none"></span><b style="color:var(--warn)">遅延</b></span></td></tr>
-        <tr><td>予算消化率</td><td class="num">66%</td><td class="num">64%</td><td class="num">−2pt</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
-        <tr><td>未解消の不具合</td><td class="num">10件以内</td><td class="num">7件</td><td class="num">−3件</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
+        <tr><td>記録入力率（稼働3拠点平均）</td><td class="num">80%</td><td class="num">86%</td><td class="num">+6pt</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
+        <tr><td>請求突合テスト消化率</td><td class="num">25%</td><td class="num">20%</td><td class="num" style="color:var(--warn);font-weight:700">−5pt</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block;flex:none"></span><b style="color:var(--warn)">遅延</b></span></td></tr>
+        <tr><td>返戻件数（試行拠点・7月請求）</td><td class="num">5件以内</td><td class="num">2件</td><td class="num">−3件</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
+        <tr><td>操作研修の受講率（全職員）</td><td class="num">60%</td><td class="num">64%</td><td class="num">+4pt</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>順調</span></td></tr>
       </tbody>
     </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>遅れは<b>テスト消化率 −5pt</b>のみ。原因は外部APIの仕様変更、1件です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>遅れは<b>請求突合テスト −5pt</b>のみ。原因は国保連の伝送様式改定、1件です。</span></div>
     <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
 
-<!-- 05 バーンダウン：計画=点線／実績=実線。残38件（計画比−4件） -->
+<!-- 05 バーンダウン：計画=点線／実績=実線。残38種類（計画比−4種類） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Scope</div><div class="h2">スコープ消化は、計画より<span class="u">4件先行</span>しています</div>
-      <p class="subhead">全120タスクのバーンダウンです。点線が計画、実線が実績。第8週末の残タスクは38件で、計画の42件を下回っています。</p></div>
-    <div class="tag">04 / SCOPE</div>
+    <div><div class="eyebrow">Migration</div><div class="h2">紙帳票の移行は、計画より<span class="u">4種類先行</span>しています</div>
+      <p class="subhead">3拠点合計・全120種類の紙帳票を新システムへ移行中です。点線が計画、実線が実績。第8週末の残りは38種類で、計画の42種類を下回っています。</p></div>
+    <div class="tag">04 / MIGRATION</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi"><span class="count" data-to="38">38</span><span class="unit">件</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">残タスク（全120件中・第8週末）</div>
+          <div class="kpi"><span class="count" data-to="38">38</span><span class="unit">種類</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">残る紙帳票（全120種類中・第8週末）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm">82<span class="unit">件</span></div><div class="kpi-l">消化済（68%）</div></div>
-          <div><div class="kpi sm">−4<span class="unit">件</span></div><div class="kpi-l">計画比（前倒し）</div></div>
+          <div><div class="kpi sm">82<span class="unit">種類</span></div><div class="kpi-l">移行済（68%）</div></div>
+          <div><div class="kpi sm">−4<span class="unit">種類</span></div><div class="kpi-l">計画比（前倒し）</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">消化ペースは計画を上回っています。残38件の大半はテスト系タスク ― 来月はテスト完遂に集中します（P.08）。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">移行ペースは計画を上回っています。残38種類の大半は請求関連の帳票 ― 来月は請求切替の完遂に集中します（P.08）。</p>
       </div>
       <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">残タスクの推移（バーンダウン）</span><span class="n">計画=点線／実績=実線（件）</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="バーンダウン：第8週末で残38件、計画42件より4件先行">
+        <div class="dghead"><span class="t">残る紙帳票の推移（バーンダウン）</span><span class="n">計画=点線／実績=実線（種類）</span></div>
+        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="バーンダウン：第8週末で残38種類、計画42種類より4種類先行">
           <line class="grid-l" x1="0" y1="20" x2="340" y2="20"/><line class="grid-l" x1="0" y1="70" x2="340" y2="70"/><line class="grid-l" x1="0" y1="120" x2="340" y2="120"/><line class="grid-l" x1="0" y1="170" x2="340" y2="170"/>
           <line x1="227" y1="20" x2="227" y2="170" style="stroke:var(--steel);stroke-width:1.2;stroke-dasharray:3 3"/>
           <text class="axis-t" x="227" y="14" text-anchor="middle">TODAY</text>
-          <text class="axis-t" x="0" y="16">120件</text>
-          <text class="axis-t" x="0" y="66">80件</text>
-          <text class="axis-t" x="0" y="116">40件</text>
-          <text class="axis-t" x="0" y="166">0件</text>
+          <text class="axis-t" x="0" y="16">120種</text>
+          <text class="axis-t" x="0" y="66">80種</text>
+          <text class="axis-t" x="0" y="116">40種</text>
+          <text class="axis-t" x="0" y="166">0種</text>
           <path d="M0,20 L57,35 L113,62 L170,90 L227,118 L283,145 L340,170" style="fill:none;stroke:var(--gray);stroke-width:2;stroke-dasharray:5 4;stroke-linecap:round"/>
           <path class="draw" pathLength="1" d="M0,20 L57,33 L113,68 L170,95 L227,122"/>
           <circle class="dot" cx="57" cy="33" r="4.5"/><circle class="dot" cx="113" cy="68" r="4.5"/><circle class="dot" cx="170" cy="95" r="4.5"/><circle class="dot key" cx="227" cy="122" r="5.5"/>
           <rect class="ann-bg" x="8" y="132" width="150" height="22" rx="11"/>
-          <text class="ann-t" x="83" y="147" text-anchor="middle">残38件（計画比 −4件）</text>
+          <text class="ann-t" x="83" y="147" text-anchor="middle">残38種（計画比 −4種）</text>
           <path class="lead-l" d="M158 143 L220 126"/>
           <text class="axis-t" x="0" y="188">W0</text>
           <text class="axis-t" x="57" y="188" text-anchor="middle">W2</text>
@@ -457,7 +457,7 @@
         </svg>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>消化ペースは維持できています。<b>残38件・残4週</b>で完了見込みです。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>移行ペースは維持できています。<b>残38種類・残4週</b>で移行完了の見込みです。</span></div>
     <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
@@ -473,13 +473,13 @@
     <div class="fillcenter"><table class="reveal">
       <thead><tr><th>課題</th><th>影響</th><th>対応・打ち手</th><th class="num">期限</th><th>状態</th></tr></thead>
       <tbody>
-        <tr style="background:var(--warn-tint)"><td>外部APIの仕様変更（第7週発生）</td><td>結合テスト2本が停止（消化 −5pt）</td><td>A案：スタブ先行で並行化 → 本日ご承認依頼</td><td class="num">08/07</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block;flex:none"></span><b style="color:var(--warn)">遅延</b></span></td></tr>
-        <tr><td>UAT要員のアサイン未確定</td><td>W11 受入テストの開始遅延リスク</td><td>貴社2名の確保をご依頼中（P.09）</td><td class="num">08/10</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--gray);display:inline-block;flex:none"></span>対応中</span></td></tr>
-        <tr><td>帳票の追加要望 3件</td><td>開発工数 +4人日</td><td>次期フェーズへ繰延で合意済</td><td class="num">07/17</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>解消</span></td></tr>
-        <tr><td>開発環境のビルド性能劣化</td><td>ビルド時間が約1.8倍に増加</td><td>サーバー増強で解消済</td><td class="num">07/10</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>解消</span></td></tr>
+        <tr style="background:var(--warn-tint)"><td>国保連の伝送様式改定（第7週公示）</td><td>請求突合テスト2件が停止（消化 −5pt）</td><td>A案：模擬伝送環境で並行化 → 本日ご承認依頼</td><td class="num">08/07</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--warn);display:inline-block;flex:none"></span><b style="color:var(--warn)">遅延</b></span></td></tr>
+        <tr><td>現場UAT要員のアサイン未確定</td><td>W11 受入テストの開始遅延リスク</td><td>各拠点1名・計3名の確保をご依頼中（P.09）</td><td class="num">08/10</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--gray);display:inline-block;flex:none"></span>対応中</span></td></tr>
+        <tr><td>拠点独自帳票の追加要望 3件</td><td>移行工数 +4人日</td><td>次期フェーズへ繰延で合意済</td><td class="num">07/17</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>解消</span></td></tr>
+        <tr><td>試行拠点2階居室エリアのWi-Fi不安定</td><td>タブレット記録の保存エラーが断続発生</td><td>アクセスポイント増設で解消済</td><td class="num">07/10</td><td><span class="cellflex"><span style="width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;flex:none"></span>解消</span></td></tr>
       </tbody>
     </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ボトルネックは<b>外部API起因の1件</b>に特定済み。次ページで対策を深掘りします。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ボトルネックは<b>伝送様式改定の1件</b>に特定済み。次ページで対策を深掘りします。</span></div>
     <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
@@ -487,23 +487,23 @@
 <!-- 07 課題深掘り（空雨傘）＋リカバリー効果図 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Recovery</div><div class="h2">この遅延は、<span class="u">納期を守って</span>吸収できます</div>
-      <p class="subhead">空（事実）・雨（放置した場合）・傘（打ち手）で整理しました。左図は、本日ご承認いただいた場合のリリース時期の比較です。</p></div>
+    <div><div class="eyebrow">Recovery</div><div class="h2">この遅延は、<span class="u">切替予定を守って</span>吸収できます</div>
+      <p class="subhead">空（事実）・雨（放置した場合）・傘（打ち手）で整理しました。左図は、本日ご承認いただいた場合の請求切替時期の比較です。</p></div>
     <div class="tag">06 / RECOVERY</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
       <div class="chartcard reveal">
-        <div class="dghead"><span class="t">リカバリー効果：リリース時期の比較</span><span class="n">本日承認 → 翌営業日着手の場合</span></div>
-        <svg class="fsvg" viewBox="0 0 560 330" role="img" aria-label="対策なしはリリース2週遅延、スタブ並行化なら納期維持">
+        <div class="dghead"><span class="t">リカバリー効果：請求切替時期の比較</span><span class="n">本日承認 → 翌営業日着手の場合</span></div>
+        <svg class="fsvg" viewBox="0 0 560 330" role="img" aria-label="対策なしは切替判定が2週遅延、模擬伝送の並行化なら予定維持">
           <line x1="223" y1="46" x2="223" y2="300" style="stroke:var(--line)"/><line x1="286" y1="46" x2="286" y2="300" style="stroke:var(--line)"/><line x1="349" y1="46" x2="349" y2="300" style="stroke:var(--line)"/><line x1="412" y1="46" x2="412" y2="300" style="stroke:var(--line)"/><line x1="475" y1="46" x2="475" y2="300" style="stroke:var(--line)"/><line x1="538" y1="46" x2="538" y2="300" style="stroke:var(--line)"/>
           <text x="150" y="112" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--ink)">対策なし</text>
           <rect x="160" y="90" width="378" height="34" rx="8" style="fill:var(--warn-tint);stroke:var(--warn);stroke-width:1.4"/>
-          <text x="349" y="112" text-anchor="middle" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--warn)">リリース 09/11（+2週の遅延）</text>
-          <text x="150" y="227" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--navy)">スタブ並行化</text>
+          <text x="349" y="112" text-anchor="middle" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--warn)">切替判定 09/11（+2週の遅延）</text>
+          <text x="150" y="227" text-anchor="end" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--navy)">模擬伝送並行化</text>
           <text x="150" y="243" text-anchor="end" style="font-family:var(--mono);font-size:10px;fill:var(--gray)">A案・推奨</text>
           <rect x="160" y="210" width="252" height="34" rx="8" style="fill:var(--navy)"/>
-          <text x="286" y="232" text-anchor="middle" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--white)">リリース 08/28（納期維持）</text>
+          <text x="286" y="232" text-anchor="middle" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--white)">切替判定 08/28（予定維持）</text>
           <rect x="424" y="215" width="100" height="24" rx="12" style="fill:var(--steel)"/>
           <text x="474" y="231" text-anchor="middle" style="font-family:var(--mono);font-size:11px;font-weight:600;fill:var(--white)">−2週 短縮</text>
           <line x1="160" y1="38" x2="160" y2="300" style="stroke:var(--navy);stroke-width:1.4;stroke-dasharray:5 4"/>
@@ -519,12 +519,12 @@
         </svg>
       </div>
       <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">第7週に外部APIの仕様変更が発生。結合テスト<b>2本が停止</b>し、消化が計画比−5pt。</div></div>
-        <div class="band ame"><div class="k">雨 ― 放置した場合</div><div class="v">テスト完了がW11→W13へずれ、リリースは<b>2週遅延</b>。稼働開始に間に合いません。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手（A案）</div><div class="v">スタブを先行構築して結合を並行化。<b>W11完了へ復帰</b>し、リリース日を維持します。</div></div>
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">第7週に国保連の伝送様式改定が公示。請求突合テスト<b>2件が停止</b>し、消化が計画比−5pt。</div></div>
+        <div class="band ame"><div class="k">雨 ― 放置した場合</div><div class="v">突合完了がW11→W13へずれ、請求切替は<b>2週遅延</b>。9月請求（8月サービス提供分）に間に合いません。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手（A案）</div><div class="v">改定前様式の模擬伝送環境を先行構築して突合を並行化。<b>W11完了へ復帰</b>し、切替予定を維持します。</div></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>A案なら<b>リリース 08/28 を維持</b>。ご承認の翌営業日に着手します。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>A案なら<b>稼働判定 08/28 を維持</b>。ご承認の翌営業日に着手します。</span></div>
     <div class="s-foot"><span class="pageno">07 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
@@ -532,25 +532,25 @@
 <!-- 08 来月の予定：W9〜W12のタイムライン -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Next Month</div><div class="h2">来月は、<span class="u">テスト完遂</span>の4週間です</div>
-      <p class="subhead">第9〜12週のマイルストーンです。山場はW11の受入テスト ― 貴社2名との共同実施を予定しています。</p></div>
+    <div><div class="eyebrow">Next Month</div><div class="h2">来月は、<span class="u">請求切替</span>を仕上げる4週間です</div>
+      <p class="subhead">第9〜12週のマイルストーンです。山場はW11の現場受入テスト ― 各拠点の介護主任3名との共同実施を予定しています。</p></div>
     <div class="tag">07 / NEXT</div>
   </div>
   <div class="s-body">
     <div class="fillcenter" style="justify-content:space-evenly;gap:0">
       <div class="timeline">
-        <div class="step reveal"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div><div class="k">W9 ― 08/03週</div><h4 style="font-size:min(2.1vh,2.1vw)">結合テストの完了</h4><p style="font-size:min(1.5vh,1.5vw)">承認翌日にスタブ並行化へ着手し、停止中の2本を消化します。</p></div>
-        <div class="step reveal" style="--i:1"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="k">W10 ― 08/10週</div><h4 style="font-size:min(2.1vh,2.1vw)">総合テスト</h4><p style="font-size:min(1.5vh,1.5vw)">シナリオ42本を実施。未解消の不具合7件をゼロにします。</p></div>
-        <div class="step reveal" style="--i:2"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="k">W11 ― 08/17週</div><h4 style="font-size:min(2.1vh,2.1vw)">受入テスト（UAT）</h4><p style="font-size:min(1.5vh,1.5vw)">業務シナリオに沿って、貴社2名と共同で実施します。</p></div>
-        <div class="step reveal" style="--i:3"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M4 21V4"/><path d="M4 4h12l-2 4 2 4H4"/></svg></div><div class="k">W12 ― 08/24週</div><h4 style="font-size:min(2.1vh,2.1vw)">リリース判定会</h4><p style="font-size:min(1.5vh,1.5vw)">08/28開催。判定基準を満たせば、そのまま本番リリースへ。</p></div>
+        <div class="step reveal"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div><div class="k">W9 ― 08/03週</div><h4 style="font-size:min(2.1vh,2.1vw)">請求突合の完了</h4><p style="font-size:min(1.5vh,1.5vw)">承認翌日に模擬伝送環境の構築へ着手し、停止中の2件を消化します。</p></div>
+        <div class="step reveal" style="--i:1"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="k">W10 ― 08/10週</div><h4 style="font-size:min(2.1vh,2.1vw)">並行稼働テスト</h4><p style="font-size:min(1.5vh,1.5vw)">3拠点で業務シナリオ42本を実施。未解消の不具合7件をゼロにします。</p></div>
+        <div class="step reveal" style="--i:2"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg></div><div class="k">W11 ― 08/17週</div><h4 style="font-size:min(2.1vh,2.1vw)">受入テスト（UAT）</h4><p style="font-size:min(1.5vh,1.5vw)">記録から請求までの実業務に沿って、各拠点の介護主任3名と共同で実施します。</p></div>
+        <div class="step reveal" style="--i:3"><span class="cn"></span><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M4 21V4"/><path d="M4 4h12l-2 4 2 4H4"/></svg></div><div class="k">W12 ― 08/24週</div><h4 style="font-size:min(2.1vh,2.1vw)">稼働判定会</h4><p style="font-size:min(1.5vh,1.5vw)">08/28開催。判定基準を満たせば、9月請求から新システムへ切替。</p></div>
       </div>
       <div class="reveal" style="--i:4;display:grid;grid-template-columns:repeat(3,1fr);gap:min(1.8vh,1.8vw)">
-        <div class="stat" style="padding:min(3.2vh,3.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(4vh,4vw)">38<span class="unit">件</span></div><div class="kpi-l">残タスク（P.05）</div></div>
+        <div class="stat" style="padding:min(3.2vh,3.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(4vh,4vw)">38<span class="unit">種類</span></div><div class="kpi-l">残る紙帳票（P.05）</div></div>
         <div class="stat" style="padding:min(3.2vh,3.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(4vh,4vw)">4<span class="unit">週</span></div><div class="kpi-l">残期間（W9–W12）</div></div>
-        <div class="stat" style="padding:min(3.2vh,3.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(4vh,4vw)">08/28</div><div class="kpi-l">リリース判定会</div></div>
+        <div class="stat" style="padding:min(3.2vh,3.2vw) min(1.2vh,1.2vw)"><div class="kpi" style="font-size:min(4vh,4vw)">08/28</div><div class="kpi-l">稼働判定会</div></div>
       </div>
     </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>鍵は<b>W11の受入テスト</b>。その前提となるご依頼を、次ページにまとめました。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>鍵は<b>W11の現場受入テスト</b>。その前提となるご依頼を、次ページにまとめました。</span></div>
     <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
@@ -566,9 +566,9 @@
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <ul class="checks" style="gap:min(3vh,3vw)">
-          <li style="font-size:min(1.95vh,1.95vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>A案「スタブ並行化」の方針承認</b><br>本日この場で。ご承認の翌営業日に着手します。</span></li>
-          <li style="font-size:min(1.95vh,1.95vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>UAT要員2名のアサイン確定</b><br><span class="mono">08/10</span> まで。W11の受入テストに間に合わせます。</span></li>
-          <li style="font-size:min(1.95vh,1.95vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>リリース判定会の日程確定</b><br><span class="mono">08/28 15:00</span> で仮押さえ中。ご出席者の確定をお願いします。</span></li>
+          <li style="font-size:min(1.95vh,1.95vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>A案「模擬伝送による並行化」の方針承認</b><br>本日この場で。ご承認の翌営業日に着手します。</span></li>
+          <li style="font-size:min(1.95vh,1.95vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>現場UAT要員3名（各拠点1名）の確定</b><br><span class="mono">08/10</span> まで。W11の受入テストに間に合わせます。</span></li>
+          <li style="font-size:min(1.95vh,1.95vw)"><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>稼働判定会の日程確定</b><br><span class="mono">08/28 15:00</span> で仮押さえ中。ご出席理事の確定をお願いします。</span></li>
         </ul>
       </div>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
@@ -576,8 +576,8 @@
           <div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
           <div class="idx">DECISION ― 本日</div>
           <h3>A案の採否</h3>
-          <p>本日ご承認いただければ、翌営業日にスタブ並行化へ着手し、テストをW11で完遂します。ご判断が1週遅れると、リリースも1週ずつ後ろ倒しになります。</p>
-          <div class="foot"><span class="n">08/28</span><span>リリース予定 ― 維持できます</span></div>
+          <p>本日ご承認いただければ、翌営業日に模擬伝送環境の構築へ着手し、請求突合をW11で完遂します。ご判断が1週遅れると、請求切替も1週ずつ後ろ倒しになります。</p>
+          <div class="foot"><span class="n">08/28</span><span>稼働判定会 ― 予定どおり開催できます</span></div>
         </div>
       </div>
     </div></div>
@@ -586,13 +586,13 @@
   </div>
 </section>
 
-<!-- 10 CTA：次回定例・承認依頼 -->
+<!-- 10 CTA：次回理事会・承認依頼 -->
 <section class="slide dark cover" style="background:radial-gradient(120% 90% at 88% -10%,rgba(78,106,158,.22),transparent 55%),linear-gradient(180deg,#1a2947,var(--navy) 60%)">
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
     <p class="kick" style="color:var(--steel)">Next Step</p>
-    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">本日のご承認で、リリース {{08/28}} は守れます。</h1>
-    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">次回定例は {{08/14（金）15:00}}。それまでの進捗は、週次サマリーでご報告します。</p>
+    <h1 style="font-size:min(5.6vh,5.6vw);font-weight:700;line-height:1.24;margin-top:min(2.4vh,2.4vw)">本日のご承認で、稼働判定 {{08/28}} は守れます。</h1>
+    <p class="sub" style="margin-top:min(2.4vh,2.4vw);font-size:min(2vh,2vw);color:rgba(255,255,255,.72);font-weight:500">次回の定例理事会は {{08/14（金）15:00}}。それまでの進捗は、週次サマリーでご報告します。</p>
     <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(4vh,4vw)">
       <a class="btn" href="{{リンク}}">A案を承認する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <div class="qr"><svg class="ic" viewBox="0 0 24 24" width="42" height="42" style="stroke-width:1.4"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M20 14v.01M14 20h.01M20 17v4"/></svg></div>

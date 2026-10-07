@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/01_稟議・投資決裁.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/01_稟議・投資決裁_医療介護.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>稟議・投資決裁テンプレート | KOKU</title>
+<title>稟議・投資決裁テンプレート（医療・介護） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -278,7 +278,7 @@
   <div class="rule"></div>
   <p class="sub">起案：{{起案部門}}　{{氏名}}　|　稟議番号 {{No.}}</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
-    <span class="brandline">{{社名}}</span><span class="mono">決裁期日 {{YYYY.MM.DD}}</span>
+    <span class="brandline">{{社名}}</span><span class="mono">理事会 {{YYYY.MM.DD}}</span>
   </div>
 </section>
 
@@ -286,7 +286,7 @@
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Executive Summary</div><div class="h2">結論：投資は<span class="u">14ヶ月</span>で回収できます</div>
-      <p class="subhead">初期投資960万円に対し、月次の純効果は80万円。承認から14ヶ月で回収し、以降は年間960万円の純効果が続きます。</p></div>
+      <p class="subhead">初期投資1,200万円に対し、月次の純効果は100万円。承認から14ヶ月で回収し、以降は年間1,200万円の純効果が続きます。</p></div>
     <div class="tag">01 / SUMMARY</div>
   </div>
   <div class="s-body">
@@ -297,50 +297,50 @@
           <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資回収期間（承認起点・構築2ヶ月を含む）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm">960<span class="unit">万円</span></div><div class="kpi-l">初期投資（一時費用・P.7）</div></div>
-          <div><div class="kpi sm">+960<span class="unit">万円/年</span></div><div class="kpi-l">年間純効果（運用費控除後）</div></div>
+          <div><div class="kpi sm">1,200<span class="unit">万円</span></div><div class="kpi-l">初期投資（一時費用・P.7）</div></div>
+          <div><div class="kpi sm">+1,200<span class="unit">万円/年</span></div><div class="kpi-l">年間純効果（運用費控除後）</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">見送れば年1,200万円の損失が続きます（P.4）。効果の前提はP.5、予算の上限はP.7、リスクはP.9で開示します。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">見送れば年1,440万円の損失が続きます（P.4）。効果の前提はP.5、予算の上限はP.7、リスクはP.9で開示します。</p>
       </div>
       <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">累計収支の見通し（承認起点）</span><span class="n">単位：万円｜月次純効果80万円</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="累計収支：承認時マイナス960万円から14ヶ月で損益ゼロ、36ヶ月でプラス1,760万円">
+        <div class="dghead"><span class="t">累計収支の見通し（承認起点）</span><span class="n">単位：万円｜月次純効果100万円</span></div>
+        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="累計収支：承認時マイナス1,200万円から14ヶ月で損益ゼロ、36ヶ月でプラス2,200万円">
           <line class="grid-l" x1="0" y1="70" x2="340" y2="70"/>
           <line x1="0" y1="118" x2="340" y2="118" style="stroke:var(--silver);stroke-dasharray:4 4"/>
-          <path d="M0,118 L132,118 L19,171 L0,171 Z" style="fill:var(--mist);opacity:.75"/>
-          <path class="area" d="M132,118 L340,118 L340,21 Z"/>
-          <path class="draw" pathLength="1" d="M0,171 L19,171 L340,21"/>
+          <path d="M0,118 L132,118 L19,172 L0,172 Z" style="fill:var(--mist);opacity:.75"/>
+          <path class="area" d="M132,118 L340,118 L340,18 Z"/>
+          <path class="draw" pathLength="1" d="M0,172 L19,172 L340,18"/>
           <text class="axis-t" x="2" y="114">0（損益分岐）</text>
           <rect class="ann-bg" x="40" y="64" width="112" height="22" rx="11"/>
           <text class="ann-t" x="96" y="79" text-anchor="middle">14ヶ月で回収</text>
-          <path class="lead-l" d="M96 88 L124 110"/>
-          <circle class="dot" cx="19" cy="171" r="4"/>
+          <path class="lead-l" d="M96 88 L124 112"/>
+          <circle class="dot" cx="19" cy="172" r="4"/>
           <circle class="dot key" cx="132" cy="118" r="5.5"/>
-          <circle class="dot" cx="340" cy="21" r="4.5"/>
-          <text class="val-t" x="336" y="13" text-anchor="end">+1,760万円</text>
-          <text class="axis-t" x="2" y="188">承認時 ▲960万円</text>
+          <circle class="dot" cx="340" cy="18" r="4.5"/>
+          <text class="val-t" x="336" y="10" text-anchor="end">+2,200万円</text>
+          <text class="axis-t" x="2" y="188">承認時 ▲1,200万円</text>
           <text class="axis-t" x="132" y="188" text-anchor="middle">14ヶ月</text>
           <text class="axis-t" x="338" y="188" text-anchor="end">36ヶ月</text>
         </svg>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>承認から<b>14ヶ月</b>で回収。以降は毎年<b>+960万円</b>が残り続けます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>承認から<b>14ヶ月</b>で回収。以降は毎年<b>+1,200万円</b>が残り続けます。</span></div>
     <div class="s-foot"><span class="pageno">02 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 03 課題整理（空雨傘）：フロー×工数バーを実数で焼き込み。主役=警告色の請求工程 -->
+<!-- 03 課題整理（空雨傘）：フロー×工数バーを実数で焼き込み。主役=警告色の実績転記工程 -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Background</div><div class="h2">課題は、<span class="u">請求まわりの手作業</span>に集中しています</div>
-      <p class="subhead">空（事実）・雨（解釈）・傘（打ち手）で整理しました。原因は現場の努力不足ではなく、工程の設計にあります。</p></div>
+    <div><div class="eyebrow">Background</div><div class="h2">課題は、<span class="u">手書き記録の転記</span>に集中しています</div>
+      <p class="subhead">空（事実）・雨（解釈）・傘（打ち手）で整理しました。原因は職員の努力不足ではなく、手書きを前提とした工程の設計にあります。</p></div>
     <div class="tag">02 / ISSUE</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
       <div class="chartcard reveal">
-        <div class="dghead"><span class="t">現行フロー：月あたりの手作業時間</span><span class="n">250時間/月 × 4,000円/時 ≒ 年1,200万円</span></div>
-        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行5工程のうち請求書作成に月90時間が集中">
+        <div class="dghead"><span class="t">現行フロー：月あたりの手作業時間</span><span class="n">500時間/月 × 3,000円/時 ≒ 年1,800万円</span></div>
+        <svg class="fsvg" viewBox="0 0 560 236" role="img" aria-label="現行5工程のうち手書き記録の実績転記に月180時間が集中">
           <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
           <text class="tag-t" x="280" y="13" text-anchor="middle">BOTTLENECK</text>
           <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
@@ -348,74 +348,74 @@
           <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
           <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
           <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
-          <text class="nd-t" x="50" y="53" text-anchor="middle">受注入力</text>
-          <text class="nd-t" x="165" y="53" text-anchor="middle">発注処理</text>
-          <text class="nd-t hot" x="280" y="53" text-anchor="middle">請求書作成</text>
-          <text class="nd-t" x="395" y="53" text-anchor="middle">入金消込</text>
-          <text class="nd-t" x="510" y="53" text-anchor="middle">月次報告</text>
+          <text class="nd-t" x="50" y="53" text-anchor="middle">ケア記録</text>
+          <text class="nd-t" x="165" y="53" text-anchor="middle">申し送り</text>
+          <text class="nd-t hot" x="280" y="53" text-anchor="middle">実績転記</text>
+          <text class="nd-t" x="395" y="53" text-anchor="middle">レセプト請求</text>
+          <text class="nd-t" x="510" y="53" text-anchor="middle">返戻対応</text>
           <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
-          <text class="an" x="0" y="97">手作業は月250時間＝年1,200万円相当</text>
-          <text class="an hot" x="0" y="119">うち90時間（36%）が請求書作成に集中</text>
+          <text class="an" x="0" y="97">手作業は月500時間＝年1,800万円相当</text>
+          <text class="an hot" x="0" y="119">うち180時間（36%）が実績転記に集中</text>
           <line class="bl" x1="0" y1="204" x2="560" y2="204"/>
-          <rect class="bar" x="22" y="157" width="56" height="47" rx="4"/>
-          <rect class="bar" x="137" y="144" width="56" height="60" rx="4"/>
+          <rect class="bar" x="22" y="154" width="56" height="50" rx="4"/>
+          <rect class="bar" x="137" y="164" width="56" height="40" rx="4"/>
           <rect class="bar hot" x="252" y="84" width="56" height="120" rx="4"/>
-          <rect class="bar" x="367" y="144" width="56" height="60" rx="4"/>
-          <rect class="bar" x="482" y="157" width="56" height="47" rx="4"/>
-          <text class="mn" x="50" y="149" text-anchor="middle">35時間</text>
-          <text class="mn" x="165" y="136" text-anchor="middle">45時間</text>
-          <text class="mn hot inbar" x="280" y="106" text-anchor="middle">90時間</text>
-          <text class="mn" x="395" y="136" text-anchor="middle">45時間</text>
-          <text class="mn" x="510" y="149" text-anchor="middle">35時間</text>
-          <text class="mn" x="0" y="228">月あたりの手作業時間（{{3部門}}合算・現場実測 {{2026年6月}}）</text>
+          <rect class="bar" x="367" y="137" width="56" height="67" rx="4"/>
+          <rect class="bar" x="482" y="147" width="56" height="57" rx="4"/>
+          <text class="mn" x="50" y="146" text-anchor="middle">75時間</text>
+          <text class="mn" x="165" y="156" text-anchor="middle">60時間</text>
+          <text class="mn hot inbar" x="280" y="106" text-anchor="middle">180時間</text>
+          <text class="mn" x="395" y="129" text-anchor="middle">100時間</text>
+          <text class="mn" x="510" y="139" text-anchor="middle">85時間</text>
+          <text class="mn" x="0" y="228">月あたりの手作業時間（{{全3拠点}}合算・現場実測 {{2026年6月}}）</text>
         </svg>
       </div>
       <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">{{3部門}}の定型業務に、月<b>250時間</b>の手作業が発生している。</div></div>
-        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">人件費換算で<b>年1,200万円</b>。繁忙期は残業が増え、入力ミスの温床に。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">手作業の60%を{{システム名}}で自動化し、時間を売る仕事に戻します。</div></div>
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">{{全3拠点}}の介護職員60名の記録・請求業務に、月<b>500時間</b>（1人1日約25分）の手作業が発生している。</div></div>
+        <div class="band ame"><div class="k">雨 ― 解釈</div><div class="v">人件費換算で<b>年1,800万円</b>。転記ミスで返戻率は3.0%に達し、請求入金が遅れる温床に。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">手作業の60%を{{システム名}}で電子化し、職員の時間を利用者と向き合うケアに戻します。</div></div>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは人の頑張りではなく、<b>工程そのもの</b>です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>直すべきは職員の頑張りではなく、<b>手書き前提の工程</b>です。</span></div>
     <div class="s-foot"><span class="pageno">03 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
 
-<!-- 04 現状維持の損失（損失回避）：主役=▲1,200万円/年（警告色はここ1点） -->
+<!-- 04 現状維持の損失（損失回避）：主役=▲1,440万円/年（警告色はここ1点） -->
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Cost of Inaction</div><div class="h2">「見送る」にも、<span class="u">費用</span>がかかります</div>
-      <p class="subhead">現状維持は無料ではありません。自動化できるはずのコストと、逃し続ける増収機会が、毎月100万円ずつ積み上がります。</p></div>
+      <p class="subhead">現状維持は無料ではありません。電子化できるはずの記録・転記コストと、返戻・算定漏れで逃し続ける請求が、毎月120万円ずつ積み上がります。</p></div>
     <div class="tag">03 / INACTION</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi xl" style="color:var(--warn)">▲1,200<span class="unit">万円/年</span></div>
-          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資を見送った場合の年間損失（非効率コスト720万円＋機会損失480万円）</div>
+          <div class="kpi xl" style="color:var(--warn)">▲1,440<span class="unit">万円/年</span></div>
+          <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">投資を見送った場合の年間損失（非効率コスト1,080万円＋返戻・機会損失360万円）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm" style="color:var(--graphite)">▲3,600<span class="unit">万円</span></div><div class="kpi-l">3年放置の累計損失</div></div>
-          <div><div class="kpi sm" style="color:var(--graphite)">▲6,000<span class="unit">万円</span></div><div class="kpi-l">5年放置の累計損失</div></div>
+          <div><div class="kpi sm" style="color:var(--graphite)">▲4,320<span class="unit">万円</span></div><div class="kpi-l">3年放置の累計損失</div></div>
+          <div><div class="kpi sm" style="color:var(--graphite)">▲7,200<span class="unit">万円</span></div><div class="kpi-l">5年放置の累計損失</div></div>
         </div>
         <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">この損失は、P.5の効果試算と同じ前提の裏返しです。二重計上はなく、金額は保守側に置いています。</p>
       </div>
       <div class="chartcard reveal" style="--i:1">
-        <div class="dghead"><span class="t">見送った場合の累計損失</span><span class="n">単位：万円（毎月100万円で累積）</span></div>
-        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="見送りの累計損失は1年で1,200万円、3年で3,600万円に拡大">
+        <div class="dghead"><span class="t">見送った場合の累計損失</span><span class="n">単位：万円（毎月120万円で累積）</span></div>
+        <svg class="csvg" viewBox="0 0 340 192" role="img" aria-label="見送りの累計損失は1年で1,440万円、3年で4,320万円に拡大">
           <line class="grid-l" x1="0" y1="70" x2="340" y2="70"/><line class="grid-l" x1="0" y1="120" x2="340" y2="120"/><line class="grid-l" x1="0" y1="170" x2="340" y2="170"/>
           <path d="M0,170 L340,20 L340,170 Z" style="fill:var(--mist);opacity:.75"/>
           <path class="draw" pathLength="1" d="M0,170 L340,20" style="stroke:var(--graphite)"/>
           <rect class="ann-bg" x="30" y="36" width="140" height="22" rx="11"/>
-          <text class="ann-t" x="100" y="51" text-anchor="middle">毎月100万円ずつ拡大</text>
+          <text class="ann-t" x="100" y="51" text-anchor="middle">毎月120万円ずつ拡大</text>
           <path class="lead-l" d="M100 58 L136 104"/>
           <circle class="dot" cx="113" cy="120" r="4.5" style="stroke:var(--graphite)"/>
           <circle class="dot" cx="227" cy="70" r="4.5" style="stroke:var(--graphite)"/>
           <circle class="dot" cx="340" cy="20" r="5.5" style="stroke:var(--graphite);fill:var(--graphite)"/>
-          <text class="axis-t" x="113" y="140" text-anchor="middle">▲1,200</text>
-          <text class="axis-t" x="227" y="90" text-anchor="middle">▲2,400</text>
-          <text class="val-t" x="336" y="12" text-anchor="end" style="fill:var(--ink)">▲3,600万円</text>
+          <text class="axis-t" x="113" y="140" text-anchor="middle">▲1,440</text>
+          <text class="axis-t" x="227" y="90" text-anchor="middle">▲2,880</text>
+          <text class="val-t" x="336" y="12" text-anchor="end" style="fill:var(--ink)">▲4,320万円</text>
           <text class="axis-t" x="2" y="188">0ヶ月</text>
           <text class="axis-t" x="113" y="188" text-anchor="middle">12ヶ月</text>
           <text class="axis-t" x="227" y="188" text-anchor="middle">24ヶ月</text>
@@ -428,48 +428,48 @@
   </div>
 </section>
 
-<!-- 05 投資対効果：ウォーターフォール（投資▲1,640→削減+2,040→増収+1,360→純効果+1,760）。金額比例・接続線つき -->
+<!-- 05 投資対効果：ウォーターフォール（投資▲1,880→削減+3,060→請求回復+1,020→純効果+2,200）。金額比例・接続線つき -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Return on Investment</div><div class="h2">3年累計の純効果は、<span class="u">＋1,760万円</span>です</div>
-      <p class="subhead">総投資1,640万円（初期960万円＋運用680万円）に対し、効果は3,400万円。保守側の前提でも、投資を大きく上回ります。</p></div>
+    <div><div class="eyebrow">Return on Investment</div><div class="h2">3年累計の純効果は、<span class="u">＋2,200万円</span>です</div>
+      <p class="subhead">総投資1,880万円（初期1,200万円＋運用680万円）に対し、効果は4,080万円。保守側の前提でも、投資を大きく上回ります。</p></div>
     <div class="tag">04 / ROI</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split" style="grid-template-columns:1.45fr 1fr">
       <div class="chartcard reveal">
         <div class="dghead"><span class="t">投資対効果ウォーターフォール（承認から36ヶ月）</span><span class="n">単位：万円｜効果は本稼働後34ヶ月分</span></div>
-        <svg class="fsvg" viewBox="0 0 560 258" role="img" aria-label="総投資1,640万円に対し削減2,040万円と増収1,360万円で、3年純効果は1,760万円">
+        <svg class="fsvg" viewBox="0 0 560 258" role="img" aria-label="総投資1,880万円に対し削減3,060万円と請求回復1,020万円で、3年純効果は2,200万円">
           <line class="bl" x1="0" y1="118" x2="560" y2="118"/>
           <text class="mn" x="2" y="112">0</text>
-          <path class="lead-l" d="M120 200 L170 200"/>
-          <path class="lead-l" d="M260 98 L310 98"/>
-          <path class="lead-l" d="M400 30 L450 30"/>
-          <rect class="bar hot" x="30" y="118" width="90" height="82" rx="4"/>
-          <rect class="bar" x="170" y="98" width="90" height="102" rx="4" style="fill:var(--steel)"/>
-          <rect class="bar" x="310" y="30" width="90" height="68" rx="4" style="fill:var(--steel)"/>
-          <rect class="bar" x="450" y="30" width="90" height="88" rx="4" style="fill:var(--navy)"/>
-          <text class="mn hot" x="75" y="216" text-anchor="middle">▲1,640</text>
-          <text class="mn" x="215" y="90" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋2,040</text>
-          <text class="mn" x="355" y="22" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋1,360</text>
-          <text class="an" x="495" y="22" text-anchor="middle" style="fill:var(--navy);font-size:15px">＋1,760</text>
+          <path class="lead-l" d="M120 196 L170 196"/>
+          <path class="lead-l" d="M260 68 L310 68"/>
+          <path class="lead-l" d="M400 26 L450 26"/>
+          <rect class="bar hot" x="30" y="118" width="90" height="78" rx="4"/>
+          <rect class="bar" x="170" y="68" width="90" height="128" rx="4" style="fill:var(--steel)"/>
+          <rect class="bar" x="310" y="26" width="90" height="42" rx="4" style="fill:var(--steel)"/>
+          <rect class="bar" x="450" y="26" width="90" height="92" rx="4" style="fill:var(--navy)"/>
+          <text class="mn hot" x="75" y="212" text-anchor="middle">▲1,880</text>
+          <text class="mn" x="215" y="60" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋3,060</text>
+          <text class="mn" x="355" y="18" text-anchor="middle" style="fill:var(--steel);font-weight:600">＋1,020</text>
+          <text class="an" x="495" y="18" text-anchor="middle" style="fill:var(--navy);font-size:15px">＋2,200</text>
           <text class="mn" x="75" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">総投資（3年）</text>
           <text class="mn" x="215" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">コスト削減</text>
-          <text class="mn" x="355" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">売上増加</text>
+          <text class="mn" x="355" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">請求回復</text>
           <text class="mn" x="495" y="244" text-anchor="middle" style="fill:var(--graphite);font-weight:600">3年純効果</text>
         </svg>
       </div>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
         <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">効果算定の前提（保守側）</h3>
         <ul class="checks" style="margin-top:min(2.2vh,2.2vw);gap:min(1.5vh,1.5vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>削減 60万円/月</b>：手作業250時間の60%を自動化（150時間×4,000円/時）。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>増収 40万円/月</b>：創出した時間を営業・顧客対応へ再配分。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>費用は上限計上</b>：予備費120万円・運用費20万円/月を含む。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>削減 90万円/月</b>：手作業500時間の60%を電子化（300時間×3,000円/時）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>回復 30万円/月</b>：返戻率3.0%→0.5%と加算の算定漏れ防止（月次請求約1,500万円）。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>費用は上限計上</b>：予備費150万円・運用費20万円/月を含む。</span></li>
           <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.65vh,1.65vw)"><b>構築期間はゼロ計上</b>：効果は本稼働（3ヶ月目）以降のみ算入。</span></li>
         </ul>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>効果は投資の<b>約2.1倍</b>（3,400万円÷1,640万円）。前提はすべて保守側です。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>効果は投資の<b>約2.2倍</b>（4,080万円÷1,880万円）。前提はすべて保守側です。</span></div>
     <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
@@ -478,26 +478,26 @@
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Options</div><div class="h2">3案を比較し、<span class="u">B案</span>を推奨します</div>
-      <p class="subhead">「最小」「標準」「全面」の3案で検討しました。効果・回収・リスクのバランスで、標準導入のB案が最適です。</p></div>
+      <p class="subhead">「試験」「標準」「全面」の3案で検討しました。効果・回収・リスクのバランスで、全3拠点導入のB案が最適です。</p></div>
     <div class="tag">05 / OPTIONS</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="plans" style="height:auto">
-      <div class="plan reveal"><h4>A案｜部分改修</h4><div class="price">240<span class="u">万円（初期）</span></div><ul>
+      <div class="plan reveal"><h4>A案｜1拠点で試験導入</h4><div class="price">300<span class="u">万円（初期）</span></div><ul>
         <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>初期投資が最小で済む</li>
         <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>現場への影響が小さい</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>課題の約3割しか解消しない</li></ul>
-        <div class="meta">回収 約17ヶ月｜3年純効果 +285万円</div></div>
-      <div class="plan reco reveal" style="--i:1"><span class="badge">推奨</span><h4>B案｜標準導入</h4><div class="price">960<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>手作業の60%を自動化（根本解消）</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>年間純効果960万円・回収14ヶ月</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>段階導入可・既存システムと連携</li></ul>
-        <div class="meta">回収 14ヶ月｜3年純効果 +1,760万円</div></div>
-      <div class="plan reveal" style="--i:2"><h4>C案｜全面刷新</h4><div class="price">2,400<span class="u">万円（初期）</span></div><ul>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>効果は最大（110万円/月）</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>残り2拠点で手書きと転記が続く</li></ul>
+        <div class="meta">回収 約17ヶ月｜3年純効果 +380万円</div></div>
+      <div class="plan reco reveal" style="--i:1"><span class="badge">推奨</span><h4>B案｜全3拠点 標準導入</h4><div class="price">1,200<span class="u">万円（初期）</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>記録から請求まで一気通貫で電子化</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>年間純効果1,200万円・回収14ヶ月</li>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>拠点ごとの段階導入可・国保連請求に標準対応</li></ul>
+        <div class="meta">回収 14ヶ月｜3年純効果 +2,200万円</div></div>
+      <div class="plan reveal" style="--i:2"><h4>C案｜訪問系含む全面導入</h4><div class="price">2,600<span class="u">万円（初期）</span></div><ul>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6"><path d="M5 12l5 5L20 6"/></svg></span>効果は最大（150万円/月）</li>
         <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>構築6ヶ月・回収が遠い</li>
-        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>開発・保守の負担が大きい</li></ul>
-        <div class="meta">回収 約28ヶ月｜3年純効果 +900万円</div></div>
+        <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.6;color:var(--gray)"><path d="M6 6l12 12M18 6L6 18"/></svg></span>訪問系の運用整備が先で負担が大きい</li></ul>
+        <div class="meta">回収 約28ヶ月｜3年純効果 +1,000万円</div></div>
     </div></div>
     <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>安い案は効果が薄く、大きい案は回収が遠い。<b>B案が投資効率の最適点</b>です。</span></div>
     <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{社名}}</span></div>
@@ -507,7 +507,7 @@
 <!-- 07 費用内訳：navyヘッダ表＋合計行強調。右に3年総投資と執行ルール -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Budget</div><div class="h2">ご承認いただく予算は、<span class="u">960万円</span>が上限です</div>
+    <div><div class="eyebrow">Budget</div><div class="h2">ご承認いただく予算は、<span class="u">1,200万円</span>が上限です</div>
       <p class="subhead">初期投資の内訳です。予備費まで含めた総額で、これを上限とします。超過が見込まれる場合は、執行前に再稟議します。</p></div>
     <div class="tag">06 / BUDGET</div>
   </div>
@@ -516,25 +516,25 @@
       <table class="reveal">
         <thead><tr><th>費目</th><th>内容</th><th class="num">金額（万円）</th></tr></thead>
         <tbody>
-          <tr><td>ライセンス費（初年度）</td><td>{{システム名}}・50ユーザー</td><td class="num">360</td></tr>
-          <tr><td>導入・初期設定</td><td>要件定義・環境構築（固定価格）</td><td class="num">300</td></tr>
-          <tr><td>データ移行・現場教育</td><td>過去2年分の移行＋研修3回</td><td class="num">180</td></tr>
-          <tr><td>予備費</td><td>想定外対応（初期費の約14%）</td><td class="num">120</td></tr>
-          <tr><td style="background:var(--cloud);color:var(--navy);font-weight:700">初期投資 合計</td><td style="background:var(--cloud)"></td><td class="num" style="background:var(--cloud);color:var(--navy);font-weight:700;font-size:min(2vh,2vw)">960</td></tr>
+          <tr><td>ライセンス費（初年度）</td><td>{{システム名}}・記録/請求一体型・90ユーザー</td><td class="num">360</td></tr>
+          <tr><td>機器・ネットワーク整備</td><td>タブレット60台＋全3拠点のWi-Fi増強</td><td class="num">420</td></tr>
+          <tr><td>データ移行・職員研修</td><td>利用者票・ケア計画の移行＋研修 各拠点3回</td><td class="num">270</td></tr>
+          <tr><td>予備費</td><td>想定外対応（初期費の約14%）</td><td class="num">150</td></tr>
+          <tr><td style="background:var(--cloud);color:var(--navy);font-weight:700">初期投資 合計</td><td style="background:var(--cloud)"></td><td class="num" style="background:var(--cloud);color:var(--navy);font-weight:700;font-size:min(2vh,2vw)">1,200</td></tr>
         </tbody>
       </table>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;gap:min(2vh,2vw);justify-content:center">
         <div>
-          <div class="kpi">1,640<span class="unit">万円</span></div>
-          <div class="kpi-l">3年総投資（初期960万円＋運用20万円/月×34ヶ月）</div>
+          <div class="kpi">1,880<span class="unit">万円</span></div>
+          <div class="kpi-l">3年総投資（初期1,200万円＋運用20万円/月×34ヶ月）</div>
         </div>
         <div class="load">
-          <div class="lr"><span class="ln">初期投資</span><span class="track"><i style="width:100%;background:var(--steel)"></i></span><span class="lv">960万円（一時）</span></div>
-          <div class="lr"><span class="ln">運用費</span><span class="track"><i style="width:71%;background:var(--silver)"></i></span><span class="lv">680万円（34ヶ月）</span></div>
+          <div class="lr"><span class="ln">初期投資</span><span class="track"><i style="width:100%;background:var(--steel)"></i></span><span class="lv">1,200万円（一時）</span></div>
+          <div class="lr"><span class="ln">運用費</span><span class="track"><i style="width:57%;background:var(--silver)"></i></span><span class="lv">680万円（34ヶ月）</span></div>
         </div>
         <ul class="checks" style="gap:min(1.2vh,1.2vw)">
           <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">支払いは検収後。契約時30%／検収後70%の分割。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">追加開発は本稟議に含めず、必要時は都度稟議。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="13" height="13" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span style="font-size:min(1.5vh,1.5vw)">ICT導入支援事業の補助金は採択後に充当（効果試算に算入せず）。</span></li>
         </ul>
       </div>
     </div></div>
@@ -547,24 +547,24 @@
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Execution Plan</div><div class="h2">承認から<span class="u">3ヶ月目</span>に、本稼働します</div>
-      <p class="subhead">契約から2ヶ月で構築・移行し、3ヶ月目に本稼働。現場の負荷は、教育と受入テストの約40時間だけに抑えます。</p></div>
+      <p class="subhead">契約から2ヶ月で構築・移行し、3ヶ月目に本稼働。職員の負荷は、研修と受入テストの約40時間だけに抑えます。</p></div>
     <div class="tag">07 / SCHEDULE</div>
   </div>
   <div class="s-body">
     <div class="fillcenter" style="gap:min(2.6vh,2.6vw)">
       <div class="timeline">
-        <div class="step reveal"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><div class="k">PHASE 01｜W1–W2</div><h4>契約・キックオフ</h4><p>決裁後2週間で契約締結。推進責任者と部門オーナーを任命します。</p></div>
-        <div class="step reveal" style="--i:1"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="k">PHASE 02｜M1</div><h4>構築・設定</h4><p>要件確定と環境構築。現場ヒアリングは2回・各1時間のみです。</p></div>
-        <div class="step reveal" style="--i:2"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M4 7h12M13 3l4 4-4 4"/><path d="M20 17H8M11 13l-4 4 4 4"/></svg></div><div class="k">PHASE 03｜M2</div><h4>移行・並行稼働</h4><p>旧運用と並行で検証。データ移行と研修3回をこの月に完了します。</p></div>
+        <div class="step reveal"><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><div class="k">PHASE 01｜W1–W2</div><h4>契約・キックオフ</h4><p>決裁後2週間で契約締結。推進責任者と各拠点の記録リーダーを任命します。</p></div>
+        <div class="step reveal" style="--i:1"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.6-2-3.4-2.4 1a7 7 0 0 0-1.7-1L14.4 3H9.6l-.4 2.4a7 7 0 0 0-1.7 1l-2.4-1-2 3.4L5.1 11a7 7 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7 7 0 0 0 1.7 1L9.6 21h4.8l.4-2.4a7 7 0 0 0 1.7-1l2.4 1 2-3.4-2-1.6a7 7 0 0 0 .1-1z"/></svg></div><div class="k">PHASE 02｜M1</div><h4>構築・設定</h4><p>マスタ設定と帳票整備。現場ヒアリングは各拠点2回・各1時間のみです。</p></div>
+        <div class="step reveal" style="--i:2"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M4 7h12M13 3l4 4-4 4"/><path d="M20 17H8M11 13l-4 4 4 4"/></svg></div><div class="k">PHASE 03｜M2</div><h4>移行・並行稼働</h4><p>紙の記録と並行で検証。利用者データの移行と研修 各拠点3回を完了します。</p></div>
         <div class="step reveal" style="--i:3"><div class="cn" style="left:calc(-100% + min(7.2vh,7.2vw));right:calc(100% - min(1.2vh,1.2vw))"></div><div class="dot"><svg class="ic" viewBox="0 0 24 24" width="22" height="22"><path d="M3 17l6-6 4 4 8-9"/><path d="M14 6h7v7"/></svg></div><div class="k">PHASE 04｜M3〜</div><h4>本稼働・効果測定</h4><p>3ヶ月目から効果を計上。月次レポートとKPIゲート（3・6ヶ月）で検証します。</p></div>
       </div>
       <div class="load reveal" style="--i:4">
         <div class="dghead" style="margin-bottom:min(.5vh,.5vw)"><span class="t">移行期間（2ヶ月）の作業負荷</span><span class="n">合計 約360時間</span></div>
         <div class="lr"><span class="ln">ベンダー側</span><span class="track"><i style="width:89%;background:var(--navy)"></i></span><span class="lv">約320時間</span></div>
-        <div class="lr"><span class="ln">自部門</span><span class="track"><i style="width:11%;background:var(--silver)"></i></span><span class="lv">約40時間（教育・受入テスト）</span></div>
+        <div class="lr"><span class="ln">介護職員・事務</span><span class="track"><i style="width:11%;background:var(--silver)"></i></span><span class="lv">約40時間（研修・受入テスト）</span></div>
       </div>
     </div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>現場を止めない移行計画。<b>3ヶ月目から効果</b>が数字に表れます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>ケアと請求を止めない移行計画。<b>3ヶ月目から効果</b>が数字に表れます。</span></div>
     <div class="s-foot"><span class="pageno">08 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
@@ -580,13 +580,13 @@
     <div class="fillcenter"><table class="reveal">
       <thead><tr><th>想定リスク</th><th>影響度</th><th class="col-hi">回避・低減策</th><th>残存リスク</th></tr></thead>
       <tbody>
-        <tr><td>効果が想定を下回る</td><td>中</td><td class="col-hi">KPIゲート（3・6ヶ月）で検証。未達なら拡張を停止し、原因を是正</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-        <tr><td>導入コストの超過</td><td>中</td><td class="col-hi">固定価格契約＋予備費120万円。超過見込み時は執行前に再稟議</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
-        <tr><td>現場に定着しない</td><td style="color:var(--ink);font-weight:700">高</td><td class="col-hi">教育3回を予算化・部門オーナー任命・ベンダーが3ヶ月並走</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--gray)"></i>中</span></td></tr>
+        <tr><td>効果が想定を下回る</td><td>中</td><td class="col-hi">KPIゲート（3・6ヶ月）で検証。未達なら拠点展開を停止し、原因を是正</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
+        <tr><td>利用者データ移行の欠損</td><td>中</td><td class="col-hi">紙の記録と1ヶ月並行運用し全件突合。固定価格契約＋予備費150万円</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
+        <tr><td>高齢職員が操作に馴染めない</td><td style="color:var(--ink);font-weight:700">高</td><td class="col-hi">研修 各拠点3回・大画面タブレットと音声入力・記録リーダーが1ヶ月伴走</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--gray)"></i>中</span></td></tr>
         <tr><td>撤退判断の遅れ</td><td>低</td><td class="col-hi">中止基準を事前合意：6ヶ月時点で効果が計画の50%未満なら縮小</td><td><span class="cellflex"><i style="width:9px;height:9px;border-radius:50%;background:var(--ok)"></i>低</span></td></tr>
       </tbody>
     </table></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最大の懸念は現場定着。<b>教育予算と並走体制</b>で残存「中」まで抑え、受容可能と判断しています。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>最大の懸念は高齢職員の定着。<b>研修予算と伴走体制</b>で残存「中」まで抑え、受容可能と判断しています。</span></div>
     <div class="s-foot"><span class="pageno">09 / 10</span><span class="brandline">{{社名}}</span></div>
   </div>
 </section>
@@ -597,11 +597,11 @@
   <div style="position:relative;z-index:1">
     <p class="kick" style="color:var(--steel)">Decision</p>
     <h1 style="font-size:min(5.2vh,5.2vw);font-weight:700;line-height:1.24;margin-top:min(2.2vh,2.2vw)">ご承認いただきたい事項は、3点です。</h1>
-    <p class="sub" style="margin-top:min(1.8vh,1.8vw);font-size:min(1.8vh,1.8vw);color:rgba(255,255,255,.72);font-weight:500">回収14ヶ月・3年純効果＋1,760万円。根拠は本資料P.2–P.9のとおりです。</p>
+    <p class="sub" style="margin-top:min(1.8vh,1.8vw);font-size:min(1.8vh,1.8vw);color:rgba(255,255,255,.72);font-weight:500">回収14ヶ月・3年純効果＋2,200万円。根拠は本資料P.2–P.9のとおりです。</p>
     <ul class="checks" style="margin-top:min(3vh,3vw);gap:min(1.6vh,1.6vw)">
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">初期投資960万円</b>の予算執行（P.7の内訳を上限とする）</span></li>
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">{{システム名}}導入（B案）</b>の実行着手と契約締結</span></li>
-      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>推進責任者として<b style="color:#fff">{{氏名}}</b>を任命（月次で効果を報告）</span></li>
+      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">初期投資1,200万円</b>の予算執行（P.7の内訳を上限とする）</span></li>
+      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b style="color:#fff">{{システム名}}導入（B案・全3拠点）</b>の実行着手と契約締結</span></li>
+      <li style="color:rgba(255,255,255,.92)"><span class="ck" style="background:rgba(255,255,255,.14);color:#fff"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span>推進責任者として<b style="color:#fff">{{氏名}}</b>を任命（理事会へ月次で効果を報告）</span></li>
     </ul>
     <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.4vh,3.4vw)">
       <a class="btn" href="{{リンク}}">電子稟議で承認する<svg class="ic" viewBox="0 0 24 24" width="18" height="18" style="stroke-width:2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>

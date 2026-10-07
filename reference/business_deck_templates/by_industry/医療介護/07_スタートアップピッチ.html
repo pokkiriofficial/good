@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ja">
-<!-- 自動生成物。編集は _src/07_スタートアップピッチ.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
+<!-- 自動生成物。編集は _src/07_スタートアップピッチ_医療介護.html（本文）と _fw/style.css・_fw/deck.js（共有FW）へ。生成: node _fw/build.mjs -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>スタートアップピッチテンプレート | KOKU</title>
+<title>スタートアップピッチテンプレート（ケアテック） | KOKU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -272,11 +272,11 @@
   <div class="grid-bg"></div><div class="wm">PITCH</div>
   <p class="kick">Startup Pitch — {{Seed / Series A}}</p>
   <h1>
-    <span class="ln"><span style="--i:0">{{ターゲット}}の「{{中核課題}}」を、</span></span>
+    <span class="ln"><span style="--i:0">{{介護現場}}の「{{記録と請求の二重作業}}」を、</span></span>
     <span class="ln"><span style="--i:1">{{製品名}}がなくす。</span></span>
   </h1>
   <div class="rule"></div>
-  <p class="sub">{{誰の・何を・どう変えるかを一息で言い切るコンセプト文}}　|　{{自社名}}</p>
+  <p class="sub">{{記録・請求・シフトを一体化し、介護の間接業務を8割減らすケアテックSaaS}}　|　{{自社名}}</p>
   <div class="s-foot" style="position:absolute;left:min(6vw,6vh);right:min(6vw,6vh);bottom:min(4.2vw,4.2vh);margin:0">
     <span class="brandline">{{自社名}}</span><span class="mono">{{2026.07.18}}</span>
   </div>
@@ -285,15 +285,15 @@
 <!-- 02 PROBLEM：課題の痛みを空雨傘＋工程図解で1点強調（暖色はここだけ） -->
 <section class="slide">
   <div class="s-head">
-    <div><div class="eyebrow">Problem</div><div class="h2">毎月、<span class="u">42時間</span>が消えている</div>
+    <div><div class="eyebrow">Problem</div><div class="h2">毎月、<span class="u">50時間</span>が消えている</div>
       <p class="subhead">「あったら便利」ではなく「無いと出血が続く」痛みか。事実（空）と損失（雨）を分け、定量で示します。</p></div>
     <div class="tag">01 / PROBLEM</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split" style="grid-template-columns:1.3fr 1fr">
       <div class="chartcard reveal">
-        <div class="dghead"><span class="t">{{経理}}の月次フロー：1社あたりの所要時間</span><span class="n">月42時間 × 12か月 ≒ 年500時間</span></div>
-        <svg class="fsvg" viewBox="0 0 560 292" role="img" aria-label="月次5工程のうち入金消込に18時間が集中">
+        <div class="dghead"><span class="t">{{介護請求}}の月次フロー：1事業所あたりの所要時間</span><span class="n">月50時間 × 12か月 ＝ 年600時間</span></div>
+        <svg class="fsvg" viewBox="0 0 560 292" role="img" aria-label="月次5工程のうち実績突合に20時間が集中">
           <rect class="tag-bg" x="230" y="0" width="100" height="19" rx="5"/>
           <text class="tag-t" x="280" y="13" text-anchor="middle">PAIN POINT</text>
           <rect class="nd" x="0" y="27" width="100" height="42" rx="10"/>
@@ -301,33 +301,33 @@
           <rect class="nd hot" x="230" y="27" width="100" height="42" rx="10"/>
           <rect class="nd" x="345" y="27" width="100" height="42" rx="10"/>
           <rect class="nd" x="460" y="27" width="100" height="42" rx="10"/>
-          <text class="nd-t" x="50" y="53" text-anchor="middle">請求発行</text>
-          <text class="nd-t" x="165" y="53" text-anchor="middle">送付・封入</text>
-          <text class="nd-t hot" x="280" y="53" text-anchor="middle">入金消込</text>
-          <text class="nd-t" x="395" y="53" text-anchor="middle">督促・照合</text>
-          <text class="nd-t" x="510" y="53" text-anchor="middle">月次報告</text>
+          <text class="nd-t" x="50" y="53" text-anchor="middle">記録転記</text>
+          <text class="nd-t" x="165" y="53" text-anchor="middle">シフト調整</text>
+          <text class="nd-t hot" x="280" y="53" text-anchor="middle">実績突合</text>
+          <text class="nd-t" x="395" y="53" text-anchor="middle">国保連請求</text>
+          <text class="nd-t" x="510" y="53" text-anchor="middle">返戻対応</text>
           <path class="ar" d="M104 43l8 5-8 5z"/><path class="ar" d="M219 43l8 5-8 5z"/><path class="ar" d="M334 43l8 5-8 5z"/><path class="ar" d="M449 43l8 5-8 5z"/>
-          <text class="an" x="0" y="112">1社あたり 月42時間</text>
-          <text class="an hot" x="0" y="136">うち18時間（43%）がこの1工程</text>
+          <text class="an" x="0" y="112">1事業所あたり 月50時間</text>
+          <text class="an hot" x="0" y="136">うち20時間（40%）がこの1工程</text>
           <path class="lead-l" d="M205 142 C 238 150 254 160 261 174"/>
           <line class="bl" x1="0" y1="258" x2="560" y2="258"/>
-          <rect class="bar" x="33" y="205" width="34" height="53" rx="4"/>
-          <rect class="bar" x="148" y="231" width="34" height="27" rx="4"/>
+          <rect class="bar" x="33" y="198" width="34" height="60" rx="4"/>
+          <rect class="bar" x="148" y="210" width="34" height="48" rx="4"/>
           <rect class="bar hot" x="263" y="138" width="34" height="120" rx="4"/>
-          <rect class="bar" x="378" y="205" width="34" height="53" rx="4"/>
-          <rect class="bar" x="493" y="231" width="34" height="27" rx="4"/>
-          <text class="mn" x="50" y="197" text-anchor="middle">8時間</text>
-          <text class="mn" x="165" y="223" text-anchor="middle">4時間</text>
-          <text class="mn hot" x="303" y="152" text-anchor="start">18時間</text>
-          <text class="mn" x="395" y="197" text-anchor="middle">8時間</text>
-          <text class="mn" x="510" y="223" text-anchor="middle">4時間</text>
-          <text class="mn" x="0" y="284">所要時間（時間/月・{{顧客ヒアリング n=32}}より）</text>
+          <rect class="bar" x="378" y="210" width="34" height="48" rx="4"/>
+          <rect class="bar" x="493" y="234" width="34" height="24" rx="4"/>
+          <text class="mn" x="50" y="190" text-anchor="middle">10時間</text>
+          <text class="mn" x="165" y="202" text-anchor="middle">8時間</text>
+          <text class="mn hot" x="303" y="152" text-anchor="start">20時間</text>
+          <text class="mn" x="395" y="202" text-anchor="middle">8時間</text>
+          <text class="mn" x="510" y="226" text-anchor="middle">4時間</text>
+          <text class="mn" x="0" y="284">所要時間（時間/月・{{事業所ヒアリング n=28}}より）</text>
         </svg>
       </div>
       <div class="srk reveal" style="--i:1">
-        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">{{経理担当}}は、請求まわりの手作業に<b>月42時間</b>を費やしている。</div></div>
-        <div class="band ame"><div class="k">雨 ― 損失</div><div class="v">人件費換算で<b>年151万円/社</b>。全国{{20万}}社では年3,000億円が消えている。</div></div>
-        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">{{入金消込と督促}}を自動化し、この時間をゼロに近づける——それが{{製品名}}。</div></div>
+        <div class="band sora"><div class="k">空 ― 事実</div><div class="v">{{介護職員}}は、記録・請求まわりの間接業務に<b>月50時間</b>を費やしている。</div></div>
+        <div class="band ame"><div class="k">雨 ― 損失</div><div class="v">人件費換算で<b>年150万円/所</b>。全国{{25万}}事業所では年3,750億円が消えている。</div></div>
+        <div class="band kasa"><div class="k">傘 ― 打ち手</div><div class="v">{{実績突合と請求}}を自動化し、この時間をゼロに近づける——それが{{製品名}}。</div></div>
       </div>
     </div></div>
     <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>痛みは<b>1工程に集中</b>——だから、プロダクトで解けます。</span></div>
@@ -339,42 +339,42 @@
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Solution</div><div class="h2">{{製品名}}が、痛みを<span class="u">根本から</span>解く</div>
-      <p class="subhead">機能一覧ではなく、業務がどう変わるかで示します。導入後、{{経理}}の月次は42時間から7時間になります。</p></div>
+      <p class="subhead">機能一覧ではなく、業務がどう変わるかで示します。導入後、{{介護請求}}の月次は50時間から9時間になります。</p></div>
     <div class="tag">02 / SOLUTION</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="ba reveal">
         <div class="row before">
-          <div class="hd"><span class="k">BEFORE ― 手作業</span><span class="t">42<span class="u">時間/月</span></span></div>
+          <div class="hd"><span class="k">BEFORE ― 手作業</span><span class="t">50<span class="u">時間/月</span></span></div>
           <div class="chips">
-            <span class="chip">発行・送付<span class="m">12時間</span></span>
-            <span class="chip">入金消込<span class="m">18時間</span></span>
-            <span class="chip">督促・報告<span class="m">12時間</span></span>
+            <span class="chip">記録転記・シフト<span class="m">18時間</span></span>
+            <span class="chip">実績突合<span class="m">20時間</span></span>
+            <span class="chip">請求・返戻<span class="m">12時間</span></span>
           </div>
           <div class="bar"><i style="width:100%"></i></div>
         </div>
         <div class="mid">
           <svg class="ic" viewBox="0 0 24 24" width="20" height="20" style="stroke-width:2.2;color:var(--steel)"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-          <span class="badge">−83%</span>
+          <span class="badge">−82%</span>
           <span class="lbl">{{製品名}} 導入後</span>
         </div>
         <div class="row after">
-          <div class="hd"><span class="k">AFTER ― 自動化</span><span class="t">7<span class="u">時間/月</span></span></div>
+          <div class="hd"><span class="k">AFTER ― 自動化</span><span class="t">9<span class="u">時間/月</span></span></div>
           <div class="chips">
-            <span class="chip">自動発行・自動消込</span>
-            <span class="chip">督促は自動送信</span>
-            <span class="chip">例外のみ人が確認<span class="m">7時間</span></span>
+            <span class="chip">記録は現場入力で完結</span>
+            <span class="chip">突合・請求は自動生成</span>
+            <span class="chip">例外のみ人が確認<span class="m">9時間</span></span>
           </div>
-          <div class="bar"><i style="width:17%"></i></div>
+          <div class="bar"><i style="width:18%"></i></div>
         </div>
       </div>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">{{請求から消込まで}}を、ひとつの流れに</h3>
+        <h3 style="font-size:min(2.4vh,2.4vw);font-weight:700;color:var(--navy)">{{記録から請求まで}}を、ひとつの流れに</h3>
         <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>消込の自動化</b>。銀行入金と請求データを照合し、一致率{{98}}%で自動消込。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>督促の自動化</b>。入金遅れを検知し、文面と送付タイミングも自動で最適化。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>会計連携</b>。確定した仕訳を{{主要会計ソフト}}へワンクリックで連携。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>実績突合の自動化</b>。ケア記録とサービス予定を照合し、一致率{{97}}%で請求データを自動生成。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>返戻の予防</b>。国保連への伝送前に不備を検知し、返戻率を{{0.4}}%まで低減。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>シフト連動</b>。人員基準を満たすシフトを自動作成し、記録・請求と常に同期。</span></li>
         </ul>
       </div>
     </div></div>
@@ -383,18 +383,18 @@
   </div>
 </section>
 
-<!-- 04 MARKET：TAM⊃SAM⊃SOM同心円（面積≒規模比）。主役=SOM 72億円 -->
+<!-- 04 MARKET：TAM⊃SAM⊃SOM同心円（面積≒規模比）。主役=SOM 54億円 -->
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Market Size</div><div class="h2">狙う市場は、<span class="u">十分に大きい</span></div>
-      <p class="subhead">大風呂敷ではなく、獲りにいく順番で示します。最初の的はSOM＝72億円。トップダウンとボトムアップの両建てで算定しています。</p></div>
+      <p class="subhead">大風呂敷ではなく、獲りにいく順番で示します。最初の的はSOM＝54億円。トップダウンとボトムアップの両建てで算定しています。</p></div>
     <div class="tag">03 / MARKET</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="chartcard reveal">
         <div class="dghead"><span class="t">市場規模：TAM / SAM / SOM</span><span class="n">円の面積 ≒ 規模比（{{出所}}・{{2026}}）</span></div>
-        <svg class="fsvg" viewBox="0 0 560 260" role="img" aria-label="TAM2400億円・SAM720億円・SOM72億円の同心円">
+        <svg class="fsvg" viewBox="0 0 560 260" role="img" aria-label="TAM1800億円・SAM540億円・SOM54億円の同心円">
           <circle cx="150" cy="135" r="115" fill="var(--cloud)" stroke="var(--silver)" stroke-width="1.2"/>
           <circle cx="150" cy="187" r="63" fill="rgba(78,106,158,.16)" stroke="var(--steel)" stroke-width="1.2"/>
           <circle cx="150" cy="230" r="20" fill="var(--navy)"/>
@@ -402,30 +402,30 @@
           <path class="lead-l" d="M194 142 L322 128"/>
           <path class="lead-l" d="M172 230 L322 214"/>
           <text x="330" y="40" style="font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.16em;fill:var(--gray)">TAM</text>
-          <text x="330" y="60" style="font-family:var(--mono);font-size:16px;font-weight:600;fill:var(--ink)">2,400億円</text>
-          <text x="330" y="76" style="font-size:10px;fill:var(--gray)">国内{{対象業務}}支出の総額（20万社）</text>
+          <text x="330" y="60" style="font-family:var(--mono);font-size:16px;font-weight:600;fill:var(--ink)">1,800億円</text>
+          <text x="330" y="76" style="font-size:10px;fill:var(--gray)">国内{{介護事業所}}25万か所×72万円/年</text>
           <text x="330" y="122" style="font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.16em;fill:var(--gray)">SAM</text>
-          <text x="330" y="142" style="font-family:var(--mono);font-size:16px;font-weight:600;fill:var(--ink)">720億円</text>
-          <text x="330" y="158" style="font-size:10px;fill:var(--gray)">クラウド会計導入済みの6万社</text>
+          <text x="330" y="142" style="font-family:var(--mono);font-size:16px;font-weight:600;fill:var(--ink)">540億円</text>
+          <text x="330" y="158" style="font-size:10px;fill:var(--gray)">在宅系（訪問・通所）の7.5万事業所</text>
           <text x="330" y="208" style="font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.16em;fill:var(--steel)">SOM</text>
-          <text x="330" y="230" style="font-family:var(--mono);font-size:19px;font-weight:600;fill:var(--navy)">72億円</text>
-          <text x="330" y="246" style="font-size:10px;fill:var(--gray)">3年目標＝6,000社×120万円/年</text>
+          <text x="330" y="230" style="font-family:var(--mono);font-size:19px;font-weight:600;fill:var(--navy)">54億円</text>
+          <text x="330" y="246" style="font-size:10px;fill:var(--gray)">3年目標＝7,500事業所×72万円/年</text>
         </svg>
       </div>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
         <div>
           <div class="kpi-l" style="margin:0 0 min(.8vh,.8vw);font-size:min(1.5vh,1.5vw)">SOM ― 3年で獲りにいく市場</div>
-          <div class="kpi xl" style="font-size:min(7vh,7vw)"><span class="count" data-to="72">72</span><span class="unit">億円</span></div>
-          <div class="mono" style="font-size:min(1.5vh,1.5vw);color:var(--gray);margin-top:min(1vh,1vw)">= 6,000社 × 120万円/年（SAMの10%）</div>
+          <div class="kpi xl" style="font-size:min(7vh,7vw)"><span class="count" data-to="54">54</span><span class="unit">億円</span></div>
+          <div class="mono" style="font-size:min(1.5vh,1.5vw);color:var(--gray);margin-top:min(1vh,1vw)">= 7,500事業所 × 72万円/年（SAMの10%）</div>
         </div>
         <div style="display:flex;gap:min(4.2vh,4.2vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm">2,400<span class="unit">億円</span></div><div class="kpi-l">TAM：{{対象業務}}支出総額</div></div>
-          <div><div class="kpi sm">720<span class="unit">億円</span></div><div class="kpi-l">SAM：到達可能な6万社</div></div>
+          <div><div class="kpi sm">1,800<span class="unit">億円</span></div><div class="kpi-l">TAM：{{介護事業所}}25万か所</div></div>
+          <div><div class="kpi sm">540<span class="unit">億円</span></div><div class="kpi-l">SAM：到達可能な7.5万事業所</div></div>
         </div>
-        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">市場統計（トップダウン）と社数×単価（ボトムアップ）が同じ桁で一致。SOMはSAMの10%と保守的に置いています。</p>
+        <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">市場統計（トップダウン）と事業所数×単価（ボトムアップ）が同じ桁で一致。SOMはSAMの10%と保守的に置いています。</p>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>初期ターゲットを絞り、<b>SOM 72億円</b>から面を取りにいきます。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>初期ターゲットを絞り、<b>SOM 54億円</b>から面を取りにいきます。</span></div>
     <div class="s-foot"><span class="pageno">04 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
@@ -439,9 +439,9 @@
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="grid g3">
-      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></div><div class="idx">01 ― 最大の追い風</div><h3>制度が、移行を強制した</h3><p>{{インボイス・電帳法}}対応で、紙とExcel運用の継続コストが急騰。{{20万}}社が一斉に移行先を探しています。</p><div class="foot"><span class="n">20万</span><span>社が移行対象</span></div></div>
-      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div><div class="idx">02</div><h3>自動化コストが1/10に</h3><p>AI-OCRとLLMの推論コストが3年で1桁下がり、従来は採算が合わなかった{{消込}}の自動化が成立しました。</p><div class="foot"><span class="n">1/10</span><span>処理コスト（3年比）</span></div></div>
-      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div><div class="idx">03</div><h3>連携の土台が整った</h3><p>クラウド会計の普及率が{{60}}%を超え、銀行APIも開放。データ連携の摩擦が最小になっています。</p><div class="foot"><span class="n">60%</span><span>クラウド会計普及率</span></div></div>
+      <div class="card hero reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8M8 17h5"/></svg></div><div class="idx">01 ― 最大の追い風</div><h3>制度が、移行を強制した</h3><p>{{LIFE提出・ケアプランデータ連携}}の標準化で、紙とFAX運用の継続コストが急騰。{{25万}}事業所が一斉に移行先を探しています。</p><div class="foot"><span class="n">25万</span><span>事業所が移行対象</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div><div class="idx">02</div><h3>自動化コストが1/10に</h3><p>音声入力とLLMの推論コストが3年で1桁下がり、従来は採算が合わなかった{{記録・突合}}の自動化が成立しました。</p><div class="foot"><span class="n">1/10</span><span>処理コスト（3年比）</span></div></div>
+      <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div><div class="idx">03</div><h3>連携の土台が整った</h3><p>介護ソフトの普及率が{{60}}%を超え、国保連伝送もデジタル化。データ連携の摩擦が最小になっています。</p><div class="foot"><span class="n">60%</span><span>介護ソフト普及率</span></div></div>
     </div></div>
     <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span>3年前では早すぎ、3年後では手遅れ。<b>この18か月</b>が参入の窓です。</span></div>
     <div class="s-foot"><span class="pageno">05 / 10</span><span class="brandline">{{自社名}}</span></div>
@@ -452,35 +452,35 @@
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Business Model</div><div class="h2">使われるほど、<span class="u">積み上がる</span>収益</div>
-      <p class="subhead">誰から・何を・いつ受け取るかを1枚で。ユニットエコノミクスは回収8か月・LTV/CAC 4.5xと健全です。</p></div>
+      <p class="subhead">誰から・何を・いつ受け取るかを1枚で。ユニットエコノミクスは回収9か月・LTV/CAC 4.0xと健全です。</p></div>
     <div class="tag">05 / MODEL</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="chartcard reveal">
-        <div class="dghead"><span class="t">収益構造：お金と価値の流れ</span><span class="n">ARPU 10万円/月・粗利率 82%</span></div>
-        <svg class="fsvg" viewBox="0 0 560 240" role="img" aria-label="顧客から月額10万円、パートナーへ原価18%が流れるビジネスモデル図">
+        <div class="dghead"><span class="t">収益構造：お金と価値の流れ</span><span class="n">ARPU 6万円/月・粗利率 82%</span></div>
+        <svg class="fsvg" viewBox="0 0 560 240" role="img" aria-label="顧客から月額6万円、パートナーへ原価18%が流れるビジネスモデル図">
           <rect class="nd" x="0" y="88" width="118" height="64" rx="10"/>
           <rect x="221" y="88" width="118" height="64" rx="10" fill="var(--navy)"/>
           <rect class="nd" x="442" y="88" width="118" height="64" rx="10"/>
           <text class="nd-t" x="59" y="114" text-anchor="middle">顧客</text>
-          <text x="59" y="132" text-anchor="middle" style="font-size:10px;fill:var(--gray)">中堅・中小企業</text>
+          <text x="59" y="132" text-anchor="middle" style="font-size:10px;fill:var(--gray)">介護事業所（在宅系）</text>
           <text x="280" y="114" text-anchor="middle" style="font-family:var(--sans);font-size:13px;font-weight:700;fill:var(--white)">{{製品名}}</text>
           <text x="280" y="132" text-anchor="middle" style="font-size:10px;fill:rgba(255,255,255,.6)">SaaS</text>
           <text class="nd-t" x="501" y="114" text-anchor="middle">パートナー</text>
-          <text x="501" y="132" text-anchor="middle" style="font-size:10px;fill:var(--gray)">銀行API・会計ソフト</text>
+          <text x="501" y="132" text-anchor="middle" style="font-size:10px;fill:var(--gray)">国保連伝送・介護ソフト</text>
           <path d="M122 104 L207 104" stroke="var(--navy)" stroke-width="2"/>
           <path d="M207 100 l10 4 -10 4 z" fill="var(--navy)"/>
-          <text x="169" y="80" text-anchor="middle" style="font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--navy)">月額10万円</text>
+          <text x="169" y="80" text-anchor="middle" style="font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--navy)">月額6万円</text>
           <path d="M343 104 L428 104" stroke="var(--gray)" stroke-width="1.4"/>
           <path d="M428 100 l10 4 -10 4 z" fill="var(--gray)"/>
           <text x="390" y="80" text-anchor="middle" style="font-family:var(--mono);font-size:10.5px;fill:var(--graphite)">連携費＝原価18%</text>
           <path d="M217 136 L132 136" stroke="var(--silver)" stroke-width="1.4" stroke-dasharray="4 4"/>
           <path d="M132 132 l-10 4 10 4 z" fill="var(--silver)"/>
-          <text x="172" y="166" text-anchor="middle" style="font-size:10.5px;fill:var(--gray)">消込を自動化</text>
+          <text x="172" y="166" text-anchor="middle" style="font-size:10.5px;fill:var(--gray)">記録・請求を自動化</text>
           <path d="M438 136 L353 136" stroke="var(--silver)" stroke-width="1.4" stroke-dasharray="4 4"/>
           <path d="M353 132 l-10 4 10 4 z" fill="var(--silver)"/>
-          <text x="393" y="166" text-anchor="middle" style="font-size:10.5px;fill:var(--gray)">入金データ連携</text>
+          <text x="393" y="166" text-anchor="middle" style="font-size:10.5px;fill:var(--gray)">実績データ連携</text>
           <line x1="0" y1="196" x2="24" y2="196" stroke="var(--navy)" stroke-width="2"/>
           <text x="32" y="200" style="font-size:10px;fill:var(--graphite)">お金の流れ</text>
           <line x1="118" y1="196" x2="142" y2="196" stroke="var(--silver)" stroke-width="1.6" stroke-dasharray="4 4"/>
@@ -489,17 +489,17 @@
         </svg>
       </div>
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
-        <p class="lead" style="font-size:min(1.8vh,1.8vw)">1社あたり<b style="color:var(--navy)">月額10万円</b>のサブスクリプション。収益の予測可能性を最優先した設計です。</p>
+        <p class="lead" style="font-size:min(1.8vh,1.8vw)">1事業所あたり<b style="color:var(--navy)">月額6万円</b>のサブスクリプション。収益の予測可能性を最優先した設計です。</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:min(2.4vh,2.4vw) min(4vh,4vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm"><span class="count" data-to="4.5" data-dec="1">4.5</span><span class="unit">x</span></div><div class="kpi-l">LTV / CAC</div></div>
+          <div><div class="kpi sm"><span class="count" data-to="4.0" data-dec="1">4.0</span><span class="unit">x</span></div><div class="kpi-l">LTV / CAC</div></div>
           <div><div class="kpi sm">82<span class="unit">%</span></div><div class="kpi-l">粗利率</div></div>
-          <div><div class="kpi sm">8.0<span class="unit">か月</span></div><div class="kpi-l">CAC回収期間（CAC 66万円）</div></div>
-          <div><div class="kpi sm">1.2<span class="unit">%/月</span></div><div class="kpi-l">解約率</div></div>
+          <div><div class="kpi sm">9.0<span class="unit">か月</span></div><div class="kpi-l">CAC回収期間（CAC 44万円）</div></div>
+          <div><div class="kpi sm">1.0<span class="unit">%/月</span></div><div class="kpi-l">解約率</div></div>
         </div>
         <p class="lead" style="margin-top:min(2.2vh,2.2vw);font-size:min(1.45vh,1.45vw);color:var(--gray)">※LTVは36か月上限の保守算定（{{2026.06}}時点実績）。</p>
       </div>
     </div></div>
-    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>回収8か月</b>。1社獲得するごとに、9か月目から利益が積み上がります。</span></div>
+    <div class="takeaway"><span class="tk"><svg class="ic" viewBox="0 0 24 24" width="15" height="15" style="stroke-width:2.2"><path d="M9 6l6 6-6 6"/></svg></span><span><b>回収9か月</b>。1事業所獲得するごとに、10か月目から利益が積み上がります。</span></div>
     <div class="s-foot"><span class="pageno">06 / 10</span><span class="brandline">{{自社名}}</span></div>
   </div>
 </section>
@@ -515,7 +515,7 @@
     <div class="fillcenter"><div class="split">
       <div class="chartcard reveal">
         <div class="dghead"><span class="t">ポジショニング：主要な代替手段との比較</span><span class="n">軸＝顧客の購買基準</span></div>
-        <svg class="fsvg" viewBox="0 0 360 240" role="img" aria-label="手軽さと自動化深度の2軸で自社が右上を独占">
+        <svg class="fsvg" viewBox="0 0 360 240" role="img" aria-label="手軽さと請求自動化の深さの2軸で自社が右上を独占">
           <rect x="195" y="16" width="140" height="100" rx="10" fill="rgba(78,106,158,.06)" stroke="var(--steel)" stroke-width="1" stroke-dasharray="4 4"/>
           <text x="203" y="32" style="font-family:var(--display);font-size:9px;font-weight:600;letter-spacing:.14em;fill:var(--steel)">空白の象限</text>
           <line x1="28" y1="212" x2="334" y2="212" stroke="var(--silver)" stroke-width="1.5"/>
@@ -523,15 +523,15 @@
           <line x1="28" y1="212" x2="28" y2="20" stroke="var(--silver)" stroke-width="1.5"/>
           <path d="M24 20 l4 -10 4 10 z" fill="var(--silver)"/>
           <text x="186" y="234" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--graphite)">導入・運用の手軽さ →</text>
-          <text x="12" y="116" text-anchor="middle" transform="rotate(-90 12 116)" style="font-size:11px;font-weight:700;fill:var(--graphite)">{{消込自動化}}の深さ →</text>
+          <text x="12" y="116" text-anchor="middle" transform="rotate(-90 12 116)" style="font-size:11px;font-weight:700;fill:var(--graphite)">{{請求自動化}}の深さ →</text>
           <circle cx="95" cy="175" r="8" fill="var(--silver)" stroke="var(--gray)" stroke-width="1.2"/>
-          <text x="95" y="197" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">Excel・手作業</text>
+          <text x="95" y="197" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">紙・Excel運用</text>
           <circle cx="75" cy="72" r="8" fill="var(--silver)" stroke="var(--gray)" stroke-width="1.2"/>
-          <text x="75" y="94" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">BPO・代行</text>
+          <text x="75" y="94" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">請求代行・BPO</text>
           <circle cx="180" cy="140" r="8" fill="var(--silver)" stroke="var(--gray)" stroke-width="1.2"/>
-          <text x="180" y="162" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">会計ソフト大手</text>
+          <text x="180" y="162" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">介護ソフト大手</text>
           <circle cx="258" cy="168" r="8" fill="var(--silver)" stroke="var(--gray)" stroke-width="1.2"/>
-          <text x="258" y="190" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">銀行系ツール</text>
+          <text x="258" y="190" text-anchor="middle" style="font-size:10.5px;fill:var(--graphite)">単機能記録アプリ</text>
           <circle cx="265" cy="55" r="16" fill="none" stroke="var(--navy)" stroke-width="1.2" opacity=".35"/>
           <circle cx="265" cy="55" r="11" fill="var(--navy)"/>
           <text x="265" y="90" text-anchor="middle" style="font-size:12.5px;font-weight:700;fill:var(--navy)">{{製品名}}</text>
@@ -540,9 +540,9 @@
       <div class="reveal" style="--i:1;display:flex;flex-direction:column;justify-content:center">
         <h3 style="font-size:min(2.2vh,2.2vw);font-weight:700;color:var(--navy)">模倣されても勝ち続ける堀（MOAT）</h3>
         <ul class="checks" style="margin-top:min(2.4vh,2.4vw)">
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>独自データ</b>。{{800万}}件の照合データが判定精度を複利で高める。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>スイッチングコスト</b>。会計・銀行と深く連携し、置き換えの負担が大きい。</span></li>
-          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>先行の規制対応</b>。{{電帳法・インボイス}}要件の第三者認証を取得済み。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>独自データ</b>。{{1,200万}}件のケア記録×請求の突合データが返戻予測の精度を複利で高める。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>スイッチングコスト</b>。記録・シフト・請求が一体で蓄積し、置き換えの負担が大きい。</span></li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24" width="14" height="14" style="stroke-width:2.4"><path d="M5 12l5 5L20 6"/></svg></span><span><b>先行の規制対応</b>。{{LIFE・ケアプランデータ連携}}の標準仕様へ第三者検証済みで対応。</span></li>
         </ul>
       </div>
     </div></div>
@@ -551,39 +551,39 @@
   </div>
 </section>
 
-<!-- 08 TRACTION：主役=MoM +23%（極大）。MRR実数の右肩上がり -->
+<!-- 08 TRACTION：主役=MoM +20%（極大）。MRR実数の右肩上がり -->
 <section class="slide">
   <div class="s-head">
     <div><div class="eyebrow">Traction</div><div class="h2">PMFは、<span class="u">この曲線</span>が証明している</div>
-      <p class="subhead">口頭の手応えではなく数字で。MRRは6か月で3.4倍、解約率は月1.2%に収まっています。</p></div>
+      <p class="subhead">口頭の手応えではなく数字で。MRRは6か月で3.0倍、解約率は月1.0%に収まっています。</p></div>
     <div class="tag">07 / TRACTION</div>
   </div>
   <div class="s-body">
     <div class="fillcenter"><div class="split">
       <div class="reveal" style="display:flex;flex-direction:column;justify-content:center">
         <div>
-          <div class="kpi xl">+<span class="count" data-to="23">23</span><span class="unit">%</span></div>
+          <div class="kpi xl">+<span class="count" data-to="20">20</span><span class="unit">%</span></div>
           <div class="kpi-l" style="font-size:min(1.5vh,1.5vw)">MRR 月次成長率（直近6か月平均）</div>
         </div>
         <div style="display:flex;gap:min(3.4vh,3.4vw);margin-top:min(2.6vh,2.6vw);padding-top:min(2.2vh,2.2vw);border-top:1px solid var(--line)">
-          <div><div class="kpi sm">1,200<span class="unit">万円</span></div><div class="kpi-l">MRR（{{2026.06}}）</div></div>
-          <div><div class="kpi sm">120<span class="unit">社</span></div><div class="kpi-l">有料導入（ARPU 10万円）</div></div>
-          <div><div class="kpi sm">1.2<span class="unit">%</span></div><div class="kpi-l">月次解約率</div></div>
+          <div><div class="kpi sm">900<span class="unit">万円</span></div><div class="kpi-l">MRR（{{2026.06}}）</div></div>
+          <div><div class="kpi sm">150<span class="unit">事業所</span></div><div class="kpi-l">有料導入（ARPU 6万円）</div></div>
+          <div><div class="kpi sm">1.0<span class="unit">%</span></div><div class="kpi-l">月次解約率</div></div>
         </div>
         <p class="lead" style="margin-top:min(2.6vh,2.6vw);font-size:min(1.7vh,1.7vw)">累計DLのような虚栄指標は使いません。収益・成長率・継続——PMFを示す3つの数字だけをご覧ください。</p>
       </div>
       <div class="chartcard reveal" style="--i:1">
         <div class="dghead"><span class="t">MRRの推移</span><span class="n">単位：万円・月末時点</span></div>
-        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="MRRが6か月で350万円から1200万円に成長">
+        <svg class="csvg" viewBox="0 0 340 190" role="img" aria-label="MRRが6か月で300万円から900万円に成長">
           <line class="grid-l" x1="0" y1="48" x2="340" y2="48"/><line class="grid-l" x1="0" y1="96" x2="340" y2="96"/><line class="grid-l" x1="0" y1="144" x2="340" y2="144"/>
-          <path class="area" d="M0,155 L57,143 L113,129 L170,111 L227,89 L283,62 L340,30 L340,190 L0,190 Z"/>
-          <path class="draw" pathLength="1" d="M0,155 L57,143 L113,129 L170,111 L227,89 L283,62 L340,30"/>
+          <path class="area" d="M0,155 L57,143 L113,128 L170,110 L227,88 L283,62 L340,30 L340,190 L0,190 Z"/>
+          <path class="draw" pathLength="1" d="M0,155 L57,143 L113,128 L170,110 L227,88 L283,62 L340,30"/>
           <rect class="ann-bg" x="95" y="44" width="110" height="22" rx="11"/>
-          <text class="ann-t" x="150" y="59" text-anchor="middle">6か月で 3.4倍</text>
+          <text class="ann-t" x="150" y="59" text-anchor="middle">6か月で 3.0倍</text>
           <path class="lead-l" d="M150 70 L150 104"/>
-          <text class="axis-t" x="2" y="128">350万円</text>
-          <circle class="dot" cx="57" cy="143" r="4.5"/><circle class="dot" cx="113" cy="129" r="4.5"/><circle class="dot" cx="170" cy="111" r="4.5"/><circle class="dot" cx="227" cy="89" r="4.5"/><circle class="dot" cx="283" cy="62" r="4.5"/><circle class="dot key" cx="340" cy="30" r="5.5"/>
-          <text class="val-t" x="332" y="20" text-anchor="end">1,200万円</text>
+          <text class="axis-t" x="2" y="128">300万円</text>
+          <circle class="dot" cx="57" cy="143" r="4.5"/><circle class="dot" cx="113" cy="128" r="4.5"/><circle class="dot" cx="170" cy="110" r="4.5"/><circle class="dot" cx="227" cy="88" r="4.5"/><circle class="dot" cx="283" cy="62" r="4.5"/><circle class="dot key" cx="340" cy="30" r="5.5"/>
+          <text class="val-t" x="332" y="20" text-anchor="end">900万円</text>
         </svg>
         <div class="barx"><span>12月</span><span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span></div>
       </div>
@@ -602,13 +602,13 @@
   </div>
   <div class="s-body">
     <div class="fillcenter" style="gap:min(2.2vh,2.2vw)"><div class="grid g3">
-      <div class="card reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="idx">CEO ― 創業者</div><h3>{{氏名}}</h3><p>{{メガバンク}}で法人融資を8年。500社の中小企業に伴走し、{{入金消込}}に沈む現場を見続けてきた——この課題の当事者です。</p><div class="foot"><span class="n">500社</span><span>の現場を経験</span></div></div>
-      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div><div class="idx">CTO ― 共同創業者</div><h3>{{氏名}}</h3><p>{{大手決済SaaS}}で照合エンジンを開発。ゼロからのプロダクト立ち上げ3回。本製品の中核技術を自ら書いています。</p><div class="foot"><span class="n">3回</span><span>のゼロイチ立ち上げ</span></div></div>
+      <div class="card reveal"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="idx">CEO ― 創業者</div><h3>{{氏名}}</h3><p>{{大手介護チェーン}}で施設長・エリア統括を10年。30拠点の現場で、{{実績突合}}に沈む職員を見続けてきた——この課題の当事者です。</p><div class="foot"><span class="n">30拠点</span><span>の運営を経験</span></div></div>
+      <div class="card reveal" style="--i:1"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div><div class="idx">CTO ― 共同創業者</div><h3>{{氏名}}</h3><p>{{医療レセプトSaaS}}で審査エンジンを開発。ゼロからのプロダクト立ち上げ3回。本製品の中核技術を自ら書いています。</p><div class="foot"><span class="n">3回</span><span>のゼロイチ立ち上げ</span></div></div>
       <div class="card reveal" style="--i:2"><div class="ico"><svg class="ic" viewBox="0 0 24 24" width="26" height="26"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><div class="idx">COO</div><h3>{{氏名}}</h3><p>{{戦略ファーム}}を経て、SaaSスタートアップでシリーズB到達までの事業拡大を主導。営業と採用を統括します。</p><div class="foot"><span class="n">ARR10億</span><span>到達を経験</span></div></div>
     </div>
     <div class="load reveal" style="--i:3">
       <div class="lr" style="grid-template-columns:minmax(0,9em) 1fr">
-        <span class="ln">アドバイザー</span><span style="font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500">{{◯◯氏}}（{{上場SaaS 元CFO}}）　/　{{◯◯氏}}（{{税理士・会計領域の専門家}}）</span>
+        <span class="ln">アドバイザー</span><span style="font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500">{{◯◯氏}}（{{上場ケアテック 元CFO}}）　/　{{◯◯氏}}（{{主任ケアマネジャー・介護報酬の専門家}}）</span>
       </div>
       <div class="lr" style="grid-template-columns:minmax(0,9em) 1fr">
         <span class="ln">既存投資家</span><span style="font-size:min(1.45vh,1.45vw);color:var(--graphite);font-weight:500">{{◯◯ベンチャーズ}}（シードラウンド）　/　エンジェル{{2}}名</span>
@@ -624,10 +624,10 @@
   <div class="grid-bg"></div>
   <div style="position:relative;z-index:1">
     <p class="kick" style="color:var(--steel)">The Ask — {{Series A}}</p>
-    <h1 style="font-size:min(5vh,5vw);font-weight:700;line-height:1.24;margin-top:min(2vh,2vw)">18か月で、ARR 6億円へ。<br>そのための調達です。</h1>
+    <h1 style="font-size:min(5vh,5vw);font-weight:700;line-height:1.24;margin-top:min(2vh,2vw)">18か月で、ARR 4億円へ。<br>そのための調達です。</h1>
     <div style="display:flex;align-items:center;gap:min(6vh,6vw);margin-top:min(3.6vh,3.6vw)">
       <div style="flex:none">
-        <div class="kpi xl" style="color:#fff;font-size:min(7.6vh,7.6vw)">3<span class="unit" style="color:rgba(255,255,255,.55)">億円</span></div>
+        <div class="kpi xl" style="color:#fff;font-size:min(7.6vh,7.6vw)">2.5<span class="unit" style="color:rgba(255,255,255,.55)">億円</span></div>
         <div class="kpi-l" style="color:rgba(255,255,255,.6)">調達予定額（{{ラウンド}}・{{エクイティ}}）</div>
       </div>
       <div style="flex:1;min-width:0">
@@ -636,11 +636,11 @@
           <span class="mono" style="font-size:min(1.25vh,1.25vw);color:rgba(255,255,255,.55)">ランウェイ 18か月</span>
         </div>
         <div style="display:flex;height:min(5vh,5vw);border-radius:12px;overflow:hidden">
-          <div style="width:45%;background:var(--steel);display:flex;align-items:center;justify-content:center"><span class="mono" style="font-size:min(1.4vh,1.4vw);font-weight:600;color:#fff">プロダクト開発 45%</span></div>
+          <div style="width:40%;background:var(--steel);display:flex;align-items:center;justify-content:center"><span class="mono" style="font-size:min(1.4vh,1.4vw);font-weight:600;color:#fff">プロダクト開発 40%</span></div>
           <div style="width:35%;background:rgba(255,255,255,.24);display:flex;align-items:center;justify-content:center"><span class="mono" style="font-size:min(1.4vh,1.4vw);font-weight:600;color:#fff">セールス採用 35%</span></div>
-          <div style="width:20%;background:rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center"><span class="mono" style="font-size:min(1.4vh,1.4vw);font-weight:600;color:#fff">マーケ 20%</span></div>
+          <div style="width:25%;background:rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center"><span class="mono" style="font-size:min(1.4vh,1.4vw);font-weight:600;color:#fff">マーケ 25%</span></div>
         </div>
-        <p style="font-size:min(1.45vh,1.45vw);color:rgba(255,255,255,.6);margin-top:min(1.3vh,1.3vw);font-weight:500">エンジニア6名・セールス4名を採用し、ARR 6億円＝シリーズB基準へ。</p>
+        <p style="font-size:min(1.45vh,1.45vw);color:rgba(255,255,255,.6);margin-top:min(1.3vh,1.3vw);font-weight:500">エンジニア5名・セールス3名を採用し、ARR 4億円＝シリーズB基準へ。</p>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:min(3vh,3vw);margin-top:min(3.8vh,3.8vw)">

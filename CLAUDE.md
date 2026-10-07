@@ -11,7 +11,7 @@ POS「ポッキリ.Night」の導入時に店舗情報を集めるキット。�
 
 ## 資料作成(スライド・提案書・報告書)
 
-- 資料を作るときは、先に `docs/business_deck_templates.md` を読み、12用途から選んで `reference/business_deck_templates/by_industry/標準/` の標準版を土台にする(原本は直さずコピーして使う)
+- 資料を作るときは、先に `docs/business_deck_templates.md` を読み、業種(9フォルダ)と12用途から選んで `reference/business_deck_templates/by_industry/{業種}/` のHTMLを土台にする(原本は直さずコピーして使う)
 - 配色・部品・構成の型・作成手順は同文書に従う。業種版の取得方法も同文書の4章
 - 上の「ルール」(`spec/items.yaml` が唯一の正、文章ルール)は初期設定キットの成果物用。ビジネス資料テンプレートとは別系統
 
