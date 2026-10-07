@@ -7,7 +7,7 @@
 #
 # route:
 #   form     … ① 導入アンケート(section: S1〜S11)
-#   template … ② 記入テンプレート(theme: 1〜6)
+#   template … ② 記入テンプレート(theme: 1〜7)
 #   onsite   … ③ 対面訪問で扱う(chapter: 0〜13、onsite_note に扱い方)
 #   fixed    … 質問しない。default の値で固定
 #
@@ -94,6 +94,22 @@ themes:
       - 時給や本名・住所などの個人情報は送らないでください
       - 時給は訪問時に、お店の方がPOSへ入力します
     excel_notes: [時給や本名・住所などの個人情報は書かないでください]
+  # 個人別のバック率。基本は訪問時に店舗がPOSへ入力する(member_back)。LINEで先に送りたい店舗だけが使う
+  - id: 7
+    title: キャスト別バック
+    sheet: キャスト別バック
+    photo_ok: false
+    optional: true
+    line_notes:
+      - 基本は、訪問時にお店の方がPOSへ入力します
+      - 先に送る場合だけ、下の形で送ってください
+      - 時給や本名などの個人情報は送らないでください
+      - 全員が同じバックの種類は、書かなくて大丈夫です
+      - 単位は、店舗によって円か%を選べます
+    excel_notes:
+      - 基本は、訪問時にお店の方がPOSへ入力します
+      - 先に送る場合だけ、書いてください
+      - 時給や本名などの個人情報は書かないでください
 
 # ③ 対面レクチャーの章(スライドの中身は templates/slides/lecture.yaml)
 chapters:
@@ -1772,12 +1788,12 @@ items:
     theme: 5
     label: キャスト
     type: table
-    columns: [源氏名, ランク(あれば), 区分]
-    cells: [text, text, [在籍, 体験入店]]
+    columns: [源氏名, 読み仮名, ランク(あれば), 区分, 入店日(あれば)]
+    cells: [text, text, text, [在籍, 体験入店, 派遣, 日払い], text]
     examples:
-      - [ココ, レギュラー, 在籍]
-      - [りん, なし, 体験入店]
-    line: {format: [源氏名, ランク(あれば), 区分], examples: [[ココ, レギュラー, 在籍], [りん, なし, 体験入店]]}
+      - [ココ, ここ, レギュラー, 在籍, "2026-04-01"]
+      - [りん, りん, なし, 体験入店, "2026-10-01"]
+    line: {format: [源氏名, 読み仮名, ランク(あれば), 区分, 入店日(あれば)], examples: [[ココ, ここ, レギュラー, 在籍, "2026-04-01"], [りん, りん, なし, 体験入店, "2026-10-01"]]}
     source: {sample: roster, question: キャスト}
 
   - id: staff_roster
@@ -1785,13 +1801,27 @@ items:
     theme: 5
     label: スタッフ
     type: table
-    columns: [名前, 職種]
-    cells: [text, [ボーイ, キッチン, 店長, その他]]
+    columns: [名前, 読み仮名, 職種, 入店日(あれば)]
+    cells: [text, text, [ボーイ, キッチン, 店長, その他], text]
     examples:
-      - [山田, ボーイ]
-      - [田中, キッチン]
-    line: {format: [名前, 職種], examples: [[山田, ボーイ], [田中, キッチン]]}
+      - [山田, やまだ, ボーイ, "2026-04-01"]
+      - [田中, たなか, キッチン, "2026-06-15"]
+    line: {format: [名前, 読み仮名, 職種, 入店日(あれば)], examples: [[山田, やまだ, ボーイ, "2026-04-01"], [田中, たなか, キッチン, "2026-06-15"]]}
     source: {sample: roster, question: スタッフ}
+
+  # 個人別のバック率。POSのメンバー台帳「バック(個人ごと)」に入れる。LINEで先に送る店舗は、テーマ7を使う
+  - id: cast_back_table
+    route: template
+    theme: 7
+    label: キャストごとのバック
+    type: table
+    columns: [源氏名, バックの種類, 単位, 金額または率]
+    cells: [text, [セット, 延長, 指名, 担当卓の売上, ドリンク, ボトル, フード], [円, "%"], num]
+    examples:
+      - [ココ, 指名, 円, 1000]
+      - [ココ, ドリンク, "%", 20]
+    line: {format: [源氏名, バックの種類, 単位(円か%), 数字], examples: [[ココ, 指名, 円, 1000], [ココ, ドリンク, "%", 20]]}
+    source: {doc: "6章(個人別のバック率)"}
 
   - id: member_pay
     route: onsite
@@ -1808,6 +1838,14 @@ items:
     type: note
     onsite_note: キャスト本人が端末で入力し、身分証を提示する
     source: {sample: roster, question: 個人情報（本名・生年月日・電話・住所・給与振込口座・緊急連絡先・身分証明書の提出状況）は、すべて任意項目です。オーナー・店長だけが見られる欄に、あとからメンバーごとに個別入力します。}
+
+  - id: member_back
+    route: onsite
+    chapter: 11
+    label: バック率(キャストごと)
+    type: note
+    onsite_note: アンケートで「キャストごとに違う」とした種類を、店舗がPOSへ直接入力する。LINEで先に受け取った場合も、入力は店舗が行う
+    source: {doc: "6章(個人別のバック率)"}
 
   - id: member_withholding
     route: onsite
