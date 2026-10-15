@@ -6,6 +6,7 @@ ID は `.claude/agents/pos-sentinel.md` の表。
 ## 0. 本番作業とぶつからない確認
 
 - `mcp__github__list_pull_requests`(nightwork-pos, open)で開いている PR を数える。点検係は PR にコメントしない
+- 🔴 を直す前に、**同じ不具合の PR が無いか先に探す**(`list_pull_requests` の open を題名で見る。2026-10-15 に cron 修正の PR が 2 本並んだ #558・#559)。あれば自分では出さず、報告に「PR #N で対応中」と書く
 - nightwork-pos の作業ツリーに変更が無いこと: `git -C /home/user/nightwork-pos status --short` が空。空でなければ点検を止めて報告
 - クローンは `git fetch --depth 1 origin main && git checkout -q origin/main` で最新にする(push しない)
 
