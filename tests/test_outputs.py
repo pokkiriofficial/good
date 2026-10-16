@@ -46,7 +46,8 @@ def test_form_choices_offer_unknown(spec):
                 assert it.get("unknown_option") or it["id"] in NO_UNKNOWN, it["id"]
             assert UNKNOWN not in [str(o) for o in it.get("options", [])], it["id"]
             assert "任意" not in it["label"], it["id"]
-    assert any(UNKNOWN in f for f in form["form"]["facts"])
+    # 表紙で、まだ決まっていない項目の扱い(後ほど管理画面で設定できる)を伝える
+    assert any("まだ決まっていない" in f for f in form["form"]["facts"])
 
 
 def test_form_removed_questions(spec):
