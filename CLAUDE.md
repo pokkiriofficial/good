@@ -20,6 +20,7 @@ POS「ポッキリ.Night」の導入時に店舗情報を集めるキット。�
 - `scripts/build_templates.py` … ② LINEテキスト・Excel・確認ページ(テーマ7=キャスト別バックは任意)(`templates/line/`・`templates/excel/`・`templates/preview/`)
 - `scripts/build_slides.py` … ③ スライド(`templates/slides/lecture.yaml` → `slides/lecture.md`・`slides/checklist.md`)。`--exclude 9` で章を除外
 - `tests/` … pytest
+- `sentinel/` / `scripts/sentinel_static.py` / `.claude/agents/pos-sentinel.md` … POS 本体と本サイトの毎日点検係(読み取りだけ。nightwork-pos には書き込まない。手順は `sentinel/checklist.md`、報告は `sentinel/reports/`)
 
 ## POS への反映
 
