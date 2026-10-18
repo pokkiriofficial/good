@@ -146,22 +146,24 @@ def fig_overview(flow: dict) -> str:
 def fig_billing(flow: dict) -> str:
     ex, w, h = flow["billing_example"], 1200, 440
     months = ex["months"] + [ex["months"][-1] % 12 + 1]
-    x0, mw, rows_y = 250, 220, [230, 350]
+    x0, mw, rows_y = 250, 220, [215, 345]
     body = ""
-    # 無料の月の帯
-    fx = x0 + months.index(ex["free_month"]) * mw
-    body += f'<rect x="{fx}" y="70" width="{mw}" height="{h - 110}" rx="12" fill="{FREE_BG}"/>'
-    body += _t(fx + mw / 2, 100, "この月の月額は無料", 18, 700, STORE, "middle")
-    body += _t(fx + mw / 2, 124, "(実質1か月無料)", 18, 400, STORE, "middle")
     # 月の目盛り
     for i, m in enumerate(months):
         x = x0 + i * mw
-        body += f'<line x1="{x}" y1="150" x2="{x}" y2="{h - 50}" stroke="{LINE}" stroke-width="2"/>'
+        body += f'<line x1="{x}" y1="120" x2="{x}" y2="{h - 50}" stroke="{LINE}" stroke-width="2"/>'
         label = f"{m}月(導入月)" if m == ex["install_month"] else f"{m}月"
-        body += _t(x + mw / 2, 178, label, 24 if m != ex["install_month"] else 20, 700, INK, "middle")
-    body += _t(x0 + 50, 70 - 10, "▼ 導入日(月初でも月末でも同じ)", 16, 400, MUTED)
-    body += f'<line x1="{x0 + 50}" y1="70" x2="{x0 + 50}" y2="{h - 50}" stroke="{STORE}" stroke-width="2" stroke-dasharray="6 6"/>'
+        body += _t(x + mw / 2, 150, label, 20 if m == ex["install_month"] else 24, 700, INK, "middle")
+    body += _t(x0 + 50, 100, "▼ 導入日(月初でも月末でも同じ)", 16, 400, MUTED)
+    body += f'<line x1="{x0 + 50}" y1="106" x2="{x0 + 50}" y2="{h - 50}" stroke="{STORE}" stroke-width="2" stroke-dasharray="6 6"/>'
+    # 凡例
+    body += f'<rect x="{x0}" y="56" width="26" height="18" rx="4" fill="{FREE_BG}" stroke="{STORE}"/>'
+    body += _t(x0 + 36, 70, "月額が無料の月", 16, 400, STORE)
     for case, y in zip(ex["cases"], rows_y):
+        # その行で無料になる月の帯
+        fx = x0 + months.index(case["free_month"]) * mw
+        body += f'<rect x="{fx + 4}" y="{y - 45}" width="{mw - 8}" height="{112}" rx="10" fill="{FREE_BG}" stroke="{STORE}" stroke-width="1"/>'
+        body += _t(fx + mw / 2, y - 26, f"{case['free_month']}月分は無料", 16, 700, STORE, "middle")
         body += _lines(30, y - 6, case["label"].replace("(", "\n(").split("\n"), 20, INK)
         body += f'<line x1="{x0}" y1="{y}" x2="{x0 + mw * len(ex["months"])}" y2="{y}" stroke="{MUTED}" stroke-width="2"/>'
         for i, ch in enumerate(case["charges"]):
