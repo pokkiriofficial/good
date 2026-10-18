@@ -2,15 +2,18 @@
 
 社内と代理店が読む資料。簡潔でシンプルに、図解で流れがわかるようにする。
 
-使い方: python scripts/build_contract.py
+使い方: python scripts/build_contract.py [--site DIR]
   → docs/contract_flow.md          説明ドキュメント(Markdown)
   → docs/images/contract/*.svg     図解(ドキュメントとスライドで共用)
   → slides/contract.md             スライド(Marp。PDF・PPTXは Marp CLI で出力)
   → slides/contract.html           ブラウザで開けるスライド(印刷でPDFにできる)
+  --site DIR を付けると、URLで配る公開用ページ(DIR/index.html=ドキュメント、DIR/slides.html=スライド)も書き出す。
+  Vercel(チーム koku・プロジェクト pokkiri-night-contract、rootDirectory contract/site)で公開している
 """
 
 from __future__ import annotations
 
+import argparse
 from html import escape
 from pathlib import Path
 
@@ -22,6 +25,7 @@ OUT_DOC = ROOT / "docs" / "contract_flow.md"
 OUT_IMG = ROOT / "docs" / "images" / "contract"
 OUT_MARP = ROOT / "slides" / "contract.md"
 OUT_HTML = ROOT / "slides" / "contract.html"
+SITE_URL = "https://pokkiri-night-contract.vercel.app"
 
 # 配色は③レクチャー資料(build_slides.py)と同じ
 INK, LIGHT, SOFT, ACCENT, DARK, MUTED, LINE = "#1c2433", "#f3f6fb", "#e3eaf5", "#1f3a6b", "#14213b", "#5b6678", "#cfd8e6"
@@ -414,7 +418,7 @@ def _h_steps(steps: list[tuple]) -> str:
     return out + "</ol>"
 
 
-def html(flow: dict, figs: dict[str, str]) -> str:
+def html(flow: dict, figs: dict[str, str], doc_link: str = "") -> str:
     sections = []
     total = len(slides(flow))
     for n, sl in enumerate(slides(flow), 1):
@@ -482,23 +486,123 @@ pre {{ background: #fff; border: 1px solid var(--line); border-radius: 8px; padd
 .note {{ color: var(--muted); margin: 0; }}
 footer {{ position: absolute; left: 4cqw; right: 4cqw; bottom: 1.4cqw; display: flex; justify-content: space-between;
   font-size: 1.2cqw; color: var(--muted); }}
+nav.top {{ width: min(100%, 1280px); display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--muted); }}
+nav.top a {{ color: var(--accent); font-weight: 700; text-decoration: none; }}
 @media print {{
   @page {{ size: 1280px 720px; margin: 0; }}
   body {{ background: #fff; }}
   main {{ padding: 0; gap: 0; }}
+  nav.top {{ display: none; }}
   section {{ width: 1280px; border-radius: 0; page-break-after: always; break-after: page; }}
 }}
 """
+    nav = ""
+    if doc_link:
+        nav = (f'<nav class="top"><a href="{escape(doc_link)}">← ドキュメントを見る</a>'
+               f'<span>印刷(⌘P / Ctrl+P)でPDFにできます</span></nav>')
     return (f'<!doctype html><html lang="ja"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">'
-            f'<title>{escape(flow["title"])}</title><style>{css}</style></head>'
-            f'<body><main>{"".join(sections)}</main></body></html>\n')
+            f'<meta name="robots" content="noindex"><title>{escape(flow["title"])} スライド</title><style>{css}</style></head>'
+            f'<body><main>{nav}{"".join(sections)}</main></body></html>\n')
+
+
+# ── ドキュメント(HTML・公開用) ───────────────────────
+
+
+def _h_ol_steps(steps: list[dict]) -> str:
+    out = "<ol class=\"steps\">"
+    for st in steps:
+        out += f"<li><b>{escape(st['title'])}</b><p>{escape(st['detail'])}</p>"
+        if "members" in st:
+            out += f"<p>KOKU側の招待: {escape('・'.join(st['members']))}</p>"
+        if "url" in st:
+            out += f'<p><a href="{escape(st["url"])}">{escape(st["url"])}</a></p>'
+        if st.get("notes"):
+            out += _h_list(st["notes"])
+        out += "</li>"
+    return out + "</ol>"
+
+
+def doc_html(flow: dict, figs: dict[str, str], slides_link: str = "slides.html") -> str:
+    """ドキュメントを、スマホでも読める1枚のページにする(図はインライン SVG)。"""
+    initial, monthly = pricing_rows(flow)
+    ex = flow["billing_example"]
+    sec = []
+    sec.append("<h2>1. 全体の流れ</h2>" + f'<div class="fig">{figs["01_overview"]}</div>'
+               + _h_table(["段階", "誰が", "いつ", "すること"], [[s["title"], s["who"], s["day"], s["summary"]] for s in flow["overview"]]))
+    sec.append("<h2>2. 料金</h2><h3>初期費用</h3>" + _h_table(["区分", "金額"], initial)
+               + f'<p class="note">{escape(flow["pricing"]["initial"]["note"])}</p><h3>月額(先払い)</h3>' + _h_table(["プラン", "月額"], monthly))
+    sec.append("<h2>3. 請求のルール</h2>" + _h_list(flow["billing_rules"])
+               + f"<h3>例: {ex['install_month']}月に導入した場合</h3>" + f'<div class="fig">{figs["02_billing"]}</div>'
+               + _h_table(["請求日"] + [c["label"] for c in ex["cases"]], billing_rows(flow))
+               + f'<p class="point">{escape(ex["point"])}</p>')
+    sec.append("<h2>4. 契約時にやること(その場で)</h2>" + _h_ol_steps(flow["contract_steps"])
+               + "<h3>LINEグループに書いてもらう項目</h3><p>会社とお店の連絡先だけを書いてもらいます。キャストの個人情報は含めません。</p>"
+               + f"<pre>{escape(contract_info_text(flow))}</pre>")
+    sec.append("<h2>5. 契約日から導入日までのスケジュール</h2>" + f'<div class="fig">{figs["03_schedule"]}</div>'
+               + _h_table(["日", "誰が", "すること"], [[d["label"], d["who"], d["task"]] for d in flow["schedule"]["days"]])
+               + _h_list(flow["schedule"]["tips"]))
+    sec.append("<h2>6. 契約後にKOKU側がやること</h2>" + _h_ol_steps(flow["after_contract_steps"]))
+    sec.append(f"<h2>7. 導入日にやること({escape(flow['install']['duration'])})</h2>" + f'<div class="fig">{figs["04_install"]}</div>'
+               + _h_ol_steps(flow["install"]["steps"]))
+    sec.append("<h2>8. チェックリスト</h2>" + '<div class="cols">' + "".join(
+        f"<div><h3>{escape(phase)}</h3>{_h_list(items, check=True)}</div>" for phase, items in flow["checklist"].items()) + "</div>")
+    sec.append("<h2>9. 未決事項</h2>" + _h_list(flow["open_issues"]))
+    css = f"""
+:root {{ --ink:{INK}; --light:{LIGHT}; --soft:{SOFT}; --accent:{ACCENT}; --dark:{DARK}; --muted:{MUTED}; --line:{LINE}; --store:{STORE}; }}
+:root, html, body {{ color-scheme: light; }}
+* {{ box-sizing: border-box; }}
+html, body {{ margin: 0; background: var(--light); color: var(--ink); font-family: {FONT}; font-size: 16px; line-height: 1.7; }}
+header {{ background: var(--dark); color: #fff; padding: 40px 16px 32px; }}
+header .in, main {{ max-width: 880px; margin: 0 auto; }}
+header h1 {{ font-size: 26px; margin: 0 0 6px; }}
+header p {{ margin: 0; color: #b8c2d6; }}
+header a.btn {{ display: inline-block; margin-top: 18px; background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; min-height: 44px; line-height: 24px; }}
+main {{ padding: 8px 16px 64px; }}
+h2 {{ font-size: 21px; color: var(--accent); margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }}
+h3 {{ font-size: 17px; color: var(--accent); margin: 22px 0 8px; }}
+.fig {{ background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 8px; margin: 12px 0; overflow-x: auto; }}
+.fig svg {{ width: 100%; min-width: 640px; height: auto; display: block; }}
+table {{ border-collapse: collapse; width: 100%; background: #fff; margin: 8px 0 12px; font-size: 15px; }}
+th, td {{ border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }}
+th {{ background: var(--soft); white-space: nowrap; }}
+ul, ol {{ margin: 6px 0 12px; padding-left: 24px; }}
+li {{ margin: 4px 0; }}
+ol.steps > li {{ margin: 10px 0; }}
+ol.steps p {{ margin: 2px 0; }}
+ol.steps ul {{ color: var(--muted); font-size: 15px; }}
+ul.check {{ list-style: none; padding-left: 0; }}
+ul.check li::before {{ content: "□ "; color: var(--accent); font-weight: 700; }}
+.cols {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 24px; }}
+pre {{ background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-family: {FONT}; white-space: pre-wrap; font-size: 15px; }}
+.point {{ font-weight: 700; color: var(--store); }}
+.note {{ color: var(--muted); }}
+a {{ color: var(--accent); }}
+footer {{ text-align: center; color: var(--muted); font-size: 13px; padding: 24px 16px; }}
+"""
+    return (f'<!doctype html><html lang="ja"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1">'
+            f'<meta name="robots" content="noindex"><title>{escape(flow["title"])}</title><style>{css}</style></head>'
+            f'<body><header><div class="in"><h1>{escape(flow["title"])}</h1>'
+            f'<p>{escape(flow["subtitle"])}({escape(flow["audience"])})</p>'
+            f'<a class="btn" href="{escape(slides_link)}">スライド版を見る →</a></div></header>'
+            f'<main>{"".join(sec)}</main><footer>{escape(flow["company"])} / {escape(flow["title"])}</footer></body></html>\n')
 
 
 # ── 書き出し ──────────────────────────────────────
 
 
+def build_site(flow: dict, figs: dict[str, str], out: Path) -> None:
+    """URLで配る公開用ページ。index.html=ドキュメント、slides.html=スライド。"""
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(doc_html(flow, figs), encoding="utf-8")
+    (out / "slides.html").write_text(html(flow, figs, doc_link="./"), encoding="utf-8")
+
+
 def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--site", type=Path, help="公開用ページを書き出す場所(例: contract/site)")
+    args = ap.parse_args()
     flow = load_flow()
     figs = figures(flow)
     OUT_IMG.mkdir(parents=True, exist_ok=True)
@@ -509,6 +613,9 @@ def main() -> None:
     OUT_HTML.write_text(html(flow, figs), encoding="utf-8")
     print(f"{OUT_DOC.relative_to(ROOT)}, {OUT_MARP.relative_to(ROOT)}, {OUT_HTML.relative_to(ROOT)}, "
           f"{len(figs)} figures in {OUT_IMG.relative_to(ROOT)}/ ({len(slides(flow))} slides)")
+    if args.site:
+        build_site(flow, figs, args.site)
+        print(f"wrote site to {args.site} (index.html, slides.html)")
 
 
 if __name__ == "__main__":

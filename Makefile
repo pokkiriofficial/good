@@ -16,7 +16,7 @@ slides:
 	python3 scripts/build_slides.py
 
 contract:
-	python3 scripts/build_contract.py
+	python3 scripts/build_contract.py --site contract/site
 
 test:
 	python3 -m pytest -q

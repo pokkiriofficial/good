@@ -108,3 +108,18 @@ def test_html_embeds_figures_and_prints_one_slide_per_page(flow):
     assert html.count("<section") == len(build_contract.slides(flow))
     assert html.count("<svg ") == len(build_contract.FIGURES)
     assert "page-break-after: always" in html and 'lang="ja"' in html
+
+
+def test_site_pages_are_public_and_linked(flow, tmp_path):
+    figs = build_contract.figures(flow)
+    build_contract.build_site(flow, figs, tmp_path)
+    index = (tmp_path / "index.html").read_text(encoding="utf-8")
+    slides_html = (tmp_path / "slides.html").read_text(encoding="utf-8")
+    assert 'href="slides.html"' in index and 'href="./"' in slides_html
+    assert index.count("<svg ") == len(build_contract.FIGURES)
+    for h in ["1. 全体の流れ", "2. 料金", "3. 請求のルール", "8. チェックリスト", "9. 未決事項"]:
+        assert h in index, h
+    for page in (index, slides_html):
+        assert 'name="robots" content="noindex"' in page and 'lang="ja"' in page
+        for w in NO_VALUES:
+            assert w not in page, w

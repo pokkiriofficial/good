@@ -8,7 +8,7 @@
 | ① 導入アンケート | `form/preview/index.html`(Googleフォームの見た目のプレビュー) |
 | ② 記入テンプレート | `templates/line/*.txt`・`templates/excel/初期設定_記入シート.xlsx`・`templates/preview/index.html` |
 | ③ 対面レクチャー資料 | `slides/lecture.md`(Marp)・`slides/checklist.md` |
-| 契約フロー(社内・代理店向け) | `docs/contract_flow.md`・`slides/contract.md`(Marp)・`slides/contract.html` |
+| 契約フロー(社内・代理店向け) | `docs/contract_flow.md`・`slides/contract.md`(Marp)・`slides/contract.html`・公開用 `contract/site/`(https://pokkiri-night-contract.vercel.app) |
 
 ```sh
 pip install -r requirements.txt
