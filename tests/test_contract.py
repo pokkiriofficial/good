@@ -123,3 +123,23 @@ def test_site_pages_are_public_and_linked(flow, tmp_path):
         assert 'name="robots" content="noindex"' in page and 'lang="ja"' in page
         for w in NO_VALUES:
             assert w not in page, w
+
+
+def test_site_deck_page_lists_exported_images(flow, tmp_path):
+    # Canva から書き出した PNG と PDF を置くと、deck/ に画像のページができ、ドキュメントから辿れる
+    src = tmp_path / "deck"
+    src.mkdir()
+    for n in (2, 1):
+        (src / f"{n:04d}.png").write_bytes(b"png")
+    (src / "slides.pdf").write_bytes(b"pdf")
+    figs = build_contract.figures(flow)
+    build_contract.build_site(flow, figs, tmp_path / "site", deck_src=src)
+    deck = (tmp_path / "site" / "deck" / "index.html").read_text(encoding="utf-8")
+    assert deck.index('src="0001.png"') < deck.index('src="0002.png"')
+    assert 'href="slides.pdf"' in deck and 'href="../"' in deck
+    assert (tmp_path / "site" / "deck" / "0001.png").read_bytes() == b"png"
+    assert 'href="deck/"' in (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
+    # 置かなければ deck/ は作らず、リンクも出ない
+    build_contract.build_site(flow, figs, tmp_path / "site2", deck_src=tmp_path / "none")
+    assert not (tmp_path / "site2" / "deck").exists()
+    assert 'href="deck/"' not in (tmp_path / "site2" / "index.html").read_text(encoding="utf-8")

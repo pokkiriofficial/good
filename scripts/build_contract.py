@@ -8,12 +8,15 @@
   → slides/contract.md             スライド(Marp。PDF・PPTXは Marp CLI で出力)
   → slides/contract.html           ブラウザで開けるスライド(印刷でPDFにできる)
   --site DIR を付けると、URLで配る公開用ページ(DIR/index.html=ドキュメント、DIR/slides.html=スライド)も書き出す。
+  templates/contract/deck/ に Canva から書き出した PNG(1枚1ページ)と PDF を置くと、DIR/deck/ にコピーして
+  画像で見られるページ(DIR/deck/index.html)も書き出す。
   Vercel(チーム koku・プロジェクト pokkiri-night-contract、rootDirectory contract/site)で公開している
 """
 
 from __future__ import annotations
 
 import argparse
+import shutil
 from html import escape
 from pathlib import Path
 
@@ -26,6 +29,7 @@ OUT_IMG = ROOT / "docs" / "images" / "contract"
 OUT_MARP = ROOT / "slides" / "contract.md"
 OUT_HTML = ROOT / "slides" / "contract.html"
 SITE_URL = "https://pokkiri-night-contract.vercel.app"
+DECK_SRC = ROOT / "templates" / "contract" / "deck"
 
 # 配色は③レクチャー資料(build_slides.py)と同じ
 INK, LIGHT, SOFT, ACCENT, DARK, MUTED, LINE = "#1c2433", "#f3f6fb", "#e3eaf5", "#1f3a6b", "#14213b", "#5b6678", "#cfd8e6"
@@ -523,7 +527,7 @@ def _h_ol_steps(steps: list[dict]) -> str:
     return out + "</ol>"
 
 
-def doc_html(flow: dict, figs: dict[str, str], slides_link: str = "slides.html") -> str:
+def doc_html(flow: dict, figs: dict[str, str], slides_link: str = "slides.html", deck_link: str = "") -> str:
     """ドキュメントを、スマホでも読める1枚のページにする(図はインライン SVG)。"""
     initial, monthly = pricing_rows(flow)
     ex = flow["billing_example"]
@@ -557,7 +561,7 @@ header {{ background: var(--dark); color: #fff; padding: 40px 16px 32px; }}
 header .in, main {{ max-width: 880px; margin: 0 auto; }}
 header h1 {{ font-size: 26px; margin: 0 0 6px; }}
 header p {{ margin: 0; color: #b8c2d6; }}
-header a.btn {{ display: inline-block; margin-top: 18px; background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; min-height: 44px; line-height: 24px; }}
+header a.btn {{ display: inline-block; margin: 18px 12px 0 0; background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; min-height: 44px; line-height: 24px; }}
 main {{ padding: 8px 16px 64px; }}
 h2 {{ font-size: 21px; color: var(--accent); margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }}
 h3 {{ font-size: 17px; color: var(--accent); margin: 22px 0 8px; }}
@@ -585,18 +589,57 @@ footer {{ text-align: center; color: var(--muted); font-size: 13px; padding: 24p
             f'<meta name="robots" content="noindex"><title>{escape(flow["title"])}</title><style>{css}</style></head>'
             f'<body><header><div class="in"><h1>{escape(flow["title"])}</h1>'
             f'<p>{escape(flow["subtitle"])}({escape(flow["audience"])})</p>'
-            f'<a class="btn" href="{escape(slides_link)}">スライド版を見る →</a></div></header>'
+            f'<a class="btn" href="{escape(slides_link)}">スライド版を見る →</a>'
+            + (f'<a class="btn" href="{escape(deck_link)}">デザイン版スライドを見る →</a>' if deck_link else "")
+            + '</div></header>'
             f'<main>{"".join(sec)}</main><footer>{escape(flow["company"])} / {escape(flow["title"])}</footer></body></html>\n')
 
 
 # ── 書き出し ──────────────────────────────────────
 
 
-def build_site(flow: dict, figs: dict[str, str], out: Path) -> None:
-    """URLで配る公開用ページ。index.html=ドキュメント、slides.html=スライド。"""
+def deck_html(flow: dict, images: list[str], pdf: str | None) -> str:
+    """Canva から書き出したスライド画像を、上から順に並べて見るページ。"""
+    css = f"""
+:root, html, body {{ color-scheme: light; }}
+* {{ box-sizing: border-box; }}
+html, body {{ margin: 0; background: #d9dee8; font-family: {FONT}; color: {INK}; }}
+nav {{ max-width: 1280px; margin: 0 auto; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center;
+  font-size: 14px; color: {MUTED}; flex-wrap: wrap; gap: 8px; }}
+nav a {{ color: {ACCENT}; font-weight: 700; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }}
+main {{ max-width: 1280px; margin: 0 auto; padding: 0 16px 48px; display: flex; flex-direction: column; gap: 16px; }}
+img {{ width: 100%; height: auto; display: block; border-radius: 12px; background: #fff; }}
+@media print {{ body {{ background: #fff; }} nav {{ display: none; }} main {{ padding: 0; gap: 0; }}
+  img {{ border-radius: 0; page-break-after: always; break-after: page; }} }}
+"""
+    pdf_link = f'<a href="{escape(pdf)}" download>PDFをダウンロード</a>' if pdf else ""
+    body = "".join(f'<img src="{escape(i)}" alt="{escape(flow["title"])} {n}枚目" loading="lazy">'
+                   for n, i in enumerate(images, 1))
+    return (f'<!doctype html><html lang="ja"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1">'
+            f'<meta name="robots" content="noindex"><title>{escape(flow["title"])} スライド(デザイン版)</title>'
+            f'<style>{css}</style></head><body>'
+            f'<nav><a href="../">← ドキュメントを見る</a><span>{len(images)}枚</span>{pdf_link}</nav>'
+            f'<main>{body}</main></body></html>\n')
+
+
+def build_site(flow: dict, figs: dict[str, str], out: Path, deck_src: Path = DECK_SRC) -> None:
+    """URLで配る公開用ページ。index.html=ドキュメント、slides.html=スライド。
+
+    deck_src に PNG(1枚1ページ)と PDF があれば、out/deck/ にコピーして画像のページも書く。
+    """
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(doc_html(flow, figs), encoding="utf-8")
+    images = sorted(p.name for p in deck_src.glob("*.png")) if deck_src.is_dir() else []
+    pdfs = sorted(p.name for p in deck_src.glob("*.pdf")) if deck_src.is_dir() else []
+    deck_link = "deck/" if images else ""
+    (out / "index.html").write_text(doc_html(flow, figs, deck_link=deck_link), encoding="utf-8")
     (out / "slides.html").write_text(html(flow, figs, doc_link="./"), encoding="utf-8")
+    if images:
+        deck = out / "deck"
+        deck.mkdir(exist_ok=True)
+        for name in images + pdfs:
+            shutil.copyfile(deck_src / name, deck / name)
+        (deck / "index.html").write_text(deck_html(flow, images, pdfs[0] if pdfs else None), encoding="utf-8")
 
 
 def main() -> None:
@@ -615,7 +658,8 @@ def main() -> None:
           f"{len(figs)} figures in {OUT_IMG.relative_to(ROOT)}/ ({len(slides(flow))} slides)")
     if args.site:
         build_site(flow, figs, args.site)
-        print(f"wrote site to {args.site} (index.html, slides.html)")
+        deck = "deck/" if (args.site / "deck" / "index.html").exists() else ""
+        print(f"wrote site to {args.site} (index.html, slides.html{', ' + deck if deck else ''})")
 
 
 if __name__ == "__main__":
