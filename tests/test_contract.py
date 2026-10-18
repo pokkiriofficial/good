@@ -25,14 +25,17 @@ def test_pricing_is_as_agreed(flow):
     assert monthly == [["ライトプラン", "30,000円(税込)"], ["スタンダードプラン", "50,000円(税込)"]]
 
 
-def test_billing_example_is_prepaid_and_install_month_is_free(flow):
-    # 月額は先払い。導入月(10月)分の月額は請求しない。乗り換えは導入月の請求がない
+def test_billing_example_starts_two_months_after_install(flow):
+    # 月額は先払い。導入月(10月)は新規だけ初期費用、乗り換えは請求なし。
+    # 11月分は無料で、11月末に12月分から請求が始まる(新規も乗り換えも同じ)
     rows = build_contract.billing_rows(flow)
-    assert [r[0] for r in rows] == ["10月末", "11月末", "12月末"]
-    assert rows[0] == ["10月末", "初期費用・11月分の月額", "11月分の月額"]
-    assert rows[1][1] == rows[1][2] == "12月分の月額"
-    assert not any("10月分" in c for r in rows for c in r)
-    assert "無料" in flow["billing_example"]["point"]
+    assert rows == [["10月末", "初期費用", "請求なし"], ["11月末", "12月分の月額", "12月分の月額"],
+                    ["12月末", "1月分の月額", "1月分の月額"]]
+    assert not any("11月分" in c for r in rows for c in r)
+    ex = flow["billing_example"]
+    assert ex["free_month"] == ex["install_month"] + 1
+    assert "無料" in ex["point"] and "12月分" in ex["point"]
+    assert any("実質1か月無料" in r for r in flow["billing_rules"])
 
 
 def test_schedule_is_five_days_and_form_due_in_two(flow):

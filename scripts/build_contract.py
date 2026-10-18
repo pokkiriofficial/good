@@ -148,25 +148,32 @@ def fig_billing(flow: dict) -> str:
     months = ex["months"] + [ex["months"][-1] % 12 + 1]
     x0, mw, rows_y = 250, 220, [230, 350]
     body = ""
-    # 導入月の無料の帯
-    body += f'<rect x="{x0}" y="70" width="{mw}" height="{h - 110}" rx="12" fill="{FREE_BG}"/>'
-    body += _t(x0 + mw / 2, 100, "導入月", 18, 700, STORE, "middle")
-    body += _t(x0 + mw / 2, 124, "この月の月額は無料", 18, 400, STORE, "middle")
+    # 無料の月の帯
+    fx = x0 + months.index(ex["free_month"]) * mw
+    body += f'<rect x="{fx}" y="70" width="{mw}" height="{h - 110}" rx="12" fill="{FREE_BG}"/>'
+    body += _t(fx + mw / 2, 100, "この月の月額は無料", 18, 700, STORE, "middle")
+    body += _t(fx + mw / 2, 124, "(実質1か月無料)", 18, 400, STORE, "middle")
     # 月の目盛り
     for i, m in enumerate(months):
         x = x0 + i * mw
         body += f'<line x1="{x}" y1="150" x2="{x}" y2="{h - 50}" stroke="{LINE}" stroke-width="2"/>'
-        body += _t(x + mw / 2, 178, f"{m}月", 24, 700, INK, "middle")
-    body += _t(x0 + 50, 70 - 10, f"▼ 導入日(月初でも月末でも同じ)", 16, 400, MUTED)
+        label = f"{m}月(導入月)" if m == ex["install_month"] else f"{m}月"
+        body += _t(x + mw / 2, 178, label, 24 if m != ex["install_month"] else 20, 700, INK, "middle")
+    body += _t(x0 + 50, 70 - 10, "▼ 導入日(月初でも月末でも同じ)", 16, 400, MUTED)
     body += f'<line x1="{x0 + 50}" y1="70" x2="{x0 + 50}" y2="{h - 50}" stroke="{STORE}" stroke-width="2" stroke-dasharray="6 6"/>'
     for case, y in zip(ex["cases"], rows_y):
         body += _lines(30, y - 6, case["label"].replace("(", "\n(").split("\n"), 20, INK)
         body += f'<line x1="{x0}" y1="{y}" x2="{x0 + mw * len(ex["months"])}" y2="{y}" stroke="{MUTED}" stroke-width="2"/>'
         for i, ch in enumerate(case["charges"]):
             x = x0 + (i + 1) * mw
-            body += f'<circle cx="{x}" cy="{y}" r="11" fill="{ACCENT}"/>'
-            body += _t(x, y - 20, ch["when"], 16, 700, ACCENT, "middle")
-            body += _lines(x, y + 32, ch["items"], 16, INK, "middle", 1.35)
+            if ch["items"]:
+                body += f'<circle cx="{x}" cy="{y}" r="11" fill="{ACCENT}"/>'
+                body += _t(x, y - 20, ch["when"], 16, 700, ACCENT, "middle")
+                body += _lines(x, y + 32, ch["items"], 16, INK, "middle", 1.35)
+            else:
+                body += f'<circle cx="{x}" cy="{y}" r="10" fill="{LIGHT}" stroke="{MUTED}" stroke-width="2"/>'
+                body += _t(x, y - 20, ch["when"], 16, 400, MUTED, "middle")
+                body += _t(x, y + 32, "請求なし", 16, 400, MUTED, "middle")
     body += _t(w / 2, h - 14, ex["point"], 20, 700, STORE, "middle")
     return _svg(w, h, body, FIGURES["02_billing"])
 
@@ -219,7 +226,7 @@ def billing_rows(flow: dict) -> list[list[str]]:
     ex = flow["billing_example"]
     out = []
     for i, ch in enumerate(ex["cases"][0]["charges"]):
-        out.append([ch["when"]] + ["・".join(c["charges"][i]["items"]) for c in ex["cases"]])
+        out.append([ch["when"]] + ["・".join(c["charges"][i]["items"]) or "請求なし" for c in ex["cases"]])
     return out
 
 
