@@ -19,6 +19,7 @@ POS「ポッキリ.Night」の導入時に店舗情報を集めるキット。�
   - `--site form/site` で店舗に配る公開用ページも書き出す。Vercel(チーム koku・プロジェクト pokkiri-night-survey、rootDirectory `form/site`)で https://pokkiri-night-survey.vercel.app に公開している。変更後は push してから再デプロイする
 - `scripts/build_templates.py` … ② LINEテキスト・Excel・確認ページ(テーマ7=キャスト別バックは任意)(`templates/line/`・`templates/excel/`・`templates/preview/`)
 - `scripts/build_slides.py` … ③ スライド(`templates/slides/lecture.yaml` → `slides/lecture.md`・`slides/checklist.md`)。`--exclude 9` で章を除外
+- `scripts/build_contract.py` … 契約フロー資料(社内・代理店向け)(`templates/contract/flow.yaml` → `docs/contract_flow.md`・`docs/images/contract/*.svg`・`slides/contract.md`・`slides/contract.html`)。料金・請求の例・契約時/契約後/導入日の手順
 - `tests/` … pytest
 - `sentinel/` / `scripts/sentinel_static.py` / `.claude/agents/pos-sentinel.md` … POS 本体と本サイトの毎日点検係(読み取りだけ。nightwork-pos には書き込まない。手順は `sentinel/checklist.md`、報告は `sentinel/reports/`)
 

@@ -1,6 +1,6 @@
-.PHONY: all validate form templates slides test
+.PHONY: all validate form templates slides contract test
 
-all: validate form templates slides
+all: validate form templates slides contract
 
 validate:
 	python3 scripts/validate_items.py
@@ -14,6 +14,9 @@ templates:
 
 slides:
 	python3 scripts/build_slides.py
+
+contract:
+	python3 scripts/build_contract.py
 
 test:
 	python3 -m pytest -q
