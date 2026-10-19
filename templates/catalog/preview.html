@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>商品を検索して追加 ─ ポッキリ.Night 設定(試作)</title>
+<meta name="description" content="ポッキリ.Night の設定「メニュー」で、お酒の銘柄を検索して商品を追加する画面の試作。価格は店舗が入力する。">
+<style>
+  :root{
+    --page:#f3f4f6; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --faint:#9ca3af;
+    --line:#e5e7eb; --line-2:#d1d5db; --navy:#1e2a47; --navy-ink:#ffffff;
+    --accent:#f26a1b; --accent-dark:#d85a12; --accent-soft:#fff1e8; --accent-line:#f9c4a3;
+    --ok:#15803d; --ok-soft:#ecfdf3; --ok-line:#bbf7d0; --field:#f6f7f9;
+    --radius:12px; --radius-s:8px;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html,body{margin:0;background:var(--page);color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+    font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  button,input,select,textarea{font:inherit;color:inherit}
+  button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px 8px}
+  .top h1{font-size:18px;font-weight:700;margin:0}
+  .top .demo{font-size:12px;color:var(--muted);margin-left:12px;font-weight:400}
+  .top .close{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-weight:600;white-space:nowrap;flex:none}
+
+  .app{display:grid;grid-template-columns:220px minmax(0,1fr) minmax(0,1fr);gap:12px;padding:0 12px 12px;
+    height:calc(100dvh - 58px);min-height:560px}
+  .pane{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;min-height:0;overflow:hidden}
+
+  /* ── 左: 設定の目次(見本) ── */
+  .nav{padding:10px}
+  .nav button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;border-radius:10px;padding:10px 12px;color:var(--ink)}
+  .nav button .t{display:block;font-weight:600;font-size:14px}
+  .nav button .s{display:block;font-size:11px;color:var(--muted)}
+  .nav button.on{background:var(--navy);color:var(--navy-ink)}
+  .nav button.on .s{color:#cfd6e6}
+  .nav svg{width:20px;height:20px;flex:none}
+
+  /* ── 中央: 検索して追加 ── */
+  .head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 16px 10px}
+  .head h2{font-size:17px;font-weight:700;margin:0}
+  .btn{display:inline-flex;align-items:center;gap:6px;border-radius:10px;padding:9px 16px;font-weight:700;border:1.5px solid var(--line-2);background:var(--card);white-space:nowrap}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.primary:hover{background:var(--accent-dark)}
+  .btn.outline{border-color:var(--accent);color:var(--accent)}
+  .btn.outline:hover{background:var(--accent-soft)}
+  .btn.done{background:var(--field);border-color:var(--line);color:var(--ink)}
+  .btn.manual{border-color:var(--navy);color:var(--navy);background:#fff}
+  .btn.manual:hover{background:#eef1f7}
+  .btn svg{width:16px;height:16px}
+  .search{position:relative;margin:0 16px}
+  .search input{width:100%;background:var(--field);border:1.5px solid var(--line);border-radius:10px;padding:13px 44px 13px 44px;font-size:17px}
+  .search input:focus{border-color:var(--accent);background:#fff;outline:none}
+  .search .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--muted)}
+  .search .clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:none;width:32px;height:32px;border-radius:50%;color:var(--muted);font-size:20px;line-height:1}
+  .search .clear:hover{background:var(--line)}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px 4px;scrollbar-width:thin}
+  .chip{flex:none;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line-2);background:#fff;border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px;white-space:nowrap}
+  .chip svg{width:15px;height:15px}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .chip .n{font-weight:400;color:var(--muted);font-size:12px}
+  .chip.on .n{color:#cfd6e6}
+  .meta{display:flex;gap:12px;align-items:baseline;padding:8px 16px 6px;font-size:12px;color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:700}
+  .list{flex:1;overflow-y:auto;padding:4px 16px 12px;display:flex;flex-direction:column;gap:8px;scroll-padding-top:8px}
+  .row{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:var(--radius);padding:8px 10px 8px 8px;background:#fff;text-align:left;width:100%}
+  .row:hover{border-color:var(--line-2)}
+  .row.sel{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink) inset}
+  .row.added{background:#fafafa}
+  .ic{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;background:var(--field)}
+  .ic svg{width:34px;height:34px}
+  .row .name{font-size:16px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+  .row .sub{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);margin-top:2px;flex-wrap:wrap}
+  .kind{display:inline-block;border:1px solid var(--line-2);border-radius:999px;padding:0 8px;font-size:11px;line-height:18px;color:var(--muted);background:#fff}
+  .kind.bottle{border-color:#c7d2e3;color:#3b4d6b;background:#f0f4fa}
+  .row .price{font-weight:700;font-size:15px;margin-right:4px}
+  .row .right{display:flex;align-items:center;gap:12px}
+  mark{background:none;color:var(--accent);font-weight:700}
+  .empty{margin:12px 0;padding:22px 16px;border:1.5px dashed var(--line-2);border-radius:var(--radius);text-align:center;color:var(--muted)}
+  .empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:6px}
+  .empty .btn{margin-top:12px}
+  .more{align-self:center;background:none;border:0;color:var(--accent);font-weight:700;padding:8px}
+  .toast{margin:0 16px 12px;padding:10px 14px;border-radius:10px;background:var(--ok-soft);border:1px solid var(--ok-line);color:var(--ok);font-weight:600;display:flex;align-items:center;gap:8px}
+  .toast svg{width:18px;height:18px}
+  .toast[hidden]{display:none}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;border-top:1px solid var(--line);font-size:13px}
+  .foot .btn{padding:7px 12px;font-size:13px}
+
+  /* ── 右: 商品の設定 ── */
+  .dhead{padding:16px 16px 10px;border-bottom:1px solid var(--line)}
+  .dhead h2{font-size:17px;font-weight:700;margin:0}
+  .dbody{flex:1;overflow-y:auto;padding:12px 16px 16px}
+  .dbody .cat{font-size:12px;color:var(--muted);margin-bottom:10px}
+  .lbl{display:block;font-size:12px;color:var(--muted);margin:14px 0 6px}
+  .lbl:first-child{margin-top:0}
+  .lbl .req{color:var(--accent);font-weight:700;margin-left:4px}
+  .fld{width:100%;background:var(--field);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:16px}
+  .fld:focus{border-color:var(--accent);background:#fff;outline:none}
+  .fld.err{border-color:#dc2626;background:#fef2f2}
+  .hint{font-size:12px;color:var(--muted);margin-top:6px}
+  .hint.err{color:#dc2626;font-weight:600}
+  .yen{position:relative}
+  .yen .fld{padding-left:34px}
+  .yen::before{content:"¥";position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:700}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .seg button{border:1.5px solid var(--line-2);background:#fff;border-radius:10px;padding:12px;font-weight:700}
+  .seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .seg4{grid-template-columns:repeat(4,1fr)}
+  .sw{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin-top:8px;background:#fff}
+  .sw .t{font-weight:700}
+  .sw .s{font-size:12px;color:var(--muted)}
+  .tog{width:46px;height:26px;border-radius:999px;background:var(--line-2);border:0;position:relative;flex:none;transition:background .15s}
+  .tog::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .15s}
+  .tog[aria-checked="true"]{background:var(--accent)}
+  .tog[aria-checked="true"]::after{left:23px}
+  .vars{display:flex;flex-direction:column;gap:8px}
+  .var{display:grid;grid-template-columns:minmax(0,1fr) 120px 32px;gap:8px;align-items:center}
+  .var .fld{padding:9px 12px;font-size:14px}
+  .var .x{border:0;background:none;color:var(--muted);font-size:18px}
+  .dfoot{padding:12px 16px;border-top:1px solid var(--line);display:flex;gap:10px}
+  .dfoot .btn{flex:1;justify-content:center;padding:14px;font-size:16px}
+  .placeholder{flex:1;display:grid;place-items:center;text-align:center;color:var(--muted);padding:24px}
+  .placeholder b{display:block;color:var(--ink);margin-bottom:6px;font-size:15px}
+  .placeholder svg{width:48px;height:48px;margin:0 auto 10px;color:var(--faint)}
+
+  /* ── 狭い画面(iPad 縦・スマホ) ── */
+  @media (max-width:1100px){
+    .app{grid-template-columns:72px minmax(0,1fr) minmax(0,1fr)}
+    .nav button .s{display:none}.nav button .t{display:none}.nav button{justify-content:center;padding:12px 0}
+  }
+  @media (max-width:800px){
+    .app{grid-template-columns:minmax(0,1fr);height:auto;min-height:0;padding:0 16px 16px}
+    .nav{display:none}
+    .pane.center{height:calc(100dvh - 70px);min-height:520px}
+    .pane.detail{position:fixed;inset:auto 0 0 0;max-height:88dvh;border-radius:16px 16px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.18);z-index:5;transform:translateY(105%);transition:transform .2s}
+    .pane.detail.open{transform:none}
+    .dhead{display:flex;align-items:center;justify-content:space-between}
+    .dhead .back{display:inline-flex}
+    .row{grid-template-columns:48px minmax(0,1fr) auto}
+    .ic{width:48px;height:48px}.ic svg{width:30px;height:30px}
+    .row .name{font-size:15px}
+    .row .grp{display:none}
+    .top .demo{display:none}
+    .var{grid-template-columns:minmax(0,1fr) 96px 28px}
+  }
+  .dhead .back{display:none;border:0;background:none;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <g id="i-champagne" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4v5c2 1.2 2.6 2.6 2.6 5V20a1.5 1.5 0 0 1-1.5 1.5H8.9A1.5 1.5 0 0 1 7.4 20v-7.5c0-2.4.6-3.8 2.6-5z"/><path d="M9.5 5.5h5" /><path d="M8 14h8"/><path d="M17.5 4.5l1-1M19 7h1.5M17.5 9.5l1 1"/></g>
+    <g id="i-sparkling" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.5h6l-.6 8.5a2.4 2.4 0 0 1-4.8 0z"/><path d="M12 13.5V20M8.5 21h7"/><circle cx="11" cy="6" r=".5"/><circle cx="13.3" cy="8.2" r=".5"/><circle cx="12.2" cy="4.2" r=".5"/></g>
+    <g id="i-wine" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 2.5h9l-.3 6a4.2 4.2 0 0 1-8.4 0z"/><path d="M12 12.7V20M8 21h8"/><path d="M8 7.2h8"/></g>
+    <g id="i-whisky" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 5h13l-1 14.5a1.5 1.5 0 0 1-1.5 1.5H8a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M6.2 12h11.6"/><rect x="8.5" y="13.5" width="3.2" height="3.2" rx=".6"/><rect x="12.5" y="14.5" width="3.2" height="3.2" rx=".6"/></g>
+    <g id="i-brandy" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5c0 3.2-2.2 5.3-4.6 5.9V18H16v2H8v-2h2.6v-3.6C8.2 13.8 6 11.7 6 8.5z"/><path d="M6.6 10.5h10.8"/></g>
+    <g id="i-shochu" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5h4v3.2l2.2 2.3V20a1.5 1.5 0 0 1-1.5 1.5H9.3A1.5 1.5 0 0 1 7.8 20V8l2.2-2.3z"/><rect x="9.3" y="11" width="5.4" height="6" rx=".6"/></g>
+    <g id="i-sake" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h3.5v3.2C13.4 7.6 14.3 9.5 14.3 12v6.5A1.5 1.5 0 0 1 12.8 20H6.7a1.5 1.5 0 0 1-1.5-1.5V12c0-2.5.9-4.4 2.8-5.8z"/><path d="M16.5 15h4.5l-.6 4.2a1 1 0 0 1-1 .8h-1.3a1 1 0 0 1-1-.8z"/></g>
+    <g id="i-umeshu" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v2.5H8z"/><path d="M7 5.5h10v12a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3z"/><circle cx="12" cy="13" r="2.6"/></g>
+    <g id="i-tequila" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5h3.5v4.2c1.9.9 2.6 2.5 2.6 4.3V20a1.5 1.5 0 0 1-1.5 1.5H8.4A1.5 1.5 0 0 1 6.9 20v-9c0-1.8.7-3.4 2.6-4.3z"/><path d="M17.5 13.5a3 3 0 0 1 3 3h-3z"/><path d="M8.3 15.5h5.4"/></g>
+    <g id="i-spirits" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.2 2.5h3.6v5.2l1.4 1.6V20a1.5 1.5 0 0 1-1.5 1.5h-3.4A1.5 1.5 0 0 1 8.8 20V9.3l1.4-1.6z"/><path d="M9.3 12h5.4M9.3 16.5h5.4"/></g>
+    <g id="i-liqueur" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 2.5h3v4.3c2.6 1 4.3 3.2 4.3 6.1 0 4-2.8 6.6-5.8 6.6s-5.8-2.6-5.8-6.6c0-2.9 1.7-5.1 4.3-6.1z"/><path d="M8 13.5h8"/><path d="M9 21.5h6"/></g>
+    <g id="i-beer" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h10v12.5a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1z"/><path d="M16.5 10.5h2a1.8 1.8 0 0 1 1.8 1.8v3.4a1.8 1.8 0 0 1-1.8 1.8h-2"/><path d="M6.3 8a2.6 2.6 0 0 1 1.5-4.6 3 3 0 0 1 5.6-.3 2.6 2.6 0 0 1 3.3 4.9"/><path d="M9.5 11.5v7M13.5 11.5v7"/></g>
+    <g id="i-sour" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10l-1.2 16a1.2 1.2 0 0 1-1.2 1.1H9.4a1.2 1.2 0 0 1-1.2-1.1z"/><path d="M7.6 11h8.8"/><circle cx="16.2" cy="6.2" r="2.6"/><path d="M16.2 3.6v5.2M13.6 6.2h5.2"/></g>
+    <g id="i-highball" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1.2 17a1.2 1.2 0 0 1-1.2 1.1H9.4a1.2 1.2 0 0 1-1.2-1.1z"/><path d="M7.5 9h9"/><circle cx="10.5" cy="13" r=".6"/><circle cx="13.3" cy="15.5" r=".6"/><circle cx="11.3" cy="17.8" r=".6"/></g>
+    <g id="i-cocktail" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4h15L12 12.5z"/><path d="M12 12.5V20M8 20.5h8"/><path d="M6.6 6.5h10.8"/><circle cx="17.5" cy="4" r="1.6"/></g>
+    <g id="i-shot" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 6h10l-1.4 13.2a1.5 1.5 0 0 1-1.5 1.3H9.9a1.5 1.5 0 0 1-1.5-1.3z"/><path d="M7.8 14h8.4"/></g>
+    <g id="i-soft" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5h10l-1.2 15a1.2 1.2 0 0 1-1.2 1.1H9.4a1.2 1.2 0 0 1-1.2-1.1z"/><path d="M12.5 5l3-3"/><path d="M7.6 11.5h8.8"/></g>
+    <g id="i-mixer" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="8" height="8" rx="1.2"/><rect x="11" y="13" width="8" height="8" rx="1.2"/><path d="M16 3.5s2.5 2.8 2.5 4.3a2.5 2.5 0 0 1-5 0C13.5 6.3 16 3.5 16 3.5z"/></g>
+    <g id="i-food" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.2"/><path d="M3 12h1.5M19.5 12H21"/></g>
+    <g id="i-other" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></g>
+    <g id="i-search" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></g>
+    <g id="i-plus" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+    <g id="i-pen" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0L4 16z"/><path d="M13 7l4 4"/></g>
+    <g id="i-list" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 7h14M5 12h14M5 17h9"/></g>
+    <g id="i-tag" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5V4.5a1 1 0 0 1 1-1h8l8 8-8 8z"/><circle cx="8" cy="8" r="1.2"/></g>
+    <g id="i-yen" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></g>
+    <g id="i-clock" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g>
+    <g id="i-person" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></g>
+    <g id="i-percent" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 19L19 5"/><circle cx="7" cy="7" r="2.3"/><circle cx="17" cy="17" r="2.3"/></g>
+    <g id="i-round" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/></g>
+    <g id="i-printer" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="1.5"/><path d="M7 14h10v6H7z"/></g>
+    <g id="i-doc" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></g>
+    <g id="i-nav" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></g>
+    <g id="i-menu" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4l6 6M11 4L5 10"/><path d="M8 7l11 11"/><path d="M19 5l-5 5"/></g>
+  </defs>
+</svg>
+
+<header class="top">
+  <h1>設定 <span class="demo">試作 ─ 商品を検索して追加(価格は店舗が入力)</span></h1>
+  <button class="close" type="button">閉じる</button>
+</header>
+
+<main class="app">
+  <!-- 左: 設定の目次(見本。押しても動かない) -->
+  <aside class="pane nav" aria-label="設定の目次(見本)">
+    <button type="button"><svg><use href="#i-nav"/></svg><span><span class="t">テーブル(卓)</span><span class="s">卓の名前</span></span></button>
+    <button type="button" class="on" aria-current="page"><svg><use href="#i-menu"/></svg><span><span class="t">メニュー</span><span class="s">商品の追加・価格</span></span></button>
+    <button type="button"><svg><use href="#i-list"/></svg><span><span class="t">コース</span><span class="s">コース名と金額</span></span></button>
+    <button type="button"><svg><use href="#i-tag"/></svg><span><span class="t">流入経路</span><span class="s">タグ名の追加</span></span></button>
+    <button type="button"><svg><use href="#i-yen"/></svg><span><span class="t">セット料金</span><span class="s">基本料金</span></span></button>
+    <button type="button"><svg><use href="#i-clock"/></svg><span><span class="t">セット時間</span><span class="s">延長の料金</span></span></button>
+    <button type="button"><svg><use href="#i-person"/></svg><span><span class="t">指名料</span><span class="s">担当料金とバック</span></span></button>
+    <button type="button"><svg><use href="#i-percent"/></svg><span><span class="t">料率</span><span class="s">サービス料・税</span></span></button>
+    <button type="button"><svg><use href="#i-round"/></svg><span><span class="t">端数計算</span><span class="s">端数</span></span></button>
+    <button type="button"><svg><use href="#i-printer"/></svg><span><span class="t">プリンター</span><span class="s">印刷の設定</span></span></button>
+    <button type="button"><svg><use href="#i-doc"/></svg><span><span class="t">その他</span><span class="s">申し送り・店舗情報</span></span></button>
+  </aside>
+
+  <!-- 中央: 検索して追加 -->
+  <section class="pane center" aria-label="商品を検索して追加">
+    <div class="head">
+      <h2>商品を検索して追加</h2>
+      <button type="button" class="btn manual" id="manualBtn" title="検索に出ない商品を、カテゴリーと名前から自分で入れる"><svg><use href="#i-pen"/></svg>入力</button>
+    </div>
+    <div class="search">
+      <svg class="ico"><use href="#i-search"/></svg>
+      <input id="q" type="search" placeholder="商品名で検索(例: ハイ、どんぺり、鏡月)" autocomplete="off" enterkeyhint="search" aria-label="商品名で検索">
+      <button type="button" class="clear" id="clearBtn" aria-label="検索を消す" hidden>×</button>
+    </div>
+    <div class="chips" id="chips" role="tablist" aria-label="ジャンル"></div>
+    <div class="meta" id="meta"></div>
+    <div class="list" id="list" role="list"></div>
+    <div class="toast" id="toast" hidden><svg><use href="#i-check"/></svg><span id="toastText"></span></div>
+    <div class="foot">
+      <span id="addedCount">追加した商品 0件</span>
+      <span style="display:flex;gap:8px">
+        <button type="button" class="btn" id="copyBtn" title="POS の運営コンソール「メニュー貼り付け」に貼る文章">文章をコピー</button>
+        <button type="button" class="btn" id="resetBtn">追加をすべて消す</button>
+      </span>
+    </div>
+  </section>
+
+  <!-- 右: 商品の設定 -->
+  <section class="pane detail" id="detail" aria-label="商品の設定">
+    <div class="dhead">
+      <h2 id="dtitle">商品の設定</h2>
+      <button type="button" class="back" id="backBtn">← 一覧に戻る</button>
+    </div>
+    <div class="placeholder" id="ph">
+      <div><svg><use href="#i-search"/></svg><b>商品を選ぶと、ここに設定が出ます</b>価格は、お店の値段を入力してください。<br>検索に出ない商品は、右上の「入力」から足せます。</div>
+    </div>
+    <form class="dbody" id="form" hidden novalidate>
+      <div id="catBlock"></div>
+      <label class="lbl" for="fName">商品名<span class="req">必須</span></label>
+      <input class="fld" id="fName" type="text" autocomplete="off" placeholder="例: ハイボール">
+      <label class="lbl" for="fPrice">商品価格<span class="req">必須</span></label>
+      <div class="yen"><input class="fld" id="fPrice" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="お店の値段を数字で(例: 900)"></div>
+      <div class="hint" id="priceHint">カンマは不要です。税込・税抜は「料率」の設定にそろいます。</div>
+      <label class="lbl" for="fSub">小計価格<span style="font-weight:400">(空なら商品価格と同じ)</span></label>
+      <div class="yen"><input class="fld" id="fSub" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="空のままで大丈夫です"></div>
+      <span class="lbl">種類(無ければ空のままで大丈夫です)</span>
+      <div class="vars" id="vars"></div>
+      <button type="button" class="btn" id="addVar" style="margin-top:8px"><svg><use href="#i-plus"/></svg>種類を足す</button>
+      <span class="lbl">税区分</span>
+      <div class="seg" id="tax">
+        <button type="button" data-v="standard" class="on">標準税率</button>
+        <button type="button" data-v="reduced">軽減税率</button>
+      </div>
+      <div class="sw"><span><span class="t">キャストドリンク</span><br><span class="s">キャストに付くドリンク(バックの対象にできます)</span></span><button type="button" class="tog" role="switch" aria-checked="false" id="swCast" aria-label="キャストドリンク"></button></div>
+      <div class="sw"><span><span class="t">ボトルキープ対象</span></span><button type="button" class="tog" role="switch" aria-checked="false" id="swKeep" aria-label="ボトルキープ対象"></button></div>
+      <div class="sw"><span><span class="t">時価(注文画面で金額を出さない)</span><br><span class="s">会計は商品価格で計算されます</span></span><button type="button" class="tog" role="switch" aria-checked="false" id="swMasked" aria-label="時価"></button></div>
+      <label class="lbl" for="fNote">メモ(表示専用・会計には影響しません)</label>
+      <textarea class="fld" id="fNote" rows="2" placeholder="例: 2本目から割引"></textarea>
+    </form>
+    <div class="dfoot" id="dfoot" hidden>
+      <button type="button" class="btn" id="removeBtn" hidden>追加を取り消す</button>
+      <button type="button" class="btn primary" id="saveBtn">保存する</button>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  const CATALOG = /*__CATALOG_JSON__*/null;
+  const $ = (id) => document.getElementById(id);
+  const catById = Object.fromEntries(CATALOG.categories.map(c => [c.id, c]));
+  const KIND_LABEL = Object.fromEntries(CATALOG.kinds.map(k => [k.code, k.label]));
+  const STORE_KEY = "pokkiri.catalog.added.v1";
+
+  // ── 状態 ──
+  const state = { q: "", cat: "all", shown: 120, added: loadAdded(), sel: null };
+  // sel = { source: "catalog"|"manual", item?, draft:{...} }
+
+  function loadAdded(){ try{ const v = JSON.parse(localStorage.getItem(STORE_KEY) || "[]"); return Array.isArray(v) ? v : []; }catch(e){ return []; } }
+  function saveAdded(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state.added)); }catch(e){} }
+  const addedOf = (id) => state.added.find(a => a.itemId === id);
+
+  // ── 検索の正規化(build_catalog.py の normalize と同じ考え方) ──
+  const SEP = /[\s・･\-‐−–—_/()（）.,'’&]/;
+  function normChar(ch){
+    let s = ch.normalize("NFKC").toLowerCase();
+    return s.replace(/[ァ-ヶ]/g, k => String.fromCharCode(k.charCodeAt(0) - 0x60));
+  }
+  function norm(text){ let out = ""; for (const ch of String(text)) { if (!SEP.test(ch)) out += normChar(ch); } return out; }
+  // 名前の中で一致した範囲を返す(元の文字位置)
+  function matchRange(name, nq){
+    if (!nq) return null;
+    const chars = [...name]; const map = []; let s = "";
+    chars.forEach((ch, i) => { if (SEP.test(ch)) return; const n = normChar(ch); for (const _ of n) { s += _; map.push(i); } });
+    const at = s.indexOf(nq); if (at < 0) return null;
+    return [map[at], map[at + nq.length - 1] + 1];
+  }
+  function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+  function highlight(name, nq){
+    const r = matchRange(name, nq); if (!r) return esc(name);
+    const ch = [...name];
+    return esc(ch.slice(0, r[0]).join("")) + "<mark>" + esc(ch.slice(r[0], r[1]).join("")) + "</mark>" + esc(ch.slice(r[1]).join(""));
+  }
+  const yen = (n) => "¥" + Number(n).toLocaleString("ja-JP");
+
+  // ── ジャンルのチップ ──
+  function renderChips(){
+    const chips = [{id:"all", label:"すべて", icon:null, count: CATALOG.items.length}, ...CATALOG.categories];
+    $("chips").innerHTML = chips.map(c =>
+      `<button type="button" role="tab" class="chip${state.cat===c.id?" on":""}" data-cat="${c.id}" aria-selected="${state.cat===c.id}" ${c.color?`style="--cc:${c.color}"`:""}>` +
+      (c.icon ? `<svg style="color:${state.cat===c.id?"#fff":c.color}"><use href="#i-${c.icon}"/></svg>` : "") +
+      `${esc(c.label)} <span class="n">${c.count}</span></button>`).join("");
+    const on = $("chips").querySelector(".chip.on"); if (on && on.scrollIntoView) on.scrollIntoView({ inline: "center", block: "nearest" });
+  }
+  $("chips").addEventListener("click", e => {
+    const b = e.target.closest("[data-cat]"); if (!b) return;
+    state.cat = b.dataset.cat; state.shown = 120; renderChips(); renderList();
+  });
+
+  // ── 一覧 ──
+  function filtered(){
+    const nq = norm(state.q);
+    let list = CATALOG.items.filter(it => (state.cat === "all" || it.category === state.cat) && (!nq || it.search.some(s => s.includes(nq))));
+    if (nq) {
+      const rank = it => { const n = norm(it.name); if (n === nq) return 0; if (n.startsWith(nq)) return 1; if (n.includes(nq)) return 2; if (norm(it.kana).startsWith(nq)) return 3; return 4; };
+      list = list.map((it, i) => [rank(it), it.name.length, i, it]).sort((a, b) => a[0] - b[0] || (a[0] === 1 ? a[1] - b[1] : 0) || a[2] - b[2]).map(x => x[3]);
+    }
+    return list;
+  }
+  function renderList(){
+    const list = filtered(); const nq = norm(state.q);
+    $("meta").innerHTML = `<span>検索結果 <b>${list.length}件</b></span>` + (state.q ? `<span>「${esc(state.q)}」を含む商品</span>` : "") +
+      (state.cat !== "all" ? `<span>${esc(catById[state.cat].label)}</span>` : "");
+    const rows = list.slice(0, state.shown).map(it => {
+      const c = catById[it.category]; const a = addedOf(it.id); const sel = state.sel && state.sel.item && state.sel.item.id === it.id;
+      return `<div class="row${a?" added":""}${sel?" sel":""}" role="listitem" data-id="${it.id}">
+        <button type="button" class="ic" style="color:${c.color}" data-open="${it.id}" aria-label="${esc(it.name)} の設定を開く"><svg><use href="#i-${c.icon}"/></svg></button>
+        <button type="button" style="all:unset;cursor:pointer;min-width:0" data-open="${it.id}">
+          <div class="name">${highlight(it.name, nq)}</div>
+          <div class="sub"><span class="kind ${it.kind}">${esc(it.kindLabel)}</span><span class="grp">${esc(c.label)} › ${esc(it.group)}</span>${a && a.castDrink ? "<span>キャストD</span>" : ""}${a && a.bottleKeep ? "<span>キープ可</span>" : ""}</div>
+        </button>
+        <div class="right">${a ? `<span class="price">${yen(a.priceYen)}</span><button type="button" class="btn done" data-open="${it.id}"><svg><use href="#i-check"/></svg>追加済み</button>`
+                               : `<button type="button" class="btn outline" data-open="${it.id}"><svg><use href="#i-plus"/></svg>追加</button>`}</div>
+      </div>`;
+    });
+    let html = rows.join("");
+    if (!list.length) {
+      html = `<div class="empty"><b>「${esc(state.q)}」は見つかりませんでした</b>別の言い方(例: ドンペリ → ドン・ペリニヨン)で探すか、<br>そのまま自分で入力して追加できます。
+        <br><button type="button" class="btn manual" id="emptyManual"><svg><use href="#i-pen"/></svg>「${esc(state.q)}」を入力して追加</button></div>`;
+    } else if (list.length > state.shown) {
+      html += `<button type="button" class="more" id="moreBtn">さらに${Math.min(120, list.length - state.shown)}件を表示(残り${list.length - state.shown}件)</button>`;
+    }
+    $("list").innerHTML = html;
+  }
+  $("list").addEventListener("click", e => {
+    const more = e.target.closest("#moreBtn"); if (more) { state.shown += 120; renderList(); return; }
+    const em = e.target.closest("#emptyManual"); if (em) { openManual(state.q); return; }
+    const b = e.target.closest("[data-open]"); if (!b) return;
+    openItem(CATALOG.items.find(it => it.id === b.dataset.open));
+  });
+
+  // ── 検索欄 ──
+  let timer = null;
+  $("q").addEventListener("input", () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { state.q = $("q").value.trim(); state.shown = 120; $("clearBtn").hidden = !state.q; renderList(); }, 80);
+  });
+  $("clearBtn").addEventListener("click", () => { $("q").value = ""; state.q = ""; $("clearBtn").hidden = true; renderList(); $("q").focus(); });
+
+  // ── 右の設定パネル ──
+  const form = $("form");
+  function toggle(btn, on){ btn.setAttribute("aria-checked", on ? "true" : "false"); }
+  const isOn = (btn) => btn.getAttribute("aria-checked") === "true";
+  document.querySelectorAll(".tog").forEach(b => b.addEventListener("click", () => toggle(b, !isOn(b))));
+  $("tax").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; $("tax").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); });
+
+  function varRow(v){ return `<div class="var"><input class="fld" type="text" placeholder="種類の名前(例: マグナム)" value="${esc(v.name||"")}"><div class="yen"><input class="fld" type="text" inputmode="numeric" placeholder="価格" value="${v.priceYen??""}"></div><button type="button" class="x" aria-label="この種類を消す">×</button></div>`; }
+  $("addVar").addEventListener("click", () => { $("vars").insertAdjacentHTML("beforeend", varRow({})); $("vars").lastElementChild.querySelector("input").focus(); });
+  $("vars").addEventListener("click", e => { const x = e.target.closest(".x"); if (x) x.closest(".var").remove(); });
+  function readVars(){ return [...$("vars").querySelectorAll(".var")].map(r => { const [n, p] = r.querySelectorAll("input"); return { name: n.value.trim(), priceYen: p.value.trim() === "" ? null : Number(p.value.replace(/[^\d]/g, "")) }; }).filter(v => v.name); }
+
+  function catBlockHtml(sel){
+    if (sel.source === "catalog") {
+      const c = catById[sel.item.category];
+      return `<div class="cat">カテゴリー: <b style="color:var(--ink)">${esc(c.label)}</b> › ${esc(sel.item.group)}　<span class="kind ${sel.item.kind}">${esc(sel.item.kindLabel)}</span></div>`;
+    }
+    const opts = CATALOG.categories.map(c => `<option value="${c.id}">${esc(c.label)}(${esc(c.kindLabel)})</option>`).join("");
+    return `<label class="lbl" for="fCat">カテゴリー<span class="req">必須</span></label>
+      <select class="fld" id="fCat"><option value="">選んでください</option>${opts}<option value="__new">＋ 新しいカテゴリーを作る</option></select>
+      <div id="newCat" hidden>
+        <label class="lbl" for="fCatName">新しいカテゴリー名<span class="req">必須</span></label>
+        <input class="fld" id="fCatName" type="text" placeholder="例: ノンアルコール">
+        <span class="lbl">種別</span>
+        <div class="seg seg4" id="fKind">${CATALOG.kinds.map((k, i) => `<button type="button" data-v="${k.code}" class="${i===0?"on":""}">${esc(k.label)}</button>`).join("")}</div>
+      </div>`;
+  }
+
+  function showDetail(){ $("ph").hidden = true; form.hidden = false; $("dfoot").hidden = false; $("detail").classList.add("open"); }
+  function hideDetail(){ state.sel = null; $("ph").hidden = false; form.hidden = true; $("dfoot").hidden = true; $("detail").classList.remove("open"); renderList(); }
+  $("backBtn").addEventListener("click", hideDetail);
+
+  function fill(sel, rec){
+    state.sel = sel;
+    $("dtitle").textContent = rec ? rec.name + "の設定" : (sel.item ? sel.item.name + "の設定" : "商品を入力して追加");
+    $("catBlock").innerHTML = catBlockHtml(sel);
+    if (sel.source === "manual") {
+      $("fCat").addEventListener("change", () => { $("newCat").hidden = $("fCat").value !== "__new"; });
+      $("fKind").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (!b) return; $("fKind").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); });
+      if (rec && rec.manualCategoryId) { $("fCat").value = rec.manualCategoryId; }
+      if (rec && rec.newCategory) { $("fCat").value = "__new"; $("newCat").hidden = false; $("fCatName").value = rec.newCategory; $("fKind").querySelectorAll("button").forEach(x => x.classList.toggle("on", x.dataset.v === rec.kind)); }
+    }
+    $("fName").value = rec ? rec.name : (sel.item ? sel.item.name : (sel.prefill || ""));
+    $("fPrice").value = rec ? rec.priceYen : ""; $("fPrice").classList.remove("err"); $("priceHint").className = "hint"; $("priceHint").textContent = "カンマは不要です。税込・税抜は「料率」の設定にそろいます。";
+    $("fSub").value = rec && rec.subtotalPriceYen != null ? rec.subtotalPriceYen : "";
+    $("vars").innerHTML = (rec ? rec.variants : []).map(varRow).join("");
+    $("tax").querySelectorAll("button").forEach(x => x.classList.toggle("on", x.dataset.v === (rec ? rec.taxCategory : "standard")));
+    toggle($("swCast"), rec ? rec.castDrink : !!(sel.item && sel.item.castDrink));
+    toggle($("swKeep"), rec ? rec.bottleKeep : !!(sel.item && sel.item.bottleKeep));
+    toggle($("swMasked"), rec ? rec.priceMasked : false);
+    $("fNote").value = rec ? rec.note : "";
+    $("removeBtn").hidden = !rec;
+    showDetail(); renderList();
+    (sel.source === "manual" && !rec ? $("fCat") : $("fPrice")).focus();
+  }
+  function openItem(item){ fill({ source: "catalog", item }, addedOf(item.id)); }
+  function openManual(prefill){ fill({ source: "manual", prefill }, null); }
+  $("manualBtn").addEventListener("click", () => openManual(""));
+
+  $("saveBtn").addEventListener("click", () => {
+    const sel = state.sel; if (!sel) return;
+    const name = $("fName").value.trim();
+    const priceRaw = $("fPrice").value.replace(/[^\d]/g, "");
+    let ok = true;
+    if (!name) { $("fName").classList.add("err"); ok = false; } else $("fName").classList.remove("err");
+    if (priceRaw === "") { $("fPrice").classList.add("err"); $("priceHint").className = "hint err"; $("priceHint").textContent = "商品価格を数字で入力してください(例: 900)。"; ok = false; }
+    let categoryId = sel.item ? sel.item.category : null, newCategory = null, kind = sel.item ? sel.item.kind : null, categoryLabel = sel.item ? sel.item.categoryLabel : null;
+    if (sel.source === "manual") {
+      const v = $("fCat").value;
+      if (!v) { $("fCat").classList.add("err"); ok = false; } else $("fCat").classList.remove("err");
+      if (v === "__new") {
+        newCategory = $("fCatName").value.trim(); kind = $("fKind").querySelector(".on").dataset.v; categoryLabel = newCategory;
+        if (!newCategory) { $("fCatName").classList.add("err"); ok = false; } else $("fCatName").classList.remove("err");
+      } else if (v) { categoryId = v; kind = catById[v].kind; categoryLabel = catById[v].label; }
+    }
+    if (!ok) return;
+    const sub = $("fSub").value.replace(/[^\d]/g, "");
+    const rec = {
+      itemId: sel.item ? sel.item.id : (addedOf(sel.editingId) ? sel.editingId : "manual-" + Date.now()),
+      source: sel.source, name, priceYen: Number(priceRaw), subtotalPriceYen: sub === "" ? null : Number(sub),
+      categoryId, manualCategoryId: sel.source === "manual" && !newCategory ? categoryId : null, newCategory, categoryLabel, kind,
+      variants: readVars(), taxCategory: $("tax").querySelector(".on").dataset.v,
+      castDrink: isOn($("swCast")), bottleKeep: isOn($("swKeep")), priceMasked: isOn($("swMasked")), note: $("fNote").value.trim(),
+    };
+    const i = state.added.findIndex(a => a.itemId === rec.itemId);
+    const isNew = i < 0;
+    if (isNew) state.added.push(rec); else state.added[i] = rec;
+    saveAdded(); updateCount();
+    toast(isNew ? `1件の商品を追加しました。(${name} ${yen(rec.priceYen)})` : `${name}の設定を保存しました。`);
+    hideDetail();
+    if (window.matchMedia("(max-width:800px)").matches) $("q").focus();
+  });
+  $("removeBtn").addEventListener("click", () => {
+    const sel = state.sel; if (!sel || !sel.item) return;
+    state.added = state.added.filter(a => a.itemId !== sel.item.id); saveAdded(); updateCount(); toast(`${sel.item.name}の追加を取り消しました。`); hideDetail();
+  });
+
+  // ── 下の帯 ──
+  let toastTimer = null;
+  function toast(msg){ $("toastText").textContent = msg; $("toast").hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { $("toast").hidden = true; }, 4000); }
+  function updateCount(){ $("addedCount").textContent = `追加した商品 ${state.added.length}件`; }
+  $("resetBtn").addEventListener("click", () => { if (!state.added.length) return; if (!confirm("追加した商品をすべて消しますか?")) return; state.added = []; saveAdded(); updateCount(); hideDetail(); });
+  // POS の運営コンソール「メニュー貼り付け」の書式(■カテゴリー / 商品/価格 / →種類/価格)
+  function pasteText(){
+    const groups = new Map();
+    for (const a of state.added) { const k = a.categoryLabel || "その他"; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(a); }
+    const lines = [];
+    for (const [cat, list] of groups) {
+      lines.push("■" + cat);
+      for (const a of list) {
+        lines.push(`${a.name}/${a.priceYen}`);
+        for (const v of a.variants) lines.push(`→${v.name}/${v.priceYen ?? ""}`);
+      }
+      lines.push("");
+    }
+    return lines.join("\n").trim();
+  }
+  $("copyBtn").addEventListener("click", async () => {
+    if (!state.added.length) { toast("まだ商品を追加していません。"); return; }
+    const text = pasteText();
+    try { await navigator.clipboard.writeText(text); toast(`${state.added.length}件の商品の文章をコピーしました。POS の「メニュー貼り付け」に貼ってください。`); }
+    catch (e) { prompt("この文章をコピーしてください", text); }
+  });
+
+  // ── 起動 ──
+  const params = new URLSearchParams(location.search);
+  if (params.get("cat") && catById[params.get("cat")]) state.cat = params.get("cat");
+  if (params.get("q")) { state.q = params.get("q"); $("q").value = state.q; $("clearBtn").hidden = false; }
+  renderChips(); renderList(); updateCount();
+  if (params.get("open")) { const it = CATALOG.items.find(x => x.id === params.get("open")); if (it) openItem(it); }
+})();
+</script>
+</body>
+</html>
