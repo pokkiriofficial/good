@@ -13,6 +13,7 @@
 
 詳しい手順と判定の基準は `checklist.md`。報告の形は `report_template.md`。
 過去の報告は `reports/YYYY-MM-DD.md`。
+事故の振り返り(なぜ起きたか・なぜ気づくのが遅れたか・何を変えたか)は `incidents/`。POS 本体側の事故記録(`nightwork-pos/docs/事故記録_*.md`)と対になる。
 
 ## 本番作業とぶつけないための決めごと
 

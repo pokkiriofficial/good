@@ -9,6 +9,7 @@
   3. cron の入口が CRON_SECRET を確かめているか / 認証の無い API の一覧
   4. migration の並び (_journal.json の idx と when が単調増加か)
   5. 本番ビルドの番人 (package.json の build に build-guard) が外れていないか
+  6. 再発防止の番人テスト(事故のたびに足したテスト)が消えていないか、番人の例外(ALLOWED)が増えていないか
 結果は Markdown で標準出力へ。終了コードは常に 0(報告専用)。
 """
 from __future__ import annotations
@@ -154,6 +155,34 @@ def check_build_guard(repo: Path) -> list[str]:
     return [bad(f"本番ビルドの番人が外れている: build = `{build}`")]
 
 
+# 事故のたびに足した「番人」のテスト。消えると同じ事故が黙って再発する。
+# (ファイル, 何を見張るか)。nightwork-pos の tests/ にある前提
+GUARD_TESTS = (
+    ("tests/no-use-before-declare-in-render.test.ts", "宣言前の変数を読む書き方(2026-10-18、運営画面が 4 日開けなかった)"),
+    ("tests/create-tenant-button-render.test.ts", "店舗一覧の新規作成ボタンを実際に描画する(同上)"),
+    ("tests/printer-silent-check.test.ts", "cron の問い合わせに Date を直接入れない(2026-10-14、プリンター点検が 30 時間失敗)"),
+)
+ALLOWED_RE = re.compile(r"const ALLOWED[^=]*=\s*\[(.*?)\];", re.S)
+
+
+def check_guard_tests(repo: Path) -> list[str]:
+    lines = []
+    for rel, why in GUARD_TESTS:
+        path = repo / rel
+        if not path.exists():
+            lines.append(bad(f"番人テストが無い: `{rel}`({why})"))
+            continue
+        lines.append(ok(f"番人テストあり: `{rel}`({why})"))
+        if "no-use-before-declare" in rel:
+            m = ALLOWED_RE.search(path.read_text(encoding="utf-8", errors="ignore"))
+            if not m:
+                lines.append(warn(f"`{rel}` に ALLOWED(例外の一覧)が見当たらない。番人の形が変わっていないか確認"))
+            else:
+                n = len(re.findall(r"\breason\s*:", m.group(1)))
+                lines.append((ok if n == 0 else warn)(f"番人の例外(ALLOWED): {n} 件" + ("" if n == 0 else "。理由を報告に写す")))
+    return lines
+
+
 def main(argv: list[str]) -> int:
     if len(argv) != 2:
         print(__doc__)
@@ -170,6 +199,7 @@ def main(argv: list[str]) -> int:
         ("API の入口と cron の秘密", check_api_routes),
         ("migration の並び", check_journal),
         ("本番ビルドの番人", check_build_guard),
+        ("再発防止の番人テスト", check_guard_tests),
     ):
         print(f"| **{section}** |  |")
         for line in fn(repo):

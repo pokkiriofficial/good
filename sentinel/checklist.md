@@ -20,9 +20,15 @@ ID は `.claude/agents/pos-sentinel.md` の表。
 | 本番デプロイ | `list_deployments`(production, limit 5) | 最新が ERROR / BUILDING のまま 30 分超 | build-guard で止まった(直前の版が動いている) |
 | CI | `actions_list`(ci.yml, 40 件) | main の push が failure | PR の failure が同日 3 件以上。main の push が cancelled(並行マージで検証されずに本番へ出た) |
 | 画面側のエラー | `get_runtime_logs`(query `client`, since 24h) | 同じ画面で 20 件超 | 新しい種類 |
+| **描画で落ちるエラー**(`ReferenceError`・`TypeError` が `digest` 付きで、`/floor`・`/dashboard`・`/platform` などの画面のパスに出る) | `get_runtime_errors` のサンプル | **1 回でも 🔴**。開けば必ず落ちる不具合なので、回数は「開いた人の数」でしかない(2026-10-15〜18、運営画面が 4 日開けなかった。`incidents/2026-10-19_…md`) | - |
 
 判定のコツ: 「エラー 0 件」と「誰も使っていない」は区別できない。深夜 0〜5 時(JST)が営業の山なので、
 その時間帯の info ログが 0 なら「利用なし」と書く。
+
+昼の点検メール(POS の `noon-check`、12:00 JST)が届いた日は、次を見てから書く。
+- メールの回数は「前回のエラーメールを送ってからの回数」(`error_alerts.occurrences`)で、累計ではない。「0 回」は「メールを 1 通送った後、再発なし」の意味
+- 各エラーの**最終発生時刻**(`get_runtime_errors` の `last`)と、**最新の本番デプロイの時刻**(`list_deployments`)を見比べる。最終発生がデプロイより前で、デプロイに修正の PR が含まれていれば「修正済み(PR #N、デプロイ時刻)」と書く
+- 修正済みでも、**修正後にその画面が開かれた記録**(同じパスの info ログ)が無ければ「解消」にしない(手順 4)
 
 ## 2. セキュリティ(外から攻められていないか)
 
@@ -33,6 +39,7 @@ ID は `.claude/agents/pos-sentinel.md` の表。
 | cron の秘密、認証の無い API | 同上(cron route に `CRON_SECRET`、`partner/login-ids` の有無) | 認証無しの書き込み API | 固定の共有鍵だけの API |
 | migration の並び | 同上(`_journal.json` の idx/when が単調増加) | 逆順(本番に永久に当たらない) | - |
 | 本番ビルドの番人 | 同上(`package.json` の build に `build-guard`) | 外れている | - |
+| 再発防止の番人テスト | 同上(`tests/no-use-before-declare-in-render.test.ts`・`tests/printer-silent-check.test.ts`・`tests/create-tenant-button-render.test.ts` の有無、`ALLOWED` の件数) | 1 本でも無くなっている | `ALLOWED` が前日より増えた(理由を報告に書く) |
 | 不審アクセス | `get_runtime_logs`(production, query `401` / `403` / `404`, group_by requestPath, since 24h) | `/api/*` へ同一パスで 100 件超の 401/403 | 50 件超 |
 | ログインの失敗 | `get_runtime_logs`(query `login`, level error/warning) | 同一店舗で短時間に多数 | - |
 | WAF・攻撃の状況 | `get_firewall_config`(active)・`get_active_attack_status` | 攻撃検知あり | 404(設定なし)は「未設定」と記録 |
@@ -55,6 +62,7 @@ Supabase 側(Auth の失敗一覧・RLS)は見られない。報告の「未確�
 
 `sentinel/reports/` の前日の報告(無ければ最新)を読み、同じ指摘は「継続(初出 月/日)」、消えた指摘は「解消」と書く。
 3 日続けて同じ 🔴 なら、報告の 1 行目に「3 日放置」と書く。
+**「再発なし」は、その画面が開かれた記録があって初めて「解消」にする。** 利用の痕跡が無い日の「再発なし」は「未確認(利用なし)」と書く(2026-10-18、運営画面の ReferenceError を 2 日「再発なし」で解消扱いにしたが、誰も開いていなかっただけで、開いた途端に 7 回出た。直したのは #588)。
 
 ## 5. 報告を書く・届ける
 
