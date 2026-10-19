@@ -35,6 +35,9 @@ POS 側でやることをここに残す。質問の正は `spec/items.yaml`。�
 
 ## 商品を検索して追加(お酒のカタログ)について(2026-10-19 追加)
 
+> 2026-10-19 POS 側に実装済み(pokkiriofficial/nightwork-pos の PR「メニューの追加を『銘柄を検索して価格だけ入れる』形にし、商品バックを円／％で入力できるようにする」、ブランチ feat/menu-catalog-search-claude)。
+> POS の `src/core/products/library.json` は `menu/drinks.json` から列(id/c/g/n/k/a/kind/keep/cast)を写したもの。銘柄を直したら両方を更新する。
+
 フロア設定・管理画面の「メニュー(商品の追加・価格)」で「追加」を押したときの画面を、
 **銘柄を検索して選び、価格だけ入力する**形に変える。見本は `menu/preview/index.html`(1枚で開ける試作)。
 銘柄の一覧は `spec/drinks.yaml` が正で、POS には `menu/drinks.json`(20ジャンル・911銘柄)を渡す。
