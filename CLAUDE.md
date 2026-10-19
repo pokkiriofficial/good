@@ -18,9 +18,8 @@ POS「ポッキリ.Night」の導入時に店舗情報を集めるキット。�
 - `scripts/build_form.py` … ① アンケートのHTMLプレビュー(`templates/form/preview.html` → `form/preview/index.html`)
   - `--site form/site` で店舗に配る公開用ページも書き出す。Vercel(チーム koku・プロジェクト pokkiri-night-survey、rootDirectory `form/site`)で https://pokkiri-night-survey.vercel.app に公開している。変更後は push してから再デプロイする
 - `scripts/build_templates.py` … ② LINEテキスト・Excel・確認ページ(テーマ7=キャスト別バックは任意)(`templates/line/`・`templates/excel/`・`templates/preview/`)
-- `spec/drinks.yaml` … お酒の銘柄カタログ(ジャンル・銘柄・かな・別名・種別)。価格は持たない(店舗が入力)
-- `scripts/build_catalog.py` … 商品カタログ(`spec/drinks.yaml` → `menu/drinks.json`・`menu/images/*.svg`・`menu/preview/index.html`)。POS の「商品を検索して追加」画面の試作と、POS に渡す一覧
-- `scripts/drink_art.py` … 銘柄ごとの商品画像(SVG)を描く。実在ブランドの写真・ロゴは使わない(許諾が要る)。形と色は `spec/drinks.yaml` の `styles`
+- `spec/drinks.yaml` … お酒の銘柄カタログ(ジャンル・銘柄・かな・別名・種別)。価格と写真は持たない(店舗が入力・登録する)
+- `scripts/build_catalog.py` … 商品カタログ(`spec/drinks.yaml` → `menu/drinks.json`・`menu/preview/index.html`)。POS の「商品を検索して追加」画面の試作と、POS に渡す一覧。写真・絵は持たず、商品名だけを出す(実在ブランドの写真は許諾が要る)
 - `scripts/build_slides.py` … ③ スライド(`templates/slides/lecture.yaml` → `slides/lecture.md`・`slides/checklist.md`)。`--exclude 9` で章を除外
 - `tests/` … pytest
 - `sentinel/` / `scripts/sentinel_static.py` / `.claude/agents/pos-sentinel.md` … POS 本体と本サイトの毎日点検係(読み取りだけ。nightwork-pos には書き込まない。手順は `sentinel/checklist.md`、報告は `sentinel/reports/`)
