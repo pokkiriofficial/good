@@ -506,6 +506,13 @@
                   "$ref": "#/$defs/scalar"
                 }
               }
+            },
+            "body": {
+              "type": "array",
+              "description": "LINEの本文の行。指定すると format/examples の代わりに、そのまま使う",
+              "items": {
+                "type": "string"
+              }
             }
           }
         }

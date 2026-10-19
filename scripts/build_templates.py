@@ -82,6 +82,10 @@ def line_text(spec: dict, theme: dict) -> str:
     for it in items:
         if len(items) > 1:
             lines.append(f"■{it['label']}")
+        if it["line"].get("body"):
+            # 1くくりの書き方(カテゴリー→商品→種類)など、行そのものを指定したとき
+            lines += it["line"]["body"]
+            continue
         fmt = it["line"]["format"]
         lines.append("・" + "/".join(fmt))
         for ex in it["line"]["examples"]:
