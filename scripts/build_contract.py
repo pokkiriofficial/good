@@ -527,8 +527,8 @@ def _h_ol_steps(steps: list[dict]) -> str:
     return out + "</ol>"
 
 
-def doc_html(flow: dict, figs: dict[str, str], slides_link: str = "slides.html", deck_link: str = "") -> str:
-    """ドキュメントを、スマホでも読める1枚のページにする(図はインライン SVG)。"""
+def doc_html(flow: dict, figs: dict[str, str]) -> str:
+    """ドキュメントを、スマホでも読める1枚のページにする(図はインライン SVG)。スライドへのボタンは置かない。"""
     initial, monthly = pricing_rows(flow)
     ex = flow["billing_example"]
     sec = []
@@ -561,7 +561,6 @@ header {{ background: var(--dark); color: #fff; padding: 40px 16px 32px; }}
 header .in, main {{ max-width: 880px; margin: 0 auto; }}
 header h1 {{ font-size: 26px; margin: 0 0 6px; }}
 header p {{ margin: 0; color: #b8c2d6; }}
-header a.btn {{ display: inline-block; margin: 18px 12px 0 0; background: #fff; color: var(--accent); font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none; min-height: 44px; line-height: 24px; }}
 main {{ padding: 8px 16px 64px; }}
 h2 {{ font-size: 21px; color: var(--accent); margin: 40px 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--line); }}
 h3 {{ font-size: 17px; color: var(--accent); margin: 22px 0 8px; }}
@@ -589,9 +588,7 @@ footer {{ text-align: center; color: var(--muted); font-size: 13px; padding: 24p
             f'<meta name="robots" content="noindex"><title>{escape(flow["title"])}</title><style>{css}</style></head>'
             f'<body><header><div class="in"><h1>{escape(flow["title"])}</h1>'
             f'<p>{escape(flow["subtitle"])}({escape(flow["audience"])})</p>'
-            f'<a class="btn" href="{escape(slides_link)}">スライド版を見る →</a>'
-            + (f'<a class="btn" href="{escape(deck_link)}">デザイン版スライドを見る →</a>' if deck_link else "")
-            + '</div></header>'
+            '</div></header>'
             f'<main>{"".join(sec)}</main><footer>{escape(flow["company"])} / {escape(flow["title"])}</footer></body></html>\n')
 
 
@@ -631,8 +628,7 @@ def build_site(flow: dict, figs: dict[str, str], out: Path, deck_src: Path = DEC
     out.mkdir(parents=True, exist_ok=True)
     images = sorted(p.name for p in deck_src.glob("*.png")) if deck_src.is_dir() else []
     pdfs = sorted(p.name for p in deck_src.glob("*.pdf")) if deck_src.is_dir() else []
-    deck_link = "deck/" if images else ""
-    (out / "index.html").write_text(doc_html(flow, figs, deck_link=deck_link), encoding="utf-8")
+    (out / "index.html").write_text(doc_html(flow, figs), encoding="utf-8")
     (out / "slides.html").write_text(html(flow, figs, doc_link="./"), encoding="utf-8")
     if images:
         deck = out / "deck"

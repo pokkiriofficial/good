@@ -115,7 +115,9 @@ def test_site_pages_are_public_and_linked(flow, tmp_path):
     build_contract.build_site(flow, figs, tmp_path)
     index = (tmp_path / "index.html").read_text(encoding="utf-8")
     slides_html = (tmp_path / "slides.html").read_text(encoding="utf-8")
-    assert 'href="slides.html"' in index and 'href="./"' in slides_html
+    # ドキュメントにはスライドへのボタンを置かない。スライドからドキュメントへは戻れる
+    assert 'スライド版を見る' not in index and 'class="btn"' not in index
+    assert 'href="./"' in slides_html
     assert index.count("<svg ") == len(build_contract.FIGURES)
     for h in ["1. 全体の流れ", "2. 料金", "3. 請求のルール", "8. チェックリスト", "9. 未決事項"]:
         assert h in index, h
@@ -126,7 +128,7 @@ def test_site_pages_are_public_and_linked(flow, tmp_path):
 
 
 def test_site_deck_page_lists_exported_images(flow, tmp_path):
-    # Canva から書き出した PNG と PDF を置くと、deck/ に画像のページができ、ドキュメントから辿れる
+    # Canva から書き出した PNG と PDF を置くと、deck/ に画像のページができる(ドキュメントにはボタンを置かない)
     src = tmp_path / "deck"
     src.mkdir()
     for n in (2, 1):
@@ -138,8 +140,7 @@ def test_site_deck_page_lists_exported_images(flow, tmp_path):
     assert deck.index('src="0001.png"') < deck.index('src="0002.png"')
     assert 'href="slides.pdf"' in deck and 'href="../"' in deck
     assert (tmp_path / "site" / "deck" / "0001.png").read_bytes() == b"png"
-    assert 'href="deck/"' in (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
-    # 置かなければ deck/ は作らず、リンクも出ない
+    assert 'href="deck/"' not in (tmp_path / "site" / "index.html").read_text(encoding="utf-8")
+    # 置かなければ deck/ は作らない
     build_contract.build_site(flow, figs, tmp_path / "site2", deck_src=tmp_path / "none")
     assert not (tmp_path / "site2" / "deck").exists()
-    assert 'href="deck/"' not in (tmp_path / "site2" / "index.html").read_text(encoding="utf-8")
