@@ -990,3 +990,219 @@ items:
   - {c: other, g: 料金, n: カラオケ (1曲), k: からおけ, a: [カラオケ]}
   - {c: other, g: 料金, n: 花束, k: はなたば, a: [花, フラワー]}
   - {c: other, g: 料金, n: バルーン, k: ばるーん, a: [風船]}
+
+# ── 商品画像(写真の代わりに、銘柄ごとのボトル・グラスの絵)─────────────
+# 実在ブランドの写真・ロゴは許諾が要るので使わない。形(shape)と色で銘柄を見分ける。
+# 決まり方: categories の初期値 → groups("ジャンルid/系統") → words(商品名に含まれる言葉) → 商品の s
+# shape は scripts/drink_art.py の SHAPES のどれか。色は glass(瓶)・label(ラベル)・text(ラベルの字)・cap(栓・箔)・liquid(中身)
+styles:
+  base: {shape: round, glass: "#9aa5b1", label: "#f4ead6", text: "#2a2a2a", cap: "#555555", liquid: "#e5b45a"}
+  categories:
+    champagne: {shape: champagne, glass: "#26402e", label: "#f1e9d2", text: "#3a2a10", cap: "#c9a227", liquid: "#f3e2a8"}
+    sparkling: {shape: champagne, glass: "#2e4a2e", label: "#f5efe0", text: "#2a2a2a", cap: "#c0c0c0", liquid: "#f3e2a8"}
+    wine:      {shape: bordeaux, glass: "#2b1a1e", label: "#f4ead6", text: "#4a1a22", cap: "#7a1b2a", liquid: "#7a1b2a"}
+    whisky:    {shape: whisky, glass: "#c58a3a", label: "#f6efe0", text: "#3a2a10", cap: "#4a2a10", liquid: "#e5b45a"}
+    brandy:    {shape: cognac, glass: "#4a2a12", label: "#f5e6c8", text: "#3a1f0a", cap: "#1a1a1a", liquid: "#c8923a"}
+    shochu:    {shape: isshobin, glass: "#3d2b1a", label: "#f7ecd2", text: "#2a1a0a", cap: "#2a2a2a", liquid: "#f3f3f3"}
+    sake:      {shape: isshobin, glass: "#2e5e3e", label: "#fbf7ec", text: "#1f2a1f", cap: "#c9a227", liquid: "#f3f3f3"}
+    umeshu:    {shape: jar, glass: "#d9b26a", label: "#f7ecd2", text: "#6b3a1e", cap: "#8b5a2b", liquid: "#e9b94a"}
+    tequila:   {shape: tequila, glass: "#e3e9ea", label: "#f4e6c0", text: "#4a3a1a", cap: "#8b5a2b", liquid: "#f3e2a8"}
+    spirits:   {shape: tall, glass: "#e8eef0", label: "#ffffff", text: "#1e2a47", cap: "#c0c0c0", liquid: "#f3f3f3"}
+    liqueur:   {shape: round, glass: "#5a2a4a", label: "#f4ead6", text: "#3a1a3a", cap: "#c9a227", liquid: "#c8923a"}
+    beer:      {shape: beer, glass: "#6b3a1a", label: "#f6efe0", text: "#8b1b1b", cap: "#c9a227", liquid: "#f3c24a"}
+    sour:      {shape: glass, liquid: "#eef3f3", label: "#f5e58a", cap: "#f26a1b", garnish: true}
+    highball:  {shape: glass, liquid: "#e5b45a", label: "#f5e58a", cap: "#f26a1b"}
+    cocktail:  {shape: glass, liquid: "#f7b25a", label: "#e85a8a", cap: "#f26a1b"}
+    shot:      {shape: shot, liquid: "#f3e2a8"}
+    soft:      {shape: soft, liquid: "#a8683a", cap: "#f26a1b"}
+    mixer:     {shape: ice, liquid: "#4aa8e8"}
+    food:      {shape: plate, liquid: "#f3d16a", label: "#e85a4a", cap: "#8b5a2b"}
+    other:     {shape: star, liquid: "#f2c94c", cap: "#d9a441"}
+  groups:
+    # シャンパン
+    champagne/ドン・ペリニヨン:        {glass: "#1f3b2a", label: "#141414", text: "#d9c27a", cap: "#2b2b2b"}
+    champagne/アルマン・ド・ブリニャック: {glass: "#c9a227", label: "#d4af37", text: "#2a2a2a", cap: "#c9a227"}
+    champagne/ソウメイ:               {glass: "#f2f2f2", label: "#ffffff", text: "#7a7a7a", cap: "#c0c0c0"}
+    champagne/エンジェル:             {glass: "#111111", label: "#1a1a1a", text: "#c0c0c0", cap: "#333333"}
+    champagne/クリュッグ:             {glass: "#2e2a24", label: "#f3e6c8", text: "#5a3c1e", cap: "#c9a227"}
+    champagne/ルイ・ロデレール:       {glass: "#e8e3cf", label: "#f7f1d8", text: "#7a5a1e", cap: "#c9a227"}
+    champagne/サロン・ドゥラモット:   {glass: "#1e2a1e", label: "#ffffff", text: "#2a2a2a", cap: "#c0c0c0"}
+    champagne/ペリエ・ジュエ:         {glass: "#2a3d2a", label: "#e9f0e4", text: "#2e5e3e", cap: "#c9a227"}
+    champagne/ヴーヴ・クリコ:         {glass: "#2a3a2a", label: "#f2a900", text: "#2a2a2a", cap: "#f2a900"}
+    champagne/モエ・エ・シャンドン:   {glass: "#233a2a", label: "#111111", text: "#d9b65a", cap: "#c9a227"}
+    champagne/テタンジェ:             {label: "#ffffff", text: "#2a2a2a", cap: "#c9a227"}
+    champagne/ローラン・ペリエ:       {label: "#f4e5c5", text: "#3a2a10", cap: "#c9a227"}
+    champagne/ボランジェ:             {label: "#f3e9d2", text: "#5a3c1e", cap: "#b5651d"}
+    champagne/ポメリー:               {label: "#1b4e9b", text: "#ffffff", cap: "#1b4e9b"}
+    champagne/パイパー・エドシック:   {label: "#c8102e", text: "#ffffff", cap: "#c8102e"}
+    champagne/シャルル・エドシック:   {label: "#f1e9d2", text: "#8b1b1b", cap: "#8b1b1b"}
+    champagne/マム:                   {label: "#ffffff", text: "#d61e2f", cap: "#d61e2f"}
+    champagne/ニコラ・フィアット:     {label: "#1e2b5a", text: "#ffffff", cap: "#1e2b5a"}
+    champagne/ルイナール:             {glass: "#c9b26b", label: "#f4e8c4", text: "#5a3c1e", cap: "#c9a227"}
+    champagne/ドゥーツ:               {label: "#1e2b5a", text: "#ffffff", cap: "#c9a227"}
+    # スパークリング
+    sparkling/カヴァ(スペイン):        {glass: "#111111", label: "#f5efe0", text: "#2a2a2a", cap: "#111111"}
+    sparkling/スプマンテ(イタリア):    {glass: "#3a5a3a", label: "#f5efe0", text: "#2a2a2a", cap: "#c0c0c0"}
+    sparkling/フランス(シャンパン以外): {glass: "#1f4e9c", label: "#ffffff", text: "#1f4e9c", cap: "#c9a227"}
+    sparkling/グラス:                 {shape: flute, liquid: "#f3e2a8"}
+    # ワイン
+    wine/赤・高級: {shape: bordeaux, glass: "#2b1a1e", label: "#f4ead6", text: "#4a1a22", cap: "#7a1b2a"}
+    wine/赤:      {shape: bordeaux, glass: "#2b1a1e", label: "#f4ead6", text: "#4a1a22", cap: "#7a1b2a"}
+    wine/白:      {shape: wine, glass: "#b9c99a", label: "#f7f3e8", text: "#5a6a2a", cap: "#9aa07a"}
+    wine/ロゼ:    {shape: wine, glass: "#f0b6c0", label: "#fff5f7", text: "#b8405e", cap: "#e8a4b8"}
+    wine/ハウスワイン: {shape: wine, glass: "#2b1a1e", label: "#f4ead6", text: "#4a1a22", cap: "#7a1b2a"}
+    wine/グラス:  {shape: glass, liquid: "#7a1b2a"}
+    # ウイスキー
+    whisky/ジャパニーズ(サントリー): {shape: whisky, glass: "#c58a3a", label: "#f6efe0", text: "#3a2a10", cap: "#4a2a10"}
+    whisky/ジャパニーズ(ニッカ):     {shape: square, glass: "#2a2a2a", label: "#111111", text: "#f3e2a8", cap: "#111111"}
+    whisky/ジャパニーズ(その他):     {shape: whisky, glass: "#c58a3a", label: "#f6efe0", text: "#3a2a10", cap: "#4a2a10"}
+    whisky/スコッチ(ブレンデッド):   {shape: whisky, glass: "#c58a3a", label: "#f6efe0", text: "#3a2a10", cap: "#4a2a10"}
+    whisky/スコッチ(シングルモルト): {shape: whisky, glass: "#c58a3a", label: "#ffffff", text: "#3a2a10", cap: "#4a2a10"}
+    whisky/バーボン・アメリカン:     {shape: square, glass: "#b5651d", label: "#f6efe0", text: "#8b1b1b", cap: "#2a2a2a"}
+    whisky/アイリッシュ:             {shape: whisky, glass: "#c58a3a", label: "#2e5e3e", text: "#f3e2a8", cap: "#2e5e3e"}
+    whisky/カナディアン:             {shape: whisky, glass: "#c58a3a", label: "#f6efe0", text: "#8b1b1b", cap: "#8b1b1b"}
+    whisky/その他の国:               {shape: whisky, glass: "#c58a3a", label: "#f6efe0", text: "#1e2a47", cap: "#1e2a47"}
+    whisky/グラス:                   {shape: rocks, liquid: "#e5b45a"}
+    # ブランデー
+    brandy/ヘネシー:       {shape: cognac, glass: "#3a2a1a", label: "#f5e6c8", text: "#3a1f0a", cap: "#111111"}
+    brandy/レミーマルタン: {shape: cognac, glass: "#5a4a3a", label: "#f1d7a5", text: "#8b1b1b", cap: "#8b1b1b"}
+    brandy/マーテル:       {shape: cognac, glass: "#4a2a12", label: "#f5ecd8", text: "#1b2a5a", cap: "#1b2a5a"}
+    brandy/カミュ:         {shape: decanter, glass: "#4a2a12", label: "#e9d4b0", text: "#3a1f0a", cap: "#c9a227"}
+    brandy/クルボアジェ:   {shape: cognac, glass: "#4a2a12", label: "#f4ead6", text: "#c8102e", cap: "#c8102e"}
+    brandy/その他コニャック: {shape: cognac}
+    brandy/アルマニャック・カルヴァドス: {shape: whisky, glass: "#8b5a2b", label: "#f4ead6", text: "#3a1f0a", cap: "#2a2a2a"}
+    brandy/国産(ハウス向け): {shape: cognac, glass: "#5a3a1a", label: "#f4ead6", text: "#3a1f0a", cap: "#c9a227"}
+    brandy/グラス:         {shape: rocks, liquid: "#c8923a"}
+    # 焼酎
+    shochu/甲類:     {shape: tall, glass: "#3d7a3f", label: "#ffffff", text: "#2e5e3e", cap: "#2e5e3e"}
+    shochu/芋:       {shape: isshobin, glass: "#2a2a2a", label: "#111111", text: "#ffffff", cap: "#2a2a2a"}
+    shochu/麦:       {shape: isshobin, glass: "#5b3a1e", label: "#f7e9c8", text: "#2a1a0a", cap: "#2a2a2a"}
+    shochu/米:       {shape: isshobin, glass: "#e8eef0", label: "#ffffff", text: "#1e2a47", cap: "#c0c0c0"}
+    shochu/しそ・そば: {shape: isshobin, glass: "#5a2a4a", label: "#f7ecd2", text: "#5a2a4a", cap: "#2a2a2a"}
+    shochu/黒糖:     {shape: isshobin, glass: "#2a4a6a", label: "#ffffff", text: "#1e2a47", cap: "#c0c0c0"}
+    shochu/泡盛:     {shape: isshobin, glass: "#e8eef0", label: "#ffffff", text: "#111111", cap: "#8b1b1b"}
+    shochu/グラス:   {shape: rocks, liquid: "#f3f3f3"}
+    # 日本酒
+    sake/純米大吟醸・銘酒:   {shape: isshobin, glass: "#2e5e3e", label: "#fbf7ec", text: "#1f2a1f", cap: "#c9a227"}
+    sake/スパークリング日本酒: {shape: wine, glass: "#1f4e9c", label: "#ffffff", text: "#1f4e9c", cap: "#c0c0c0", scale: 0.85}
+    sake/ハウス:            {shape: isshobin, glass: "#5b3a1e", label: "#f7e9c8", text: "#2a1a0a", cap: "#c9a227"}
+    sake/グラス:            {shape: tokkuri, glass: "#e8eef0", label: "#ffffff", text: "#1e2a47", cap: "#c0c0c0", liquid: "#f3f3f3"}
+    # 梅酒・果実酒
+    umeshu/梅酒:   {shape: jar, glass: "#d9b26a", label: "#f7ecd2", text: "#6b3a1e", cap: "#8b5a2b"}
+    umeshu/果実酒: {shape: round, glass: "#f0b6c0", label: "#fff5f7", text: "#b8405e", cap: "#e8a4b8"}
+    umeshu/グラス: {shape: rocks, liquid: "#e9b94a"}
+    # テキーラ
+    tequila/ホセ・クエルボ: {shape: tequila, glass: "#d9c48a", label: "#f4e6c0", text: "#4a3a1a", cap: "#111111"}
+    tequila/パトロン:       {shape: tequila, glass: "#e3e9ea", label: "#ffffff", text: "#2e5e3e", cap: "#8b5a2b"}
+    tequila/ドン・フリオ:   {shape: tall, glass: "#e3e9ea", label: "#ffffff", text: "#1e2a47", cap: "#8b5a2b"}
+    tequila/その他の銘柄:   {shape: tequila}
+    # ジン・ウォッカ・ラム
+    spirits/ジン:   {shape: tall, glass: "#1f7fcf", label: "#ffffff", text: "#1f7fcf", cap: "#c0c0c0"}
+    spirits/ウォッカ: {shape: tall, glass: "#e8eef0", label: "#ffffff", text: "#c8102e", cap: "#c0c0c0"}
+    spirits/ラム:   {shape: round, glass: "#e8eef0", label: "#ffffff", text: "#c8102e", cap: "#111111"}
+    # リキュール
+    liqueur/定番リキュール:   {shape: round, glass: "#2b1a0e", label: "#f2d26b", text: "#2b1a0e", cap: "#2b1a0e"}
+    liqueur/果実のリキュール: {shape: round, glass: "#5a2a4a", label: "#f4ead6", text: "#3a1a3a", cap: "#c9a227"}
+    liqueur/ベルモット:       {shape: wine, glass: "#2b1a1e", label: "#c8102e", text: "#ffffff", cap: "#c8102e"}
+    # ビール
+    beer/生ビール:        {shape: mug, liquid: "#f3c24a"}
+    beer/瓶ビール(国産):  {shape: beer, glass: "#6b3a1a", label: "#f6efe0", text: "#8b1b1b", cap: "#c9a227"}
+    beer/瓶ビール(海外):  {shape: beer, glass: "#2e7d32", label: "#ffffff", text: "#2e7d32", cap: "#c9a227"}
+    beer/瓶飲料(RTD):     {shape: beer, glass: "#e8eef0", label: "#ffffff", text: "#1f4e9c", cap: "#1f4e9c"}
+    # ドリンク
+    sour/お茶割り:        {garnish: false}
+    cocktail/カシス:      {liquid: "#7a2a5a", label: "#f7a04a"}
+    cocktail/ピーチ・ライチ: {liquid: "#f7b25a", label: "#f7c6c1"}
+    cocktail/カルーア・マリブ: {liquid: "#b8906a", label: "#f5f1e8"}
+    cocktail/ジン:        {shape: cocktail, liquid: "#eef6f8", label: "#9ccb4e"}
+    cocktail/ウォッカ:    {liquid: "#f7a04a", label: "#f5e58a"}
+    cocktail/ラム・テキーラ: {liquid: "#cfe8a0", label: "#9ccb4e"}
+    cocktail/ウイスキー・ブランデー: {shape: cocktail, liquid: "#a83a2a", label: "#8b1b1b"}
+    cocktail/ワイン・ビール: {liquid: "#8a2a3a", label: "#f7a04a"}
+    cocktail/カンパリ・その他: {liquid: "#e85a4a", label: "#f7a04a"}
+    shot/テキーラショット: {liquid: "#f3e2a8"}
+    shot/リキュールショット: {liquid: "#3a2a1a"}
+    shot/スピリッツショット: {liquid: "#f3f3f3"}
+    soft/お茶:      {liquid: "#a8683a"}
+    soft/炭酸:      {liquid: "#eef3f3"}
+    soft/ジュース:  {liquid: "#f7a04a"}
+    soft/水・エナジー: {shape: water, glass: "#eaf4fa", label: "#ffffff", text: "#1f4e9c", cap: "#1f7fcf", liquid: "#eaf4fa"}
+    soft/ホット・ミルク: {shape: mug, liquid: "#3a1a0e"}
+    soft/ノンアルコール: {shape: beer, glass: "#e8eef0", label: "#ffffff", text: "#2e7d32", cap: "#2e7d32"}
+    mixer/セット: {shape: ice}
+    mixer/単品:   {shape: ice}
+    other/シャンパンタワー: {shape: tower, liquid: "#f3e2a8"}
+    other/料金:   {shape: star}
+  # 商品名に含まれる言葉で色を変える(上から順に。categories を書いたものは、そのジャンルだけ)
+  words:
+    - {match: "ロゼ|ピンク|ピンドン", categories: [champagne, sparkling, tequila, spirits], label: "#e8a4b8", cap: "#e8a4b8", text: "#7a2a4a"}
+    - {match: "ゴールド|金", categories: [champagne, whisky, spirits, beer, liqueur], label: "#d4af37", cap: "#c9a227", text: "#3a2a10"}
+    - {match: "ブラック|黒|ネグロ|ダークブ|ノワール", categories: [champagne, whisky, spirits, liqueur, beer, shochu, tequila, sparkling], label: "#111111", cap: "#111111", text: "#f3e2a8"}
+    - {match: "ホワイト|白|シルバー|銀|プラチナ|ブラン・ド・ブラン", categories: [champagne, whisky, spirits, sparkling, shochu, beer], label: "#ffffff", cap: "#c0c0c0", text: "#4a4a4a"}
+    - {match: "ブルー|青", categories: [champagne, whisky, spirits], label: "#1b4e9b", cap: "#1b4e9b", text: "#ffffff"}
+    - {match: "グリーン|緑|ドゥミセック", categories: [champagne, whisky, spirits], label: "#2e7d32", cap: "#2e7d32", text: "#ffffff"}
+    - {match: "レッド|赤|ルージュ", categories: [champagne, whisky, spirits, shochu, beer, sparkling], label: "#c8102e", cap: "#c8102e", text: "#ffffff"}
+    - {match: "ハニー|アップル|ファイア", categories: [whisky], label: "#d9a441", cap: "#8b5a2b", text: "#3a2a10"}
+    - {match: "角瓶|ジョニーウォーカー|ジャックダニエル|ティーチャーズ|カナディアンクラブ", categories: [whisky], shape: square}
+    - {match: "角瓶", categories: [whisky], glass: "#d9a441", label: "#f2c94c", text: "#3a2a10", cap: "#c9a227"}
+    - {match: "ジャックダニエル", categories: [whisky], glass: "#2a2a2a", label: "#111111", text: "#ffffff", cap: "#111111"}
+    - {match: "メーカーズマーク", categories: [whisky], cap: "#c8102e", label: "#f6efe0", text: "#8b1b1b"}
+    - {match: "パラディ|リシャール|ルイ13世", categories: [brandy], shape: decanter, glass: "#d9d4c2", label: "#f7f1d8", text: "#6b4a1e", cap: "#c9a227"}
+    - {match: "グレンフィディック|グレンリベット|白州", categories: [whisky], glass: "#4f7f3f", label: "#ffffff", text: "#2e5e3e"}
+    - {match: "マグナム|ジェロボアム", scale: 1.1}
+    - {match: "ミニ|ハーフ|小\\)", scale: 0.8}
+    - {match: "クライナー", categories: [liqueur, shot], shape: mini, glass: "#e8eef0", label: "#ffffff", text: "#c8102e", cap: "#c8102e"}
+    # ドリンクの中身の色
+    - {match: "レモン|ゆず|レモネード", categories: [sour, highball, soft], liquid: "#f5e58a", label: "#f5e58a"}
+    - {match: "ライム|モヒート|すだち|シークヮーサー", categories: [sour, cocktail, soft], liquid: "#bfe08a", label: "#9ccb4e"}
+    - {match: "グレープフルーツ|グレフル|ソルティ|ブルドッグ", categories: [sour, cocktail, soft], liquid: "#f7e6b8", label: "#f7c7a0"}
+    - {match: "カルピス|ミルク|ピニャ|ヨーグ", categories: [sour, cocktail, soft], liquid: "#f5f1e8", label: "#ffffff"}
+    - {match: "巨峰|ぶどう|カシス|キール", categories: [sour, cocktail], liquid: "#7a2a5a", label: "#c9a0d0"}
+    - {match: "白桃|桃|ピーチ|ファジー|ベリーニ", categories: [sour, cocktail], liquid: "#f7c6c1", label: "#f7c6c1"}
+    - {match: "ライチ|チャイナ|パライソ|ディタ", categories: [sour, cocktail], liquid: "#f3e9e3", label: "#f3e9e3"}
+    - {match: "チャイナブルー|ブルーハワイ|ブルーラグーン", categories: [cocktail], liquid: "#4aa8e8", label: "#4aa8e8"}
+    - {match: "青リンゴ|青りんご|キウイ|マスカット|メロン|ミドリ", categories: [sour, cocktail], liquid: "#cfe8a0", label: "#9ccb4e"}
+    - {match: "オレンジ|みかん|マンゴ|スクリュー|サンライズ|ミモザ|パッソア", categories: [sour, cocktail, soft], liquid: "#f7a04a", label: "#f7a04a"}
+    - {match: "パイン|アップル|りんご", categories: [sour, cocktail, soft], liquid: "#f3d16a", label: "#f3d16a"}
+    - {match: "いちご|ストロベリー|クランベリー|コスモ|トマト|ブラッディ|レッドアイ|スプモーニ|カンパリ|アペロール", categories: [sour, cocktail, soft, shot], liquid: "#e85a5a", label: "#e85a8a"}
+    - {match: "梅|バイス", categories: [sour, cocktail], liquid: "#f2d9c8", label: "#e89ab0"}
+    - {match: "ラムネ|サイダー|スプライト|ソーダ|トニック|炭酸", categories: [sour, cocktail, soft], liquid: "#eaf4fa", label: "#cfe8f5"}
+    - {match: "ウーロン|烏龍|レゲエ", categories: [sour, cocktail, soft], liquid: "#a8683a", label: "#c88a4a"}
+    - {match: "緑茶", categories: [sour, soft], liquid: "#a4c85a", label: "#a4c85a"}
+    - {match: "ジャスミン", categories: [sour, soft], liquid: "#e8e0a8", label: "#e8e0a8"}
+    - {match: "紅茶|アイスティー|ほうじ", categories: [sour, soft], liquid: "#b86a2a", label: "#b86a2a"}
+    - {match: "コーク|コーラ|コーヒー|ココア|ルシアン|カルーア", categories: [cocktail, highball, soft, sour], liquid: "#3a1a0e", label: "#3a1a0e"}
+    - {match: "ジンジャー|ハイボール|シャンディ|モスコ|バック", categories: [cocktail, highball, soft], liquid: "#e9c77a", label: "#f5e58a"}
+    - {match: "ホワイトルシアン|ベイリーズ|マリブミルク|アレキサンダー", categories: [cocktail, shot], liquid: "#f5f1e8", label: "#ffffff"}
+    - {match: "マティーニ|ギムレット|ホワイトレディ|ジントニック|ウォッカトニック|ダイキリ|XYZ|サイドカー|バラライカ", categories: [cocktail], shape: cocktail, liquid: "#eef6f8"}
+    - {match: "マンハッタン|ゴッドファーザー|ゴッドマザー|ラスティ", categories: [cocktail], shape: rocks, liquid: "#c8923a"}
+    - {match: "ミモザ|ベリーニ|キールロワイヤル", categories: [cocktail], shape: flute}
+    - {match: "赤", categories: [wine], liquid: "#7a1b2a"}
+    - {match: "白", categories: [wine], liquid: "#f3e9b8"}
+    - {match: "サングリア", categories: [wine], shape: glass, liquid: "#8a2a3a", label: "#f7a04a", garnish: true}
+    - {match: "イエーガー|イエガー|コカボム", categories: [shot], liquid: "#3a2a1a"}
+    - {match: "コカレロ", categories: [shot], liquid: "#4caf50"}
+    - {match: "アブサン", categories: [shot], liquid: "#9ccb4e"}
+    - {match: "ズブロッカ|ウォッカ|スピリタス|サンブーカ|ゴールドシュレーガー", categories: [shot], liquid: "#f3f3f3"}
+    - {match: "ボム|B-52", categories: [shot], liquid: "#5a3a1a"}
+    - {match: "レッドブル|モンスター", categories: [soft], shape: can, glass: "#1e2a47", label: "#ffffff", text: "#1e2a47", cap: "#c0c0c0"}
+    - {match: "ペリエ|サンペレグリノ", categories: [soft], shape: water, glass: "#3d7a3f", label: "#ffffff", text: "#2e5e3e", cap: "#2e5e3e"}
+    - {match: "炭酸水", categories: [soft], shape: water, glass: "#eaf4fa", label: "#1f4e9c", text: "#ffffff", cap: "#1f4e9c"}
+    - {match: "オロナミン|リポビタン", categories: [soft], shape: mini, glass: "#5b3a1e", label: "#f2d26b", text: "#3a1a0a", cap: "#2a2a2a"}
+    - {match: "ミルク|ココア", categories: [soft], shape: soft, liquid: "#f5f1e8"}
+    - {match: "アイスコーヒー", categories: [soft], shape: soft, liquid: "#3a1a0e"}
+    - {match: "スパークリング|カクテル|サワー", categories: [soft], shape: flute, liquid: "#f3e2a8"}
+    - {match: "氷|アイス", categories: [mixer], shape: ice}
+    - {match: "水|お湯|チェイサー", categories: [mixer], shape: water, glass: "#eaf4fa", label: "#ffffff", text: "#1f4e9c", cap: "#1f7fcf"}
+    - {match: "ソーダ|ウーロン|緑茶|ジンジャー|コーラ", categories: [mixer], shape: water, glass: "#eaf4fa", label: "#1f4e9c", text: "#ffffff", cap: "#1f4e9c"}
+    - {match: "ミックス代", categories: [mixer], shape: rocks, liquid: "#eaf4fa"}
+    - {match: "レモン・ライム", categories: [mixer], shape: plate, liquid: "#f5e58a", label: "#9ccb4e", cap: "#f3d16a"}
+    - {match: "ナッツ|柿|ポテト", categories: [food], liquid: "#d9a441", label: "#b5651d", cap: "#8b5a2b"}
+    - {match: "チーズ", categories: [food], liquid: "#f3d16a", label: "#f7e6b8", cap: "#e9c77a"}
+    - {match: "フルーツ", categories: [food], liquid: "#f7c6c1", label: "#e85a5a", cap: "#f7a04a"}
+    - {match: "チョコ", categories: [food], liquid: "#5a3a1a", label: "#3a1a0e", cap: "#8b5a2b"}
+    - {match: "ケーキ|アイス", categories: [food], liquid: "#f5f1e8", label: "#e85a8a", cap: "#f7c6c1"}
+    - {match: "枝豆", categories: [food], liquid: "#9ccb4e", label: "#6b8f4e", cap: "#9ccb4e"}
+    - {match: "唐揚げ|ポテト|ピザ|焼きそば", categories: [food], liquid: "#e9a23a", label: "#c0623a", cap: "#8b5a2b"}
+    - {match: "花束|バルーン", categories: [other], liquid: "#e85a8a", cap: "#b8405e"}
+    - {match: "カラオケ", categories: [other], liquid: "#4aa8e8", cap: "#1f4e9c"}

@@ -9,7 +9,7 @@
 | ① 導入アンケート | `form/preview/index.html`(Googleフォームの見た目のプレビュー) |
 | ② 記入テンプレート | `templates/line/*.txt`・`templates/excel/初期設定_記入シート.xlsx`・`templates/preview/index.html` |
 | ③ 対面レクチャー資料 | `slides/lecture.md`(Marp)・`slides/checklist.md` |
-| 商品カタログ(お酒の銘柄) | `menu/drinks.json`(POS に渡す一覧)・`menu/preview/index.html`(検索して追加する画面の試作) |
+| 商品カタログ(お酒の銘柄) | `menu/drinks.json`(POS に渡す一覧)・`menu/images/*.svg`(銘柄ごとの絵)・`menu/preview/index.html`(検索して追加する画面の試作) |
 
 ```sh
 pip install -r requirements.txt

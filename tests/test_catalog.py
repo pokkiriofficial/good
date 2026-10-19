@@ -78,8 +78,32 @@ def test_generated_files_are_current(data):
     assert "/*__CATALOG_JSON__*/null" not in html
     assert "商品を検索して追加" in html and "入力" in html and "追加済み" in html
     assert "商品価格" in html and "保存する" in html
+    assert html.count("<svg xmlns") >= len(data["items"])  # 商品ごとの絵が埋め込まれている
     saved = json.loads((ROOT / "menu" / "drinks.json").read_text(encoding="utf-8"))
     assert saved == data
+
+
+def test_every_item_has_its_own_image(data):
+    # 写真の代わりに、銘柄ごとの絵(SVG)を1枚ずつ持つ。実在ブランドの写真・ロゴは使わない
+    arts = build_catalog.render_art(data)
+    assert set(arts) == {it["id"] for it in data["items"]}
+    for it in data["items"]:
+        assert it["image"] == f"images/{it['id']}.svg"
+        f = ROOT / "menu" / it["image"]
+        assert f.exists(), it["name"]
+        svg = f.read_text(encoding="utf-8")
+        assert svg.startswith("<svg") and f'data-id="{it["id"]}"' in svg
+        assert it["style"]["shape"] in build_catalog.drink_art.SHAPES
+    # 同じ系統でも、色の言葉(ロゼ・ゴールド・黒)で絵が変わる
+    by_name = {it["name"]: arts[it["id"]] for it in data["items"]}
+    assert by_name["ドン・ペリニヨン 白"] != by_name["ドン・ペリニヨン ロゼ"]
+    assert by_name["ジョニーウォーカー レッドラベル"] != by_name["ジョニーウォーカー ブラックラベル 12年"]
+    assert by_name["レモンサワー"] != by_name["巨峰サワー"]
+    # 絵の種類がジャンルに合う
+    kinds = {it["name"]: it["style"]["shape"] for it in data["items"]}
+    assert kinds["ドン・ペリニヨン 白"] == "champagne" and kinds["黒霧島"] == "isshobin"
+    assert kinds["生ビール (中)"] == "mug" and kinds["マティーニ"] == "cocktail" and kinds["テキーラ ショット"] == "shot"
+    assert not any("<image" in a or "href=\"http" in a for a in arts.values())  # 外部の写真を参照しない
 
 
 def test_no_sensitive_items(data):

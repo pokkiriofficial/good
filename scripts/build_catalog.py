@@ -1,7 +1,8 @@
 """商品(お酒)カタログを spec/drinks.yaml から生成する。
 
 使い方: python scripts/build_catalog.py
-  → menu/drinks.json            POS に渡す一覧(ジャンル・銘柄・かな・別名・種別・初期値)
+  → menu/drinks.json            POS に渡す一覧(ジャンル・銘柄・かな・別名・種別・初期値・絵のパス)
+  → menu/images/<id>.svg        銘柄ごとの絵(写真の代わり。scripts/drink_art.py が描く)
   → menu/preview/index.html     「商品を検索して追加」画面の試作(1枚で開ける)
 """
 
@@ -16,16 +17,21 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import drink_art  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 SPEC = ROOT / "spec" / "drinks.yaml"
 TEMPLATE = ROOT / "templates" / "catalog" / "preview.html"
 OUT_JSON = ROOT / "menu" / "drinks.json"
 OUT_HTML = ROOT / "menu" / "preview" / "index.html"
+OUT_IMG = ROOT / "menu" / "images"
 
 KINDS = ["ドリンク", "ボトル", "フード", "その他"]
 # POS(nightwork-pos)の product_category_kind に合わせる
 KIND_CODE = {"ドリンク": "drink", "ボトル": "bottle", "フード": "food", "その他": "other"}
-ITEM_KEYS = {"c", "g", "n", "k", "a", "kind", "keep", "cast"}
+ITEM_KEYS = {"c", "g", "n", "k", "a", "kind", "keep", "cast", "s"}
+STYLE_KEYS = {"shape", "scale", "mark", "garnish", *drink_art.COLOR_KEYS}
 
 
 def load_catalog() -> dict:
@@ -79,7 +85,71 @@ def check(cat: dict) -> list[str]:
             errors.append(f"{label}: k(かな)はひらがなにする: {kana}")
         if "¥" in label or re.search(r"\d{3,}円", label):
             errors.append(f"{label}: 商品名に価格を入れない(店舗が入力する)")
+        if "s" in it:
+            errors += [f"{label}: s の {e}" for e in _check_style(it["s"])]
+    styles = cat.get("styles", {})
+    for key in ("base", "categories", "groups", "words"):
+        if key not in styles:
+            errors.append(f"styles.{key} がありません")
+    if errors:
+        return errors
+    errors += [f"styles.base: {e}" for e in _check_style(styles["base"])]
+    if set(styles["base"]) < {"shape", *drink_art.COLOR_KEYS}:
+        errors.append("styles.base は shape と色をすべて持つ")
+    for cid in cat_ids:
+        if cid not in styles["categories"]:
+            errors.append(f"styles.categories に {cid} がありません")
+    for cid, st in styles["categories"].items():
+        errors += [f"styles.categories.{cid}: {e}" for e in _check_style(st)]
+    groups = {f"{it['c']}/{it['g']}" for it in items}
+    for key, st in styles["groups"].items():
+        if key not in groups:
+            errors.append(f"styles.groups.{key}: その系統の商品がありません")
+        errors += [f"styles.groups.{key}: {e}" for e in _check_style(st)]
+    for i, w in enumerate(styles["words"]):
+        if "match" not in w:
+            errors.append(f"styles.words[{i}]: match がありません")
+        else:
+            try:
+                re.compile(w["match"])
+            except re.error as e:
+                errors.append(f"styles.words[{i}]: match が正しくありません({e})")
+        for cid in w.get("categories", []):
+            if cid not in cat_ids:
+                errors.append(f"styles.words[{i}]: 未定義の category {cid}")
+        errors += [f"styles.words[{i}]: {e}" for e in _check_style({k: v for k, v in w.items() if k not in ("match", "categories")})]
     return errors
+
+
+def _check_style(st: dict) -> list[str]:
+    errors = []
+    if not isinstance(st, dict):
+        return ["辞書にする"]
+    for k, v in st.items():
+        if k not in STYLE_KEYS:
+            errors.append(f"使えないキー {k}")
+        elif k == "shape" and v not in drink_art.SHAPES:
+            errors.append(f"shape {v} は {drink_art.SHAPES} のどれかにする")
+        elif k in drink_art.COLOR_KEYS and not re.fullmatch(r"#[0-9a-fA-F]{6}", str(v)):
+            errors.append(f"{k} は #rrggbb の形にする")
+        elif k == "scale" and not (0.5 <= float(v) <= 1.5):
+            errors.append("scale は 0.5〜1.5")
+    return errors
+
+
+def resolve_style(cat: dict, it: dict) -> dict:
+    """商品1つの絵の指定(形と色)。categories → groups → words → s の順に重ねる。"""
+    styles = cat["styles"]
+    st = dict(styles["base"])
+    st.update(styles["categories"].get(it["c"], {}))
+    st.update(styles["groups"].get(f"{it['c']}/{it['g']}", {}))
+    for w in styles["words"]:
+        if w.get("categories") and it["c"] not in w["categories"]:
+            continue
+        if re.search(w["match"], it["n"]):
+            st.update({k: v for k, v in w.items() if k not in ("match", "categories")})
+    st.update(it.get("s", {}))
+    return st
 
 
 def catalog_data(cat: dict) -> dict:
@@ -93,8 +163,11 @@ def catalog_data(cat: dict) -> dict:
         kind = it.get("kind", c["kind"])
         aliases = [str(a) for a in it.get("a", [])]
         search = sorted({normalize(x) for x in [it["n"], it["k"], it["g"], c["label"], *aliases] if x})
+        item_id = f"{it['c']}-{counter[it['c']]:03d}"
         items.append({
-            "id": f"{it['c']}-{counter[it['c']]:03d}",
+            "id": item_id,
+            "image": f"images/{item_id}.svg",
+            "style": resolve_style(cat, it),
             "category": it["c"],
             "categoryLabel": c["label"],
             "group": it["g"],
@@ -114,15 +187,23 @@ def catalog_data(cat: dict) -> dict:
     } for c in cat["categories"]]
     return {
         "version": str(cat["version"]),
-        "note": "価格は持たない。店舗が商品を追加するときに入力する",
+        "note": "価格は持たない。店舗が商品を追加するときに入力する。image は銘柄ごとの絵(写真ではない)",
+        "imageNote": "実在ブランドの写真・ロゴは使わない。形と色で銘柄を見分ける絵。店舗の写真は POS の photo_url で上書きできる",
         "kinds": [{"code": KIND_CODE[k], "label": k} for k in KINDS],
         "categories": categories,
         "items": items,
     }
 
 
-def build_html(data: dict) -> str:
-    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+def render_art(data: dict) -> dict[str, str]:
+    """商品id → SVG 文字列。"""
+    return {it["id"]: drink_art.render(it["id"], it["name"], it["style"], it["name"]) for it in data["items"]}
+
+
+def build_html(data: dict, arts: dict[str, str] | None = None) -> str:
+    arts = arts or render_art(data)
+    page = {**data, "items": [{k: v for k, v in it.items() if k != "style"} | {"art": arts[it["id"]]} for it in data["items"]]}
+    payload = json.dumps(page, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     return TEMPLATE.read_text(encoding="utf-8").replace("/*__CATALOG_JSON__*/null", payload)
 
 
@@ -135,12 +216,19 @@ def main() -> int:
     data = catalog_data(cat)
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    arts = render_art(data)
+    OUT_IMG.mkdir(parents=True, exist_ok=True)
+    for old in OUT_IMG.glob("*.svg"):
+        if old.stem not in arts:
+            old.unlink()
+    for item_id, svg in arts.items():
+        (OUT_IMG / f"{item_id}.svg").write_text(svg + "\n", encoding="utf-8")
     OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
-    OUT_HTML.write_text(build_html(data), encoding="utf-8")
+    OUT_HTML.write_text(build_html(data, arts), encoding="utf-8")
     print(f"catalog: {len(data['categories'])} categories / {len(data['items'])} items")
     for c in data["categories"]:
         print(f"  {c['label']}: {c['count']}")
-    print(f"-> {OUT_JSON.relative_to(ROOT)}, {OUT_HTML.relative_to(ROOT)}")
+    print(f"-> {OUT_JSON.relative_to(ROOT)}, {OUT_HTML.relative_to(ROOT)}, {OUT_IMG.relative_to(ROOT)}/*.svg ({len(arts)})")
     return 0
 
 
