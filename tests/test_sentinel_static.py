@@ -56,3 +56,38 @@ def test_secret_pattern_detected(tmp_path):
     out = ss.check_secrets(repo)
     assert out[0].startswith("| 🔴")
     assert any("src/leak.ts:1" in line for line in out)
+
+
+def _add_guard_tests(repo: Path, *, allowed_entries=0, drop=None):
+    (repo / "tests").mkdir(exist_ok=True)
+    entries = ",".join('{ file: "a.tsx", name: "x", reason: "r" }' for _ in range(allowed_entries))
+    bodies = {
+        "tests/no-use-before-declare-in-render.test.ts": f"const ALLOWED: {{ file: string; name: string; reason: string }}[] = [{entries}];\n",
+        "tests/create-tenant-button-render.test.ts": "it('renders', () => {});\n",
+        "tests/printer-silent-check.test.ts": "it('no Date', () => {});\n",
+    }
+    for rel, body in bodies.items():
+        if rel != drop:
+            (repo / rel).write_text(body)
+
+
+def test_guard_tests_all_present_is_green(tmp_path):
+    repo = _fake_repo(tmp_path)
+    _add_guard_tests(repo)
+    out = ss.check_guard_tests(repo)
+    assert all(line.startswith("| ✅") for line in out)
+    assert any("ALLOWED): 0 件" in line for line in out)
+
+
+def test_guard_test_missing_is_red(tmp_path):
+    repo = _fake_repo(tmp_path)
+    _add_guard_tests(repo, drop="tests/no-use-before-declare-in-render.test.ts")
+    out = ss.check_guard_tests(repo)
+    assert any(line.startswith("| 🔴") and "no-use-before-declare" in line for line in out)
+
+
+def test_guard_allowed_entries_are_yellow(tmp_path):
+    repo = _fake_repo(tmp_path)
+    _add_guard_tests(repo, allowed_entries=2)
+    out = ss.check_guard_tests(repo)
+    assert any(line.startswith("| 🟡") and "2 件" in line for line in out)
