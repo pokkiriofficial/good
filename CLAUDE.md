@@ -19,7 +19,7 @@ POS「ポッキリ.Night」の導入時に店舗情報を集めるキット。�
   - `--site form/site` で店舗に配る公開用ページも書き出す。Vercel(チーム koku・プロジェクト pokkiri-night-survey、rootDirectory `form/site`)で https://pokkiri-night-survey.vercel.app に公開している。変更後は push してから再デプロイする
 - `scripts/build_templates.py` … ② LINEテキスト・Excel・確認ページ(テーマ7=キャスト別バックは任意)(`templates/line/`・`templates/excel/`・`templates/preview/`)
 - `spec/drinks.yaml` … お酒の銘柄カタログ(ジャンル・銘柄・かな・別名・種別)。価格と写真は持たない(店舗が入力・登録する)
-- `scripts/build_catalog.py` … 商品カタログ(`spec/drinks.yaml` → `menu/drinks.json`・`menu/preview/index.html`)。POS の「商品を検索して追加」画面の試作と、POS に渡す一覧。写真・絵は持たず、商品名だけを出す(実在ブランドの写真は許諾が要る)
+- `scripts/build_catalog.py` … 商品カタログ(`spec/drinks.yaml` → `menu/drinks.json`・`menu/preview/index.html`・`menu/preview/reorder.html`)。POS の「商品を検索して追加」画面と「並び順の変更(長押しで並べ替え)」画面の試作(テンプレートは `templates/catalog/`)と、POS に渡す一覧。写真・絵は持たず、商品名だけを出す(実在ブランドの写真は許諾が要る)
 - `scripts/build_slides.py` … ③ スライド(`templates/slides/lecture.yaml` → `slides/lecture.md`・`slides/checklist.md`)。`--exclude 9` で章を除外
 - `tests/` … pytest
 - `sentinel/` / `scripts/sentinel_static.py` / `.claude/agents/pos-sentinel.md` … POS 本体と本サイトの毎日点検係(読み取りだけ。nightwork-pos には書き込まない。手順は `sentinel/checklist.md`、報告は `sentinel/reports/`)

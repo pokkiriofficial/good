@@ -3,6 +3,7 @@
 使い方: python scripts/build_catalog.py
   → menu/drinks.json            POS に渡す一覧(ジャンル・銘柄・かな・別名・種別・初期値)
   → menu/preview/index.html     「商品を検索して追加」画面の試作(1枚で開ける)
+  → menu/preview/reorder.html   「並び順の変更(長押しで並べ替え)」画面の試作(1枚で開ける)
 """
 
 from __future__ import annotations
@@ -19,8 +20,10 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 SPEC = ROOT / "spec" / "drinks.yaml"
 TEMPLATE = ROOT / "templates" / "catalog" / "preview.html"
+TEMPLATE_REORDER = ROOT / "templates" / "catalog" / "reorder.html"
 OUT_JSON = ROOT / "menu" / "drinks.json"
 OUT_HTML = ROOT / "menu" / "preview" / "index.html"
+OUT_HTML_REORDER = ROOT / "menu" / "preview" / "reorder.html"
 
 KINDS = ["ドリンク", "ボトル", "フード", "その他"]
 # POS(nightwork-pos)の product_category_kind に合わせる
@@ -121,9 +124,10 @@ def catalog_data(cat: dict) -> dict:
     }
 
 
-def build_html(data: dict) -> str:
+def build_html(data: dict, template: Path = TEMPLATE) -> str:
+    """テンプレートのカタログ差し込み位置に、menu/drinks.json と同じ内容を埋める。"""
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
-    return TEMPLATE.read_text(encoding="utf-8").replace("/*__CATALOG_JSON__*/null", payload)
+    return template.read_text(encoding="utf-8").replace("/*__CATALOG_JSON__*/null", payload)
 
 
 def main() -> int:
@@ -137,10 +141,11 @@ def main() -> int:
     OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
     OUT_HTML.write_text(build_html(data), encoding="utf-8")
+    OUT_HTML_REORDER.write_text(build_html(data, TEMPLATE_REORDER), encoding="utf-8")
     print(f"catalog: {len(data['categories'])} categories / {len(data['items'])} items")
     for c in data["categories"]:
         print(f"  {c['label']}: {c['count']}")
-    print(f"-> {OUT_JSON.relative_to(ROOT)}, {OUT_HTML.relative_to(ROOT)}")
+    print(f"-> {OUT_JSON.relative_to(ROOT)}, {OUT_HTML.relative_to(ROOT)}, {OUT_HTML_REORDER.relative_to(ROOT)}")
     return 0
 
 

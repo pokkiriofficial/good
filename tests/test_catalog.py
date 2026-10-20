@@ -82,12 +82,30 @@ def test_generated_files_are_current(data):
     assert saved == data
 
 
+def test_reorder_preview_is_current(data):
+    # 「並び順の変更」の試作。長押しで持ち上げ、設定とフロア画面の両方で並べ替えられる
+    html = (ROOT / "menu" / "preview" / "reorder.html").read_text(encoding="utf-8")
+    assert html == build_catalog.build_html(data, build_catalog.TEMPLATE_REORDER)
+    assert "/*__CATALOG_JSON__*/null" not in html
+    for word in ["カテゴリーの並び順", "メニュー項目の並び順", "フロア画面", "長押し", "フード", "ゲスト"]:
+        assert word in html, word
+    # 指(タッチ)とマウスの両方で動く Pointer Events を使い、長押しは 400〜600ms
+    for ev in ["pointerdown", "pointermove", "pointerup", "pointercancel"]:
+        assert ev in html, ev
+    m = re.search(r"LONG_PRESS_MS = (\d+)", html)
+    assert m and 400 <= int(m.group(1)) <= 600
+    # POS に渡す形は id と sortOrder の並び
+    assert "reorderCategories" in html and "reorderProducts" in html and "sortOrder" in html
+
+
 def test_catalog_has_no_images(data):
     # 写真・絵は持たない(実在ブランドの写真は許諾が要る)。画面は商品名だけ
     for it in data["items"]:
         assert "image" not in it and "art" not in it and "style" not in it, it["name"]
-    html = (ROOT / "menu" / "preview" / "index.html").read_text(encoding="utf-8")
-    assert "<img" not in html and not (ROOT / "menu" / "images").exists()
+    for name in ["index.html", "reorder.html"]:
+        html = (ROOT / "menu" / "preview" / name).read_text(encoding="utf-8")
+        assert "<img" not in html, name
+    assert not (ROOT / "menu" / "images").exists()
 
 
 def test_no_sensitive_items(data):

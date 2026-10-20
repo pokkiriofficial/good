@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>並び順の変更 ─ ポッキリ.Night 設定(試作)</title>
+<meta name="description" content="ポッキリ.Night のカテゴリー・メニュー項目を、長押しして上下の順番を入れ替える画面の試作。設定とフロア画面(iPad)の両方で同じ操作ができる。">
+<style>
+  :root{
+    --page:#f3f4f6; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --faint:#9ca3af;
+    --line:#e5e7eb; --line-2:#d1d5db; --navy:#1e2a47; --navy-ink:#ffffff;
+    --accent:#f26a1b; --accent-dark:#d85a12; --accent-soft:#fff1e8; --accent-line:#f9c4a3;
+    --ok:#15803d; --ok-soft:#ecfdf3; --ok-line:#bbf7d0; --field:#f6f7f9;
+    --radius:12px; --radius-s:8px;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html,body{margin:0;background:var(--page);color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI",system-ui,sans-serif;
+    font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  button,input{font:inherit;color:inherit}
+  button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+  .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px 8px}
+  .top h1{font-size:18px;font-weight:700;margin:0}
+  .top .demo{font-size:12px;color:var(--muted);margin-left:12px;font-weight:400}
+  .top .close{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-weight:600;white-space:nowrap;flex:none}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 24px}
+  .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+  .tabs button{border:1.5px solid var(--line-2);background:#fff;border-radius:10px;padding:12px 8px;font-weight:700;line-height:1.3}
+  .tabs button .s{display:block;font-weight:400;font-size:12px;color:var(--muted)}
+  .tabs button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .tabs button.on .s{color:#cfd6e6}
+
+  .pane{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+  .head h2{font-size:16px;font-weight:700;margin:0}
+  .howto{display:flex;align-items:center;gap:10px;margin:12px 16px 0;padding:10px 14px;border-radius:10px;background:var(--accent-soft);border:1px solid var(--accent-line);font-size:13px}
+  .howto b{color:var(--accent-dark)}
+  .howto svg{width:22px;height:22px;flex:none;color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line-2);background:#fff;border-radius:10px;padding:9px 14px;font-weight:700;white-space:nowrap}
+  .btn svg{width:16px;height:16px}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn.ghost{border-color:transparent;color:var(--muted)}
+
+  /* ── 縦の一覧(カテゴリー・メニュー項目) ── */
+  .list{display:flex;flex-direction:column;gap:8px;padding:12px 16px 16px;max-height:62dvh;overflow-y:auto;overscroll-behavior:contain}
+  .row{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:var(--radius);
+    padding:12px 10px 12px 8px;background:#fff;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:pan-y;position:relative}
+  .row .grip{display:grid;place-items:center;width:36px;height:40px;color:var(--faint);border-radius:8px;cursor:grab;touch-action:none}
+  .row .grip svg{width:20px;height:20px}
+  .row .name{font-size:16px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+  .row .sub{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);margin-top:2px;flex-wrap:wrap}
+  .row .no{font-size:12px;color:var(--faint);font-weight:700;min-width:2.2em}
+  .kind{display:inline-block;border:1px solid var(--line-2);border-radius:999px;padding:0 8px;font-size:11px;line-height:18px;color:var(--muted);background:#fff}
+  .kind.bottle{border-color:#c7d2e3;color:#3b4d6b;background:#f0f4fa}
+  .kind.food{border-color:#f0cfa8;color:#8a4b0a;background:#fff6ea}
+  .row .price{font-weight:700;font-size:15px}
+  .row .arrows{display:flex;flex-direction:column;gap:2px}
+  .row .arrows button{border:1px solid var(--line);background:#fff;border-radius:6px;width:30px;height:22px;font-size:11px;line-height:1;color:var(--muted)}
+  .row .arrows button:disabled{opacity:.3;cursor:default}
+  .row .right{display:flex;align-items:center;gap:10px}
+  .row.pressing{border-color:var(--accent-line);background:var(--accent-soft);transition:background .35s ease .1s}
+  .row.hole{border-style:dashed;border-color:var(--accent);background:var(--accent-soft)}
+  .row.hole > *{visibility:hidden}
+
+  /* ── 横のチップ(メニュー項目の中のカテゴリー選択) ── */
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px 4px;scrollbar-width:thin}
+  .chip{flex:none;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line-2);background:#fff;border-radius:999px;padding:7px 14px;font-weight:600;font-size:13px;white-space:nowrap}
+  .chip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .chip .n{font-weight:400;color:var(--muted);font-size:12px}
+  .chip.on .n{color:#cfd6e6}
+
+  /* ── フロア画面(iPad の注文) ── */
+  .floor{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:12px;padding:12px 16px 16px;min-height:420px}
+  .ftabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
+  .ftab{flex:none;border:1.5px solid var(--line-2);background:#fff;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14px;white-space:nowrap;
+    user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:pan-x;position:relative}
+  .ftab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+  .ftab.pressing{border-color:var(--accent-line);background:var(--accent-soft);color:var(--ink)}
+  .ftab.hole{border-style:dashed;border-color:var(--accent);background:var(--accent-soft);color:transparent}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;align-content:start}
+  .tile{border:1.5px solid var(--line);border-radius:var(--radius);background:#fff;padding:12px 12px 10px;text-align:left;min-height:84px;display:flex;flex-direction:column;justify-content:space-between;gap:6px;
+    user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:pan-y;position:relative}
+  .tile .name{font-weight:700;font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+  .tile .price{font-size:13px;color:var(--muted);font-weight:700}
+  .tile.pressing{border-color:var(--accent-line);background:var(--accent-soft)}
+  .tile.hole{border-style:dashed;border-color:var(--accent);background:var(--accent-soft)}
+  .tile.hole > *{visibility:hidden}
+  .slip{border:1.5px solid var(--line);border-radius:var(--radius);background:var(--field);padding:12px 14px;font-size:13px;color:var(--muted)}
+  .slip b{display:block;color:var(--ink);font-size:14px;margin-bottom:6px}
+  .slip ul{margin:8px 0 0;padding-left:18px}
+  .slip li{margin:2px 0;color:var(--ink)}
+
+  /* ── 持ち上げた見た目(指について動く) ── */
+  .ghost{position:fixed;z-index:50;pointer-events:none;margin:0;transform:scale(1.03);box-shadow:0 14px 34px rgba(0,0,0,.22);opacity:.96;border-color:var(--accent)!important;background:#fff!important;
+    transition:transform .12s ease}
+  .ghost.drop{transform:scale(1);transition:left .15s ease,top .15s ease,transform .15s ease}
+  body.dragging{cursor:grabbing}
+  body.dragging *{cursor:grabbing!important}
+
+  .toast{margin:0 16px 12px;padding:10px 14px;border-radius:10px;background:var(--ok-soft);border:1px solid var(--ok-line);color:var(--ok);font-weight:600;display:flex;align-items:center;gap:8px}
+  .toast svg{width:18px;height:18px}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;border-top:1px solid var(--line);font-size:13px;flex-wrap:wrap}
+  .foot .btn{padding:7px 12px;font-size:13px}
+  details.payload{margin:12px 0 0;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+  details.payload summary{padding:12px 16px;font-weight:700;cursor:pointer}
+  details.payload pre{margin:0;padding:0 16px 16px;font-size:12px;line-height:1.5;white-space:pre-wrap;color:var(--muted)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  @media (max-width:800px){
+    .tabs{grid-template-columns:1fr}
+    .tabs button .s{display:inline;margin-left:6px}
+    .floor{grid-template-columns:minmax(0,1fr)}
+    .slip{order:-1}
+    .top .demo{display:none}
+    .row .arrows{display:none}
+  }
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <g id="i-grip" fill="currentColor"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></g>
+    <g id="i-hand" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12"/><path d="M11 11.5V4.5a1.5 1.5 0 0 1 3 0V12"/><path d="M14 11.5V6a1.5 1.5 0 0 1 3 0v7.5"/><path d="M8 13l-1.6-1.7a1.6 1.6 0 0 0-2.3 2.2L8.4 19a6 6 0 0 0 4.9 2.5h.9A5.8 5.8 0 0 0 20 15.7V9.5a1.5 1.5 0 0 0-3 0"/></g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></g>
+    <g id="i-undo" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7H4V3"/><path d="M4.5 7a8 8 0 1 1-1.3 6"/></g>
+  </defs>
+</svg>
+
+<header class="top">
+  <h1>設定 <span class="demo">試作 ─ 並び順の変更(長押しして上下を入れ替える)</span></h1>
+  <button class="close" type="button">閉じる</button>
+</header>
+
+<main class="wrap">
+  <nav class="tabs" aria-label="画面の切り替え">
+    <button type="button" data-view="cats" class="on">カテゴリーの並び順<span class="s">設定 › メニュー</span></button>
+    <button type="button" data-view="items">メニュー項目の並び順<span class="s">設定 › メニュー › カテゴリーの中</span></button>
+    <button type="button" data-view="floor">フロア画面(iPad)<span class="s">注文画面でも同じ操作</span></button>
+  </nav>
+
+  <!-- 1. カテゴリーの並び順 -->
+  <section class="pane" id="view-cats" aria-label="カテゴリーの並び順">
+    <div class="head"><h2>カテゴリーの並び順</h2><span style="font-size:12px;color:var(--muted)">上から順に、注文画面に出ます</span></div>
+    <div class="howto"><svg><use href="#i-hand"/></svg><span><b>カテゴリーを長押し</b>すると持ち上がります。<br>そのまま動かして、入れたい場所で離してください。</span></div>
+    <div class="list" id="catList" role="list" aria-label="カテゴリー"></div>
+  </section>
+
+  <!-- 2. メニュー項目の並び順 -->
+  <section class="pane" id="view-items" aria-label="メニュー項目の並び順" hidden>
+    <div class="head"><h2>メニュー項目の並び順</h2><span style="font-size:12px;color:var(--muted)">カテゴリーの中での順番です</span></div>
+    <div class="chips" id="itemChips" role="tablist" aria-label="カテゴリー"></div>
+    <div class="howto"><svg><use href="#i-hand"/></svg><span><b>商品を長押し</b>すると持ち上がります。<br>そのまま動かして、入れたい場所で離してください。</span></div>
+    <div class="list" id="itemList" role="list" aria-label="メニュー項目"></div>
+  </section>
+
+  <!-- 3. フロア画面(注文) -->
+  <section class="pane" id="view-floor" aria-label="フロア画面(注文)" hidden>
+    <div class="head"><h2>フロア画面 ─ 卓 A-3 の注文</h2><span style="font-size:12px;color:var(--muted)">タップで注文、長押しで並べ替え</span></div>
+    <div class="howto"><svg><use href="#i-hand"/></svg><span><b>タブや商品を長押し</b>すると、その場で順番を変えられます。<br>変えた順番は、設定の画面にもそのまま反映されます。</span></div>
+    <div class="floor">
+      <div style="min-width:0">
+        <div class="ftabs" id="floorTabs" role="tablist" aria-label="カテゴリー"></div>
+        <div class="grid" id="floorGrid" role="group" aria-label="商品"></div>
+      </div>
+      <aside class="slip" id="slip"><b>伝票(試作)</b>商品をタップすると、ここに入ります。<ul id="slipList"></ul></aside>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" hidden style="margin-top:12px"><svg><use href="#i-check"/></svg><span id="toastText"></span></div>
+  <div class="sr" id="live" aria-live="polite"></div>
+
+  <div class="foot" style="border:0;padding:12px 0 0">
+    <span style="color:var(--muted)">並び順は、離した時点で保存されます(試作ではこの端末の中だけ)。</span>
+    <button type="button" class="btn" id="resetBtn"><svg><use href="#i-undo"/></svg>最初の並び順に戻す</button>
+  </div>
+  <details class="payload">
+    <summary>POS に保存する形(開発者向け)</summary>
+    <pre id="payload"></pre>
+  </details>
+</main>
+
+<script>
+(function(){
+  const CATALOG = /*__CATALOG_JSON__*/null;
+  const $ = (id) => document.getElementById(id);
+  const STORE_KEY = "pokkiri.menu.order.v1";
+  const LONG_PRESS_MS = 450;   // 長押しと判定するまでの時間
+  const MOVE_SLOP = 8;         // これ以上動いたらスクロールとみなし、長押しを取り消す
+
+  // ── 見本の店舗メニュー(カテゴリーと商品は店舗ごとに違う。価格は見本の数字) ──
+  const pick = (catId, n, price) => CATALOG.items.filter(it => it.category === catId).slice(0, n)
+    .map((it, i) => ({ id: `${catId}-${i + 1}`, name: it.name, priceYen: price(i) }));
+  const SEED = [
+    { id: "food",   label: "フード",         kind: "food",   items: [["枝豆", 800], ["ミックスナッツ", 800], ["チーズ盛り合わせ", 1500], ["フルーツ盛り合わせ", 3000], ["からあげ", 1000], ["ポテトフライ", 900]].map(([name, priceYen], i) => ({ id: `food-${i + 1}`, name, priceYen })) },
+    { id: "guest",  label: "ゲスト",         kind: "drink",  items: pick("sour", 4, () => 900).concat(pick("highball", 3, () => 900)) },
+    { id: "cast",   label: "キャストドリンク", kind: "drink", items: [["キャストドリンク", 1500], ["キャストショット", 2000], ["キャストグラスシャンパン", 3000]].map(([name, priceYen], i) => ({ id: `cast-${i + 1}`, name, priceYen })) },
+    { id: "champ",  label: "シャンパン",     kind: "bottle", items: pick("champagne", 5, i => [30000, 120000, 25000, 40000, 20000][i]) },
+    { id: "bottle", label: "ボトル",         kind: "bottle", items: pick("whisky", 3, i => [8000, 12000, 15000][i]).concat(pick("shochu", 2, () => 6000)) },
+    { id: "soft",   label: "ソフトドリンク", kind: "drink",  items: pick("soft", 5, () => 700) },
+    { id: "other",  label: "その他",         kind: "other",  items: [["チャージ", 1000], ["氷", 500], ["ミネラルウォーター", 800]].map(([name, priceYen], i) => ({ id: `other-${i + 1}`, name, priceYen })) },
+  ];
+  const clone = (v) => JSON.parse(JSON.stringify(v));
+
+  // ── 状態(並び順)。設定とフロア画面で同じものを見る ──
+  let cats = load();
+  const state = { view: "cats", itemCat: cats[0].id, floorCat: cats[0].id, slip: [] };
+  function load(){
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
+      if (saved && Array.isArray(saved.categories)) return restore(saved);
+    } catch (e) {}
+    return clone(SEED);
+  }
+  function restore(saved){
+    // 保存した順番(id の並び)を見本に当てはめる。見本に無い id は捨てる
+    const byId = Object.fromEntries(clone(SEED).map(c => [c.id, c]));
+    const out = [];
+    for (const s of saved.categories) {
+      const c = byId[s.id]; if (!c) continue; delete byId[s.id];
+      const items = Object.fromEntries(c.items.map(it => [it.id, it]));
+      c.items = (s.items || []).map(id => items[id]).filter(Boolean).concat(c.items.filter(it => !(s.items || []).includes(it.id)));
+      out.push(c);
+    }
+    return out.concat(Object.values(byId));
+  }
+  function save(){
+    try { localStorage.setItem(STORE_KEY, JSON.stringify({ categories: cats.map(c => ({ id: c.id, items: c.items.map(it => it.id) })) })); } catch (e) {}
+    renderPayload();
+  }
+  // POS に送る形。カテゴリーも商品も「id と sortOrder(0 から)」の配列にする
+  function payload(){
+    return {
+      reorderCategories: cats.map((c, i) => ({ id: c.id, sortOrder: i })),
+      reorderProducts: cats.map(c => ({ categoryId: c.id, products: c.items.map((it, i) => ({ id: it.id, sortOrder: i })) })),
+    };
+  }
+  function renderPayload(){ $("payload").textContent = JSON.stringify(payload(), null, 1); }
+
+  const esc = (s) => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const yen = (n) => "¥" + Number(n).toLocaleString("ja-JP");
+  const KIND_LABEL = { drink: "ドリンク", bottle: "ボトル", food: "フード", other: "その他" };
+  const catOf = (id) => cats.find(c => c.id === id);
+  const ordinal = (i) => `${i + 1}番目`;
+
+  // ── 並べ替えの共通部品(長押しで持ち上げ → 指について動く → 離した所に入る) ──
+  // container: 並べ替える要素の親。itemSel: 要素のセレクタ。onMove(from, to): 並び順が変わったとき
+  function makeSortable(container, itemSel, opts){
+    let press = null;   // 長押し待ち { el, x, y, timer, pointerId }
+    let drag = null;    // 持ち上げ中 { el, ghost, dx, dy, from, pointerId }
+    const items = () => [...container.querySelectorAll(itemSel)];
+
+    container.addEventListener("pointerdown", e => {
+      if (e.button !== 0 && e.pointerType === "mouse") return;
+      const el = e.target.closest(itemSel); if (!el || !container.contains(el)) return;
+      if (e.target.closest("button:not(" + itemSel + ")") && !e.target.closest(".grip")) return; // 行の中のボタンはそのまま
+      cancelPress();
+      const immediate = !!e.target.closest(".grip"); // つまみ(≡)は長押しなしで持てる
+      press = { el, x: e.clientX, y: e.clientY, pointerId: e.pointerId, timer: null };
+      if (immediate) { lift(e); return; }
+      el.classList.add("pressing");
+      press.timer = setTimeout(() => lift(e), LONG_PRESS_MS);
+    });
+    container.addEventListener("pointermove", e => {
+      if (press && !drag) {
+        if (Math.hypot(e.clientX - press.x, e.clientY - press.y) > MOVE_SLOP) cancelPress(); // 指が動いた = スクロール
+        return;
+      }
+      if (drag && e.pointerId === drag.pointerId) move(e);
+    });
+    container.addEventListener("pointerup", e => { if (drag && e.pointerId === drag.pointerId) drop(); else cancelPress(); });
+    container.addEventListener("pointercancel", () => { if (drag) cancel(); else cancelPress(); });
+    container.addEventListener("contextmenu", e => { if (press || drag) e.preventDefault(); });
+    container.addEventListener("touchmove", e => { if (drag) e.preventDefault(); }, { passive: false });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && drag) cancel(); });
+
+    function cancelPress(){ if (!press) return; clearTimeout(press.timer); press.el.classList.remove("pressing"); press = null; }
+
+    function lift(e){
+      const el = press.el; clearTimeout(press.timer); el.classList.remove("pressing");
+      const r = el.getBoundingClientRect();
+      const ghost = el.cloneNode(true);
+      ghost.classList.add("ghost"); ghost.setAttribute("aria-hidden", "true");
+      Object.assign(ghost.style, { left: r.left + "px", top: r.top + "px", width: r.width + "px", height: r.height + "px" });
+      document.body.appendChild(ghost);
+      el.classList.add("hole");
+      drag = { el, ghost, dx: press.x - r.left, dy: press.y - r.top, from: items().indexOf(el), pointerId: press.pointerId, lastX: press.x, lastY: press.y };
+      press = null;
+      try { container.setPointerCapture(drag.pointerId); } catch (err) {}
+      document.body.classList.add("dragging");
+      if (navigator.vibrate) navigator.vibrate(12);
+      announce(`${label(el)}を持ち上げました。動かして離すと、その場所に入ります。`);
+      autoScroll();
+    }
+    function move(e){
+      drag.lastX = e.clientX; drag.lastY = e.clientY;
+      drag.ghost.style.left = (e.clientX - drag.dx) + "px";
+      drag.ghost.style.top = (e.clientY - drag.dy) + "px";
+      place(e.clientX, e.clientY);
+    }
+    // 指の位置に一番近い要素を探し、その前か後ろに穴(hole)を移す
+    function place(x, y){
+      const list = items().filter(el => el !== drag.el);
+      if (!list.length) return;
+      // 指が穴(自分の場所)の上にあるうちは動かさない(格子で隣の行に飛ぶのを防ぐ)
+      const h = drag.el.getBoundingClientRect();
+      if (x >= h.left && x <= h.right && y >= h.top && y <= h.bottom) return;
+      // 格子では、まず指と同じ行のタイルだけを候補にする。同じ行に無ければ全体から選ぶ
+      let cand = list;
+      if (!opts.axis) {
+        const sameRow = list.filter(el => { const r = el.getBoundingClientRect(); return y >= r.top && y <= r.bottom; });
+        if (sameRow.length) cand = sameRow;
+      }
+      let best = null, bestD = Infinity, after = false;
+      for (const el of cand) {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        const d = opts.axis === "x" ? Math.abs(x - cx) : opts.axis === "y" ? Math.abs(y - cy) : Math.hypot(x - cx, y - cy);
+        if (d < bestD) { bestD = d; best = el; after = opts.axis === "x" ? x > cx : opts.axis === "y" ? y > cy : (y > r.bottom || (y >= r.top && x > cx)); }
+      }
+      const ref = after ? best.nextSibling : best;
+      if (ref !== drag.el && ref !== drag.el.nextSibling) container.insertBefore(drag.el, ref);
+    }
+    // 一覧の端に指を置いたら、ゆっくりスクロールする
+    function autoScroll(){
+      if (!drag) return;
+      const sc = opts.scroller || container;
+      const r = sc === document.scrollingElement ? { top: 0, bottom: innerHeight, left: 0, right: innerWidth } : sc.getBoundingClientRect();
+      const edge = 48; const step = 6;
+      if (opts.axis === "x") {
+        if (drag.lastX < r.left + edge) sc.scrollLeft -= step; else if (drag.lastX > r.right - edge) sc.scrollLeft += step;
+      } else {
+        if (drag.lastY < r.top + edge) sc.scrollTop -= step; else if (drag.lastY > r.bottom - edge) sc.scrollTop += step;
+      }
+      requestAnimationFrame(autoScroll);
+    }
+    function finish(){
+      const { el, ghost } = drag;
+      const r = el.getBoundingClientRect();
+      ghost.classList.add("drop"); ghost.style.left = r.left + "px"; ghost.style.top = r.top + "px";
+      setTimeout(() => ghost.remove(), 160);
+      el.classList.remove("hole");
+      document.body.classList.remove("dragging");
+      try { container.releasePointerCapture(drag.pointerId); } catch (err) {}
+      const d = drag; drag = null; return d;
+    }
+    function drop(){
+      const d = finish();
+      const to = items().indexOf(d.el);
+      if (to !== d.from) opts.onMove(d.from, to, label(d.el));
+      else announce(`${label(d.el)}の場所は変わりませんでした。`);
+    }
+    function cancel(){
+      const d = finish();
+      const list = items().filter(el => el !== d.el);
+      container.insertBefore(d.el, list[d.from] || null);
+      announce("並べ替えを取り消しました。");
+    }
+    function label(el){ return `「${(el.querySelector(".name") || el).textContent.trim()}」`; }
+  }
+
+  // 配列の中で from → to に動かす
+  function moveIn(arr, from, to){ const [x] = arr.splice(from, 1); arr.splice(to, 0, x); }
+
+  // ── 1. カテゴリーの並び順 ──
+  function renderCats(){
+    $("catList").innerHTML = cats.map((c, i) => `
+      <div class="row" role="listitem" data-id="${c.id}" aria-label="${esc(c.label)} ${ordinal(i)}">
+        <span class="grip" aria-hidden="true"><svg><use href="#i-grip"/></svg></span>
+        <span><span class="name">${esc(c.label)}</span>
+          <span class="sub"><span class="kind ${c.kind}">${KIND_LABEL[c.kind]}</span><span>${c.items.length}品</span></span></span>
+        <span class="right"><span class="no">${i + 1}</span>
+          <span class="arrows"><button type="button" data-up="${i}" aria-label="${esc(c.label)}を1つ上へ" ${i === 0 ? "disabled" : ""}>▲</button><button type="button" data-down="${i}" aria-label="${esc(c.label)}を1つ下へ" ${i === cats.length - 1 ? "disabled" : ""}>▼</button></span></span>
+      </div>`).join("");
+  }
+  function moveCat(from, to, name){
+    moveIn(cats, from, to); save(); renderAll();
+    toast(`${name}を${ordinal(to)}に動かしました。`);
+  }
+  makeSortable($("catList"), ".row", { axis: "y", onMove: moveCat });
+  $("catList").addEventListener("click", e => {
+    const up = e.target.closest("[data-up]"), down = e.target.closest("[data-down]");
+    if (up) moveCat(+up.dataset.up, +up.dataset.up - 1, `「${cats[+up.dataset.up].label}」`);
+    if (down) moveCat(+down.dataset.down, +down.dataset.down + 1, `「${cats[+down.dataset.down].label}」`);
+  });
+
+  // ── 2. メニュー項目の並び順 ──
+  function renderItems(){
+    if (!catOf(state.itemCat)) state.itemCat = cats[0].id;
+    $("itemChips").innerHTML = cats.map(c => `<button type="button" role="tab" class="chip${state.itemCat === c.id ? " on" : ""}" data-cat="${c.id}" aria-selected="${state.itemCat === c.id}">${esc(c.label)} <span class="n">${c.items.length}</span></button>`).join("");
+    const c = catOf(state.itemCat);
+    $("itemList").innerHTML = c.items.map((it, i) => `
+      <div class="row" role="listitem" data-id="${it.id}" aria-label="${esc(it.name)} ${ordinal(i)}">
+        <span class="grip" aria-hidden="true"><svg><use href="#i-grip"/></svg></span>
+        <span><span class="name">${esc(it.name)}</span><span class="sub"><span class="kind ${c.kind}">${KIND_LABEL[c.kind]}</span><span>${esc(c.label)}</span></span></span>
+        <span class="right"><span class="price">${yen(it.priceYen)}</span><span class="no">${i + 1}</span>
+          <span class="arrows"><button type="button" data-up="${i}" aria-label="${esc(it.name)}を1つ上へ" ${i === 0 ? "disabled" : ""}>▲</button><button type="button" data-down="${i}" aria-label="${esc(it.name)}を1つ下へ" ${i === c.items.length - 1 ? "disabled" : ""}>▼</button></span></span>
+      </div>`).join("");
+  }
+  function moveItem(catId, from, to, name){
+    moveIn(catOf(catId).items, from, to); save(); renderAll();
+    toast(`${name}を${ordinal(to)}に動かしました。`);
+  }
+  makeSortable($("itemList"), ".row", { axis: "y", onMove: (from, to, name) => moveItem(state.itemCat, from, to, name) });
+  $("itemChips").addEventListener("click", e => { const b = e.target.closest("[data-cat]"); if (!b) return; state.itemCat = b.dataset.cat; renderItems(); });
+  $("itemList").addEventListener("click", e => {
+    const up = e.target.closest("[data-up]"), down = e.target.closest("[data-down]"); const c = catOf(state.itemCat);
+    if (up) moveItem(c.id, +up.dataset.up, +up.dataset.up - 1, `「${c.items[+up.dataset.up].name}」`);
+    if (down) moveItem(c.id, +down.dataset.down, +down.dataset.down + 1, `「${c.items[+down.dataset.down].name}」`);
+  });
+
+  // ── 3. フロア画面(注文)。タブは横に、商品は格子の中で並べ替える ──
+  function renderFloor(){
+    if (!catOf(state.floorCat)) state.floorCat = cats[0].id;
+    $("floorTabs").innerHTML = cats.map(c => `<button type="button" role="tab" class="ftab${state.floorCat === c.id ? " on" : ""}" data-cat="${c.id}" aria-selected="${state.floorCat === c.id}"><span class="name">${esc(c.label)}</span></button>`).join("");
+    const c = catOf(state.floorCat);
+    $("floorGrid").innerHTML = c.items.map(it => `<button type="button" class="tile" data-id="${it.id}"><span class="name">${esc(it.name)}</span><span class="price">${yen(it.priceYen)}</span></button>`).join("");
+    $("slipList").innerHTML = state.slip.map(s => `<li>${esc(s)}</li>`).join("");
+  }
+  makeSortable($("floorTabs"), ".ftab", { axis: "x", onMove: moveCat });
+  makeSortable($("floorGrid"), ".tile", { axis: "grid", scroller: document.scrollingElement, onMove: (from, to, name) => moveItem(state.floorCat, from, to, name) });
+  let suppressClick = false;
+  $("floorTabs").addEventListener("click", e => { const b = e.target.closest("[data-cat]"); if (!b || suppressClick) return; state.floorCat = b.dataset.cat; renderFloor(); });
+  $("floorGrid").addEventListener("click", e => {
+    const t = e.target.closest(".tile"); if (!t || suppressClick) return;
+    const it = catOf(state.floorCat).items.find(x => x.id === t.dataset.id);
+    state.slip.push(`${it.name} ${yen(it.priceYen)}`); renderFloor();
+    toast(`${it.name}を1点、伝票に入れました(試作)。`);
+  });
+  // 持ち上げたあとの「離す」はタップ(注文)にしない
+  document.addEventListener("pointerdown", () => { suppressClick = false; }, true);
+  const mo = new MutationObserver(() => { if (document.body.classList.contains("dragging")) suppressClick = true; });
+  mo.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+
+  // ── 画面の切り替え・共通 ──
+  function renderAll(){ renderCats(); renderItems(); renderFloor(); renderPayload(); }
+  document.querySelector(".tabs").addEventListener("click", e => {
+    const b = e.target.closest("[data-view]"); if (!b) return;
+    state.view = b.dataset.view;
+    document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
+    ["cats", "items", "floor"].forEach(v => { $("view-" + v).hidden = v !== state.view; });
+  });
+  let toastTimer = null;
+  function toast(msg){ $("toastText").textContent = msg; $("toast").hidden = false; announce(msg); clearTimeout(toastTimer); toastTimer = setTimeout(() => { $("toast").hidden = true; }, 3500); }
+  function announce(msg){ $("live").textContent = ""; setTimeout(() => { $("live").textContent = msg; }, 30); }
+  $("resetBtn").addEventListener("click", () => {
+    if (!confirm("並び順を最初の状態に戻しますか?")) return;
+    cats = clone(SEED); save(); renderAll(); toast("最初の並び順に戻しました。");
+  });
+
+  renderAll();
+})();
+</script>
+</body>
+</html>
