@@ -60,6 +60,14 @@ POS 側でやることをここに残す。質問の正は `spec/items.yaml`。�
       - 残り: POS 側の作業ブランチ2本(feat/floor-extension-category-button、feat/floor-auto-extension-in-order)の削除。依頼者が GitHub で行う(このセッションの接続には削除の権限がない)
       - 未特定: 全テストの手元の実行で、原因不明のエラーが2回出た(再実行では出ない。PRのCIは成功)。再び出たら調べる
 
+- [ ] 操作ログの1件を、オーナーだけが削除できるようにする(2026-10-20。pokkiriofficial/nightwork-pos#612、ブランチ feat/audit-log-soft-delete-claude。メンバー確認待ち)
+      - 論理削除。audit_logs に deleted_at・deleted_by を足す(migration 0186)。行は消さない。店舗の一覧・詳細は deleted_at が空の行だけ出す
+      - 削除したことを操作ログ「操作ログを削除」として残す(削除した記録の id・種類・日時つき)。この記録は削除できない
+      - 役割は画面・サーバー処理・DB(RLS)の三重で確かめる。店長・スタッフには削除の経路が無い
+      - 運営コンソールの操作ログは変えていない(店舗が削除した行も、運営には今までどおり見える)
+      - 残り: 沢田さんが本番DBへ 0186 を先に当てる(`npm run db:check` → `db:migrate` → ✅ の写しを PR に貼る)→ preview でメンバー確認 → マージ。順番は「先にDB、あとからコード」(POS の AGENTS.md 6・8)
+      - 確認: lint・型チェック・全テスト(3095件)・ビルドが通過
+
 ## 商品を検索して追加(お酒のカタログ)について(2026-10-19 追加)
 
 > 2026-10-19 POS 側に実装済み(pokkiriofficial/nightwork-pos の PR「メニューの追加を『銘柄を検索して価格だけ入れる』形にし、商品バックを円／％で入力できるようにする」、ブランチ feat/menu-catalog-search-claude)。
