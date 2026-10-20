@@ -14,7 +14,6 @@ import json
 import sys
 from pathlib import Path
 
-import yaml
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 from openpyxl.utils import get_column_letter
@@ -26,8 +25,6 @@ from validate_items import load_spec  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 LINE_DIR = ROOT / "templates" / "line"
 XLSX = ROOT / "templates" / "excel" / "初期設定_記入シート.xlsx"
-# Googleスプレッドシート版の URL(Drive へアップロード後に記入。無ければページにボタンを出さない)
-SHEETS_YAML = ROOT / "templates" / "google_sheets.yaml"
 PREVIEW_TEMPLATE = ROOT / "templates" / "kit" / "preview.html"
 PREVIEW = ROOT / "templates" / "preview" / "index.html"
 
@@ -139,7 +136,7 @@ def sheet_rows(spec: dict, theme: dict, input_rows: int = INPUT_ROWS, standalone
         rows.append({"kind": "store", "cells": ["店舗名", None]})
     notes = ["灰色の行は記入例です。消して上書きするか、下の空欄に書いてください。"] + theme.get("excel_notes", [])
     if standalone:
-        notes.append("書き終わったら、このファイル(またはシートのリンク)をLINEで送ってください。")
+        notes.append("書き終わったら、このファイルをLINEで送ってください。")
     rows += [{"kind": "note", "cells": ["※" + n], "warn": "個人情報" in n} for n in notes]
     for it in template_items(spec, theme["id"]):
         rows.append({"kind": "blank", "cells": []})
@@ -210,16 +207,8 @@ def _xlsx_bytes(wb: Workbook) -> bytes:
     return buf.getvalue()
 
 
-def spreadsheet_url() -> str | None:
-    """Googleスプレッドシート版(全シートをまとめた1ファイル)の URL。"""
-    if not SHEETS_YAML.exists():
-        return None
-    data = yaml.safe_load(SHEETS_YAML.read_text(encoding="utf-8")) or {}
-    return data.get("spreadsheet") or None
-
-
 def build_preview(spec: dict, xlsx_bytes: bytes) -> str:
-    """LINE・Excel・スプレッドシートを確認するページ(templates/preview/index.html)。"""
+    """LINE・Excel を確認するページ(templates/preview/index.html)。"""
     optional = {f"{t['id']:02d}_{t['title']}" for t in spec["themes"] if t.get("optional")}
     titles = {"00_案内": "ご案内", "99_最後に": "最後に"}
     messages = [
@@ -234,7 +223,6 @@ def build_preview(spec: dict, xlsx_bytes: bytes) -> str:
         "messages": messages,
         "sheets": sheets,
         "xlsx": {"filename": XLSX.name, "base64": base64.b64encode(xlsx_bytes).decode()},
-        "spreadsheetUrl": spreadsheet_url(),
     }
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     return PREVIEW_TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA_JSON__*/null", js)
@@ -250,7 +238,7 @@ def main() -> None:
         old.unlink()
     for name, body in line_messages(spec, skip):
         (LINE_DIR / f"{name}.txt").write_text(body + "\n", encoding="utf-8")
-    # 記入シートは1ファイルに全種類(1種類1シート)。Googleスプレッドシート版はこれを変換したもの
+    # 記入シートは1ファイルに全種類(1種類1シート)
     XLSX.parent.mkdir(parents=True, exist_ok=True)
     build_workbook(spec, skip, standalone=True).save(XLSX)
     # 確認ページは、すべてのテーマを載せる
