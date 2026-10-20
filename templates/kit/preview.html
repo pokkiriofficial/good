@@ -50,8 +50,6 @@
   .xl{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden}
   .xl-top{display:flex;align-items:center;gap:10px;background:var(--xl-green);color:#fff;padding:8px 14px;font-size:13px;font-weight:500}
   .xl-top b{font-weight:700}
-  .xl.gs .xl-top{background:#188038}
-  .xl.gs .sheet-tab[aria-selected="true"]{color:#188038;border-bottom-color:#188038}
   .sheet-wrap{overflow-x:auto;max-height:560px;overflow-y:auto}
   table.grid{border-collapse:collapse;font-size:13px;min-width:100%;font-variant-numeric:tabular-nums}
   .grid th,.grid td{border:1px solid var(--xl-grid);padding:4px 8px;height:26px;white-space:nowrap;text-align:left}
@@ -74,8 +72,6 @@
   .legend .l-ex::before{background:#fff;border-color:var(--xl-ex)} .legend .l-th::before{background:var(--xl-th)}
   .legend .l-dd::before{content:"▾";border:none;width:auto;height:auto}
   .status{color:var(--muted);font-size:13px;margin:0}
-  a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
-  .btn.sheets{background:#188038;border-color:#188038;color:#fff}
   .btn[disabled]{opacity:.5;cursor:default}
   .note{margin:0;color:var(--muted);font-size:13px;line-height:1.8}
   .note code{background:var(--accent-soft);color:var(--ink);padding:1px 5px;border-radius:4px}
@@ -86,13 +82,12 @@
 <div class="wrap">
   <header class="card">
     <h1>ポッキリ.Night 記入テンプレート</h1>
-    <p class="lead">アンケートの回答後に、店舗へ送るひな形です。店舗は、LINE・Excel・Googleスプレッドシートの中から、書きやすいものを選べます。</p>
+    <p class="lead">アンケートの回答後に、店舗へ送るひな形です。店舗は、LINEの文章かExcelの、書きやすい方を選べます。</p>
   </header>
 
   <div class="tabs" role="tablist" aria-label="テンプレートの種類">
     <button class="tab" role="tab" id="tab-line" aria-selected="true" aria-controls="panel-line">LINEで送る文章</button>
     <button class="tab" role="tab" id="tab-excel" aria-selected="false" aria-controls="panel-excel">Excel</button>
-    <button class="tab" role="tab" id="tab-sheets" aria-selected="false" aria-controls="panel-sheets">スプレッドシート</button>
   </div>
 
   <section class="panel" id="panel-line" role="tabpanel" aria-labelledby="tab-line">
@@ -110,17 +105,6 @@
     </div>
     <p class="status" id="dl-status" role="status"></p>
     <div class="xl-slot" data-for="excel"></div>
-  </section>
-
-  <section class="panel" id="panel-sheets" role="tabpanel" aria-labelledby="tab-sheets" hidden>
-    <div class="bar">
-      <p><span class="kinds-text"></span>を、1つのGoogleスプレッドシートにまとめました。種類ごとにシートが分かれています。</p>
-      <a class="btn sheets" id="open-sheets" target="_blank" rel="noopener" hidden>スプレッドシートを開く</a>
-    </div>
-    <p class="status" id="sheets-status" role="status"></p>
-    <div class="xl-slot" data-for="sheets"></div>
-    <p class="note">店舗に渡すときは、共有を「リンクを知っている全員(閲覧者)」にします。
-      そのうえで、URL末尾の <code>/edit</code> を <code>/copy</code> に変えて送ると、店舗は自分用のコピーに記入できます。</p>
   </section>
 
   <div class="xl" id="xl-block">
@@ -150,7 +134,7 @@ const el = (tag, attrs = {}, ...kids) => {
 };
 
 /* ── タブ ── */
-const tabs = [["tab-line", "panel-line"], ["tab-excel", "panel-excel"], ["tab-sheets", "panel-sheets"]];
+const tabs = [["tab-line", "panel-line"], ["tab-excel", "panel-excel"]];
 // シートの見た目(プレビュー)は1つを使い回し、開いたタブの中へ移す
 function placePreview(kind) {
   const slot = document.querySelector(`.xl-slot[data-for="${kind}"]`);
@@ -158,16 +142,15 @@ function placePreview(kind) {
   if (!slot) { block.hidden = legend.hidden = true; return; }
   block.hidden = legend.hidden = false;
   slot.replaceChildren(block, legend);
-  block.classList.toggle("gs", kind === "sheets");
-  document.getElementById("xl-badge").textContent = kind === "sheets" ? "▦" : "X";
-  document.getElementById("xl-name").textContent = kind === "sheets" ? "ポッキリ.Night 記入シート(Googleスプレッドシート)" : DATA.xlsx.filename;
+  document.getElementById("xl-badge").textContent = "X";
+  document.getElementById("xl-name").textContent = DATA.xlsx.filename;
 }
 tabs.forEach(([t, p]) => document.getElementById(t).addEventListener("click", () => {
   tabs.forEach(([t2, p2]) => {
     document.getElementById(t2).setAttribute("aria-selected", String(t2 === t));
     document.getElementById(p2).hidden = p2 !== p;
   });
-  placePreview(p === "panel-excel" ? "excel" : p === "panel-sheets" ? "sheets" : null);
+  placePreview(p === "panel-excel" ? "excel" : null);
 }));
 
 /* ── LINE ── */
@@ -250,16 +233,13 @@ document.getElementById("sheet-tabs").replaceChildren(...DATA.sheets.map((s, i) 
   el("button", { class: "sheet-tab", role: "tab", type: "button", text: s.name, onclick: () => { sheetIdx = i; renderSheet(); } })));
 renderSheet();
 
-/* #excel / #sheets で、そのタブから開く */
-const startTab = { "#excel": "tab-excel", "#sheets": "tab-sheets" }[location.hash];
+/* #excel で、そのタブから開く */
+const startTab = { "#excel": "tab-excel" }[location.hash];
 if (startTab) queueMicrotask(() => document.getElementById(startTab).click());
 
-/* ── 種類の一覧とスプレッドシートのボタン ── */
+/* ── 種類の一覧 ── */
 document.querySelectorAll(".kinds-text").forEach((e) => { e.textContent = DATA.sheets.length + "種類(" + DATA.sheets.map((x) => x.name).join("・") + ")"; });
 placePreview(null);
-if (DATA.spreadsheetUrl) {
-  const a = document.getElementById("open-sheets"); a.href = DATA.spreadsheetUrl; a.hidden = false;
-} else document.getElementById("sheets-status").textContent = "スプレッドシートは準備中です。";
 
 /* ── ダウンロード(使える環境だけボタンを出す) ── */
 let downloads = null;

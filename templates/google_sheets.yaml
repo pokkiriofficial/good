@@ -1,5 +1,0 @@
-# Googleスプレッドシート版の記入シート(全種類を1ファイルにまとめたもの)。
-# templates/excel/初期設定_記入シート.xlsx を Google ドライブで変換して作る。
-# 店舗に渡すときは、共有を「リンクを知っている全員(閲覧者)」にして、URL末尾の /edit を /copy に変えて送る。
-folder: https://drive.google.com/drive/folders/1y40jol42K-afiwcHNNeyDnwOd0isqhpC
-spreadsheet: https://docs.google.com/spreadsheets/d/1mAxppk21a6bhk51HSz-DpTg_iT8pJjHXCOJRX3Q1aM8/edit
