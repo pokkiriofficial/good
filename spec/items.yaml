@@ -151,6 +151,8 @@ excluded:
   - {sample: printer, question: 採番のリセット単位, reason: 不要と判断(2026-09-28 アンケートから削除)}
   - {sample: payroll, question: 福利厚生費, reason: 不要と判断(2026-09-28 アンケートから削除)}
   - {sample: printer, question: 領収書に刷る内容, reason: 不要と判断(2026-09-28 アンケートから削除)}
+  - {sample: pricing, question: 深夜割増を使うか, reason: 不要と判断(2026-10-21 アンケートから削除。深夜割増はサービス料などに含めて設定する)}
+  - {sample: pricing, question: 深夜割増の内容, reason: 不要と判断(2026-10-21 アンケートから削除。深夜割増はサービス料などに含めて設定する)}
 
 items:
 
@@ -644,65 +646,6 @@ items:
         text: |-
           例)1000円なら「1000」
           例)2000円なら「2000」
-
-          カンマは付けずに、数字だけ入力してください。
-
-  - id: late_night_surcharge
-    route: form
-    section: S3
-    label: 深夜割増
-    type: radio
-    unknown_option: true
-    options: [使わない, 使う]
-    hint: 卓を開いた時刻が基準時刻以降なら、会計に定額を1回だけ加えます
-    source: {sample: pricing, question: 深夜割増を使うか}
-    help:
-      - title: "「使う」が合うお店"
-        text: |-
-          深夜の時間帯に入ったお客様に、
-          決まった金額を上乗せするお店です。
-          例)0時以降に卓を開いたら、+2000円
-
-          1会計につき1回だけ加わります。
-      - title: "「使わない」が合うお店"
-        text: |-
-          時間帯で、料金を変えないお店です。
-          例)20時でも2時でも、同じ60分8000円
-
-  - id: late_night_surcharge_from
-    route: form
-    section: S3
-    label: 深夜割増の基準時刻(時)
-    type: dropdown
-    unknown_option: true
-    options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-    show_if: {item: late_night_surcharge, equals: 使う}
-    source: {sample: pricing, question: 深夜割増の内容}
-    hint: |-
-      この時刻より後に開いた卓に、深夜割増がつきます
-    help:
-      - title: "選び方"
-        text: |-
-          例)0時以降に割増なら「0」
-          例)23時以降に割増なら「23」
-          例)深夜1時以降に割増なら「1」
-
-  - id: late_night_surcharge_amount
-    route: form
-    section: S3
-    label: 深夜割増の金額(1会計あたり)
-    type: number
-    unit: 円
-    validation: {kind: integer, min: 0, message: 数字のみで入力してください(カンマ不要)}
-    show_if: {item: late_night_surcharge, equals: 使う}
-    source: {sample: pricing, question: 深夜割増の内容}
-    hint: |-
-      深夜割増で上乗せする金額です。1会計に1回つきます
-    help:
-      - title: "入力のしかた"
-        text: |-
-          例)2000円上乗せするなら「2000」
-          例)1000円上乗せするなら「1000」
 
           カンマは付けずに、数字だけ入力してください。
 
