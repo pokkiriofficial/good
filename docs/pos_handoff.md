@@ -72,7 +72,7 @@ POS 側でやることをここに残す。質問の正は `spec/items.yaml`。�
 見本は `menu/preview/reorder.html`(1枚で開ける試作。iPad と PC のどちらでも動く)。
 例: 「フード / ゲスト」の順のとき、フードを長押しして下に動かすと「ゲスト / フード」になる。
 
-> 2026-10-21 POS 側に実装し、本番に反映(pokkiriofficial/nightwork-pos の PR #611。メンバー全員の OK のあと、スカッシュでマージ)。
+> 2026-10-21 POS 側に実装し、本番に反映(pokkiriofficial/nightwork-pos の PR #611 と #618。メンバー全員の OK のあと、スカッシュでマージ。本番で動作を確認済み)。
 > 対象は管理画面の「店舗設定 › 商品メニュー」と、フロア(iPad)の「設定 › メニュー」の一覧。共通部品は
 > `src/components/ui/sortable-list.tsx`、コマンドは `product-category.reorder` / `product.reorder`。
 > 種類(バリエーション)の順番も、同じ長押しで入れ替えられる(保存は従来の「種類を保存」)。
@@ -86,14 +86,21 @@ POS 側でやることをここに残す。質問の正は `spec/items.yaml`。�
 - [ ] **操作:** 長押し(450ms。400〜600ms の範囲で調整可)で持ち上がる。持ち上がる前に 8px 以上動いたら、
       スクロールとみなして長押しを取り消す。持ち上がったら指について動き、離した場所に入る。
       離した時点で保存し、「『フード』を2番目に動かしました」のように1行で知らせる。
-      Esc または pointercancel で元の場所に戻す。つまみ(≡)は長押しなしで持てる。
-      PC(マウス)では ▲▼ のボタンでも1つずつ動かせる(キーボード・読み上げの代わり)
+      Esc または pointercancel で元の場所に戻す。
+      POS では、カテゴリー・商品の行につまみ(≡)を付けず、カード(フロアはカテゴリーの見出しと商品の行)自体を
+      長押しして動かす(2026-10-21 オーナー依頼)。入力欄が行いっぱいに並ぶ「種類」の行だけ、つまみを残し、
+      長押しなしで持てる。試作(`menu/preview/reorder.html`)のつまみと ▲▼ は、POS には入れていない
 - [ ] **実装の仕方:** Pointer Events(pointerdown / pointermove / pointerup / pointercancel)でタッチとマウスを
       1つのコードで扱う。縦の一覧は `touch-action: pan-y`、横のタブは `pan-x` にして、通常のスクロールを邪魔しない。
       持ち上げ中だけ `touchmove` を `preventDefault`(passive: false)して、画面が一緒に動かないようにする。
       `-webkit-touch-callout: none` と `user-select: none` で、iPad の長押しメニューと文字選択を止める。
       並べ替え後のタップは注文にしない(持ち上げた直後の click は捨てる)。
-      HTML5 の Drag and Drop API は iPad で長押しの制御ができないので使わない
+      HTML5 の Drag and Drop API は iPad で長押しの制御ができないので使わない。
+      **親が短い周期で再描画しても、長押しを取り消さない**(2026-10-21 に不具合として本番で見つかった):
+      `getLabel` のように親がインラインで渡す関数を `useCallback` / `useEffect` の依存配列に入れると、
+      再描画のたびにエフェクトが張り直され、後片付けが長押し待ちのタイマーと持ち上げ中の見た目を捨てる
+      (親が80msごとに再描画する画面で、長押しの成功は10回中0回だった)。props は ref に逃がし、
+      持ち上げ中の後片付けは画面から消えるときだけにする。POS の `tests/sortable-list-stable-deps.test.ts` が見張る
 - [ ] **保存の形:** カテゴリーも商品も、「id と sortOrder(0 から)」の配列で保存する。
       試作の「POS に保存する形(開発者向け)」に、そのままの JSON を出している
       ```
