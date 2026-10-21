@@ -72,7 +72,7 @@ POS 側でやることをここに残す。質問の正は `spec/items.yaml`。�
 見本は `menu/preview/reorder.html`(1枚で開ける試作。iPad と PC のどちらでも動く)。
 例: 「フード / ゲスト」の順のとき、フードを長押しして下に動かすと「ゲスト / フード」になる。
 
-> 2026-10-20 POS 側に実装(pokkiriofficial/nightwork-pos の PR #611、ブランチ `feat/menu-reorder-claude`)。
+> 2026-10-21 POS 側に実装し、本番に反映(pokkiriofficial/nightwork-pos の PR #611。メンバー全員の OK のあと、スカッシュでマージ)。
 > 対象は管理画面の「店舗設定 › 商品メニュー」と、フロア(iPad)の「設定 › メニュー」の一覧。共通部品は
 > `src/components/ui/sortable-list.tsx`、コマンドは `product-category.reorder` / `product.reorder`。
 > 種類(バリエーション)の順番も、同じ長押しで入れ替えられる(保存は従来の「種類を保存」)。
