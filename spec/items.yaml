@@ -690,14 +690,14 @@ items:
   - id: late_night_surcharge_amount
     route: form
     section: S3
-    label: 深夜割増の金額(1セットあたり)
+    label: 深夜割増の金額(1会計あたり)
     type: number
     unit: 円
     validation: {kind: integer, min: 0, message: 数字のみで入力してください(カンマ不要)}
     show_if: {item: late_night_surcharge, equals: 使う}
     source: {sample: pricing, question: 深夜割増の内容}
     hint: |-
-      深夜割増で上乗せする金額です
+      深夜割増で上乗せする金額です。1会計に1回つきます
     help:
       - title: "入力のしかた"
         text: |-
