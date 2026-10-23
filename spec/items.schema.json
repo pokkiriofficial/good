@@ -293,6 +293,10 @@
             },
             "max": {
               "type": "number"
+            },
+            "integer": {
+              "type": "boolean",
+              "description": "true のとき、小数を受け付けない(整数だけ)"
             }
           }
         },

@@ -654,14 +654,15 @@ items:
     type: radio
     unknown_option: true
     options: [使わない, 使う]
-    hint: 卓を開いた時刻が基準時刻以降なら、会計に定額を1回だけ加えます
+    hint: 卓を開いた時刻が基準時刻以降なら、会計に自動で加えます
     source: {sample: pricing, question: 深夜割増を使うか}
     help:
       - title: "「使う」が合うお店"
         text: |-
           深夜の時間帯に入ったお客様に、
-          決まった金額を上乗せするお店です。
+          決まった金額や割合を上乗せするお店です。
           例)0時以降に卓を開いたら、+2000円
+          例)0時以降に卓を開いたら、小計の20%
 
           1会計につき1回だけ加わります。
       - title: "「使わない」が合うお店"
@@ -679,7 +680,7 @@ items:
     show_if: {item: late_night_surcharge, equals: 使う}
     source: {sample: pricing, question: 深夜割増の内容}
     hint: |-
-      この時刻より後に開いた卓に、深夜割増がつきます
+      この時刻以降に開いた卓に、深夜割増がつきます
     help:
       - title: "選び方"
         text: |-
@@ -690,20 +691,31 @@ items:
   - id: late_night_surcharge_amount
     route: form
     section: S3
-    label: 深夜割増の金額(1セットあたり)
-    type: number
-    unit: 円
-    validation: {kind: integer, min: 0, message: 数字のみで入力してください(カンマ不要)}
+    label: 深夜割増の金額・率
+    type: radio
+    unknown_option: true
+    options: [金額で指定, 率で指定]
+    option_inputs:
+      金額で指定: {type: number, unit: 円, min: 0}
+      率で指定: {type: number, unit: "%", min: 0, max: 100, integer: true}
     show_if: {item: late_night_surcharge, equals: 使う}
     source: {sample: pricing, question: 深夜割増の内容}
     hint: |-
-      深夜割増で上乗せする金額です
+      深夜割増で上乗せする、金額か率です。
+      金額(円)か率(%)を選んで、数字を入力してください
     help:
-      - title: "入力のしかた"
+      - title: "選び方"
         text: |-
-          例)2000円上乗せするなら「2000」
-          例)1000円上乗せするなら「1000」
+          「金額で指定」は、会計に決まった金額を足します。
+          例)2000円なら、2000円を足します。
+          サービス料はかかりません。
 
+          「率で指定」は、小計にかける割合です。
+          例)小計1,000円・20%なら、200円を足します。
+          サービス料も、足した後の金額にかかります。
+
+          率は、0〜100の整数で入力してください。
+          選ぶと横に欄が出るので、数字を入力します。
           カンマは付けずに、数字だけ入力してください。
 
   - id: rounding_example
