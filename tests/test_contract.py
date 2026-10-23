@@ -144,3 +144,18 @@ def test_site_deck_page_lists_exported_images(flow, tmp_path):
     # 置かなければ deck/ は作らない
     build_contract.build_site(flow, figs, tmp_path / "site2", deck_src=tmp_path / "none")
     assert not (tmp_path / "site2" / "deck").exists()
+
+
+def test_plan_access_and_account_rules(flow):
+    """プランごとの権限分けと、ID・パスワードの発行ルールが、資料に載っている。"""
+    md = build_contract.doc(flow)
+    for w in ["### プランごとの権限", "フロア画面と管理画面だけ", "それ以外の権限は、分けられません",
+              "発行できるアカウントは、5つまでです",
+              "すべてKOKUが発行する", "IDは固定で、KOKUが決めたものにする", "KOKUに問い合わせてもらう"]:
+        assert w in md, w
+    figs = build_contract.figures(flow)
+    page = build_contract.doc_html(flow, figs)
+    assert "プランごとの権限" in page and "5つまで" in page
+    titles = [sl["title"] for sl in build_contract.slides(flow)]
+    assert "プランごとの権限" in titles
+    assert titles.index("プランごとの権限") == titles.index("料金") + 1

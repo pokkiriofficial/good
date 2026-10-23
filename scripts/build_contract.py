@@ -272,6 +272,9 @@ def doc(flow: dict) -> str:
     out += md_table(["区分", "金額"], initial)
     out += ["", flow["pricing"]["initial"]["note"], "", "### 月額(先払い)", ""]
     out += md_table(["プラン", "月額"], monthly)
+    out += ["", "### プランごとの権限", ""]
+    for a in flow["pricing"]["access"]:
+        out += [f"- **{a['plan']}**", f"  - {a['summary']}"] + [f"  - {n}" for n in a["notes"]]
     out += ["", "## 3. 請求のルール", ""]
     out += [f"- {r}" for r in flow["billing_rules"]]
     out += ["", f"### 例: {flow['billing_example']['install_month']}月に導入した場合", "",
@@ -327,6 +330,8 @@ def slides(flow: dict) -> list[dict]:
         {"kind": "tables", "title": "料金", "tables": [
             ("初期費用", ["区分", "金額"], initial), ("月額(先払い)", ["プラン", "月額"], monthly)],
          "note": flow["pricing"]["initial"]["note"]},
+        {"kind": "steps", "title": "プランごとの権限",
+         "steps": [(a["plan"], a["summary"], a["notes"]) for a in flow["pricing"]["access"]]},
         {"kind": "bullets", "title": "請求のルール", "bullets": flow["billing_rules"]},
         {"kind": "figure", "title": f"請求の例: {ex['install_month']}月に導入した場合", "figure": "02_billing",
          "table": (["請求日"] + [c["label"] for c in ex["cases"]], billing_rows(flow)), "point": ex["point"]},
@@ -535,7 +540,10 @@ def doc_html(flow: dict, figs: dict[str, str]) -> str:
     sec.append("<h2>1. 全体の流れ</h2>" + f'<div class="fig">{figs["01_overview"]}</div>'
                + _h_table(["段階", "誰が", "いつ", "すること"], [[s["title"], s["who"], s["day"], s["summary"]] for s in flow["overview"]]))
     sec.append("<h2>2. 料金</h2><h3>初期費用</h3>" + _h_table(["区分", "金額"], initial)
-               + f'<p class="note">{escape(flow["pricing"]["initial"]["note"])}</p><h3>月額(先払い)</h3>' + _h_table(["プラン", "月額"], monthly))
+               + f'<p class="note">{escape(flow["pricing"]["initial"]["note"])}</p><h3>月額(先払い)</h3>' + _h_table(["プラン", "月額"], monthly)
+               + "<h3>プランごとの権限</h3>"
+               + "".join(f"<p><b>{escape(a['plan'])}</b></p>" + _h_list([a["summary"], *a["notes"]])
+                         for a in flow["pricing"]["access"]))
     sec.append("<h2>3. 請求のルール</h2>" + _h_list(flow["billing_rules"])
                + f"<h3>例: {ex['install_month']}月に導入した場合</h3>" + f'<div class="fig">{figs["02_billing"]}</div>'
                + _h_table(["請求日"] + [c["label"] for c in ex["cases"]], billing_rows(flow))
