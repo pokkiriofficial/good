@@ -435,8 +435,10 @@ function checkItem(it) {
   if (oin) {
     const o = (others[it.id] || "").trim().replace(/[,，]/g, "").replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
     if (!o) return `「${v}」の数字を記入してください`;
-    if (oin.type === "number" && (!/^\d+(\.\d+)?$/.test(o) || +o < (oin.min ?? 0) || (oin.max != null && +o > oin.max)))
-      return oin.max != null ? `${oin.min ?? 0}〜${oin.max}の数字で入力してください` : "数字で入力してください";
+    if (oin.type === "number" && (!(oin.integer ? /^\d+$/ : /^\d+(\.\d+)?$/).test(o) || +o < (oin.min ?? 0) || (oin.max != null && +o > oin.max))) {
+      const what = oin.integer ? "整数" : "数字";
+      return oin.max != null ? `${oin.min ?? 0}〜${oin.max}の${what}で入力してください` : `${what}で入力してください`;
+    }
   }
   const host = otherHost(it);
   const picked = Array.isArray(v) ? v : [v];

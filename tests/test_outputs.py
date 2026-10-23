@@ -132,6 +132,22 @@ def test_answer_heading_is_one_line(spec):
     assert '`■${it.label.split("\\n")[0]}`' in html
 
 
+def test_late_night_surcharge_question(spec):
+    # 深夜割増は「使う」のとき、基準時刻と、金額(円)か率(%)を聞く(POS の「小計の％」に合わせる。2026-10-23)
+    by_id = {it["id"]: it for s in build_form.form_spec(spec)["sections"] for it in s["items"]}
+    assert by_id["late_night_surcharge"]["options"] == ["使わない", "使う"]
+    for child in ["late_night_surcharge_from", "late_night_surcharge_amount"]:
+        assert by_id[child]["show_if"] == {"item": "late_night_surcharge", "equals": "使う"}, child
+    amount = by_id["late_night_surcharge_amount"]
+    assert amount["label"] == "深夜割増の金額・率"
+    assert amount["options"] == ["金額で指定", "率で指定"] and amount["unknown_option"]
+    assert amount["option_inputs"]["金額で指定"]["unit"] == "円"
+    # POS の率は整数の0〜100だけ。小数は入力の時点で止める
+    rate = amount["option_inputs"]["率で指定"]
+    assert rate["unit"] == "%" and rate["min"] == 0 and rate["max"] == 100 and rate["integer"] is True
+    assert "oin.integer" in build_form.build(spec)
+
+
 def test_form_validation_rules_present(spec):
     rules = {it["id"]: it.get("validation") for s in build_form.form_spec(spec)["sections"] for it in s["items"]}
     assert rules["invoice_number"]["pattern"] == r"^T\d{13}$"
