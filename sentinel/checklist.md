@@ -18,6 +18,7 @@ ID は `.claude/agents/pos-sentinel.md` の表。
 | エラーの件数をパス別に見る | `get_runtime_logs`(production, level error+fatal, group_by requestPath, since 24h) | 同じパスで 50 件超 | 同じパスで 10 件超 |
 | cron 3 本の実行結果 | `get_runtime_logs`(query `[cron/`, since 24h) | 1 本でも 24h 全失敗 | 散発の失敗 |
 | 本番デプロイ | `list_deployments`(production, limit 5) | 最新が ERROR / BUILDING のまま 30 分超 | build-guard で止まった(直前の版が動いている) |
+| 手で出した本番デプロイ | `list_deployments` で `meta` が空(Git 連携でない)のもの | その版が出ていた時間帯に `/floor` のエラーがある | 1 件でもあれば 🟡。手元の Mac で作った版は印刷の部品(Linux 版)が入らず、フロア画面ごと落ちた(2026-10-24 の事故。約 3 時間)。10/21 の手動 2 回も同じ作り方だった。本番は main のマージで自動で出るので、手で出す理由を聞く |
 | CI | `actions_list`(ci.yml, 40 件) | main の push が failure | PR の failure が同日 3 件以上。main の push が cancelled(並行マージで検証されずに本番へ出た) |
 | 画面側のエラー | `get_runtime_logs`(query `client`, since 24h) | 同じ画面で 20 件超 | 新しい種類 |
 | **描画で落ちるエラー**(`ReferenceError`・`TypeError` が `digest` 付きで、`/floor`・`/dashboard`・`/platform` などの画面のパスに出る) | `get_runtime_errors` のサンプル | **1 回でも 🔴**。開けば必ず落ちる不具合なので、回数は「開いた人の数」でしかない(2026-10-15〜18、運営画面が 4 日開けなかった。`incidents/2026-10-19_…md`) | - |
