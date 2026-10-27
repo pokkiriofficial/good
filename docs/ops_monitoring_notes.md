@@ -45,3 +45,28 @@
 
 - 事故記録(POS): `docs/事故記録_プリンター無応答の点検が毎回失敗していた_2026-10-14.md`
 - 毎日点検の手順: `sentinel/checklist.md`
+
+## 7. 決定: 外部の監視は Supabase で行う(2026-10-27、依頼者の判断)
+
+目的: POS の定期処理(昼の点検・容量の見回り・プリンター点検・勤怠の自動締め)が、止まったときに、Gmail で気づけるようにする。いまは、動かなかった日に、何も届かない。
+
+### 確認した事実(読み取りだけ。DB・コードの変更なし)
+- 対象は Supabase プロジェクト `supabase-cinereous-flame`(POS のテーブルが入っている。環境変数の値は見えないため、テーブルの中身と作成日で判断した)。`zenso-crm-db` は別物。
+- 拡張 `pg_cron`・`pg_net` は、使えるが**未導入**。Vault は導入済み。合図を記録する表は無い。
+- 先例: `error_alerts`(migration 0091)は、運営側の表で、RLS を有効にし、ポリシーを置かず、service role だけが書く。今回の表も同じ形にする。
+
+### 設計(案)
+1. 表 `cron_heartbeats`(`name` 主キー、`last_ok_at`、`expected_every_minutes`、`grace_minutes`、`last_alert_at`)。4行を最初に入れる(`last_ok_at` は作成時刻。最初の合図の前に誤報を出さない)。RLS 有効・ポリシー無し。
+2. アプリ側: 各定期処理が成功したあと、service role で `last_ok_at` を更新する(`src/db/service-role/` の中。失敗しても処理を落とさない。`pingHeartbeat` と同じ作法)。
+3. Supabase 側: 判定を SQL 関数 `overdue_cron_heartbeats()` に切り出す(テスト用DB(PGlite)で検査できる)。`pg_cron` が15分おきに呼び、遅れている処理があれば `pg_net` でメールを送り、`last_alert_at` を更新する(同じ遅れでは、数時間に1通まで)。
+4. 猶予の目安: 毎時の2本は90分、毎日の2本は3時間(`docs/定期処理の外部監視.md` のとおり)。
+
+### 決めること
+- メールの送り方: (A)`pg_net` から Resend を直接呼ぶ=アプリが止まっていても届く。Resend のキーを Vault にも置く。(B)`pg_net` から POS の内部の経路を呼び、既存のメール送信(`operator-notify`)を使う=キーは増えないが、アプリが止まっていると届かない。推奨は A。
+- 宛先: Gmail。`MAIL_ALERT_TO` と同じか、別にするか。
+
+### 承認と手順(AGENTS.md のルール)
+- migration を作るのは沢田さんだけ。拡張の導入と `pg_cron` の登録は、本番DBの変更なので、オーナーの承認を取ってから行う。
+- 順番は「先にDB → あとからコード」。`npm run db:check` の ✅ を見るまで、コードをマージしない。確認用(preview)と本番は同じDB。
+- 弱点: Supabase 自体が止まると、検知も通知も同時に止まる(外部サービスなら拾える)。
+- テスト用DBには `pg_cron`・`pg_net` が無い。実際の動作は、本番で「止めて試す」(1行の `last_ok_at` を一時的に古くして、メールが届くことを確かめ、戻す)まで確認できない。
