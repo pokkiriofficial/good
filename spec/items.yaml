@@ -601,6 +601,7 @@ items:
     options: [なし, あり]
     hint: |-
       セット料金とは別に、すべての卓にかかる料金です。
+      使うお店だけ「あり」を選びます。
       個室料とは別のものです
     source: {sample: pricing, question: サービス料 ／ ハウスチャージ}
     help:
@@ -628,6 +629,28 @@ items:
           例)個室を使った卓は、ハウスチャージ1000円
           +個室料5000円
 
+  - id: house_charge_basis
+    route: form
+    section: S3
+    label: ハウスチャージのかけ方
+    type: radio
+    unknown_option: true
+    options: [1人ずつ, 1卓ごとに1回]
+    show_if: {item: house_charge, equals: あり}
+    source: {sample: pricing, question: サービス料 ／ ハウスチャージ}
+    hint: |-
+      お客様1人ずつか、1卓ごとに1回かを選びます
+    help:
+      - title: "「1人ずつ」が合うお店"
+        text: |-
+          来店した人数分、いただくお店です。
+          例)1000円で3名なら、3000円
+      - title: "「1卓ごとに1回」が合うお店"
+        text: |-
+          1グループ(1卓)につき、1回だけいただくお店です。
+          何名で来ても、金額は変わりません。
+          例)1000円なら、3名でも1000円
+
   - id: house_charge_amount
     route: form
     section: S3
@@ -638,7 +661,8 @@ items:
     show_if: {item: house_charge, equals: あり}
     source: {sample: pricing, question: サービス料 ／ ハウスチャージ}
     hint: |-
-      1卓の会計に付く、ハウスチャージの金額です
+      「1人ずつ」なら1人分、
+      「1卓ごとに1回」なら1回分の金額です
     help:
       - title: "入力のしかた"
         text: |-
