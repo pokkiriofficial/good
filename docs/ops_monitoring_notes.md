@@ -66,9 +66,11 @@
 - そのために、Resend の API キーを Supabase の Vault にも置く。キーは、チャットやリポジトリに書かない。Supabase の管理画面で、運営が直接登録する(Vercel の `RESEND_API_KEY` と同じ値)。
 - 送信元は、Resend で認証済みのアドレス(Vercel の `MAIL_FROM` と同じ)。宛先は、Gmail(`MAIL_ALERT_TO` と同じにするか、別にするかは未決)。値は、運営が SQL の設定に入れる(私は値を見られない)。
 
+### 宛先: `MAIL_ALERT_TO` と同じに決定(2026-10-27、依頼者の判断)
+
 ### まだ決まっていないこと
-- 宛先: `MAIL_ALERT_TO` と同じか、Gmail を別に指定するか。
-- 沢田さんの引き受け(migration の作成と、本番への適用)。
+- 沢田さんの引き受け(migration の作成と、本番への適用)。依頼と SQL の下書きは `docs/ops_heartbeat_draft/README.md`。
+- 本番DBの変更(拡張2つの導入・定期実行の登録)のオーナー承認。
 
 ### 承認と手順(AGENTS.md のルール)
 - migration を作るのは沢田さんだけ。拡張の導入と `pg_cron` の登録は、本番DBの変更なので、オーナーの承認を取ってから行う。
