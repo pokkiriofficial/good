@@ -61,9 +61,14 @@
 3. Supabase 側: 判定を SQL 関数 `overdue_cron_heartbeats()` に切り出す(テスト用DB(PGlite)で検査できる)。`pg_cron` が15分おきに呼び、遅れている処理があれば `pg_net` でメールを送り、`last_alert_at` を更新する(同じ遅れでは、数時間に1通まで)。
 4. 猶予の目安: 毎時の2本は90分、毎日の2本は3時間(`docs/定期処理の外部監視.md` のとおり)。
 
-### 決めること
-- メールの送り方: (A)`pg_net` から Resend を直接呼ぶ=アプリが止まっていても届く。Resend のキーを Vault にも置く。(B)`pg_net` から POS の内部の経路を呼び、既存のメール送信(`operator-notify`)を使う=キーは増えないが、アプリが止まっていると届かない。推奨は A。
-- 宛先: Gmail。`MAIL_ALERT_TO` と同じか、別にするか。
+### メールの送り方: A に決定(2026-10-27、依頼者の判断)
+- `pg_net` から Resend を直接呼ぶ。アプリ(POS)が止まっていても、メールが届く。
+- そのために、Resend の API キーを Supabase の Vault にも置く。キーは、チャットやリポジトリに書かない。Supabase の管理画面で、運営が直接登録する(Vercel の `RESEND_API_KEY` と同じ値)。
+- 送信元は、Resend で認証済みのアドレス(Vercel の `MAIL_FROM` と同じ)。宛先は、Gmail(`MAIL_ALERT_TO` と同じにするか、別にするかは未決)。値は、運営が SQL の設定に入れる(私は値を見られない)。
+
+### まだ決まっていないこと
+- 宛先: `MAIL_ALERT_TO` と同じか、Gmail を別に指定するか。
+- 沢田さんの引き受け(migration の作成と、本番への適用)。
 
 ### 承認と手順(AGENTS.md のルール)
 - migration を作るのは沢田さんだけ。拡張の導入と `pg_cron` の登録は、本番DBの変更なので、オーナーの承認を取ってから行う。
